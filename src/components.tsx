@@ -90,6 +90,7 @@ export function StoryRow({ story, showYear = true }: { story: Story; showYear?: 
         <p>{story.summary}</p>
         <div className="row-meta">
           <LeagueTag story={story} />
+          {story.sources?.length ? <span className="sourced" title="Backed by a cited source">Sourced</span> : null}
           {story.players.slice(0, 3).map((id) => (
             <a key={id} className="chip" href={href.player(id)}>{getPlayer(id)?.name}</a>
           ))}

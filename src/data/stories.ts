@@ -1,4 +1,4 @@
-import type { League, Precision, Sport, Story } from './types';
+import type { Citation, League, Precision, Sport, Story } from './types';
 
 /*
  * Starter narratives. These are drafts written from general knowledge so the
@@ -6,7 +6,7 @@ import type { League, Precision, Sport, Story } from './types';
  * and cited before the site launches.
  */
 
-type Opts = { end?: string; aliases?: string[] };
+type Opts = { end?: string; aliases?: string[]; sources?: Citation[] };
 
 function s(
   id: string,

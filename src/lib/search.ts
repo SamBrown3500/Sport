@@ -1,11 +1,12 @@
-import type { Player, Story, Team } from '../data/types';
-import { allStories, getPlayer, getTeam, onThisDay, players, storiesBetween, teams } from './db';
+import type { Player, Source, Story, Team } from '../data/types';
+import { allSources, allStories, getPlayer, getTeam, onThisDay, players, storiesBetween, teams } from './db';
 import { byDate, parseDateQuery, queryRange, type DateQuery } from './dates';
 
 export interface SearchResult {
   date: DateQuery | null;
   players: Player[];
   teams: Team[];
+  sources: Source[];
   /** Every matching narrative, oldest first. */
   stories: Story[];
 }
@@ -25,7 +26,7 @@ const nameMatches = (q: string[], name: string, aliases: string[] = []) =>
   [name, ...aliases].some((n) => matches(q, n));
 
 export function search(raw: string): SearchResult {
-  const empty: SearchResult = { date: null, players: [], teams: [], stories: [] };
+  const empty: SearchResult = { date: null, players: [], teams: [], sources: [], stories: [] };
   if (!raw.trim()) return empty;
 
   const date = parseDateQuery(raw);
@@ -42,18 +43,22 @@ export function search(raw: string): SearchResult {
 
   const foundPlayers = players.filter((p) => nameMatches(q, p.name, p.aliases));
   const foundTeams = teams.filter((t) => nameMatches(q, t.name, t.aliases));
+  const foundSources = allSources.filter((src) => matches(q, `${src.title} ${src.outlet}`));
+  const srcIds = new Set(foundSources.map((src) => src.id));
   const pIds = new Set(foundPlayers.map((p) => p.id));
   const tIds = new Set(foundTeams.map((t) => t.id));
 
   const found = allStories.filter((s) => {
     if (s.players.some((p) => pIds.has(p)) || s.teams.some((t) => tIds.has(t))) return true;
+    if (s.sources?.some((c) => srcIds.has(c.source))) return true;
     const text = [
       s.title, s.summary, s.league, s.sport, ...s.tags, ...(s.aliases ?? []),
       ...s.players.map((p) => getPlayer(p)?.name ?? ''),
       ...s.teams.map((t) => getTeam(t)?.name ?? ''),
+      ...(s.sources ?? []).map((c) => c.quote ?? ''),
     ].join(' ');
     return matches(q, text);
   });
 
-  return { date: null, players: foundPlayers, teams: foundTeams, stories: found.sort(byDate) };
+  return { date: null, players: foundPlayers, teams: foundTeams, sources: foundSources, stories: found.sort(byDate) };
 }

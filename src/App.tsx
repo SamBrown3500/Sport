@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { FilterContext, SportToggle, type SportFilter } from './components';
 import {
-  Day, Decade, Directory, Home, Month, NotFound, OnThisDay, PlayerPage, SearchPage, StoryPage, TeamPage, Year,
+  Day, Decade, Directory, Home, Month, NotFound, OnThisDay, PlayerPage, SearchPage, SourcePage, SourcesPage, StoryPage, TeamPage, Year,
 } from './pages';
 import { href, useRoute, type Route } from './lib/router';
 
@@ -28,6 +28,8 @@ function Page({ route, query }: { route: Route; query: string }) {
     case 'team': return <TeamPage id={route.id} />;
     case 'players': return <Directory kind="players" />;
     case 'teams': return <Directory kind="teams" />;
+    case 'sources': return <SourcesPage />;
+    case 'source': return <SourcePage id={route.id} />;
     default: return <NotFound />;
   }
 }
@@ -72,6 +74,7 @@ export default function App() {
             <a href={href.onThisDay()}>On this day</a>
             <a href={href.players}>Players</a>
             <a href={href.teams}>Teams</a>
+            <a href={href.sources}>Sources</a>
           </nav>
         </div>
       </header>
@@ -84,7 +87,7 @@ export default function App() {
         <Page route={route} query={query} />
       </main>
       <footer className="footer">
-        <p>sportsnarratives.com · early preview. Narratives are drafts awaiting sources.</p>
+        <p>sportsnarratives.com · early preview. Narratives marked draft are awaiting sources.</p>
       </footer>
     </FilterContext.Provider>
   );
