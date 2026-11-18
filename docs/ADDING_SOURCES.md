@@ -26,6 +26,10 @@ Claude turns that into a pull request you can look over before anything goes liv
 2. In the project's cloud environment settings, add the key as a network secret for `api.supadata.ai` (or as the environment variable `SUPADATA_API_KEY`), and allow the domain `api.supadata.ai` under network access.
 3. Start a new conversation so the setting takes effect.
 
+### A whole channel
+
+`npm run channel -- <channel-url> --max 50 --prefix <short-name>` saves captions for the channel's newest regular videos to `sources/inbox/`, 50 at a time (about 1 credit per video), skipping any already fetched. Claude then reads each transcript, follows the steps below for the ones with real events in them, and moves those transcripts into `sources/transcripts/`. Videos with no new facts are left in the inbox manifest as read.
+
 ## For Claude: what to do with a source
 
 1. **Get the transcript.** If gam only gave a link, run `npm run transcript -- <source-id> <url>`. If that fails (no key, host blocked, no captions), ask gam to paste the transcript.
