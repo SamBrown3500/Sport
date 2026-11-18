@@ -16,9 +16,20 @@ Post in the project chat:
 
 Claude turns that into a pull request you can look over before anything goes live.
 
+**Once the transcript service is set up, just the link is enough.** Claude fetches the transcript itself with `npm run transcript -- <source-id> <url>` (see below), so step 2 becomes optional.
+
+### Transcript service (one-time setup)
+
+`scripts/fetch-transcript.mjs` uses [Supadata](https://supadata.ai). It reads existing captions for YouTube, TikTok, Instagram, X and Facebook videos (1 credit each) and transcribes audio with AI when there are none, including direct MP3/M4A podcast links (2 credits per minute). The free plan gives 100 credits a month; paid plans start at $5/month for 300.
+
+1. Sign up at supadata.ai and copy the API key from the dashboard.
+2. In the project's cloud environment settings, add the key as a network secret for `api.supadata.ai` (or as the environment variable `SUPADATA_API_KEY`), and allow the domain `api.supadata.ai` under network access.
+3. Start a new conversation so the setting takes effect.
+
 ## For Claude: what to do with a source
 
-1. **Save the transcript** to `sources/transcripts/<source-id>.md` with the title, link and published date at the top and timestamps kept in `[M:SS]` form. Never paraphrase into this file; it is the record of what the source says. If no transcript was given and you cannot fetch one, ask gam for it rather than working from memory of the video.
+1. **Get the transcript.** If gam only gave a link, run `npm run transcript -- <source-id> <url>`. If that fails (no key, host blocked, no captions), ask gam to paste the transcript.
+   **Save the transcript** to `sources/transcripts/<source-id>.md` with the title, link and published date at the top and timestamps kept in `[M:SS]` form. Never paraphrase into this file; it is the record of what the source says. If no transcript was given and you cannot fetch one, ask gam for it rather than working from memory of the video.
 2. **Add the source** to `src/data/sources.ts`: id (kebab-case, short and descriptive), kind, title, outlet, url, published, added (today), a one or two sentence `about`, and `transcript`.
 3. **Pull out data points.** Read the transcript for claims about specific events, dates, players and teams. For each:
    - If an existing narrative in `src/data/stories.ts` covers it and the source agrees, add a citation: `sources: [{ source: '<id>', at: '41:07', quote: '<short exact quote>' }]`.
