@@ -270,4 +270,22 @@ export const stories: Story[] = [
     'The Orlando bubble',
     'The season restarts with 22 teams living and playing at Walt Disney World, with no fans. The Lakers win the title, LeBron\'s fourth, months after Kobe\'s death.',
     ['lebron-james'], ['lakers', 'heat'], ['pandemic', 'championships'], { end: '2020-10-11', aliases: ['The Bubble'] }),
+  s('sixers-comeback-celtics-2026', 'moment', B, 'NBA', '2026', 'year',
+    'The 76ers come back from 3-1 down to knock out the Celtics',
+    'Philadelphia wins three straight to eliminate Boston from the 2026 playoffs. Afterward Brad Stevens says the Celtics want to change how they play, working "inside out instead of outside in." The loss sets up a summer of change in Boston.',
+    ['brad-stevens'], ['sixers', 'celtics'], ['playoffs', 'comebacks', 'rivalries'],
+    { sources: [
+      { source: 'kenny-jaylen-brown-sixers', at: '9:06', quote: 'The Sixers beat them, came back and beat them 3-1.' },
+      { source: 'kenny-jaylen-brown-sixers', at: '15:29', quote: 'They want to play inside out instead of outside in.' },
+    ] }),
+  s('jaylen-brown-to-sixers', 'moment', B, 'NBA', '2026-07-01', 'day',
+    'The Celtics trade Jaylen Brown to the 76ers',
+    'In the first days of free agency, Boston sends Jaylen Brown, a former Finals MVP coming off the best season of his career, to its rival Philadelphia for Paul George, two first-round picks and two second-round picks. Brown had been in trade talk for Giannis Antetokounmpo earlier in the offseason, and reports say he never asked to leave. The deal pairs him with Joel Embiid and Tyrese Maxey and leaves Boston betting on Jayson Tatum and flexibility.',
+    ['jaylen-brown', 'paul-george', 'joel-embiid', 'tyrese-maxey', 'brad-stevens'], ['celtics', 'sixers'], ['trades', 'rivalries', 'free agency'],
+    { aliases: ['Jaylen Brown trade'], sources: [
+      { source: 'kenny-jaylen-brown-sixers', at: '0:46', quote: "It's going to be Paul George, two first-round picks, two second-round picks." },
+      { source: 'kenny-jaylen-brown-sixers', at: '1:45', quote: 'They put him in trade rumors again this offseason to get Giannis.' },
+      { source: 'kenny-jaylen-brown-sixers', at: '4:47', quote: 'They traded a finals MVP coming off the year, his best individual year of his career for two first round picks' },
+      { source: 'kenny-jaylen-brown-sixers', at: '11:43', quote: 'Shams just said that officially, officially Jalen Brown never, ever actually requested a trade, that this was all the Celtics doing.' },
+    ] }),
 ];

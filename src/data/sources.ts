@@ -17,6 +17,7 @@ export const sources: Source[] = [
     url: 'https://www.youtube.com/watch?v=l5Kh3e_k71U',
     published: '2026-07-01',
     added: '2026-11-18',
-    about: 'Kenny Beecham reacts on the day Boston traded Jaylen Brown to Philadelphia. Transcript still to be added.',
+    about: 'Kenny Beecham reacts live, minutes after Boston traded Jaylen Brown to Philadelphia: the package, the rivalry, the Giannis talks that fell through and what it means for both teams.',
+    transcript: 'sources/transcripts/kenny-jaylen-brown-sixers.md',
   },
 ];

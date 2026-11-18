@@ -315,22 +315,32 @@ export function StoryPage({ id }: { id: string }) {
 }
 
 function Citations({ list }: { list: Citation[] }) {
+  // One entry per source, with each cited moment under it.
+  const groups = new Map<string, Citation[]>();
+  for (const c of list) groups.set(c.source, [...(groups.get(c.source) ?? []), c]);
   return (
     <section className="citations" aria-label="Sources">
       <h2>Sources</h2>
       <ol>
-        {list.map((c, i) => {
-          const src = getSource(c.source);
+        {[...groups].map(([id, cites]) => {
+          const src = getSource(id);
           if (!src) return null;
-          const link = citationUrl(src, c);
           return (
-            <li key={i}>
+            <li key={id}>
               <a href={href.source(src.id)}>{src.title}</a>
               <span className="cite-meta"> · {src.outlet} · {SOURCE_KIND[src.kind]}</span>
-              {(c.at || c.page) && (
-                <> · {link && c.at ? <a href={link} target="_blank" rel="noopener noreferrer">at {c.at}</a> : <span>{c.at ? `at ${c.at}` : `p. ${c.page}`}</span>}</>
-              )}
-              {c.quote && <blockquote>“{c.quote}”</blockquote>}
+              <ul className="moments">
+                {cites.filter((c) => c.at || c.page || c.quote).map((c, i) => {
+                  const link = citationUrl(src, c);
+                  return (
+                    <li key={i}>
+                      {c.at && (link ? <a href={link} target="_blank" rel="noopener noreferrer">{c.at}</a> : <span>{c.at}</span>)}
+                      {c.page && <span>p. {c.page}</span>}
+                      {c.quote && <q>{c.quote}</q>}
+                    </li>
+                  );
+                })}
+              </ul>
             </li>
           );
         })}
