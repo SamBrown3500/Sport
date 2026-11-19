@@ -201,6 +201,9 @@ export const players: Player[] = [
   { id: 'lou-williams', name: 'Lou Williams', league: 'NBA', aliases: ['Lou Will'] },
   { id: 'steve-ballmer', name: 'Steve Ballmer', league: 'NBA' },
   { id: 'tyronn-lue', name: 'Tyronn Lue', league: 'NBA' },
+  { id: 'wesley-johnson', name: 'Wesley Johnson', league: 'NBA' },
+  { id: 'derrick-williams', name: 'Derrick Williams', league: 'NBA' },
+  { id: 'demarcus-cousins', name: 'DeMarcus Cousins', league: 'NBA' },
 ];
 
 export const teams: Team[] = [

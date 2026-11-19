@@ -32,9 +32,12 @@ Claude turns that into a pull request you can look over before anything goes liv
 
 ## How narratives are written
 
-A narrative tells the story **as it was understood at the time**, not a neutral history of what happened. Lead with the expectations and the debate, then what happened against them:
+A narrative tells the story **as it was understood at the time**, not a neutral history of what happened. Every narrative is built on one contrast: **the consensus at the time versus what actually happened** (gam, 2026-11-19). Open with the consensus, then what happened, then the gap between them:
 
 - Who was supposed to win, and why. Who was the favorite, who was written off.
+- Playoff series: what analysts and predictions said the series would look like (who in how many, a mismatch, a coin flip), then how it actually went.
+- Draft picks: whether the pick was seen at the time as a reach, a project, a bust waiting to happen, a safe pick or a steal, then how the player turned out.
+- Trades and signings: who people thought won the deal in the moment, then how it aged.
 - Why it went the way it did, in the explanations people gave then.
 - For awards, why this player won over the others in the race (the case for each, what swung voters).
 - For trades and signings, what people thought each side was doing and who "won" it in the moment.
