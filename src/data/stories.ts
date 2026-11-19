@@ -288,4 +288,15 @@ export const stories: Story[] = [
       { source: 'kenny-jaylen-brown-sixers', at: '4:47', quote: 'They traded a finals MVP coming off the year, his best individual year of his career for two first round picks' },
       { source: 'kenny-jaylen-brown-sixers', at: '11:43', quote: 'Shams just said that officially, officially Jalen Brown never, ever actually requested a trade, that this was all the Celtics doing.' },
     ] }),
+  s('cp3-to-suns', 'moment', B, 'NBA', '2020-11-16', 'day',
+    'The Thunder trade Chris Paul to the Suns',
+    'Chris Paul arrived in Oklahoma City in the Russell Westbrook trade looking like a bad contract, then rebuilt his value with an All-Star and All-NBA season. Sam Presti cashes in: Paul and Abdel Nader go to Phoenix for Kelly Oubre Jr., Ricky Rubio, Ty Jerome, Jalen Lecque and a protected first-round pick. Next to Devin Booker, Paul gives Phoenix what Kenny calls one of the best backcourts in the league and a point guard to feed Deandre Ayton, while the Thunder keep stockpiling picks.',
+    ['chris-paul', 'devin-booker', 'deandre-ayton', 'ricky-rubio', 'kelly-oubre', 'sam-presti'], ['thunder', 'suns'], ['trades', 'rebuilds'],
+    { aliases: ['Chris Paul trade', 'CP3 trade'], sources: [
+      { source: 'ap-chris-paul-suns', quote: 'All-Star guard Chris Paul is being traded from the Oklahoma City Thunder to the Phoenix Suns' },
+      { source: 'kenny-chris-paul-suns', at: '0:50', quote: 'chris paul and abdul nadar were traded for kelly ubre uh ricky rubio ty jerome' },
+      { source: 'kenny-chris-paul-suns', at: '1:46', quote: 'people were starting to say that he was washed in the nba realm and then he recoups it makes an all-star game for the first time in a few years' },
+      { source: 'kenny-chris-paul-suns', at: '4:49', quote: "they're one of the best backcourts in the league undoubtedly" },
+      { source: 'kenny-chris-paul-suns', at: '7:57', quote: 'at the end of the day it is a team that is stockpiling their picks' },
+    ] }),
 ];

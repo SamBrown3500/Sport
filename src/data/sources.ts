@@ -20,4 +20,23 @@ export const sources: Source[] = [
     about: 'Kenny Beecham reacts live, minutes after Boston traded Jaylen Brown to Philadelphia: the package, the rivalry, the Giannis talks that fell through and what it means for both teams.',
     transcript: 'sources/transcripts/kenny-jaylen-brown-sixers.md',
   },
+  {
+    id: 'kenny-chris-paul-suns',
+    kind: 'video',
+    title: 'Chris Paul Traded to The Phoenix Suns',
+    outlet: 'Kenny For Real (Kenny Beecham)',
+    added: '2026-11-19',
+    about: 'Kenny Beecham, a self-described huge Chris Paul fan, reacts minutes after Oklahoma City trades Paul to Phoenix: the package, how Paul rebuilt his value, and the Booker-Paul backcourt.',
+    transcript: 'sources/transcripts/kenny-chris-paul-suns.md',
+  },
+  {
+    id: 'ap-chris-paul-suns',
+    kind: 'article',
+    title: 'AP source: Chris Paul acquired by Phoenix from Oklahoma City',
+    outlet: 'Associated Press',
+    url: 'https://www.kgun9.com/sports/local-sports/ap-source-chris-paul-acquired-by-phoenix-from-oklahoma-city',
+    published: '2020-11-16',
+    added: '2026-11-19',
+    about: 'The wire report of the trade, with the players and pick going to Oklahoma City. Used to date the trade.',
+  },
 ];
