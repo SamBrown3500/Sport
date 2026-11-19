@@ -7,7 +7,7 @@ import {
   allSources, allStories, getPlayer, getSource, getStory, getTeam, isSourced, momentsOn, onThisDay, players, related,
   storiesBetween, storiesForPlayer, storiesForTeam, storiesFromSource, storylinesDuring, teams,
 } from './lib/db';
-import { SOURCE_KIND, citationUrl, youtubeId } from './lib/sources';
+import { SOURCE_KIND, citationUrl, toSeconds, youtubeId } from './lib/sources';
 import { FIRST_YEAR, MONTHS, daysInMonth, formatDate, formatSpan, iso, span } from './lib/dates';
 import { href, hrefForDate } from './lib/router';
 import { search } from './lib/search';
@@ -330,7 +330,9 @@ function Citations({ list }: { list: Citation[] }) {
               <a href={href.source(src.id)}>{src.title}</a>
               <span className="cite-meta"> · {src.outlet} · {SOURCE_KIND[src.kind]}</span>
               <ul className="moments">
-                {cites.filter((c) => c.at || c.page || c.quote).map((c, i) => {
+                {cites.filter((c) => c.at || c.page || c.quote)
+                  .sort((x, y) => (x.at ? toSeconds(x.at) ?? 0 : -1) - (y.at ? toSeconds(y.at) ?? 0 : -1))
+                  .map((c, i) => {
                   const link = citationUrl(src, c);
                   return (
                     <li key={i}>
