@@ -89,4 +89,14 @@ export const sources: Source[] = [
     about: 'A 48-minute history of the Pacers from Reggie Miller\'s 1998 Game 7 against the Bulls to Tyrese Haliburton\'s Achilles tear in Game 7 of the 2025 Finals: the Malice at the Palace, Granger\'s knees, the Paul George years, Oladipo\'s injury and the Haliburton trade. Recorded shortly after the 2025 Finals.',
     transcript: 'sources/transcripts/pacers-underrated-curse.md',
   },
+  {
+    id: 'dom2k-timberwolves-instability',
+    kind: 'video',
+    title: 'The Instability of The Timberwolves 20 Years Later',
+    outlet: 'Dom2K',
+    published: '2024',
+    added: '2026-11-19',
+    about: 'A 50-minute history of the Timberwolves from drafting Kevin Garnett to the 2024 Western Conference Finals: the Marbury exit, the Joe Smith scandal, Garnett\'s MVP year and exit, passing on Stephen Curry, the Love and Butler eras, and the Rudy Gobert trade. Recorded in 2024.',
+    transcript: 'sources/transcripts/dom2k-timberwolves-instability.md',
+  },
 ];
