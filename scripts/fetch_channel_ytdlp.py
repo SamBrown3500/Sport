@@ -14,21 +14,31 @@ rate-limit; re-run to continue where it stopped.
 import argparse, json, re, subprocess, sys, tempfile, time
 from pathlib import Path
 
+# Windows consoles default to a legacy code page; titles with emoji would crash print().
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+except AttributeError:
+    pass
+
 ap = argparse.ArgumentParser()
 ap.add_argument("channel")
 ap.add_argument("--max", type=int, default=100)
 ap.add_argument("--prefix", default="channel")
-ap.add_argument("--sleep", type=float, default=4.0)
+ap.add_argument("--sleep", type=float, default=15.0)
+ap.add_argument("--cookies-from-browser", help="e.g. chrome or firefox: use that browser's YouTube sign-in")
 a = ap.parse_args()
 if not re.fullmatch(r"[a-z0-9-]+", a.prefix):
     sys.exit("--prefix: lowercase letters, digits and hyphens only")
 
 inbox = Path("sources/inbox"); inbox.mkdir(parents=True, exist_ok=True)
 mpath = inbox / f"{a.prefix}-manifest.json"
-manifest = json.loads(mpath.read_text()) if mpath.exists() else {"channel": a.channel, "videos": {}}
+manifest = json.loads(mpath.read_text(encoding="utf-8")) if mpath.exists() else {"channel": a.channel, "videos": {}}
 
 def ytdlp(*args):
-    return subprocess.run([sys.executable, "-m", "yt_dlp", *args], capture_output=True, text=True)
+    extra = ["--cookies-from-browser", a.cookies_from_browser] if a.cookies_from_browser else []
+    return subprocess.run([sys.executable, "-m", "yt_dlp", *extra, *args],
+                          capture_output=True, text=True, encoding="utf-8", errors="replace")
 
 # 1. List the channel's videos, newest first (no downloads).
 r = ytdlp("--flat-playlist", "--print", "%(id)s", a.channel)
@@ -73,15 +83,19 @@ for vid in ids:
         title, date = (meta + ["", ""])[:2]
         date = f"{date[:4]}-{date[4:6]}-{date[6:]}" if re.fullmatch(r"\d{8}", date) else ""
         subs = sorted(Path(tmp).glob("*.vtt"))
+        if not subs and re.search(r"429|Too Many Requests|confirm you.re not a bot", r.stderr):
+            # Rate-limited: don't record the video, so the next run retries it.
+            mpath.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+            sys.exit(f"YouTube is rate-limiting this computer (stopped at {vid}). Wait a few hours and run again; saved videos are kept.")
         if not subs:
             manifest["videos"][vid] = {"url": url, "title": title, "published": date, "status": "no-captions"}
             print(f"  {vid}: no captions ({r.stderr.strip().splitlines()[-1:] or ''})")
         else:
-            body = vtt_paragraphs(subs[0].read_text(errors="ignore"))
+            body = vtt_paragraphs(subs[0].read_text(encoding="utf-8", errors="ignore"))
             f = inbox / f"{a.prefix}-{vid}.md"
-            f.write_text(f"# {title}\nLink: {url}\nPublished: {date}\nFetched: {time.strftime('%Y-%m-%d')} via yt-dlp (captions)\n\n{body}\n")
+            f.write_text(encoding="utf-8", data=f"# {title}\nLink: {url}\nPublished: {date}\nFetched: {time.strftime('%Y-%m-%d')} via yt-dlp (captions)\n\n{body}\n")
             manifest["videos"][vid] = {"url": url, "title": title, "published": date, "status": "fetched", "file": str(f)}
             print(f"  {vid}: {title}")
-    mpath.write_text(json.dumps(manifest, indent=2))
+    mpath.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     time.sleep(a.sleep)
 print(f"Done: {done} videos this run, {len(manifest['videos'])} in the manifest.")
