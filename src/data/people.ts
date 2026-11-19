@@ -137,6 +137,21 @@ export const players: Player[] = [
   { id: 'ja-morant', name: 'Ja Morant', league: 'NBA' },
   { id: 'nikola-jokic', name: 'Nikola Jokic', league: 'NBA', aliases: ['Joker'] },
   { id: 'tyrese-haliburton', name: 'Tyrese Haliburton', league: 'NBA', aliases: ['Hali'] },
+  { id: 'reggie-miller', name: 'Reggie Miller', league: 'NBA', aliases: ['Miller Time'] },
+  { id: 'chris-mullin', name: 'Chris Mullin', league: 'NBA' },
+  { id: 'patrick-ewing', name: 'Patrick Ewing', league: 'NBA' },
+  { id: 'jalen-rose', name: 'Jalen Rose', league: 'NBA' },
+  { id: 'allen-iverson', name: 'Allen Iverson', league: 'NBA', aliases: ['AI', 'The Answer'] },
+  { id: 'jermaine-oneal', name: 'Jermaine O\'Neal', league: 'NBA' },
+  { id: 'rick-carlisle', name: 'Rick Carlisle', league: 'NBA' },
+  { id: 'stephen-jackson', name: 'Stephen Jackson', league: 'NBA', aliases: ['Stack Jack'] },
+  { id: 'danny-granger', name: 'Danny Granger', league: 'NBA' },
+  { id: 'lance-stephenson', name: 'Lance Stephenson', league: 'NBA', aliases: ['Born Ready'] },
+  { id: 'david-west', name: 'David West', league: 'NBA' },
+  { id: 'evan-turner', name: 'Evan Turner', league: 'NBA' },
+  { id: 'victor-oladipo', name: 'Victor Oladipo', league: 'NBA' },
+  { id: 'domantas-sabonis', name: 'Domantas Sabonis', league: 'NBA' },
+  { id: 'pascal-siakam', name: 'Pascal Siakam', league: 'NBA', aliases: ['Spicy P'] },
 ];
 
 export const teams: Team[] = [

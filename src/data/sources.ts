@@ -79,4 +79,14 @@ export const sources: Source[] = [
     about: 'A 75-minute history from the 1996 Sonics to the Thunder\'s 2025 title: Kemp and Payton, the move to Oklahoma City, the Durant-Westbrook-Harden core, the Harden trade, Durant leaving, the Paul George trade haul and the Shai Gilgeous-Alexander rebuild. Recorded after the 2025 Finals.',
     transcript: 'sources/transcripts/thunder-beat-their-curse.md',
   },
+  {
+    id: 'pacers-underrated-curse',
+    kind: 'video',
+    title: 'The NBA\'s Most Underrated Curse - 25 Years Of Misfortune In Indiana',
+    outlet: 'YouTube (channel not named)',
+    published: '2025',
+    added: '2026-11-19',
+    about: 'A 48-minute history of the Pacers from Reggie Miller\'s 1998 Game 7 against the Bulls to Tyrese Haliburton\'s Achilles tear in Game 7 of the 2025 Finals: the Malice at the Palace, Granger\'s knees, the Paul George years, Oladipo\'s injury and the Haliburton trade. Recorded shortly after the 2025 Finals.',
+    transcript: 'sources/transcripts/pacers-underrated-curse.md',
+  },
 ];
