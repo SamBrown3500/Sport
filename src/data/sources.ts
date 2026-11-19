@@ -59,4 +59,14 @@ export const sources: Source[] = [
     about: 'An 85-minute history of the Mavericks from the Three J\'s to the Luka Doncic trade: Nash leaving, the 2006 collapse, the We Believe upset, the 2011 title, and the trade nobody saw coming. Recorded about two weeks after Doncic was dealt.',
     transcript: 'sources/transcripts/dom2k-mavericks-life-without-luka.md',
   },
+  {
+    id: 'dom2k-heat-35-year-tale',
+    kind: 'video',
+    title: "Miami's 35 Year Tale: The Art of Winning",
+    outlet: 'Dom2K',
+    published: '2024',
+    added: '2026-11-19',
+    about: 'A 77-minute history of the Heat built around Pat Riley: the Mourning and Hardaway teams and the Knicks wars, drafting Wade, the Shaq trade and 2006 title, the Big Three years, Bosh\'s blood clots, Wade\'s exit and return, and the Jimmy Butler era. Recorded during the 2023-24 season.',
+    transcript: 'sources/transcripts/dom2k-heat-35-year-tale.md',
+  },
 ];
