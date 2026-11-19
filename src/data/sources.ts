@@ -109,4 +109,14 @@ export const sources: Source[] = [
     about: 'A 53-minute history of the Clippers from the Donald Sterling years through Lob City and the Kawhi Leonard and Paul George era: the vetoed Chris Paul trade, the Sterling tape, blown 3-1 leads to Houston and Denver, and the injuries that ended run after run. Recorded in summer 2024.',
     transcript: 'sources/transcripts/clippers-never-ending-misfortune.md',
   },
+  {
+    id: 'celtics-one-ring-36-years',
+    kind: 'video',
+    title: 'One Ring In 36 Years: How The Celtics Won No Titles After The Big 3',
+    outlet: 'YouTube (channel not named)',
+    published: '2023',
+    added: '2026-11-19',
+    about: 'A 41-minute history of the Celtics from the 2008 title to late 2023: Garnett\'s knee, the 2010 Finals, the Perkins trade, the near Chris Paul deal, Ray Allen leaving, the Brooklyn trade, Isaiah Thomas, the Kyrie Irving years, the Tatum and Brown runs, Udoka\'s suspension and the 2023 trades. Recorded with Boston at 16-5 in the 2023-24 season.',
+    transcript: 'sources/transcripts/celtics-one-ring-36-years.md',
+  },
 ];
