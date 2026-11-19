@@ -49,4 +49,14 @@ export const sources: Source[] = [
     about: 'An hour-long history of the Spurs from the 1997 Duncan lottery to Victor Wembanyama, built around how much of it was luck and how much was savvy: near-misses, rivalries, heartbreaks and the moments the torch passed.',
     transcript: 'sources/transcripts/dom2k-spurs-generation-of-winning.md',
   },
+  {
+    id: 'dom2k-mavericks-life-without-luka',
+    kind: 'video',
+    title: 'How The Dallas Mavericks Destroyed It ALL: Life Without Luka',
+    outlet: 'Dom2K',
+    published: '2025',
+    added: '2026-11-19',
+    about: 'An 85-minute history of the Mavericks from the Three J\'s to the Luka Doncic trade: Nash leaving, the 2006 collapse, the We Believe upset, the 2011 title, and the trade nobody saw coming. Recorded about two weeks after Doncic was dealt.',
+    transcript: 'sources/transcripts/dom2k-mavericks-life-without-luka.md',
+  },
 ];
