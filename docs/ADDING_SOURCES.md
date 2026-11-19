@@ -30,6 +30,18 @@ Claude turns that into a pull request you can look over before anything goes liv
 
 `npm run channel -- <channel-url> --max 50 --prefix <short-name>` saves captions for the channel's newest regular videos to `sources/inbox/`, 50 at a time (about 1 credit per video), skipping any already fetched. Claude then reads each transcript, follows the steps below for the ones with real events in them, and moves those transcripts into `sources/transcripts/`. Videos with no new facts are left in the inbox manifest as read.
 
+## How narratives are written
+
+A narrative tells the story **as it was understood at the time**, not a neutral history of what happened. Lead with the expectations and the debate, then what happened against them:
+
+- Who was supposed to win, and why. Who was the favorite, who was written off.
+- Why it went the way it did, in the explanations people gave then.
+- For awards, why this player won over the others in the race (the case for each, what swung voters).
+- For trades and signings, what people thought each side was doing and who "won" it in the moment.
+- What changed in the conversation afterward.
+
+Every one of those claims still needs the source to say it: cite the moment where the expectation or opinion is voiced. Facts (scores, dates, trade terms) can sit in the background, but they aren't the point.
+
 ## For Claude: what to do with a source
 
 1. **Get the transcript.** If gam only gave a link, run `npm run transcript -- <source-id> <url>`. If that fails (no key, host blocked, no captions), ask gam to paste the transcript.
@@ -39,7 +51,7 @@ Claude turns that into a pull request you can look over before anything goes liv
    - If an existing narrative in `src/data/stories.ts` covers it and the source agrees, add a citation: `sources: [{ source: '<id>', at: '41:07', quote: '<short exact quote>' }]`.
    - If the source contradicts an existing narrative (a different date, score or detail), do not silently change it. List the conflict in the PR description for gam to decide.
    - If it is new, add a narrative citing the source. Date it only as precisely as the source supports (`day`, `month` or `year`). Add any new players or teams to `src/data/people.ts`.
-   - Skip opinion and speculation unless it is itself the story (a famous quote, a feud).
+   - Opinion and expectation are the point (see "How narratives are written"): keep what people predicted, debated and believed at the time, and say whose view it is when it is one voice ("Kenny called it a severe underpay"). Skip personal asides that aren't about the story.
 4. **Quotes are exact** and short (one or two sentences), copied from the transcript at the cited timestamp.
 5. **Check:** `npm test` (it verifies every citation points at a real source, timestamps are well formed and transcripts exist) and `npm run build`.
 6. **Open a PR** listing: the source, narratives added, narratives that gained a citation, and any conflicts or claims you were unsure of.
