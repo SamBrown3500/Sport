@@ -99,4 +99,14 @@ export const sources: Source[] = [
     about: 'A 50-minute history of the Timberwolves from drafting Kevin Garnett to the 2024 Western Conference Finals: the Marbury exit, the Joe Smith scandal, Garnett\'s MVP year and exit, passing on Stephen Curry, the Love and Butler eras, and the Rudy Gobert trade. Recorded in 2024.',
     transcript: 'sources/transcripts/dom2k-timberwolves-instability.md',
   },
+  {
+    id: 'clippers-never-ending-misfortune',
+    kind: 'video',
+    title: 'The Clippers Curse: Never Ending Misfortune',
+    outlet: 'YouTube (channel not named)',
+    published: '2024',
+    added: '2026-11-19',
+    about: 'A 53-minute history of the Clippers from the Donald Sterling years through Lob City and the Kawhi Leonard and Paul George era: the vetoed Chris Paul trade, the Sterling tape, blown 3-1 leads to Houston and Denver, and the injuries that ended run after run. Recorded in summer 2024.',
+    transcript: 'sources/transcripts/clippers-never-ending-misfortune.md',
+  },
 ];
