@@ -69,4 +69,14 @@ export const sources: Source[] = [
     about: 'A 77-minute history of the Heat built around Pat Riley: the Mourning and Hardaway teams and the Knicks wars, drafting Wade, the Shaq trade and 2006 title, the Big Three years, Bosh\'s blood clots, Wade\'s exit and return, and the Jimmy Butler era. Recorded during the 2023-24 season.',
     transcript: 'sources/transcripts/dom2k-heat-35-year-tale.md',
   },
+  {
+    id: 'thunder-beat-their-curse',
+    kind: 'video',
+    title: 'How The Thunder Finally Beat Their Curse After Decades',
+    outlet: 'YouTube (channel not named)',
+    published: '2025',
+    added: '2026-11-19',
+    about: 'A 75-minute history from the 1996 Sonics to the Thunder\'s 2025 title: Kemp and Payton, the move to Oklahoma City, the Durant-Westbrook-Harden core, the Harden trade, Durant leaving, the Paul George trade haul and the Shai Gilgeous-Alexander rebuild. Recorded after the 2025 Finals.',
+    transcript: 'sources/transcripts/thunder-beat-their-curse.md',
+  },
 ];
