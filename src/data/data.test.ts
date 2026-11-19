@@ -11,6 +11,10 @@ describe('starter data', () => {
   const tIds = new Set(teams.map((t) => t.id));
 
   it('has unique story ids', () => expect(new Set(stories.map((s) => s.id)).size).toBe(stories.length));
+  it('has unique player and team ids', () => {
+    expect(pIds.size).toBe(players.length);
+    expect(tIds.size).toBe(teams.length);
+  });
   it('links only to known players and teams', () => {
     for (const s of stories) {
       for (const p of s.players) expect(pIds, `${s.id} -> ${p}`).toContain(p);
