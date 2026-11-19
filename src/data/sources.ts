@@ -119,4 +119,14 @@ export const sources: Source[] = [
     about: 'A 41-minute history of the Celtics from the 2008 title to late 2023: Garnett\'s knee, the 2010 Finals, the Perkins trade, the near Chris Paul deal, Ray Allen leaving, the Brooklyn trade, Isaiah Thomas, the Kyrie Irving years, the Tatum and Brown runs, Udoka\'s suspension and the 2023 trades. Recorded with Boston at 16-5 in the 2023-24 season.',
     transcript: 'sources/transcripts/celtics-one-ring-36-years.md',
   },
+  {
+    id: 'preseason-2027-thoughts',
+    kind: 'video',
+    title: 'So The 2027 NBA Season Is Here...',
+    outlet: 'YouTube (channel not named)',
+    published: '2026-10',
+    added: '2026-11-19',
+    about: 'An 18-minute preseason video recorded just before the 2026-27 season: how the Pacers, Wizards, 76ers, Timberwolves, Heat, Thunder and Nuggets looked in preseason and what the host expected from each.',
+    transcript: 'sources/transcripts/preseason-2027-thoughts.md',
+  },
 ];

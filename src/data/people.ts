@@ -223,6 +223,23 @@ export const players: Player[] = [
   { id: 'kelly-olynyk', name: 'Kelly Olynyk', league: 'NBA' },
   { id: 'terry-rozier', name: 'Terry Rozier', league: 'NBA', aliases: ['Scary Terry'] },
   { id: 'malcolm-brogdon', name: 'Malcolm Brogdon', league: 'NBA' },
+  { id: 'ivica-zubac', name: 'Ivica Zubac', league: 'NBA', aliases: ['Zu'] },
+  { id: 'myles-turner', name: 'Myles Turner', league: 'NBA' },
+  { id: 'obi-toppin', name: 'Obi Toppin', league: 'NBA' },
+  { id: 'bub-carrington', name: 'Bub Carrington', league: 'NBA', aliases: ['Carlton Carrington'] },
+  { id: 'nick-nurse', name: 'Nick Nurse', league: 'NBA' },
+  { id: 'jabari-parker', name: 'Jabari Parker', league: 'NBA' },
+  { id: 'lamelo-ball', name: 'LaMelo Ball', league: 'NBA', aliases: ['Melo'] },
+  { id: 'jonathan-kuminga', name: 'Jonathan Kuminga', league: 'NBA' },
+  { id: 'jaden-mcdaniels', name: 'Jaden McDaniels', league: 'NBA' },
+  { id: 'donte-divincenzo', name: 'Donte DiVincenzo', league: 'NBA' },
+  { id: 'julius-randle', name: 'Julius Randle', league: 'NBA' },
+  { id: 'chris-finch', name: 'Chris Finch', league: 'NBA' },
+  { id: 'cason-wallace', name: 'Cason Wallace', league: 'NBA' },
+  { id: 'luguentz-dort', name: 'Luguentz Dort', league: 'NBA', aliases: ['Lu Dort'] },
+  { id: 'jamal-murray', name: 'Jamal Murray', league: 'NBA' },
+  { id: 'cam-johnson', name: 'Cam Johnson', league: 'NBA' },
+  { id: 'christian-braun', name: 'Christian Braun', league: 'NBA' },
 ];
 
 export const teams: Team[] = [
@@ -278,4 +295,5 @@ export const teams: Team[] = [
   { id: 'blazers', name: 'Portland Trail Blazers', league: 'NBA', aliases: ['Trail Blazers', 'Blazers'] },
   { id: 'rockets', name: 'Houston Rockets', league: 'NBA', aliases: ['San Diego Rockets'] },
   { id: 'pelicans', name: 'New Orleans Pelicans', league: 'NBA', aliases: ['New Orleans Hornets'] },
+  { id: 'wizards', name: 'Washington Wizards', league: 'NBA', aliases: ['Washington Bullets', 'Baltimore Bullets'] },
 ];
