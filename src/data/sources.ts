@@ -39,4 +39,14 @@ export const sources: Source[] = [
     added: '2026-11-19',
     about: 'The wire report of the trade, with the players and pick going to Oklahoma City. Used to date the trade.',
   },
+  {
+    id: 'dom2k-spurs-generation-of-winning',
+    kind: 'video',
+    title: 'A Generation of Winning: Why The Spurs Have DOMINATED Most of Your Life',
+    outlet: 'Dom2K',
+    published: '2024',
+    added: '2026-11-19',
+    about: 'An hour-long history of the Spurs from the 1997 Duncan lottery to Victor Wembanyama, built around how much of it was luck and how much was savvy: near-misses, rivalries, heartbreaks and the moments the torch passed.',
+    transcript: 'sources/transcripts/dom2k-spurs-generation-of-winning.md',
+  },
 ];
