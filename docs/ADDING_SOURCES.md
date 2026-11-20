@@ -1,6 +1,8 @@
 # Adding videos and podcasts as sources
 
-Every narrative should point back to something real. Sources are the videos, podcasts, articles and books that narratives come from. Each one gets a page on the site (`#sources`), and every narrative drawn from it shows a **Sourced** badge and a citation that links to the exact moment.
+Every narrative should point back to something real. Sources are the videos, podcasts, articles and books that narratives come from. Each one gets a page on the site (`#sources`), and every narrative drawn from it shows a **Sourced** badge and lists its sources at the bottom of its page.
+
+**gam's rule (2026-11-20): no timestamps.** Don't add `at` to citations and don't show times on the site. A narrative page cites each source once, at the bottom. Keep the exact quotes in the data (they are how we check every claim), but they are not displayed.
 
 ## For gam: how to hand over a source
 
@@ -55,8 +57,8 @@ Every one of those claims still needs the source to say it: cite the moment wher
    - If the source contradicts an existing narrative (a different date, score or detail), do not silently change it. List the conflict in the PR description for gam to decide.
    - If it is new, add a narrative citing the source. Date it only as precisely as the source supports (`day`, `month` or `year`). Add any new players or teams to `src/data/people.ts`.
    - Opinion and expectation are the point (see "How narratives are written"): keep what people predicted, debated and believed at the time, and say whose view it is when it is one voice ("Kenny called it a severe underpay"). Skip personal asides that aren't about the story.
-4. **Quotes are exact** and short (one or two sentences), copied from the transcript at the cited timestamp.
-5. **Check:** `npm test` (it verifies every citation points at a real source, timestamps are well formed and transcripts exist) and `npm run build`.
+4. **Quotes are exact** and short (one or two sentences), copied word for word from the transcript. No timestamps.
+5. **Check:** `npm test` (it verifies every citation points at a real source, and transcripts exist) and `npm run build`.
 6. **Open a PR** listing: the source, narratives added, narratives that gained a citation, and any conflicts or claims you were unsure of.
 
 ## Data shape

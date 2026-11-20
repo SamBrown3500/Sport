@@ -7,7 +7,7 @@ import {
   allSources, allStories, getPlayer, getSource, getStory, getTeam, isSourced, momentsOn, onThisDay, players, related,
   storiesBetween, storiesForPlayer, storiesForTeam, storiesFromSource, storylinesDuring, teams,
 } from './lib/db';
-import { SOURCE_KIND, citationUrl, toSeconds, youtubeId } from './lib/sources';
+import { SOURCE_KIND, youtubeId } from './lib/sources';
 import { FIRST_YEAR, MONTHS, daysInMonth, formatDate, formatSpan, iso, span } from './lib/dates';
 import { href, hrefForDate } from './lib/router';
 import { search } from './lib/search';
@@ -292,9 +292,6 @@ export function StoryPage({ id }: { id: string }) {
         </p>
       </PageHead>
       <p className="story-body">{story.summary}</p>
-      {isSourced(story)
-        ? <Citations list={story.sources!} />
-        : <p className="draft-note">Draft narrative. Sources still need to be added and checked before launch.</p>}
       <dl className="facts">
         {story.players.length > 0 && (
           <div><dt>Players</dt><dd>{story.players.map((p) => <a key={p} className="chip" href={href.player(p)}>{getPlayer(p)?.name}</a>)}</dd></div>
@@ -310,39 +307,27 @@ export function StoryPage({ id }: { id: string }) {
           <Timeline stories={rel} />
         </Section>
       )}
+      {isSourced(story)
+        ? <Citations list={story.sources!} />
+        : <p className="draft-note">Draft narrative. Sources still need to be added and checked before launch.</p>}
     </article>
   );
 }
 
 function Citations({ list }: { list: Citation[] }) {
-  // One entry per source, with each cited moment under it.
-  const groups = new Map<string, Citation[]>();
-  for (const c of list) groups.set(c.source, [...(groups.get(c.source) ?? []), c]);
+  // gam's rule: cite each source once at the bottom of the page, with no timestamps or quotes shown.
+  const ids = [...new Set(list.map((c) => c.source))];
   return (
     <section className="citations" aria-label="Sources">
       <h2>Sources</h2>
       <ol>
-        {[...groups].map(([id, cites]) => {
+        {ids.map((id) => {
           const src = getSource(id);
           if (!src) return null;
           return (
             <li key={id}>
               <a href={href.source(src.id)}>{src.title}</a>
               <span className="cite-meta"> · {src.outlet} · {SOURCE_KIND[src.kind]}</span>
-              <ul className="moments">
-                {cites.filter((c) => c.at || c.page || c.quote)
-                  .sort((x, y) => (x.at ? toSeconds(x.at) ?? 0 : -1) - (y.at ? toSeconds(y.at) ?? 0 : -1))
-                  .map((c, i) => {
-                  const link = citationUrl(src, c);
-                  return (
-                    <li key={i}>
-                      {c.at && (link ? <a href={link} target="_blank" rel="noopener noreferrer">{c.at}</a> : <span>{c.at}</span>)}
-                      {c.page && <span>p. {c.page}</span>}
-                      {c.quote && <q>{c.quote}</q>}
-                    </li>
-                  );
-                })}
-              </ul>
             </li>
           );
         })}
