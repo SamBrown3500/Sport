@@ -268,6 +268,23 @@ export const players: Player[] = [
   { id: 'jb-bickerstaff', name: 'J.B. Bickerstaff', league: 'NBA' },
   { id: 'kenny-atkinson', name: 'Kenny Atkinson', league: 'NBA' },
   { id: 'lonzo-ball', name: 'Lonzo Ball', league: 'NBA' },
+  { id: 'toni-kukoc', name: 'Toni Kukoč', league: 'NBA', aliases: ['Toni Kukoc'] },
+  { id: 'jerry-krause', name: 'Jerry Krause', league: 'NBA' },
+  { id: 'eddy-curry', name: 'Eddy Curry', league: 'NBA' },
+  { id: 'jay-williams', name: 'Jay Williams', league: 'NBA', aliases: ['Jason Williams'] },
+  { id: 'joakim-noah', name: 'Joakim Noah', league: 'NBA' },
+  { id: 'kris-dunn', name: 'Kris Dunn', league: 'NBA' },
+  { id: 'gar-forman', name: 'Gar Forman', league: 'NBA', aliases: ['GarPax'] },
+  { id: 'john-paxson', name: 'John Paxson', league: 'NBA', aliases: ['GarPax'] },
+  { id: 'fred-hoiberg', name: 'Fred Hoiberg', league: 'NBA' },
+  { id: 'nikola-vucevic', name: 'Nikola Vučević', league: 'NBA', aliases: ['Nikola Vucevic', 'Vooch'] },
+  { id: 'arturas-karnisovas', name: 'Artūras Karnišovas', league: 'NBA', aliases: ['Arturas Karnisovas'] },
+  { id: 'franz-wagner', name: 'Franz Wagner', league: 'NBA' },
+  { id: 'wendell-carter', name: 'Wendell Carter Jr.', league: 'NBA' },
+  { id: 'billy-donovan', name: 'Billy Donovan', league: 'NBA' },
+  { id: 'matas-buzelis', name: 'Matas Buzelis', league: 'NBA' },
+  { id: 'coby-white', name: 'Coby White', league: 'NBA' },
+  { id: 'ayo-dosunmu', name: 'Ayo Dosunmu', league: 'NBA' },
 ];
 
 export const teams: Team[] = [
