@@ -19,7 +19,10 @@ export type Route =
   | { page: 'players' }
   | { page: 'teams' }
   | { page: 'sources' }
-  | { page: 'source'; id: string };
+  | { page: 'source'; id: string }
+  | { page: 'seasons' }
+  | { page: 'season'; start: number }
+  | { page: 'category'; id: string };
 
 export function parse(hash: string): Route {
   const h = hash.replace(/^#/, '');
@@ -34,6 +37,9 @@ export function parse(hash: string): Route {
   if ((m = h.match(/^player-([a-z0-9-]+)$/))) return { page: 'player', id: m[1] };
   if ((m = h.match(/^team-([a-z0-9-]+)$/))) return { page: 'team', id: m[1] };
   if ((m = h.match(/^source-([a-z0-9-]+)$/))) return { page: 'source', id: m[1] };
+  if ((m = h.match(/^nba-season-(\d{4})$/))) return { page: 'season', start: +m[1] };
+  if ((m = h.match(/^category-([a-z0-9-]+)$/))) return { page: 'category', id: m[1] };
+  if (h === 'nba-seasons') return { page: 'seasons' };
   if (h === 'sources') return { page: 'sources' };
   if (h === 'search') return { page: 'search' };
   if (h === 'players') return { page: 'players' };
@@ -58,6 +64,9 @@ export const href = {
   teams: '#teams',
   sources: '#sources',
   source: (id: string) => `#source-${id}`,
+  seasons: '#nba-seasons',
+  season: (start: number) => `#nba-season-${start}`,
+  category: (id: string) => `#category-${id}`,
 };
 
 /** Link for a partial ISO date at whatever precision it has. */
