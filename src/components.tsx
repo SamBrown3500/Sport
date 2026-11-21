@@ -3,6 +3,7 @@ import type { Sport, Story } from './data/types';
 import { getPlayer, getTeam } from './lib/db';
 import { formatSpan } from './lib/dates';
 import { href, hrefForDate } from './lib/router';
+import { categoryInfo } from './lib/seasons';
 
 /* ── Sport filter, shared by every page ─────────────────────────────── */
 
@@ -91,6 +92,9 @@ export function StoryRow({ story, showYear = true }: { story: Story; showYear?: 
         <div className="row-meta">
           <LeagueTag story={story} />
           {story.sources?.length ? <span className="sourced" title="Backed by a cited source">Sourced</span> : null}
+          {story.categories?.map((c) => (
+            <a key={c} className="chip chip-cat" href={href.category(c)}>{categoryInfo(c)?.name}</a>
+          ))}
           {story.players.slice(0, 3).map((id) => (
             <a key={id} className="chip" href={href.player(id)}>{getPlayer(id)?.name}</a>
           ))}
@@ -103,8 +107,9 @@ export function StoryRow({ story, showYear = true }: { story: Story; showYear?: 
   );
 }
 
-export function Timeline({ stories, showYear = true, empty }: { stories: Story[]; showYear?: boolean; empty?: ReactNode }) {
-  const shown = useFiltered(stories);
+export function Timeline({ stories, showYear = true, empty, unfiltered = false }: { stories: Story[]; showYear?: boolean; empty?: ReactNode; unfiltered?: boolean }) {
+  const filtered = useFiltered(stories);
+  const shown = unfiltered ? stories : filtered;
   if (!shown.length) return <Empty>{empty ?? 'No narratives here yet.'}</Empty>;
   return (
     <ol className="timeline">

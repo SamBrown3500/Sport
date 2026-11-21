@@ -217,3 +217,24 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .directory-wide li { flex-wrap: wrap; }
 .embed { position: relative; aspect-ratio: 16 / 9; max-width: 720px; overflow: hidden; background: var(--board); }
 .embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* NBA seasons and categories */
+.chip-cat { color: var(--ink); background: var(--hl); border-color: var(--hl-line); font-weight: 600; }
+.seasonlinks { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 8px 0 0; font: 600 13px var(--ui); }
+.seasonlinks span { color: var(--muted); font-weight: 400; }
+.cattabs { display: flex; flex-wrap: wrap; border-bottom: 2px solid var(--ink); font: 700 13px var(--ui); }
+.cattabs a { padding: 6px 12px; border: 1px solid var(--line); border-bottom: 0; margin-right: -1px; background: var(--shade); }
+.cattabs a[aria-current='page'] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.cattabs a:hover { text-decoration: none; background: var(--hl); color: var(--link); }
+.decadefilter { flex-wrap: wrap; align-self: flex-start; }
+.tablebar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: -16px; }
+.check { display: inline-flex; align-items: center; gap: 6px; font: 600 13px var(--ui); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); }
+.stats { border-collapse: collapse; width: 100%; font: 13px var(--ui); font-variant-numeric: tabular-nums; background: var(--surface); }
+.stats th, .stats td { padding: 4px 10px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
+.stats thead th { font-size: 12px; background: var(--shade); border-bottom: 2px solid var(--ink); }
+.stats tbody tr:nth-child(even) { background: var(--stripe); }
+.stats tbody tr:hover { background: var(--hl); }
+.stats tfoot th, .stats tfoot td { border-top: 2px solid var(--ink); font-weight: 700; background: var(--shade); }
+.stats .num { text-align: right; }
+.stats tr.is-quiet { opacity: 1; color: var(--muted); }

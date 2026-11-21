@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { FilterContext, SportToggle, type SportFilter } from './components';
 import {
-  Day, Decade, Directory, Home, Month, NotFound, OnThisDay, PlayerPage, SearchPage, SourcePage, SourcesPage, StoryPage, TeamPage, Year,
+  CategoryPage, Day, Decade, Directory, Home, Month, NotFound, OnThisDay, PlayerPage, SearchPage, SeasonPage, SeasonsPage, SourcePage, SourcesPage, StoryPage, TeamPage, Year,
 } from './pages';
 import { href, useRoute, type Route } from './lib/router';
 
@@ -30,6 +30,9 @@ function Page({ route, query }: { route: Route; query: string }) {
     case 'teams': return <Directory kind="teams" />;
     case 'sources': return <SourcesPage />;
     case 'source': return <SourcePage id={route.id} />;
+    case 'seasons': return <SeasonsPage />;
+    case 'season': return <SeasonPage start={route.start} />;
+    case 'category': return <CategoryPage id={route.id} />;
     default: return <NotFound />;
   }
 }
@@ -71,6 +74,7 @@ export default function App() {
               onChange={(e) => onType(e.target.value)} />
           </form>
           <nav className="mainnav" aria-label="Main">
+            <a href={href.seasons}>NBA seasons</a>
             <a href={href.onThisDay()}>On this day</a>
             <a href={href.players}>Players</a>
             <a href={href.teams}>Teams</a>

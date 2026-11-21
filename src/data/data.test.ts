@@ -52,3 +52,25 @@ describe('sources', () => {
     }
   });
 });
+
+describe('season categories', () => {
+  it('uses only known categories, once each, on NBA stories', async () => {
+    const { isCategory } = await import('../lib/seasons');
+    for (const s of stories) {
+      for (const c of s.categories ?? []) expect(isCategory(c), `${s.id} -> ${c}`).toBe(true);
+      if (s.categories) {
+        expect(new Set(s.categories).size, s.id).toBe(s.categories.length);
+        expect(s.league, s.id).toBe('NBA');
+      }
+    }
+  });
+  it('puts stories in the right season', async () => {
+    const { seasonOf } = await import('../lib/seasons');
+    const byId = (id: string) => stories.find((s) => s.id === id)!;
+    expect(seasonOf(byId('durant-mvp-2014'))).toBe(2013); // May 2014 MVP: 2013-14
+    expect(seasonOf(byId('lebron-drafted'))).toBe(2003); // June 2003 draft: 2003-04 rookie year
+    expect(seasonOf(byId('spurs-win-duncan-lottery'))).toBe(1997); // May 1997 lottery: Duncan's 1997-98
+    expect(seasonOf(byId('heat-win-2006-title'))).toBe(2005); // June Finals close the season
+    expect(seasonOf(byId('the-decision'))).toBe(2010); // July opens the next one
+  });
+});

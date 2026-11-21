@@ -25,7 +25,14 @@ export interface Story {
   aliases?: string[];
   /** Where this narrative comes from. A story with none is still a draft. */
   sources?: Citation[];
+  /** Season-page sections this narrative belongs in, main one first. */
+  categories?: Category[];
+  /** NBA season it belongs to, by the year it starts (2014 = 2014-15). Only needed when the date would put it in the wrong one. */
+  season?: number;
 }
+
+/** The sections of a season page. Each is also a browsable category. */
+export type Category = 'mvp-race' | 'draft-drama' | 'contenders' | 'surprises';
 
 /** A video, podcast, article or book that narratives are drawn from. */
 export interface Source {

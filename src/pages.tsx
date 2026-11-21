@@ -1,16 +1,17 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import {
   Crumbs, Empty, LeagueTag, PageHead, PrevNext, Section, Timeline, useFiltered,
 } from './components';
-import type { Citation, Source, Story } from './data/types';
+import type { Category, Citation, Source, Story } from './data/types';
 import {
   allSources, allStories, getPlayer, getSource, getStory, getTeam, isSourced, momentsOn, onThisDay, players, related,
-  storiesBetween, storiesForPlayer, storiesForTeam, storiesFromSource, storylinesDuring, teams,
+  storiesBetween, storiesForPlayer, storiesInCategory, storiesInSeason, storiesForTeam, storiesFromSource, storylinesDuring, teams,
 } from './lib/db';
 import { SOURCE_KIND, youtubeId } from './lib/sources';
 import { FIRST_YEAR, MONTHS, daysInMonth, formatDate, formatSpan, iso, span } from './lib/dates';
 import { href, hrefForDate } from './lib/router';
 import { search } from './lib/search';
+import { CATEGORIES, FIRST_SEASON, categoryInfo, currentSeason, isCategory, seasonLabel, seasonOf, seasonsInYear } from './lib/seasons';
 
 const THIS_YEAR = new Date().getFullYear();
 const LAST_DECADE = Math.floor(THIS_YEAR / 10) * 10;
@@ -141,7 +142,9 @@ export function Year({ year }: { year: number }) {
   return (
     <>
       <Crumbs items={[['Calendar', href.home], [`${decade}s`, href.decade(decade)], [String(year)]]} />
-      <PageHead eyebrow="Year" title={String(year)} />
+      <PageHead eyebrow="Year" title={String(year)}>
+        <SeasonLinks seasons={seasonsInYear(year).filter((s) => s <= currentSeason())} />
+      </PageHead>
       <div className="monthgrid">
         {MONTHS.map((name, i) => {
           const from = `${iso(year, i + 1)}-01`;
@@ -299,6 +302,12 @@ export function StoryPage({ id }: { id: string }) {
         {story.teams.length > 0 && (
           <div><dt>Teams</dt><dd>{story.teams.map((t) => <a key={t} className="chip chip-team" href={href.team(t)}>{getTeam(t)?.name}</a>)}</dd></div>
         )}
+        {story.categories?.length ? (
+          <div><dt>Season page</dt><dd>
+            {story.league === 'NBA' && <a className="chip chip-team" href={href.season(seasonOf(story))}>{seasonLabel(seasonOf(story))} NBA season</a>}
+            {story.categories.map((c) => <a key={c} className="chip chip-cat" href={href.category(c)}>{categoryInfo(c)?.name}</a>)}
+          </dd></div>
+        ) : null}
         <div><dt>Themes</dt><dd>{story.tags.map((t) => <span key={t} className="chip chip-plain">{t}</span>)}</dd></div>
         {story.aliases && <div><dt>Also called</dt><dd>{story.aliases.join(', ')}</dd></div>}
       </dl>
@@ -494,6 +503,165 @@ export function NotFound({ what = 'page' }: { what?: string }) {
     <>
       <PageHead title={`That ${what} isn't here`} />
       <Empty>It may not have been written yet. <a href={href.home}>Back to the calendar</a>.</Empty>
+    </>
+  );
+}
+
+/* ── NBA seasons and categories ─────────────────────────────────────── */
+
+function SeasonLinks({ seasons }: { seasons: number[] }) {
+  if (!seasons.length) return null;
+  return (
+    <p className="seasonlinks">
+      <span>NBA season pages:</span>
+      {seasons.map((s) => <a key={s} href={href.season(s)}>{seasonLabel(s)}</a>)}
+    </p>
+  );
+}
+
+function CategoryTabs({ current }: { current?: string }) {
+  return (
+    <nav className="cattabs" aria-label="Categories">
+      {CATEGORIES.map((c) => (
+        <a key={c.id} href={href.category(c.id)} aria-current={c.id === current ? 'page' : undefined}>{c.name}</a>
+      ))}
+    </nav>
+  );
+}
+
+const inCategory = (list: Story[], c: Category) => list.filter((s) => s.categories?.includes(c));
+
+export function SeasonsPage() {
+  const [onlyFilled, setOnlyFilled] = useState(false);
+  const last = currentSeason();
+  const rows = useMemo(
+    () => Array.from({ length: last - FIRST_SEASON + 1 }, (_, i) => {
+      const start = last - i;
+      const list = storiesInSeason(start);
+      return { start, total: list.length, counts: CATEGORIES.map((c) => inCategory(list, c.id).length) };
+    }),
+    [last],
+  );
+  const shown = onlyFilled ? rows.filter((r) => r.total > 0) : rows;
+  const totals = CATEGORIES.map((_, i) => rows.reduce((n, r) => n + r.counts[i], 0));
+  return (
+    <>
+      <Crumbs items={[['Calendar', href.home], ['NBA seasons']]} />
+      <PageHead eyebrow="NBA" title="Seasons">
+        <p className="lede">Every season from {seasonLabel(FIRST_SEASON)} on, split into the same four sections: the MVP race, the draft, the contenders and the surprises. Each one starts with what people expected at the time.</p>
+      </PageHead>
+      <CategoryTabs />
+      <div className="tablebar">
+        <label className="check">
+          <input type="checkbox" checked={onlyFilled} onChange={(e) => setOnlyFilled(e.target.checked)} />
+          Only seasons with narratives
+        </label>
+        <span className="note">{rows.filter((r) => r.total > 0).length} of {rows.length} seasons have narratives so far</span>
+      </div>
+      <div className="table-wrap">
+        <table className="stats">
+          <thead>
+            <tr>
+              <th scope="col">Season</th>
+              {CATEGORIES.map((c) => <th key={c.id} scope="col" className="num"><a href={href.category(c.id)}>{c.name}</a></th>)}
+              <th scope="col" className="num">All</th>
+            </tr>
+          </thead>
+          <tbody>
+            {shown.map((r) => (
+              <tr key={r.start} className={r.total ? '' : 'is-quiet'}>
+                <th scope="row"><a href={href.season(r.start)}>{seasonLabel(r.start)}</a></th>
+                {r.counts.map((n, i) => <td key={i} className="num">{n || '—'}</td>)}
+                <td className="num"><strong>{r.total || '—'}</strong></td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row">Total</th>
+              {totals.map((n, i) => <td key={i} className="num">{n}</td>)}
+              <td className="num"><strong>{rows.reduce((n, r) => n + r.total, 0)}</strong></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </>
+  );
+}
+
+export function SeasonPage({ start }: { start: number }) {
+  const last = currentSeason();
+  if (start < FIRST_SEASON || start > last) return <NotFound what="season" />;
+  const label = seasonLabel(start);
+  const list = storiesInSeason(start);
+  const other = list.filter((s) => !s.categories?.length);
+  return (
+    <>
+      <Crumbs items={[['Calendar', href.home], ['NBA seasons', href.seasons], [label]]} />
+      <PageHead eyebrow="NBA season" title={`${label} NBA season`}>
+        <p className="lede">
+          July {start} to June {start + 1}, from free agency to the Finals, plus the {start} draft.{' '}
+          {list.length ? `${list.length} ${list.length === 1 ? 'narrative' : 'narratives'} on file.` : 'No narratives on file yet.'}
+        </p>
+        <p className="seasonlinks">
+          <span>Calendar:</span>
+          <a href={href.year(start)}>{start}</a>
+          {start + 1 <= new Date().getFullYear() && <a href={href.year(start + 1)}>{start + 1}</a>}
+        </p>
+      </PageHead>
+      {CATEGORIES.map((c) => {
+        const rows = inCategory(list, c.id);
+        return (
+          <Section key={c.id} title={c.name} count={rows.length}
+            aside={<a className="more" href={href.category(c.id)}>Every season →</a>}>
+            <Timeline stories={rows} unfiltered empty={`No ${c.name} narratives for ${label} yet.`} />
+          </Section>
+        );
+      })}
+      {other.length > 0 && (
+        <Section title="Also this season" count={other.length}>
+          <Timeline stories={other} unfiltered />
+        </Section>
+      )}
+      <PrevNext
+        prev={start > FIRST_SEASON ? [seasonLabel(start - 1), href.season(start - 1)] : undefined}
+        next={start < last ? [seasonLabel(start + 1), href.season(start + 1)] : undefined}
+      />
+    </>
+  );
+}
+
+export function CategoryPage({ id }: { id: string }) {
+  const [decade, setDecade] = useState<number | 'all'>('all');
+  const info = categoryInfo(id);
+  if (!info || !isCategory(id)) return <NotFound what="category" />;
+  const list = storiesInCategory(id).filter((s) => s.league === 'NBA');
+  const decades = [...new Set(list.map((s) => Math.floor(seasonOf(s) / 10) * 10))].sort();
+  const shown = decade === 'all' ? list : list.filter((s) => Math.floor(seasonOf(s) / 10) * 10 === decade);
+  const bySeason = new Map<number, Story[]>();
+  for (const s of shown) bySeason.set(seasonOf(s), [...(bySeason.get(seasonOf(s)) ?? []), s]);
+  const seasons = [...bySeason.keys()].sort((a, b) => b - a);
+  return (
+    <>
+      <Crumbs items={[['Calendar', href.home], ['NBA seasons', href.seasons], [info.name]]} />
+      <PageHead eyebrow="NBA category" title={info.name}>
+        <p className="lede">{info.blurb} {list.length} narratives across {new Set(list.map(seasonOf)).size} seasons, newest season first.</p>
+      </PageHead>
+      <CategoryTabs current={id} />
+      {decades.length > 1 && (
+        <div className="toggle decadefilter" role="group" aria-label="Show decade">
+          <button type="button" aria-pressed={decade === 'all'} onClick={() => setDecade('all')}>All</button>
+          {decades.map((d) => (
+            <button key={d} type="button" aria-pressed={decade === d} onClick={() => setDecade(d)}>{d}s</button>
+          ))}
+        </div>
+      )}
+      {seasons.length ? seasons.map((s) => (
+        <Section key={s} title={seasonLabel(s)} count={bySeason.get(s)!.length}
+          aside={<a className="more" href={href.season(s)}>Full season →</a>}>
+          <Timeline stories={bySeason.get(s)!} unfiltered />
+        </Section>
+      )) : <Empty>No {info.name} narratives yet.</Empty>}
     </>
   );
 }
