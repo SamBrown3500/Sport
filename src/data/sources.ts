@@ -149,4 +149,15 @@ export const sources: Source[] = [
     about: 'Recorded on the channel\'s 10th anniversary in July 2026: Dom 2K reacts to his first video from July 2016, which ranked the six teams Kevin Durant met with in free agency and argued Golden State was the only one without a con. The transcript has no timestamps.',
     transcript: 'sources/transcripts/dom2k-kd-ten-years-later.md',
   },
+  {
+    id: 'grokipedia-cavaliers-mitchell-era',
+    kind: 'article',
+    title: 'History of the Cleveland Cavaliers: 2022–present, Donovan Mitchell era',
+    outlet: 'Grokipedia',
+    url: 'https://grokipedia.com/page/History_of_the_Cleveland_Cavaliers#2022present-donovan-mitchell-era',
+    published: '2025-11',
+    added: '2026-11-21',
+    about: 'The Donovan Mitchell era section of Grokipedia\'s Cavaliers history: the 2022 trade, the 2023 loss to the Knicks, the 2024 Game 7 win over Orlando, the 64-win 2024-25 season that ended against Indiana, and the start of 2025-26. Grokipedia is AI-written; the section reads as of November 2025.',
+    transcript: 'sources/transcripts/grokipedia-cavaliers-mitchell-era.md',
+  },
 ];
