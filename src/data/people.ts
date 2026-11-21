@@ -1,9 +1,6 @@
 import type { Player, Team } from './types';
 
 export const players: Player[] = [
-  { id: 'jim-thorpe', name: 'Jim Thorpe', league: 'NFL' },
-  { id: 'red-grange', name: 'Red Grange', league: 'NFL', aliases: ['Galloping Ghost', 'Harold Grange'] },
-  { id: 'jay-berwanger', name: 'Jay Berwanger', league: 'NFL' },
   { id: 'kenny-washington', name: 'Kenny Washington', league: 'NFL' },
   { id: 'woody-strode', name: 'Woody Strode', league: 'NFL' },
   { id: 'marion-motley', name: 'Marion Motley', league: 'NFL' },
@@ -276,10 +273,9 @@ export const players: Player[] = [
 export const teams: Team[] = [
   { id: 'bears', name: 'Chicago Bears', league: 'NFL', aliases: ['Decatur Staleys', 'Monsters of the Midway'] },
   { id: 'cardinals', name: 'Arizona Cardinals', league: 'NFL', aliases: ['Chicago Cardinals', 'St. Louis Cardinals'] },
-  { id: 'canton-bulldogs', name: 'Canton Bulldogs', league: 'NFL' },
   { id: 'lions', name: 'Detroit Lions', league: 'NFL', aliases: ['Portsmouth Spartans'] },
-  { id: 'giants', name: 'New York Giants', league: 'NFL', aliases: ['Big Blue'] },
   { id: 'eagles', name: 'Philadelphia Eagles', league: 'NFL' },
+  { id: 'giants', name: 'New York Giants', league: 'NFL', aliases: ['Big Blue'] },
   { id: 'rams', name: 'Los Angeles Rams', league: 'NFL' },
   { id: 'browns', name: 'Cleveland Browns', league: 'NFL' },
   { id: 'colts', name: 'Indianapolis Colts', league: 'NFL', aliases: ['Baltimore Colts'] },
@@ -295,7 +291,6 @@ export const teams: Team[] = [
   { id: 'ravens', name: 'Baltimore Ravens', league: 'NFL' },
   { id: 'patriots', name: 'New England Patriots', league: 'NFL', aliases: ['Boston Patriots', 'Pats'] },
   { id: 'buccaneers', name: 'Tampa Bay Buccaneers', league: 'NFL', aliases: ['Bucs'] },
-  { id: 'original-celtics', name: 'Original Celtics', league: 'Pre-league', aliases: ['New York Celtics'] },
   { id: 'knicks', name: 'New York Knicks', league: 'NBA', aliases: ['Knickerbockers'] },
   { id: 'toronto-huskies', name: 'Toronto Huskies', league: 'NBA' },
   { id: 'celtics', name: 'Boston Celtics', league: 'NBA' },

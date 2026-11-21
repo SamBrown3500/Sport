@@ -27,7 +27,7 @@ describe('starter data', () => {
       expect(s.date, s.id).toMatch(shape[s.precision]);
       const [a, b] = span(s);
       expect(a <= b, s.id).toBe(true);
-      expect(Number(s.date.slice(0, 4)), s.id).toBeGreaterThanOrEqual(1900);
+      expect(Number(s.date.slice(0, 4)), s.id).toBeGreaterThanOrEqual(1940);
     }
   });
 });
