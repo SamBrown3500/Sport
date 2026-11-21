@@ -1,8 +1,9 @@
 import { players, teams } from '../data/people';
 import { sources } from '../data/sources';
 import { stories } from '../data/stories';
-import type { Player, Source, Story, Team } from '../data/types';
+import type { Category, Player, Source, Story, Team } from '../data/types';
 import { byDate, overlaps, span } from './dates';
+import { seasonOf } from './seasons';
 
 /*
  * The data layer. Today it reads the starter files in src/data; later it can
@@ -60,3 +61,8 @@ export function related(story: Story): Story[] {
     .slice(0, 5)
     .map((x) => x.s);
 }
+
+/* NBA seasons and their categories (see lib/seasons.ts). */
+export const nbaStories = allStories.filter((s) => s.sport === 'basketball' && s.league === 'NBA');
+export const storiesInSeason = (start: number) => nbaStories.filter((s) => seasonOf(s) === start);
+export const storiesInCategory = (c: Category) => allStories.filter((s) => s.categories?.includes(c));

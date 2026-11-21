@@ -1,4 +1,4 @@
-import type { Citation, League, Precision, Sport, Story } from './types';
+import type { Category, Citation, League, Precision, Sport, Story } from './types';
 
 /*
  * Starter narratives. These are drafts written from general knowledge so the
@@ -6,7 +6,7 @@ import type { Citation, League, Precision, Sport, Story } from './types';
  * and cited before the site launches.
  */
 
-type Opts = { end?: string; aliases?: string[]; sources?: Citation[] };
+type Opts = { end?: string; aliases?: string[]; sources?: Citation[]; categories?: Category[]; season?: number };
 
 function s(
   id: string,
@@ -169,11 +169,11 @@ export const stories: Story[] = [
   s('russell-trade', 'moment', B, 'NBA', '1956-04-30', 'day',
     'Red Auerbach trades for the pick that becomes Bill Russell',
     'The Celtics send Ed Macauley and the rights to Cliff Hagan to the St. Louis Hawks for the draft pick Boston uses on Bill Russell.',
-    ['bill-russell', 'red-auerbach'], ['celtics', 'hawks'], ['trades', 'draft']),
+    ['bill-russell', 'red-auerbach'], ['celtics', 'hawks'], ['trades', 'draft'], { categories: ['draft-drama'] }),
   s('celtics-eight', 'storyline', B, 'NBA', '1959-04', 'month',
     'Eight straight Celtics titles',
     'Built around Bill Russell\'s defense and Red Auerbach\'s fast break, Boston wins every championship from 1959 to 1966, a streak no team in a major American league has matched.',
-    ['bill-russell', 'red-auerbach'], ['celtics', 'lakers'], ['dynasties', 'championships'], { end: '1966-04' }),
+    ['bill-russell', 'red-auerbach'], ['celtics', 'lakers'], ['dynasties', 'championships'], { categories: ['contenders'], end: '1966-04' }),
   s('wilt-100', 'moment', B, 'NBA', '1962-03-02', 'day',
     'Wilt Chamberlain scores 100',
     'In Hershey, Pennsylvania, with no TV cameras present, Wilt Chamberlain scores 100 points as the Philadelphia Warriors beat the Knicks 169-147. It remains the NBA single-game record.',
@@ -185,7 +185,7 @@ export const stories: Story[] = [
   s('russell-last-title', 'moment', B, 'NBA', '1969-05-05', 'day',
     'Russell\'s eleventh title',
     'The aging Celtics win Game 7 of the Finals at the Forum, 108-106 over Wilt Chamberlain\'s Lakers. It is Bill Russell\'s 11th title in 13 seasons and his last game.',
-    ['bill-russell', 'wilt-chamberlain'], ['celtics', 'lakers'], ['championships', 'rivalries']),
+    ['bill-russell', 'wilt-chamberlain'], ['celtics', 'lakers'], ['championships', 'rivalries'], { categories: ['contenders'] }),
   s('aba-merger', 'moment', B, 'NBA', '1976-06-17', 'day',
     'Four ABA teams join the NBA',
     'The leagues reach a deal: the Nets, Nuggets, Pacers and Spurs join the NBA, and the ABA folds.',
@@ -201,15 +201,15 @@ export const stories: Story[] = [
   s('magic-bird-era', 'storyline', B, 'NBA', '1979-10', 'month',
     'The Magic and Bird era',
     'Showtime Lakers vs. the Celtics. The two meet in three Finals and win eight titles between them, lifting the NBA out of a slump in TV ratings and attendance.',
-    ['magic-johnson', 'larry-bird'], ['lakers', 'celtics'], ['rivalries', 'dynasties'], { end: '1992', aliases: ['Showtime'] }),
+    ['magic-johnson', 'larry-bird'], ['lakers', 'celtics'], ['rivalries', 'dynasties'], { categories: ['contenders'], end: '1992', aliases: ['Showtime'] }),
   s('jordan-drafted', 'moment', B, 'NBA', '1984-06-19', 'day',
     'The Bulls draft Michael Jordan third',
     'Houston takes Hakeem Olajuwon, Portland takes Sam Bowie, and Chicago gets Michael Jordan.',
-    ['michael-jordan'], ['bulls'], ['draft']),
+    ['michael-jordan'], ['bulls'], ['draft'], { categories: ['draft-drama'] }),
   s('bulls-first-title', 'moment', B, 'NBA', '1991-06-12', 'day',
     'Jordan\'s first championship',
     'The Bulls beat Magic Johnson\'s Lakers in five games. Jordan cries holding the trophy, and the first Bulls three-peat begins.',
-    ['michael-jordan', 'scottie-pippen', 'magic-johnson'], ['bulls', 'lakers'], ['championships', 'dynasties']),
+    ['michael-jordan', 'scottie-pippen', 'magic-johnson'], ['bulls', 'lakers'], ['championships', 'dynasties'], { categories: ['contenders'] }),
   s('magic-hiv', 'moment', B, 'NBA', '1991-11-07', 'day',
     'Magic Johnson announces he has HIV',
     'At a news conference that stuns the country, Magic Johnson says he has tested positive for HIV and is retiring immediately.',
@@ -221,7 +221,7 @@ export const stories: Story[] = [
   s('jordan-retires', 'moment', B, 'NBA', '1993-10-06', 'day',
     'Michael Jordan retires for the first time',
     'After three straight titles, and months after his father\'s murder, Jordan walks away at 30. He soon turns to minor league baseball.',
-    ['michael-jordan'], ['bulls'], ['retirements']),
+    ['michael-jordan'], ['bulls'], ['retirements'], { categories: ['surprises'] }),
   s('im-back', 'moment', B, 'NBA', '1995-03-18', 'day',
     '"I\'m back."',
     'A two-word statement announces Jordan\'s return. He plays the next day against the Pacers wearing number 45.',
@@ -229,11 +229,11 @@ export const stories: Story[] = [
   s('bulls-dynasty', 'storyline', B, 'NBA', '1991-06', 'month',
     'The Bulls\' six titles',
     'Michael Jordan and Scottie Pippen win two three-peats under Phil Jackson, split by Jordan\'s retirement. The 1995-96 team goes 72-10.',
-    ['michael-jordan', 'scottie-pippen'], ['bulls'], ['dynasties', 'championships'], { end: '1998' }),
+    ['michael-jordan', 'scottie-pippen'], ['bulls'], ['dynasties', 'championships'], { categories: ['contenders'], end: '1998' }),
   s('last-shot', 'moment', B, 'NBA', '1998-06-14', 'day',
     'The Last Shot',
     'Jordan steals the ball from Karl Malone, crosses over Bryon Russell and hits the jumper that beats the Jazz 87-86 in Salt Lake City. It is the Bulls\' sixth title and Jordan\'s last shot in a Chicago uniform.',
-    ['michael-jordan'], ['bulls', 'jazz'], ['championships', 'clutch'], { aliases: ['The Last Shot', '1998 Finals'] }),
+    ['michael-jordan'], ['bulls', 'jazz'], ['championships', 'clutch'], { categories: ['contenders'], aliases: ['The Last Shot', '1998 Finals'] }),
   s('lockout-1999', 'storyline', B, 'NBA', '1998-07', 'month',
     'The 1998-99 lockout',
     'Owners lock out the players over salaries. The dispute wipes out the first half of the season, which resumes with a 50-game schedule.',
@@ -241,11 +241,11 @@ export const stories: Story[] = [
   s('lebron-drafted', 'moment', B, 'NBA', '2003-06-26', 'day',
     'The Cavaliers draft LeBron James first',
     'The most hyped high school player ever goes first overall to his home-state team in Cleveland.',
-    ['lebron-james'], ['cavaliers'], ['draft']),
+    ['lebron-james'], ['cavaliers'], ['draft'], { categories: ['draft-drama'] }),
   s('malice-palace', 'moment', B, 'NBA', '2004-11-19', 'day',
     'The Malice at the Palace',
     'The Pacers came into 2004-05 as favorites to come out of the East: the 61-win core was back, Jermaine O\'Neal was an MVP candidate, and they had added Stephen Jackson. Then, after Ben Wallace and Ron Artest got into it under the basket in Detroit, the most infamous brawl in NBA history broke out and spilled into the stands. Artest was suspended for the season, and Jackson and O\'Neal got enough games to ruin it. It ended a young core before it reached its potential and shaped the next decade in Indiana. Reggie Miller retired that spring after losing to Detroit in the second round.',
-    ['ron-artest', 'stephen-jackson', 'jermaine-oneal', 'ben-wallace', 'reggie-miller'], ['pacers', 'pistons'], ['controversies', 'suspensions'], { aliases: ['Malice at the Palace'], sources: [
+    ['ron-artest', 'stephen-jackson', 'jermaine-oneal', 'ben-wallace', 'reggie-miller'], ['pacers', 'pistons'], ['controversies', 'suspensions'], { categories: ['contenders'], aliases: ['Malice at the Palace'], sources: [
       { source: 'pacers-underrated-curse', quote: 'Just months before that night, the Pacers were the favorites to come out of the East' },
       { source: 'pacers-underrated-curse', quote: 'Germaine was an MVP candidate' },
       { source: 'pacers-underrated-curse', quote: 'added Steven Jackson, an electric forward' },
@@ -265,7 +265,7 @@ export const stories: Story[] = [
   s('cavs-comeback', 'moment', B, 'NBA', '2016-06-19', 'day',
     'Cleveland comes back from 3-1',
     'LeBron\'s chase-down block and Kyrie Irving\'s late three finish the first comeback from 3-1 down in Finals history, against the 73-win Warriors. It ends Cleveland\'s 52-year wait for a major title.',
-    ['lebron-james', 'kyrie-irving'], ['cavaliers', 'warriors'], ['championships', 'comebacks'], { aliases: ['2016 Finals', 'The Block'] }),
+    ['lebron-james', 'kyrie-irving'], ['cavaliers', 'warriors'], ['championships', 'comebacks'], { categories: ['contenders', 'surprises'], aliases: ['2016 Finals', 'The Block'] }),
   s('kobe-dies', 'moment', B, 'NBA', '2020-01-26', 'day',
     'Kobe Bryant dies in a helicopter crash',
     'Kobe Bryant, his 13-year-old daughter Gianna and seven others are killed when their helicopter crashes in Calabasas, California. Tributes pour in across sports.',
@@ -277,12 +277,12 @@ export const stories: Story[] = [
   s('nba-bubble', 'storyline', B, 'NBA', '2020-07-30', 'day',
     'The Orlando bubble',
     'The season restarts with 22 teams living and playing at Walt Disney World, with no fans. The Lakers win the title, LeBron\'s fourth, months after Kobe\'s death.',
-    ['lebron-james'], ['lakers', 'heat'], ['pandemic', 'championships'], { end: '2020-10-11', aliases: ['The Bubble'] }),
+    ['lebron-james'], ['lakers', 'heat'], ['pandemic', 'championships'], { categories: ['contenders'], end: '2020-10-11', aliases: ['The Bubble'] }),
   s('sixers-comeback-celtics-2026', 'moment', B, 'NBA', '2026', 'year',
     'The 76ers come back from 3-1 down to knock out the Celtics',
     'Jaylen Brown had carried Boston to 50-plus wins while Jayson Tatum recovered from a major injury, and Tatum made it back for part of the postseason. With a 3-1 series lead, the Celtics looked safe. Philadelphia won three straight to steal the series anyway. The collapse changed the conversation in Boston: Brad Stevens said the team would change its identity and play "inside out instead of outside in," and talk turned to whether the Brown-Tatum pairing had run its course.',
     ['brad-stevens', 'jaylen-brown'], ['sixers', 'celtics'], ['playoffs', 'comebacks', 'rivalries', 'upsets'],
-    { sources: [
+    { categories: ['surprises'], sources: [
       { source: 'kenny-jaylen-brown-sixers', quote: 'they can bring the Jays back together. That was dead.' },
       { source: 'kenny-jaylen-brown-sixers', quote: 'He looked fine last season, got to the postseason, played a little bit' },
       { source: 'kenny-jaylen-brown-sixers', quote: 'when they were a 50 plus one team' },
@@ -321,7 +321,7 @@ export const stories: Story[] = [
     'The Spurs win the lottery and Tim Duncan',
     'Nobody expected San Antonio in the lottery. The Spurs had won 50 games almost every year with David Robinson, and only a freak foot injury dropped them to 20 wins. They had already won one lottery for Robinson a decade earlier, so a second looked like a long shot: one columnist joked their odds were as good as Vernon Maxwell hitting an open jumper. They won it anyway, and Duncan\'s arrival turned a solid team into the start of a dynasty. It became the first chapter in the story that the Spurs were as lucky as they were smart.',
     ['tim-duncan',  'david-robinson',  'gregg-popovich'], ['spurs'], ['draft',  'luck'],
-    { aliases: ['Duncan lottery'], sources: [
+    { categories: ['draft-drama'], aliases: ['Duncan lottery'], sources: [
       { source: 'dom2k-spurs-generation-of-winning', quote: 'David Robinson\'s foot injury which' },
       { source: 'dom2k-spurs-generation-of-winning', quote: '1997 gave them 21% odds' },
       { source: 'dom2k-spurs-generation-of-winning', quote: 'San Antonio\'s chances of winning a second Lottery were the same as Vernon Maxwell\'s odds of hitting an open jumper' },
@@ -331,7 +331,7 @@ export const stories: Story[] = [
     'The Spurs win the lockout-shortened 1999 title',
     'The 1999 season was strange from the start: a lockout cut it to 50 games. Michael Jordan\'s Bulls had just broken up, so the league was looking for its next team. San Antonio lost one game in the West, swept a Lakers team a year away from Shaq and Kobe putting it together, then beat a Knicks team that was seen as a favorable Finals matchup. Duncan, in his second year, was the clear torch bearer, but the title came with an asterisk in many minds. It took a second ring in 2003 to quiet that talk.',
     ['tim-duncan',  'david-robinson'], ['spurs',  'knicks',  'lakers'], ['championships',  'lockouts'],
-    { aliases: ['1999 NBA Finals'], sources: [
+    { categories: ['contenders'], aliases: ['1999 NBA Finals'], sources: [
       { source: 'dom2k-spurs-generation-of-winning', quote: '1999 May well be the strangest outing in NBA history' },
       { source: 'dom2k-spurs-generation-of-winning', quote: 'they\'d catch a favorable matchup against an Ewing Knicks team' },
       { source: 'dom2k-spurs-generation-of-winning', quote: 'Chicago\'s Dynasty had literally just been put to rest so the league was also open to a new team to carry the torch' },
@@ -350,7 +350,7 @@ export const stories: Story[] = [
     'Tony Parker slides to the Spurs at No. 28',
     'European point guards weren\'t trusted in 2001, and Parker wasn\'t supposed to be a Spur. His first workout went so badly that Popovich didn\'t want him back. Boston had a Celtics hat ready for him until its owners balked at the last moment over a European point guard being too risky. He fell to 28, and even Duncan reportedly didn\'t speak to him at first. Popovich made him the starter anyway.',
     ['tony-parker',  'gregg-popovich',  'tim-duncan'], ['spurs',  'celtics'], ['draft',  'steals',  'international players'],
-    { sources: [
+    { categories: ['draft-drama'], sources: [
       { source: 'dom2k-spurs-generation-of-winning', quote: 'the thing about European point guards in the early 2000s is well they weren\'t really a thing yet' },
       { source: 'dom2k-spurs-generation-of-winning', quote: 'in front of Pop went so poorly he told the organization not to bring him back' },
       { source: 'dom2k-spurs-generation-of-winning', quote: 'no European point guards it\'s too risky' },
@@ -371,7 +371,7 @@ export const stories: Story[] = [
     'Derek Fisher\'s improbable game-winner stuns the Spurs',
     'The 2004 Lakers had added Karl Malone and Gary Payton to win one more ring, but they were dysfunctional and hurt, and San Antonio, the defending champion, took a 2-0 series lead. When Duncan hit what looked like the dagger in Game 5, the series seemed over. Derek Fisher answered with one of the most improbable game-winners ever. It was the last Spurs-Lakers playoff duel of the Shaq-and-Kobe era.',
     ['derek-fisher',  'tim-duncan',  'kobe-bryant',  'shaquille-oneal'], ['spurs',  'lakers'], ['playoffs',  'buzzer beaters',  'rivalries'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'dom2k-spurs-generation-of-winning', quote: 'this conglomerate was too dysfunctional and injured for much of the season to be considered unbeatable' },
       { source: 'dom2k-spurs-generation-of-winning', quote: 'when Duncan put through what appeared to be the dagger Derek fiser responded with possibly the most improbable gamewinner ever' },
     ] }),
@@ -379,7 +379,7 @@ export const stories: Story[] = [
     'Manu Ginobili\'s foul and the Mavericks\' revenge',
     'The 2006 Spurs were their most talented team yet, defending champions who had added Michael Finley from Dallas itself. Dirk Nowitzki had long felt like the little brother to Duncan. In Game 7, Ginobili committed a boneheaded late foul, Dallas won in overtime, and Ginobili took the blame all summer, partly because Finley had signed in San Antonio to play with him. It was seen as the one that got away.',
     ['manu-ginobili',  'dirk-nowitzki',  'tim-duncan'], ['spurs',  'mavericks'], ['playoffs',  'rivalries',  'what-ifs'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'dom2k-spurs-generation-of-winning', quote: 'nitzky felt like the little brother to his Texas counterparts' },
       { source: 'dom2k-spurs-generation-of-winning', quote: 'job slides over and commits a deeply boneheaded foul' },
       { source: 'dom2k-spurs-generation-of-winning', quote: 'the defending champs have fallen in their strongest most talented year thus far' },
@@ -390,7 +390,7 @@ export const stories: Story[] = [
     'Robert Horry\'s hip check and the Suns\' suspensions',
     'Once the We Believe Warriors knocked out the 67-win Mavericks, the 2007 title was seen as a two-team race between the Spurs and Steve Nash\'s Suns. Spurs players believed that whoever won Game 5 of that second-round series could start printing the banner. At the end of Game 4, Robert Horry hip-checked Nash. Amar\'e Stoudemire and Boris Diaw left the bench and were suspended for Game 5, which Phoenix lost by three. Suns fans still blame the rule, not the basketball, and San Antonio went on to beat LeBron James in the Finals.',
     ['robert-horry',  'steve-nash',  'amare-stoudemire',  'tony-parker'], ['spurs',  'suns'], ['playoffs',  'suspensions',  'controversies',  'what-ifs'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'dom2k-spurs-generation-of-winning', quote: 'the path to an NBA championship not just a finals birth became much easier for either Phoenix or San Antonio' },
       { source: 'dom2k-spurs-generation-of-winning', quote: 'believing if they could just win game five against the Suns they could go ahead and start printing the banner' },
       { source: 'dom2k-spurs-generation-of-winning', quote: 'Robert Ory hip checking Steve Nash at the end of game four' },
@@ -400,7 +400,7 @@ export const stories: Story[] = [
     'The eighth-seeded Grizzlies knock out the 61-win Spurs',
     'The Spurs had won 61 games, and their aging core seemed to have found one more run. Memphis, the eighth seed, beat them in five games, the biggest upset since the We Believe Warriors in 2007. The verdict was swift and widespread: Duncan was old, Parker and Ginobili had lost steps, and the dynasty was finished. A Bleacher Report piece listed every reason their time was up.',
     ['tim-duncan',  'zach-randolph',  'manu-ginobili',  'tony-parker'], ['spurs',  'grizzlies'], ['playoffs',  'upsets'],
-    { sources: [
+    { categories: ['surprises'], sources: [
       { source: 'dom2k-spurs-generation-of-winning', quote: 'the 2011 San Antonio Spurs won 61 games' },
       { source: 'dom2k-spurs-generation-of-winning', quote: 'Memphis would go on to knock the former Dynasty out in five via the biggest upset since Golden State in \' 07 it was over' },
       { source: 'dom2k-spurs-generation-of-winning', quote: 'list each reason why their time was up in extreme detail' },
@@ -409,7 +409,7 @@ export const stories: Story[] = [
     'The Spurs trade George Hill for draft pick Kawhi Leonard',
     'With the dynasty declared dead, the only ways out seemed to be a big trade, a big free agent, or more draft luck. San Antonio sent George Hill to Indiana for the 15th pick, Kawhi Leonard, framed as a fix for the wing rotation behind the aging core. Only later did it look like more Spurs draft luck, created rather than stumbled into: Leonard turned out to be the best player in that draft. For Indiana it made sense at the time: Danny Granger\'s knee trouble hadn\'t been diagnosed yet, and they needed a point guard more than another young forward. The what-if of Leonard growing up next to Paul George came later.',
     ['kawhi-leonard',  'george-hill'], ['spurs',  'pacers'], ['draft',  'trades',  'steals'],
-    { sources: [
+    { categories: ['draft-drama'], sources: [
       { source: 'dom2k-spurs-generation-of-winning', quote: 'the only way to salvage this would be some non-existent trade non-existent free agent Splash or once again getting lucky in the draft' },
       { source: 'dom2k-spurs-generation-of-winning', quote: 'George Hill was dealt for kawhai who\'d been picked by the Pacers at number 15' },
       { source: 'dom2k-spurs-generation-of-winning', quote: 'this might be another incident of created luck' },
@@ -421,7 +421,7 @@ export const stories: Story[] = [
     'The Thunder end the Spurs\' 20-game win streak',
     'After 20 straight wins, the 2012 Spurs looked unbeatable, and a fifth ring seemed overdue. They won the first two games of the Western Conference Finals against Oklahoma City. Then Thabo Sefolosha took on Parker and Ginobili, the young Thunder won four straight, and the torch seemed to pass to Kevin Durant\'s team. Nobody would have questioned a Spurs rebuild after that.',
     ['kevin-durant',  'tony-parker',  'manu-ginobili',  'tim-duncan'], ['spurs',  'thunder'], ['playoffs',  'upsets',  'comebacks'],
-    { sources: [
+    { categories: ['contenders', 'surprises'], sources: [
       { source: 'dom2k-spurs-generation-of-winning', quote: 'telling a friend they looked pretty unbeatable' },
       { source: 'dom2k-spurs-generation-of-winning', quote: '20 straight victories into the Conference Finals without finishing the job is unheard of' },
       { source: 'dom2k-spurs-generation-of-winning', quote: 'the torch seemed to officially be passing with OKC' },
@@ -445,7 +445,7 @@ export const stories: Story[] = [
     'The Spurs lose the 2013 Finals after leading Game 6',
     'The Spurs had been written off as good but also old and boring, a team that played well in the regular season and fell flat in the playoffs. Popovich handed Parker the keys, and they went 12-2 through the West to reach the Finals against LeBron James and the defending champion Heat. Up 3-2 and seconds from the title in Game 6, with the yellow ropes already out, they lost on one of the greatest shots in NBA history. Popovich was blamed for having Duncan off the floor on the play. It was called one of the most heartbreaking losses ever, and Parker admitted they knew it was over after Game 6.',
     ['tony-parker',  'tim-duncan',  'gregg-popovich',  'lebron-james'], ['spurs',  'heat'], ['championships',  'heartbreak',  'what-ifs'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'dom2k-spurs-generation-of-winning', quote: 'completely handing the keys to Tony Parker' },
       { source: 'dom2k-spurs-generation-of-winning', quote: '12-2 Spurs throughout the Western Conference playoffs' },
       { source: 'dom2k-spurs-generation-of-winning', quote: 'good but also old and boring that\'s the label they built for themselves' },
@@ -457,7 +457,7 @@ export const stories: Story[] = [
     'The Spurs avenge 2013 and Kawhi Leonard wins Finals MVP',
     'Popovich opened training camp by showing the team tape of the 2013 Finals, and the season was all about redemption. Duncan told the media they would win this time. The rematch with Miami turned into what\'s called perhaps the greatest display of team basketball ever. The Finals MVP went to 22-year-old Kawhi Leonard rather than Duncan, Parker or Ginobili, a sign that the torch had found its next bearer.',
     ['kawhi-leonard',  'tim-duncan',  'tony-parker',  'manu-ginobili',  'gregg-popovich',  'lebron-james'], ['spurs',  'heat'], ['championships',  'Finals MVP',  'redemption'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'dom2k-spurs-generation-of-winning', quote: 'Pop showed his team tape of the 13 finals on the first day of camp' },
       { source: 'dom2k-spurs-generation-of-winning', quote: 'Duncan confidently proclaimed to the media they do it this time' },
       { source: 'dom2k-spurs-generation-of-winning', quote: 'perhaps the greatest display of team basketball ever' },
@@ -478,7 +478,7 @@ export const stories: Story[] = [
     'The Kawhi Leonard injury saga and trade request',
     'Many fans still think Kawhi Leonard\'s injury in Game 1 of the 2017 conference finals changed NBA history. The next season his quad injury turned into a mystery. Leonard rehabbed away from the team, the Spurs said he was cleared, his camp said he wasn\'t, and Popovich said a return depended on Leonard "and his group." Tony Parker\'s comment that his own injury was "100 times worse" didn\'t help. After two decades of stability, the Spurs\' torch bearer asked out, and he was traded to Toronto for DeMar DeRozan.',
     ['kawhi-leonard',  'gregg-popovich',  'tony-parker',  'demar-derozan'], ['spurs',  'raptors'], ['injuries',  'trades',  'controversies'],
-    { end: '2018', sources: [
+    { categories: ['contenders'], end: '2018', sources: [
       { source: 'dom2k-spurs-generation-of-winning', quote: 'an Infamous injury to Kawai is where a cohort of fans still believe NBA history changed' },
       { source: 'dom2k-spurs-generation-of-winning', quote: 'reports of a rift between his campaign the organization' },
       { source: 'dom2k-spurs-generation-of-winning', quote: 'mine was 100 times worse' },
@@ -488,7 +488,7 @@ export const stories: Story[] = [
     'The Spurs win the lottery for Victor Wembanyama',
     'After years of rebuilding, the franchise that had lucked into Robinson and Duncan won another lottery with 14% odds, for a prospect called a unicorn who could one day break basketball. People said the Spurs\' luck had struck again, and that with Popovich still in charge, there were very few ways anybody could mess this up.',
     ['victor-wembanyama',  'gregg-popovich'], ['spurs'], ['draft',  'luck'],
-    { aliases: ['Wemby'], sources: [
+    { categories: ['draft-drama'], aliases: ['Wemby'], sources: [
       { source: 'dom2k-spurs-generation-of-winning', quote: 'a player so ridiculously gifted with physicals he could one day break basketball 14% those were the chances' },
       { source: 'dom2k-spurs-generation-of-winning', quote: 'one has to look at Vic and believe there\'s just very few ways anybody could mess this up' },
     ] }),
@@ -496,7 +496,7 @@ export const stories: Story[] = [
     'The Mavericks\' Three J\'s come and go',
     'After years of losing, Dallas drafted Jim Jackson, Jamal Mashburn and Jason Kidd and seemed to have a big three for the future: two top-scoring wings around a young triple-double point guard who helped the team improve by 23 wins. Then Mashburn needed knee surgery, rumors swirled about friction between Kidd and Jackson, and Kidd clashed with the coaches. Dallas traded Kidd to Phoenix in December 1996, and the others were soon gone. Jackson blamed the instability: three owners and four coaches, and the trio never played 82 games together.',
     ['jason-kidd', 'jim-jackson', 'jamal-mashburn'], ['mavericks', 'suns'], ['what-ifs', 'trades'],
-    { end: '1996-12', aliases: ['Three J\'s'], sources: [
+    { categories: ['draft-drama'], end: '1996-12', aliases: ['Three J\'s'], sources: [
       { source: 'dom2k-mavericks-life-without-luka', quote: 'the three Jays encompassing him Jamal Mashburn and Jim Jackson two top scoring Wings paired with a versatile young PG what could go wrong' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'they\'d already traded Jason kid in December 1996' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'I had three owners and four coaches we had no stability' },
@@ -506,7 +506,7 @@ export const stories: Story[] = [
     'Dallas lands Dirk Nowitzki and Steve Nash on draft night',
     'Dallas had missed the playoffs for most of a decade and looked bad enough to fold. Don Nelson, whose son had scouted a skinny German teenager in Europe, said the kid had a chance to revolutionize basketball, and tried to keep other teams from even seeing him. On draft night he traded for Dirk Nowitzki\'s rights from Milwaukee, which wanted a more physical big, and for Phoenix\'s backup point guard, Steve Nash, who his son thought was being slept on. It was a leap of faith for a franchise that had been making mistake after mistake.',
     ['dirk-nowitzki', 'steve-nash', 'don-nelson'], ['mavericks', 'bucks', 'suns'], ['draft', 'trades', 'steals'],
-    { sources: [
+    { categories: ['draft-drama'], sources: [
       { source: 'dom2k-mavericks-life-without-luka', quote: 'Don Nelson\'s son who became the assistant general manager of the Mavs convinced his father to trade for Nash who he thought was being slept on' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'this kid has a chance to revolutionize the game of basketball' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'took measures to try and keep Dirk from being so much as seen by other NBA teams' },
@@ -527,7 +527,7 @@ export const stories: Story[] = [
     'Dirk Nowitzki\'s knee injury derails the 2003 West finals',
     'The 60-win 2003 Mavericks had a strong feeling this was their year. They beat Sacramento in seven, but the Kings were missing Chris Webber, who tore his meniscus in Game 2, so the win came with a what-if. Against San Antonio, the series was tied when Nowitzki sprained his knee in Game 3. Dallas still pushed it to six games, and fans have argued ever since about what a healthy Dirk would have done. Nowitzki himself says they probably wouldn\'t have won anyway.',
     ['dirk-nowitzki', 'chris-webber', 'steve-nash', 'tim-duncan'], ['mavericks', 'spurs', 'kings'], ['playoffs', 'injuries', 'what-ifs'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'dom2k-mavericks-life-without-luka', quote: 'there was a strong feeling this one could be it' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'leading Dallas to its first 60 win season in franchise history' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'Chris Weber suffered a non-c contct miniscus tear' },
@@ -539,7 +539,7 @@ export const stories: Story[] = [
     'The Mavericks let Steve Nash walk to Phoenix',
     'After a down 2004, Mark Cuban decided Nash, about to turn 30, was an injury risk whose style would catch up with him, even though he had barely missed games. Dallas offered about $9 million a year and wouldn\'t budge. Phoenix flew out to woo him with a six-year, $63 million deal. Nash loved Dirk and Dallas and even called back asking Cuban to reconsider. He left, and Dirk asked how Cuban could let Nash go. Nash won MVP in his first season in Phoenix, and Cuban now calls it his biggest mistake.',
     ['steve-nash', 'mark-cuban', 'dirk-nowitzki', 'don-nelson'], ['mavericks', 'suns'], ['free agency', 'what-ifs'],
-    { sources: [
+    { categories: ['mvp-race'], sources: [
       { source: 'dom2k-mavericks-life-without-luka', quote: 'Cuban claims they were concerned about injuries he missed four total regular season games over a three-year spin' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'it was only a matter of time before his style of play caught up with him' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'they flew 12 members out to offer him a 63 million 6-year deal' },
@@ -552,7 +552,7 @@ export const stories: Story[] = [
     'Steve Nash eliminates the team that let him go',
     'The 2005 second round was the grudge match everyone wanted: Nash\'s 62-win Suns against the Mavericks who had decided he wasn\'t worth the money. The thinking was that forcing Nash to score instead of pass would shut Phoenix down. Instead he scored 40 a game over the final three games and knocked out his old team, leaving people to wonder if Dallas would ever get over the hump.',
     ['steve-nash', 'dirk-nowitzki', 'mark-cuban'], ['suns', 'mavericks'], ['playoffs', 'rivalries', 'revenge'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'dom2k-mavericks-life-without-luka', quote: 'a fairly obvious Grudge Match on the horizon with their former star point guard' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'naturally you\'d assume if you could force him to be a score' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'Nash walked to Dallas down in the final three matches to the tune of 40 points a game' },
@@ -563,7 +563,7 @@ export const stories: Story[] = [
     'Dirk Nowitzki beats the champion Spurs in Game 7',
     'Dallas had long been San Antonio\'s little brother. Up 3-1, the Mavericks let the defending champions back in after Jason Terry was suspended for punching Michael Finley, now a Spur. In Game 7 in San Antonio, with Ginobili\'s foul giving them life, Nowitzki scored 37 with 15 rebounds and hit the biggest shot of his career. It felt like Dallas\'s time had finally come, with a weak field waiting.',
     ['dirk-nowitzki', 'tim-duncan', 'manu-ginobili', 'jason-terry', 'michael-finley'], ['mavericks', 'spurs'], ['playoffs', 'rivalries'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'dom2k-mavericks-life-without-luka', quote: 'Jason Terry earning suspension by punching none other than his former teammate Michael Finley' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'the defending champs now had their little brothers on the ropes' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'San Antonio was likely about to win before job\'s blunder' },
@@ -574,7 +574,7 @@ export const stories: Story[] = [
     'The Mavericks blow a 2-0 Finals lead to Miami',
     'Dallas went into the 2006 Finals as the favorite: younger, deeper and with home court against a Heat roster that Pat Riley had pieced together from aging stars. They won the first two games, and before Game 3 a Dallas newspaper leaked the team\'s championship parade plans. Up 13 with six and a half minutes left in Game 3, they let Dwyane Wade take over. Wade shot free throw after free throw the rest of the series, Miami won four straight, and Cuban still calls it the worst-officiated Finals ever.',
     ['dwyane-wade', 'dirk-nowitzki', 'shaquille-oneal', 'mark-cuban', 'avery-johnson'], ['mavericks', 'heat'], ['championships', 'collapses', 'controversies'],
-    { sources: [
+    { categories: ['contenders', 'surprises'], sources: [
       { source: 'dom2k-mavericks-life-without-luka', quote: 'we\'re surprised the Mavs were favorites' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'Dallas on the other hand was younger had Defenders and scorers a very established Superstar depth and home court advantage' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'the MAV Championship celebration plans had leaked from a Dallas newspaper' },
@@ -586,7 +586,7 @@ export const stories: Story[] = [
     'The eighth-seeded Warriors upset the 67-win Mavericks',
     'Nowitzki answered 2006 with an MVP season, and the 67-win Mavericks were seen as the favorite among the West\'s three powers, with the East at rock bottom. Golden State barely made the playoffs as the eighth seed. But their coach was Don Nelson, who knew Dirk better than anyone and said from the start, "We\'re going to beat Dallas." He hounded Nowitzki with small, quick defenders and attacked him on defense, and the Warriors won the series. Dirk accepted his MVP after being eliminated, and he was starting to be seen as a soft superstar who couldn\'t lead a team to a title.',
     ['dirk-nowitzki', 'don-nelson'], ['warriors', 'mavericks'], ['playoffs', 'upsets'],
-    { aliases: ['We Believe Warriors'], sources: [
+    { categories: ['surprises', 'contenders', 'mvp-race'], aliases: ['We Believe Warriors'], sources: [
       { source: 'dom2k-mavericks-life-without-luka', quote: 'Dirk became the MVP desperate not to let the failure of 06 toine him' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'winning 67 games' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'whoever emerged was probably going to become Champion' },
@@ -611,7 +611,7 @@ export const stories: Story[] = [
     'The Mavericks sweep the two-time champion Lakers',
     'Nobody took the 2011 Mavericks seriously. They had seemingly choked away their best chances, they had one star in an era that seemed to require several, and their second-best scorer, Caron Butler, was out for the season. The Lakers were going for a three-peat and a sixth ring for Kobe, and almost no one picked Dallas. The Mavs came back to win Game 1 from 16 down, then won four straight, ending Phil Jackson\'s coaching career. Cuban asked fans not to bring brooms.',
     ['dirk-nowitzki', 'kobe-bryant', 'phil-jackson', 'mark-cuban'], ['mavericks', 'lakers'], ['playoffs', 'upsets'],
-    { sources: [
+    { categories: ['surprises'], sources: [
       { source: 'dom2k-mavericks-life-without-luka', quote: 'why would anyone trust them now when they seemingly choked all their best chances away' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'we\'d entered an era where you were thought to need multiple stars to win Dallas remained with only one' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'he tore his patella tendon after 29 games' },
@@ -624,7 +624,7 @@ export const stories: Story[] = [
     'Dirk Nowitzki and the Mavericks beat the Heat big three',
     'Miami was supposed to win. LeBron James, Dwyane Wade and Chris Bosh had rolled through the East, and predictions favored the Heat in landslides. When Wade hit a fourth-quarter three in Game 2 that seemed to put it out of reach, the series looked over. Dallas closed on a run capped by Nowitzki\'s lefty layup. Nowitzki played Game 4 with a fever over 100, LeBron and Wade mocked his cough on camera, and LeBron shrank against Dallas\'s zone. Dallas won in six. The title erased Dirk\'s old failures overnight, from the 2006 collapse to the MVP speech after losing to an eighth seed.',
     ['dirk-nowitzki', 'lebron-james', 'dwyane-wade', 'mark-cuban', 'jason-kidd', 'tyson-chandler'], ['mavericks', 'heat'], ['championships', 'upsets', 'redemption'],
-    { sources: [
+    { categories: ['contenders', 'surprises'], sources: [
       { source: 'dom2k-mavericks-life-without-luka', quote: 'Miami was winning predictions in landslides' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'Miami was supposed to win' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'wage three and the fourth which had likely Put It' },
@@ -652,7 +652,7 @@ export const stories: Story[] = [
     'Dallas trades up for Luka Doncic',
     'Despite his success as a pro in Europe, many doubted Doncic because he hadn\'t played college basketball, and Deandre Ayton was the consensus first pick. Even Dirk Nowitzki wondered whether he was quick or athletic enough. After years of missed stars, Dallas traded the fifth pick, Trae Young, plus a future first to Atlanta for him. The doubts disappeared almost immediately, and he won Rookie of the Year as Dirk handed him the franchise.',
     ['luka-doncic', 'dirk-nowitzki', 'deandre-ayton', 'trae-young'], ['mavericks', 'hawks', 'suns'], ['draft', 'trades'],
-    { sources: [
+    { categories: ['draft-drama'], sources: [
       { source: 'dom2k-mavericks-life-without-luka', quote: 'his lack of college hoops led many to believe he couldn\'t be the real deal' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'he was basically the consensus first pick throughout the process' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'is he quick enough is he athletic enough' },
@@ -663,7 +663,7 @@ export const stories: Story[] = [
     'Luka Doncic demolishes the top-seeded Suns in Game 7',
     'Phoenix had dominated all season and was the favorite to return to the Finals, while Dallas had just traded Kristaps Porzingis and was down 2-0 in the series. In Game 7 in Phoenix, Doncic led the Mavs to a 30-point halftime lead in one of the most baffling performances people had seen. It came the same spring Jalen Brunson broke out, but Dallas wouldn\'t match New York\'s offer that summer.',
     ['luka-doncic', 'jalen-brunson', 'kristaps-porzingis'], ['mavericks', 'suns', 'knicks'], ['playoffs', 'upsets'],
-    { sources: [
+    { categories: ['surprises', 'contenders'], sources: [
       { source: 'dom2k-mavericks-life-without-luka', quote: 'looking like the favorites to return' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'he just demoralized Phoenix on their home floor in game seven' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'Dallas led by 30 points at halftime' },
@@ -674,7 +674,7 @@ export const stories: Story[] = [
     'The Kyrie Irving gamble takes Dallas to the 2024 Finals',
     'Trading for Kyrie Irving in 2023 looked like a huge risk: injury-prone, unpredictable, and a doubtful fit next to Doncic. Dallas missed the playoffs, and Irving was linked to the Lakers. He re-signed, and Dallas added Dereck Lively, P.J. Washington and Daniel Gafford. The pair beat the Clippers, the young Thunder and a Minnesota team thought good enough to trouble Boston. In the Finals against the Celtics, who were seen as heavy favorites, they never really had a chance.',
     ['luka-doncic', 'kyrie-irving', 'mark-cuban'], ['mavericks', 'clippers', 'thunder', 'timberwolves', 'celtics'], ['playoffs', 'trades'],
-    { sources: [
+    { categories: ['surprises'], sources: [
       { source: 'dom2k-mavericks-life-without-luka', quote: 'how many different ways could this go wrong' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'he was consistently being linked to the Lakers' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'finally conquering their demons on try three' },
@@ -684,7 +684,7 @@ export const stories: Story[] = [
     'The Mavericks trade Luka Doncic to the Lakers',
     'Nobody saw it coming. A year after a Finals run, with no trade talk anywhere, general manager Nico Harrison secretly dealt Doncic to the Lakers for an aging Anthony Davis without shopping him to other teams. People first assumed Shams\'s account had been hacked. Dallas pointed to Doncic\'s conditioning and his upcoming $300 million contract, but critics noted they hadn\'t even gotten everything from the Lakers. Fans talked of quitting the team, and the move was called the biggest and most suspicious trade in sports history.',
     ['luka-doncic', 'anthony-davis', 'nico-harrison', 'kyrie-irving'], ['mavericks', 'lakers'], ['trades', 'controversies'],
-    { aliases: ['Luka trade'], sources: [
+    { categories: ['surprises'], aliases: ['Luka trade'], sources: [
       { source: 'dom2k-mavericks-life-without-luka', quote: 'there wasn\'t a single conversation being had about a Luca donic trade' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'GM Nico Harrison just didn\'t share the details with literally anybody else except Rob Linka' },
       { source: 'dom2k-mavericks-life-without-luka', quote: 'we believe Shams was hacked' },
@@ -719,7 +719,7 @@ export const stories: Story[] = [
     'Knicks vs. Heat: four straight brawling playoff series',
     'Riley\'s new team kept running into his old one, and the series were so gritty the images blur together. In 1997 the Knicks led 3-1 until Charlie Ward and P.J. Brown fought; suspensions kept Larry Johnson and John Starks out and Miami won Game 7. In 1998 Mourning and Johnson, his former Charlotte teammate, scuffled, leaving the famous picture of Jeff Van Gundy clinging to a leg, and both missed the deciding game; the Knicks won. Then came the 1999 eighth-seed upset and another seven-game loss in 2000. For all the rivalry\'s reputation, Miami won one of four, and the host says that one was likely decided by the suspensions.',
     ['pat-riley', 'alonzo-mourning', 'tim-hardaway', 'larry-johnson', 'jeff-van-gundy', 'allan-houston'], ['heat', 'knicks'], ['rivalries', 'playoffs', 'fights'],
-    { end: '2000', sources: [
+    { categories: ['contenders'], end: '2000', sources: [
       { source: 'dom2k-heat-35-year-tale', quote: 'Knicks v. Heat was routinely so gritty you\'ve likely got the images mixed up in your head' },
       { source: 'dom2k-heat-35-year-tale', quote: 'New York was up 3-1 when Charlie Ward and P.J. Brown got into a nasty tangle' },
       { source: 'dom2k-heat-35-year-tale', quote: 'By game seven, both Larry Johnson and John Starks were still banned, helping Miami pull off the rare feat' },
@@ -732,7 +732,7 @@ export const stories: Story[] = [
     'The eighth-seeded Knicks knock out the top-seeded Heat',
     'With Jordan retired again, 1999 was wide open, and Miami hung a picture of a ring to make its intentions clear. Mourning finished second in MVP voting and won Defensive Player of the Year, and the Heat took the top seed. The Knicks, derailed by injuries and new faces, barely snuck in as the eighth seed but were figuring it out late. The series went the distance, Allan Houston hit the dagger, and New York became only the second eighth seed to beat a one seed, then went on to the Finals. Hardaway, who had promised to be the guard to take them all the way, played a disastrous series.',
     ['alonzo-mourning', 'tim-hardaway', 'allan-houston', 'pat-riley'], ['heat', 'knicks'], ['playoffs', 'upsets', 'rivalries'],
-    { sources: [
+    { categories: ['surprises', 'contenders', 'mvp-race'], sources: [
       { source: 'dom2k-heat-35-year-tale', quote: 'Miami hung a picture of a ring to make their intentions crystal clear' },
       { source: 'dom2k-heat-35-year-tale', quote: 'Zo posted a dominant season, finishing second in MVP voting, and nabbed Defensive Player of the Year' },
       { source: 'dom2k-heat-35-year-tale', quote: 'just barely sneaking into the post-season as an eight seed' },
@@ -757,7 +757,7 @@ export const stories: Story[] = [
     'Miami takes Dwyane Wade fifth, almost by accident',
     'A 25-win tank job put Miami in the loaded LeBron James, Carmelo Anthony, Chris Bosh, Dwyane Wade and Darko Milicic draft, though slipping from a projected fourth to fifth was a letdown. Riley later admitted he wasn\'t sold on Wade: he wanted a point guard or a center and preferred coaching older players, and if Wade had been gone they allegedly would have traded the pick to Orlando. Wade wasn\'t who they wanted but was who they needed. As a rookie he finished third in Rookie of the Year voting, hit a game winner in his first playoff game and shone against the contending Pacers in a six-game loss that counted as overachieving.',
     ['dwyane-wade', 'pat-riley', 'lebron-james', 'carmelo-anthony', 'chris-bosh', 'stan-van-gundy'], ['heat', 'pacers', 'magic'], ['draft', 'steals'],
-    { sources: [
+    { categories: ['draft-drama'], sources: [
       { source: 'dom2k-heat-35-year-tale', quote: 'slightly disappointing given the original projection of them picking fourth overall' },
       { source: 'dom2k-heat-35-year-tale', quote: 'Riley later revealed he wasn\'t all the way sold on Wade because he felt he needed a point guard or a center, while also preferring to coach older players' },
       { source: 'dom2k-heat-35-year-tale', quote: 'if Wade weren\'t available, they allegedly would have traded the pick to Orlando' },
@@ -769,7 +769,7 @@ export const stories: Story[] = [
     'Miami trades for Shaquille O\'Neal',
     'Once Shaq and Kobe were finished in Los Angeles, as many as 20 teams called about O\'Neal. Riley was reluctant to break up a promising young core, but figured Shaq had about three good seasons left and pulled the trigger; Caron Butler heard about the trade in an airport and at first thought he was joining a title team, before learning he was in the deal. Shaq\'s arrival party looked like an early title parade, and he guaranteed a championship. With Indiana handicapped by the Malice at the Palace, the Heat were suddenly possible favorites in the East alongside Detroit. Riley still calls it the biggest acquisition in Heat history.',
     ['shaquille-oneal', 'dwyane-wade', 'pat-riley', 'caron-butler', 'kobe-bryant'], ['heat', 'lakers'], ['trades'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'dom2k-heat-35-year-tale', quote: 'according to Pat still to this day, the biggest acquisition in Miami Heat history had taken place' },
       { source: 'dom2k-heat-35-year-tale', quote: 'he hadn\'t necessarily wanted to break up what was a nice young core' },
       { source: 'dom2k-heat-35-year-tale', quote: 'as many as 20 teams had called to inquire about the services of O\'Neal' },
@@ -781,7 +781,7 @@ export const stories: Story[] = [
     'Wade\'s rib injury sinks Miami against Detroit',
     'In Shaq\'s first season Miami won nearly 60 games, five more than Detroit; O\'Neal finished second in MVP voting and Wade made his first All-Star team. Title hopes felt more real than in 1999. The conference finals against the defending champion Pistons were nasty, and Shaq was no longer the overwhelming force of his Lakers years. Wade strained a rib muscle in Game 5, Miami lost Game 6 without him, and he managed 20 points on 7-of-20 in a close Game 7 loss.',
     ['dwyane-wade', 'shaquille-oneal', 'ben-wallace'], ['heat', 'pistons'], ['playoffs', 'injuries', 'what-ifs'],
-    { sources: [
+    { categories: ['contenders', 'mvp-race'], sources: [
       { source: 'dom2k-heat-35-year-tale', quote: 'Shaq finishing second in MVP voting while Wade secured All-Star appearance number one, finishing five games ahead of Detroit' },
       { source: 'dom2k-heat-35-year-tale', quote: 'Their shot at a championship was looking even more realistic than when they\'d hung the ring picture' },
       { source: 'dom2k-heat-35-year-tale', quote: 'yet clearly not the overwhelming force he\'d been in LA for years' },
@@ -793,7 +793,7 @@ export const stories: Story[] = [
     'Pat Riley takes over from Stan Van Gundy',
     'Riley rebuilt the supporting cast with a huge offseason trade for Jason Williams, Antoine Walker and James Posey, then added Gary Payton. With Shaq hurt, the new team started 11-10, and Riley came down from the front office to replace his protege. History remembers it as Riley strong-arming his way onto a struggling title team. At the time, Van Gundy said he wanted more time with his family, a concern he had raised in the preseason, and Riley had actually urged him to stay. Miami went 41-20 the rest of the way, still 12 wins behind Detroit.',
     ['pat-riley', 'stan-van-gundy', 'shaquille-oneal', 'gary-payton', 'antoine-walker'], ['heat'], ['coaching', 'controversies'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'dom2k-heat-35-year-tale', quote: 'the biggest trade in NBA history' },
       { source: 'dom2k-heat-35-year-tale', quote: 'posting a measly 11 and 10 record' },
       { source: 'dom2k-heat-35-year-tale', quote: 'The way history remembers the event without fail is a championship team was struggling. Riley strong-armed it and took matters into his own hands' },
@@ -805,7 +805,7 @@ export const stories: Story[] = [
     'Dwyane Wade wins Miami its first title',
     'Detroit had won 64 games and been to four straight conference finals, but Miami beat them in six behind a Wade bordering on unstoppable. In the Finals, Dallas won the first two games easily by harassing Shaq, holding him to five points in Game 2, after which O\'Neal told his teammates, especially Wade, that it was on them and he could only be a role player now. Wade scored 42, 36 and 43 in the next three games. Miami clinched in Game 6 on June 20, a date Riley had circled when they were struggling, with 35-year-old Mourning blocking five shots and Wade scoring 36 on 21 free throws. The series still gets called rigged; the host says Wade earned most of those calls by getting past defenders. Shaq\'s ring put him one ahead of Kobe.',
     ['dwyane-wade', 'shaquille-oneal', 'pat-riley', 'alonzo-mourning', 'udonis-haslem', 'dirk-nowitzki', 'avery-johnson'], ['heat', 'mavericks', 'pistons'], ['championships', 'Finals MVP', 'controversies'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'dom2k-heat-35-year-tale', quote: 'a roster who flirted with 70 wins is a mere footnote because they lose to Miami in six' },
       { source: 'dom2k-heat-35-year-tale', quote: 'Dwyane Wade bordering on unstoppable' },
       { source: 'dom2k-heat-35-year-tale', quote: 'five points on five shot attempts in Game 2, at which point O\'Neal told the rest of his team, but especially Wade, it was on them, remarking he could only be a role player now' },
@@ -821,7 +821,7 @@ export const stories: Story[] = [
     'The young Bulls sweep the defending champion Heat',
     'Miami ran back the title roster in a weak East, but it started badly: the Bulls blew them out 108-66 on ring night. Shaq needed knee surgery, Wade dislocated his shoulder, and the older roster limped to 44-38 and the fifth seed. The East was soft enough that a run seemed possible, but Chicago, which had their number all season, swept them in the first round, the first sweep of a defending champion since the 1950s. It was the cost of Riley\'s win-now trade for Shaq: the help around Wade was wilting, and Gary Payton retired after the sweep.',
     ['dwyane-wade', 'shaquille-oneal', 'pat-riley', 'ben-wallace', 'gary-payton'], ['heat', 'bulls'], ['playoffs', 'upsets', 'injuries'],
-    { sources: [
+    { categories: ['surprises'], sources: [
       { source: 'dom2k-heat-35-year-tale', quote: 'an absolute drubbing to ruin the ring ceremony, 108 to 66' },
       { source: 'dom2k-heat-35-year-tale', quote: 'dropping from defending conference champions to fifth seed' },
       { source: 'dom2k-heat-35-year-tale', quote: 'a run through a conference they\'d already scaled wasn\'t necessarily out of the question. A run was totally out of the question' },
@@ -867,7 +867,7 @@ export const stories: Story[] = [
     'Chris Bosh and LeBron James join Wade in Miami',
     'When Bosh agreed on July 7 and LeBron followed, the consensus was that Miami had built something close to unbeatable: three stars in their primes at once, where Boston had traded for a trio that already had a decade each behind them. Chicago wanted two of the three and LeBron could have paired with Amar\'e Stoudemire in New York, but Riley brought his seven rings and promised to take care of LeBron\'s friends, something Chicago apparently wouldn\'t do. At the welcome party LeBron told the crowd they could win more than seven titles, and the host says that seemed possible in the moment; at the very least, three titles were expected. They won two in four Finals.',
     ['chris-bosh', 'lebron-james', 'dwyane-wade', 'pat-riley', 'amare-stoudemire'], ['heat', 'cavaliers', 'raptors', 'bulls', 'knicks'], ['free agency', 'superteams'],
-    { aliases: ['Big Three', 'Heatles', 'Super Friends', 'Yes we did party'], sources: [
+    { categories: ['contenders'], aliases: ['Big Three', 'Heatles', 'Super Friends', 'Yes we did party'], sources: [
       { source: 'dom2k-heat-35-year-tale', quote: 'On July 7th, 2010, five-time All-Star and top big man Chris Bosh agreed to join the Miami Heat' },
       { source: 'dom2k-heat-35-year-tale', quote: 'Chicago was trying to land at least two out of the big three' },
       { source: 'dom2k-heat-35-year-tale', quote: 'He brought his seven rings' },
@@ -884,7 +884,7 @@ export const stories: Story[] = [
     'The Heat start 9-8 and Spoelstra is on the hot seat',
     'The Big Three lost on opening night in Boston, where most believed the Celtics\' experience would keep them ahead for now, and stumbled to 9-8. In a loss to Dallas, LeBron bumped Spoelstra\'s shoulder walking to the huddle. Spoelstra was reportedly on the chopping block; Riley later revealed LeBron suggested firing him and asked Riley if he had "the itch" to coach again. Riley said no. Miami then rattled off 12 straight wins, but the media questioned Spoelstra\'s job again after a five-game losing streak in March, and Riley shut that down too.',
     ['erik-spoelstra', 'lebron-james', 'pat-riley', 'dwyane-wade', 'chris-bosh'], ['heat', 'celtics', 'mavericks'], ['coaching', 'controversies'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'dom2k-heat-35-year-tale', quote: 'most believed their experience could keep them ahead of Miami for the moment' },
       { source: 'dom2k-heat-35-year-tale', quote: 'the Super Friends stumbled mightily into a 9 and 8 record' },
       { source: 'dom2k-heat-35-year-tale', quote: 'LeBron could be seen shoulder bumping Erik Spoelstra' },
@@ -897,7 +897,7 @@ export const stories: Story[] = [
     'Miami gets past Boston and MVP Derrick Rose',
     'Miami won 58 games, but it counted as an underperformance, which is why LeBron didn\'t win MVP, and many still expected a third Celtics-Lakers Finals. The Heat beat Philadelphia, then beat Boston in a grudge match in five, with LeBron and Wade hugging at the end. Next were the Bulls of MVP Derrick Rose, who had home court and won Game 1. LeBron took the Rose assignment, slowed him down, and Miami won four straight to reach the Finals in year one.',
     ['lebron-james', 'dwyane-wade', 'chris-bosh', 'derrick-rose'], ['heat', 'celtics', 'bulls', 'sixers'], ['playoffs', 'MVP', 'rivalries'],
-    { sources: [
+    { categories: ['contenders', 'mvp-race'], sources: [
       { source: 'dom2k-heat-35-year-tale', quote: 'hadn\'t won MVP due to this being somewhat of an underperformance' },
       { source: 'dom2k-heat-35-year-tale', quote: 'there were high beliefs a third round of Celtics-Lakers was on the horizon' },
       { source: 'dom2k-heat-35-year-tale', quote: 'with he and Wade hugging it out at the end knowing they\'d just taken an enormous step' },
@@ -910,7 +910,7 @@ export const stories: Story[] = [
     'LeBron James wins his first title',
     'After the 2011 collapse it was title or bust: if Miami failed to get out of the East, there was already talk of who would be traded, and Riley\'s biggest move would have gone up in flames. Wade told LeBron he was the best player in the league and the team was his, LeBron trained with Hakeem Olajuwon, and he won his third MVP as the clear first option. The playoffs were harder than anyone expected. The Pacers, a young team nobody could make much of, went up 2-1 with Bosh out and Wade\'s knee drained, and Wade answered with 30, 28 and 41. Boston pushed them seven. Then they beat Oklahoma City in five.',
     ['lebron-james', 'dwyane-wade', 'chris-bosh', 'pat-riley'], ['heat', 'pacers', 'celtics', 'thunder', 'knicks'], ['championships', 'MVP', 'redemption'],
-    { sources: [
+    { categories: ['contenders', 'mvp-race'], sources: [
       { source: 'dom2k-heat-35-year-tale', quote: 'telling LeBron he was the best player in the league' },
       { source: 'dom2k-heat-35-year-tale', quote: 'James took it upon himself to train with Hakeem' },
       { source: 'dom2k-heat-35-year-tale', quote: 'leading to his third MVP' },
@@ -927,7 +927,7 @@ export const stories: Story[] = [
     'The Heat win 66 games and repeat',
     'With no Derrick Rose and no contending Celtics, there was virtually no chance Miami would lose in the East, and by most accounts the conference finals would be Knicks-Heat again. The regular season backed that up: Ray Allen spurned Boston to join them, they won a franchise-record 66 games with a 27-game streak, and LeBron\'s MVP fell one vote short of unanimous, the lone dissent going to Carmelo Anthony; the host thinks he should have won Defensive Player of the Year too. Instead Indiana and Paul George pushed Miami seven, and the host says without LeBron\'s game winner the Pacers might have advanced. The Big Three\'s scoring looked questionable for a would-be dynasty, and against the Spurs Miami was nearly beaten before what the host calls a moment akin to divine intervention.',
     ['lebron-james', 'dwyane-wade', 'chris-bosh', 'ray-allen', 'carmelo-anthony', 'paul-george', 'roy-hibbert'], ['heat', 'pacers', 'spurs', 'bulls', 'knicks'], ['championships', 'MVP', 'streaks'],
-    { end: '2013-06', sources: [
+    { categories: ['contenders', 'mvp-race'], end: '2013-06', sources: [
       { source: 'dom2k-heat-35-year-tale', quote: 'Ray Allen, who had spurned Boston' },
       { source: 'dom2k-heat-35-year-tale', quote: 'easily setting their franchise record with 66 wins' },
       { source: 'dom2k-heat-35-year-tale', quote: 'he very much should have probably won Defensive Player of the Year on top of his MVP' },
@@ -943,7 +943,7 @@ export const stories: Story[] = [
     'Wade\'s knees give out as the Spurs crush Miami',
     'Four straight Finals and two titles gave Miami a veil of invincibility in a weak East. Wade\'s rest plan, 54 games, seemed to work: he improved each round and Miami beat Indiana in six. Against San Antonio his body betrayed him: 15 points a game on 43% shooting and little defense. Bosh wasn\'t much better, and the Spurs won in five. Wade later said that in these years his knees hurt so much he didn\'t want to play anymore.',
     ['dwyane-wade', 'lebron-james', 'chris-bosh', 'gregg-popovich'], ['heat', 'spurs', 'pacers'], ['championships', 'injuries'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'dom2k-heat-35-year-tale', quote: 'Miami created a rest plan aiming to reserve his knees down the road' },
       { source: 'dom2k-heat-35-year-tale', quote: 'Wade appeared in only 54 games' },
       { source: 'dom2k-heat-35-year-tale', quote: 'his body simply betrayed him, falling to 15 points on 43% role player production' },
@@ -992,7 +992,7 @@ export const stories: Story[] = [
     'Bam Adebayo curses out Riley and gets drafted',
     'Miami took Bam Adebayo 14th. In pre-draft workouts the Heat ran him through switching drills over and over until, he says, he cursed out Riley, Spoelstra, Mourning and everyone else in the gym. It was a match made in heaven, and years later that switching was a big part of what made Miami\'s defense work.',
     ['bam-adebayo', 'pat-riley', 'erik-spoelstra', 'alonzo-mourning'], ['heat'], ['draft'],
-    { sources: [
+    { categories: ['draft-drama'], sources: [
       { source: 'dom2k-heat-35-year-tale', quote: 'selecting center Bam Adebayo at 14' },
       { source: 'dom2k-heat-35-year-tale', quote: 'Miami brass put Bam in defensive switching drills over and over again' },
       { source: 'dom2k-heat-35-year-tale', quote: 'he cursed out Pat Riley, Spoelstra, Alonzo Mourning' },
@@ -1013,7 +1013,7 @@ export const stories: Story[] = [
     'Jimmy Butler comes to Miami, and nobody expects much',
     'After stints in Minnesota and Philadelphia where teammates didn\'t match his intensity, Butler made it clear he wanted Miami. Outsiders expected nothing: the Heat gave up Whiteside and Josh Richardson, leaving thin talent around a supposedly mid-tier star nearing 30, and it was labeled one of the worst signings of the summer. A year later in the bubble, with rookie Tyler Herro and All-Star Bam Adebayo, Miami dominated the top-seeded Bucks, beat Boston and reached the Finals, where Butler\'s improbable performance couldn\'t stop LeBron\'s Lakers.',
     ['jimmy-butler', 'bam-adebayo', 'tyler-herro', 'lebron-james', 'erik-spoelstra'], ['heat', 'bucks', 'celtics', 'lakers'], ['trades', 'free agency', 'upsets'],
-    { sources: [
+    { categories: ['surprises'], sources: [
       { source: 'dom2k-heat-35-year-tale', quote: 'nothing was expected of the signing from outsiders' },
       { source: 'dom2k-heat-35-year-tale', quote: 'a thought-to-be mid-tier star who was nearing 30' },
       { source: 'dom2k-heat-35-year-tale', quote: 'They just about dominated Milwaukee' },
@@ -1025,7 +1025,7 @@ export const stories: Story[] = [
     'The eighth-seeded Heat reach the Finals',
     'After coming within one shot of the 2022 Finals, Miami passed on Durant and Donovan Mitchell, and fans assumed a star was coming. Instead they barely made it as an eighth seed. Giannis got hurt, Butler blitzed the top-seeded Bucks, they beat the Knicks in six and went up 3-0 on Boston, then nearly became the first team to blow a 3-0 lead before closing it out. Nobody outside Miami thought they could beat Denver, and they couldn\'t. Then Damian Lillard asked for Miami, Portland wasn\'t interested, and he went to rival Milwaukee instead.',
     ['jimmy-butler', 'bam-adebayo', 'erik-spoelstra', 'pat-riley', 'damian-lillard', 'giannis-antetokounmpo'], ['heat', 'bucks', 'knicks', 'celtics', 'nuggets', 'blazers'], ['playoffs', 'upsets', 'trades'],
-    { sources: [
+    { categories: ['surprises'], sources: [
       { source: 'dom2k-heat-35-year-tale', quote: 'the Heat would come within one shot of their second NBA finals' },
       { source: 'dom2k-heat-35-year-tale', quote: 'where fans assumed they\'d finally land an upcoming star this time' },
       { source: 'dom2k-heat-35-year-tale', quote: 'A Tyler Herro-less eighth-seeded Miami Heat team had caught fire at the right moment, disposing of the one seed' },
@@ -1038,7 +1038,7 @@ export const stories: Story[] = [
     'George Karl keeps Gary Payton off Jordan until it is too late',
     'Payton had just won Defensive Player of the Year and was widely seen as the best perimeter defender alive, but in the 1996 Finals George Karl kept him off Michael Jordan to save him for offense and keep him out of foul trouble. Jordan averaged 31 on 50% against other defenders. Down 0-3, Karl finally gave Payton the matchup everyone wanted, Jordan dipped to 24 on 39%, and Seattle won two straight before Chicago closed it out in six. Sonics fans still wonder what would have happened if he\'d played it straight from the start.',
     ['gary-payton', 'shawn-kemp', 'george-karl', 'michael-jordan'], ['thunder', 'bulls'], ['championships', 'coaching', 'what-ifs'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'thunder-beat-their-curse', quote: 'George Carl potentially sabotaged the series with a coaching decision which continues to draw eye to this day' },
       { source: 'thunder-beat-their-curse', quote: 'widely considered the best perimeter defender on the planet' },
       { source: 'thunder-beat-their-curse', quote: 'he was barred from doing so until they were already down 03' },
@@ -1076,7 +1076,7 @@ export const stories: Story[] = [
     'Seattle drafts Kevin Durant and trades Ray Allen',
     'Kevin Durant came into the 2007 draft debated against Greg Oden for the top pick, with people asking whether he was too skinny and whether his style would work in the NBA. Seattle took him second, and Ray Allen, coming off another All-Star season and told by new owner Clay Bennett he was part of the plan, learned through the media that night that he\'d been traded to Boston. Durant averaged 20 points and won Rookie of the Year. Oden didn\'t play a minute.',
     ['kevin-durant', 'ray-allen', 'clay-bennett', 'greg-oden', 'rashard-lewis'], ['thunder', 'celtics'], ['draft', 'trades', 'Rookie of the Year'],
-    { sources: [
+    { categories: ['draft-drama'], sources: [
       { source: 'thunder-beat-their-curse', quote: 'still expected to be the face of the franchise moving forward' },
       { source: 'thunder-beat-their-curse', quote: 'Bennett gave him the impression he\'d be part of the plan' },
       { source: 'thunder-beat-their-curse', quote: 'Ray Allen found out he\'d been traded to Boston through the media right after the Sonics had drafted a linky 19-year-old from Texas named Kevin Durant' },
@@ -1100,7 +1100,7 @@ export const stories: Story[] = [
     'Sam Presti drafts Westbrook, Harden and Ibaka',
     'With pick No. 4 in 2008, Presti took Russell Westbrook, who was projected to go later. He was criticized: Westbrook was a defense-first guard who mostly played off the ball at UCLA. In 2009 Presti took James Harden third despite talk that he was too slow, and he had stashed Serge Ibaka at 24. None of them looked like sure things, but the host notes Presti had picked three future MVPs in three straight drafts.',
     ['sam-presti', 'russell-westbrook', 'james-harden', 'serge-ibaka', 'kevin-durant'], ['thunder'], ['draft', 'steals'],
-    { end: '2009', sources: [
+    { categories: ['draft-drama'], end: '2009', sources: [
       { source: 'thunder-beat-their-curse', quote: 'pick number four used to draft Russell Westbrook, who was actually projected to go a bit later' },
       { source: 'thunder-beat-their-curse', quote: 'The biggest questions about Westbrook being his decision-making and the fact he mostly played off the ball at UCLA' },
       { source: 'thunder-beat-their-curse', quote: 'which brought on the criticism when OKC took him with the fourth pick' },
@@ -1112,7 +1112,7 @@ export const stories: Story[] = [
     'The young Thunder scare the champion Lakers',
     'OKC jumped from 23 to 50 wins, Durant became the youngest scoring champion ever and finished second in MVP voting, and they still only got the eighth seed. Against the defending champion Lakers it looked like a mismatch. Ron Artest smothered Durant early, but the Thunder ran, Kobe said they "ran like deer," and they tied it 2-2. In Game 6 they were seconds from forcing a Game 7 when Pau Gasol\'s tip-in won it. The host says that series made people rethink them: they were way ahead of schedule.',
     ['kevin-durant', 'russell-westbrook', 'kobe-bryant', 'ron-artest'], ['thunder', 'lakers'], ['playoffs', 'MVP'],
-    { sources: [
+    { categories: ['surprises', 'mvp-race'], sources: [
       { source: 'thunder-beat-their-curse', quote: 'Their record skyrocketed from 23 to 50 wins' },
       { source: 'thunder-beat-their-curse', quote: 'making him the youngest scoring champion ever' },
       { source: 'thunder-beat-their-curse', quote: 'HD finished second in MVP voting' },
@@ -1126,7 +1126,7 @@ export const stories: Story[] = [
     'OKC trades Jeff Green for Kendrick Perkins',
     'The Thunder were fun but small, and every contender had physical bigs. At the 2011 deadline they sent Jeff Green, still their third-leading scorer, to Boston for Kendrick Perkins, a hard-nosed center from the Celtics\' Finals teams; Boston later realized it sorely needed him. It wasn\'t flashy, but it signaled OKC was no longer a team to fear in two or three years. It was in win-now mode.',
     ['kendrick-perkins', 'kevin-durant', 'sam-presti'], ['thunder', 'celtics'], ['trades'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'thunder-beat-their-curse', quote: 'it was clear he wasn\'t a long-term answer at Power forward' },
       { source: 'thunder-beat-their-curse', quote: 'Green was shipped to Boston in exchange for Kendrick Perkins, who the Celtics would later realize they sorely needed for the same reasons' },
       { source: 'thunder-beat-their-curse', quote: 'Perk was a hard-nosed defensive-minded center' },
@@ -1137,7 +1137,7 @@ export const stories: Story[] = [
     'OKC reaches the conference finals and runs into Dirk',
     'Few believed the Thunder could leap to the top of the West in one year, but they won 55 games, beat Denver and outlasted Memphis\'s grit-and-grind team in a physical second-round series. Dallas, on one of the greatest playoff runs ever, beat them in five close games. It was hard to be mad: the core was all 22 or younger, and the next step was assumed to be the Finals.',
     ['kevin-durant', 'russell-westbrook', 'james-harden', 'dirk-nowitzki', 'zach-randolph'], ['thunder', 'mavericks', 'grizzlies', 'nuggets'], ['playoffs'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'thunder-beat-their-curse', quote: 'it was hard to believe they\'d be able to make such a big leap with just one more year' },
       { source: 'thunder-beat-their-curse', quote: 'the famed 2011 grit and grind squad' },
       { source: 'thunder-beat-their-curse', quote: 'the greatest playoff run of all time' },
@@ -1149,7 +1149,7 @@ export const stories: Story[] = [
     'The Thunder end the Lakers\' run',
     'After 2011, OKC went from promising to expected. They won 47 games in the lockout year, Durant was second in MVP voting again, Ibaka was runner-up for Defensive Player of the Year, and Harden won Sixth Man. They swept the defending champion Mavericks, and against the Lakers experts favored OKC this time. The Lakers led Game 4 most of the night and were up seven with two minutes left before melting down, and Durant\'s late three put it away. The franchise that had ruled the West was suddenly out of the conversation.',
     ['kevin-durant', 'russell-westbrook', 'james-harden', 'serge-ibaka', 'kobe-bryant'], ['thunder', 'lakers', 'mavericks'], ['playoffs', 'Sixth Man of the Year'],
-    { sources: [
+    { categories: ['contenders', 'mvp-race'], sources: [
       { source: 'thunder-beat-their-curse', quote: 'the Thunder went from promising to expected' },
       { source: 'thunder-beat-their-curse', quote: 'Durant ranked second in MVP voting again' },
       { source: 'thunder-beat-their-curse', quote: 'Ibaka was the runner up while Harden now won six man of the year' },
@@ -1162,7 +1162,7 @@ export const stories: Story[] = [
     'The Thunder lose the 2012 Finals to Miami',
     'OKC went into its first Finals as the darling of the league: homegrown, young, unselfish and likable, the answer to everything the Heat stood for after The Decision. Oddsmakers slightly favored the Thunder, and Durant vs. LeBron looked like the first battle of many. OKC won Game 1, then lost four straight, the first three by six points or fewer. Durant was bumped on a potential tying shot with no call in Game 2, Harden shot 2-for-10 in Games 3 and 4, and Magic Johnson called Westbrook\'s Game 2 "the worst point guard performance in a finals" he\'d ever seen. Westbrook answered with 43 in Game 4. Nobody doubted they\'d be back.',
     ['kevin-durant', 'russell-westbrook', 'james-harden', 'lebron-james', 'magic-johnson'], ['thunder', 'heat'], ['championships', 'rivalries'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'thunder-beat-their-curse', quote: 'the Thunder didn\'t walk into their first appearance as underdogs' },
       { source: 'thunder-beat-their-curse', quote: 'the answer to everything the Heat represented' },
       { source: 'thunder-beat-their-curse', quote: 'Oddsmakers had OKC slightly favored largely due to homec court and momentum' },
@@ -1177,7 +1177,7 @@ export const stories: Story[] = [
     'OKC trades James Harden to Houston',
     'At the time, trading James Harden wasn\'t seen as the disaster it looks like now. He had just struggled in the Finals, you could argue most GMs would have kept Ibaka\'s versatility over betting on Harden\'s growth, and many assumed OKC would stay afloat with Durant and Westbrook. The reigning Sixth Man of the Year expected to be paid accordingly, but OKC, a small market that never paid the tax, had already maxed its two stars. They reportedly offered four years and $55 million, a few million short, and gave him an hour to decide. "After everything we done, you give me an hour. It hurt me," Harden said later. He went to Houston for Kevin Martin, Jeremy Lamb and picks, one of which became Steven Adams, and instantly became one of the league\'s top offensive engines.',
     ['james-harden', 'kevin-durant', 'russell-westbrook', 'serge-ibaka', 'sam-presti'], ['thunder', 'rockets'], ['trades', 'contracts', 'what-ifs'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'thunder-beat-their-curse', quote: 'Harden was offered a 4-year, $55 million extension, a few million shy of what he was seeking' },
       { source: 'thunder-beat-their-curse', quote: 'Accept it within the hour or they\'d pursue other options' },
       { source: 'thunder-beat-their-curse', quote: 'After everything we done, you give me an hour. It hurt me. It hurt.' },
@@ -1192,7 +1192,7 @@ export const stories: Story[] = [
     'Westbrook\'s knee injury derails a 60-win Thunder team',
     'OKC won a franchise-best 60 games and most fans expected a Heat-Thunder rematch. In the first round against Harden\'s Rockets, Westbrook tore his meniscus in Game 2 after a collision with Patrick Beverley. Durant carried them past Houston but Memphis beat them in five, with 38-year-old Derek Fisher as their most credible shooter. The host argues that with Harden still around, OKC would have figured out its future.',
     ['russell-westbrook', 'kevin-durant', 'james-harden', 'patrick-beverley'], ['thunder', 'rockets', 'grizzlies'], ['playoffs', 'injuries', 'what-ifs'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'thunder-beat-their-curse', quote: 'they finished the season with a 60 and 22 record, their best in franchise history' },
       { source: 'thunder-beat-their-curse', quote: 'the NBA fandom largely anticipated a Heat Thunder rematch' },
       { source: 'thunder-beat-their-curse', quote: 'Russell Westbrook tore his meniscus in game two after a freak collision with Patrick Beverly' },
@@ -1204,7 +1204,7 @@ export const stories: Story[] = [
     'Kevin Durant finally beats LeBron for MVP',
     'Durant had finished second to LeBron in MVP voting three times and lost the 2012 Finals to him, and in April 2013 he said he was "done with being second." With Westbrook hurt for half the year, he averaged 32 a game and scored 25+ in 41 straight, passing Jordan\'s 40. The host says it was the only time during LeBron\'s Miami peak he thought someone might actually be better, and voters agreed. His speech calling his mother "the real MVP" became a cultural moment. In the playoffs, after a Game 5 loss to Memphis, an Oklahoma paper called him "Mr. Unreliable," and he answered by closing out the series.',
     ['kevin-durant', 'lebron-james', 'russell-westbrook', 'tony-allen'], ['thunder', 'heat', 'grizzlies'], ['MVP', 'awards', 'media'],
-    { sources: [
+    { categories: ['mvp-race'], sources: [
       { source: 'thunder-beat-their-curse', quote: 'in April 2013, he declared he was quote done with being second' },
       { source: 'thunder-beat-their-curse', quote: 'Up to now, he\'d placed second in MVP voting three times to LeBron' },
       { source: 'thunder-beat-their-curse', quote: 'His 41game streak of 25 plus points surpassed Michael Jordan\'s 40' },
@@ -1217,7 +1217,7 @@ export const stories: Story[] = [
     'Ibaka\'s injury and a redemption-minded Spurs end OKC\'s 2014 run',
     'After beating the Lob City Clippers, OKC faced the Spurs, whom they had beaten all four times in the regular season. San Antonio was on a redemption mission after 2013. Serge Ibaka was ruled out with a calf strain before the series and the Spurs ran wild in two games. Ibaka returned in Game 3, OKC tied it 2-2, but San Antonio won in six. It wasn\'t a failure, but the thin roster without Harden was showing.',
     ['serge-ibaka', 'kevin-durant', 'russell-westbrook', 'kawhi-leonard', 'tim-duncan'], ['thunder', 'spurs', 'clippers'], ['playoffs', 'injuries'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'thunder-beat-their-curse', quote: 'OKC had owned San Antonio in the regular season, winning all four matchups' },
       { source: 'thunder-beat-their-curse', quote: 'Redemption was the theme' },
       { source: 'thunder-beat-their-curse', quote: 'Serge was ruled out with a calf strain' },
@@ -1242,7 +1242,7 @@ export const stories: Story[] = [
     'The Thunder blow a 3-1 lead to the 73-win Warriors',
     'The Thunder led the league in fourth-quarter collapses, and Durant\'s free agency hung over everything, though almost nobody thought he\'d really leave, least of all for the rival Warriors. Against the 67-win Spurs, 12 of 13 ESPN panelists picked San Antonio and OKC lost Game 1 by 32, then won four of five and sent Tim Duncan into retirement. Against the 73-win Warriors and unanimous MVP Steph Curry, they won Game 1 in Oakland and blew Golden State out twice at home to lead 3-1. Then Curry\'s game winner over a Westbrook miss, Klay Thompson\'s 11 threes in Game 6 and a Game 7 in Oakland ended it, one win from the Finals.',
     ['kevin-durant', 'russell-westbrook', 'stephen-curry', 'klay-thompson', 'tim-duncan'], ['thunder', 'warriors', 'spurs'], ['playoffs', 'collapses'],
-    { sources: [
+    { categories: ['contenders', 'mvp-race'], sources: [
       { source: 'thunder-beat-their-curse', quote: 'The Thunder led the league in fourth quarter collapses' },
       { source: 'thunder-beat-their-curse', quote: 'Nobody even thought he\'d seriously leave OKC' },
       { source: 'thunder-beat-their-curse', quote: 'Even if he did, there\'s not a chance in hell it\'d be the Warriors' },
@@ -1257,7 +1257,7 @@ export const stories: Story[] = [
     'Kevin Durant leaves OKC for Golden State',
     'Durant had been the good guy, the face of the anti-superteam Thunder. Weeks after blowing a 3-1 lead to Golden State, he joined the Warriors, which OKC fans felt as betrayal. The NBA world was stunned. Westbrook didn\'t even get a phone call, and at Media Day said only, "I haven\'t talked to him."',
     ['kevin-durant', 'russell-westbrook', 'stephen-curry'], ['thunder', 'warriors'], ['free agency', 'superteams', 'controversies'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'thunder-beat-their-curse', quote: 'Her was the good guy' },
       { source: 'thunder-beat-their-curse', quote: 'both he and the Thunder were seen as the anti-s super team trend' },
       { source: 'thunder-beat-their-curse', quote: 'this felt like betrayal to an OKC faithful who\'d watched KD grow up from a pup' },
@@ -1269,7 +1269,7 @@ export const stories: Story[] = [
     'Russell Westbrook averages a triple-double and wins MVP',
     'Without Durant, OKC was supposed to crater. Instead Westbrook averaged 32, 11 and 10, led the league in scoring and broke Oscar Robertson\'s 55-year-old triple-double record, playing like he had a personal vendetta. James Harden was the other popular MVP pick. The award has been questioned and ridiculed since, but the host, who watched it all, says it was absolutely MVP-worthy. Houston beat OKC in the first round.',
     ['russell-westbrook', 'james-harden', 'kevin-durant'], ['thunder', 'rockets'], ['MVP', 'awards', 'records'],
-    { sources: [
+    { categories: ['mvp-race', 'surprises'], sources: [
       { source: 'thunder-beat-their-curse', quote: 'With KD gone, the Thunder was supposed to crater' },
       { source: 'thunder-beat-their-curse', quote: 'Russ averaged a triple double, 32 points, 11 rebounds, and 10 assists' },
       { source: 'thunder-beat-their-curse', quote: 'He broke Oscar Robertson\'s 55year-old triple double record' },
@@ -1281,7 +1281,7 @@ export const stories: Story[] = [
     'Westbrook, Paul George and Carmelo Anthony fall short',
     'OKC added Paul George and Carmelo Anthony to form a new big three that looked better on paper, though with Durant on the Warriors few believed in it. In 2018 Donovan Mitchell\'s Jazz beat them in six, with George, who had called himself "Playoff P," scoring five points on 2-of-16 in the clincher. In 2019 George was third in MVP voting, but Damian Lillard\'s 37-foot buzzer-beater ended the era in the first round.',
     ['russell-westbrook', 'paul-george', 'carmelo-anthony', 'damian-lillard'], ['thunder', 'jazz', 'blazers'], ['playoffs', 'superteams'],
-    { end: '2019', sources: [
+    { categories: ['contenders'], end: '2019', sources: [
       { source: 'thunder-beat-their-curse', quote: 'forming a new big three that looked better on paper than in practice' },
       { source: 'thunder-beat-their-curse', quote: 'it was really hard to believe in anything happening while Durant remained a warrior' },
       { source: 'thunder-beat-their-curse', quote: 'Paul George shooting two of 16 in the elimination game for a total of five points' },
@@ -1306,7 +1306,7 @@ export const stories: Story[] = [
     'The young Thunder top the West, then fall to Dallas',
     'In Chet Holmgren\'s first healthy year, OKC won 57 games and took the top of the West, far faster than most rebuilds. Dallas, fresh off a deal that supercharged it, was a heavyweight second-round matchup, and as some expected, the Thunder\'s youth was exposed: Dallas dared Josh Giddey and Lu Dort to shoot. In Game 6, Gilgeous-Alexander was late on a closeout and fouled P.J. Washington, and the season was over. Still, their oldest core player was 25, and it wasn\'t time to panic.',
     ['shai-gilgeous-alexander', 'chet-holmgren', 'jalen-williams', 'josh-giddey', 'luka-doncic', 'kyrie-irving'], ['thunder', 'mavericks', 'pelicans'], ['playoffs'],
-    { sources: [
+    { categories: ['contenders', 'surprises'], sources: [
       { source: 'thunder-beat-their-curse', quote: 'OKC had posted 57 wins' },
       { source: 'thunder-beat-their-curse', quote: 'The Thunder were back and relative to other organizations, they did it rather quickly' },
       { source: 'thunder-beat-their-curse', quote: 'OKC\'s youth and their limitations were finally exposed' },
@@ -1329,7 +1329,7 @@ export const stories: Story[] = [
     'The Thunder win the 2025 title',
     'After 68 wins, OKC was the most complete team in the league and was supposed to steamroll the playoffs. Gilgeous-Alexander had an MVP season and Jalen Williams, whom many still doubted, made All-NBA. They swept Memphis after Ja Morant claimed he\'d figured them out. Then Denver, champions two years earlier, nearly pulled the upset; down 2-1, with SGA smiling as he walked off, the host says it was either a meme or a moment, and losing would have put them behind the Durant core at the same stage. They beat Denver in seven, then Minnesota. In the Finals many saw Indiana as a feel-good story with no chance against the heavy favorites. The Pacers stole Game 1, but OKC won the title after Tyrese Haliburton tore his Achilles early in Game 7. SGA swept MVP, Finals MVP and the scoring title despite the constant free-throw narrative, and talk turned to a possible dynasty.',
     ['shai-gilgeous-alexander', 'jalen-williams', 'chet-holmgren', 'alex-caruso', 'ja-morant', 'nikola-jokic', 'tyrese-haliburton', 'sam-presti'], ['thunder', 'grizzlies', 'nuggets', 'timberwolves', 'pacers'], ['championships', 'MVP', 'Finals MVP'],
-    { sources: [
+    { categories: ['contenders', 'mvp-race'], sources: [
       { source: 'thunder-beat-their-curse', quote: 'sitting at top the league at 68 wins' },
       { source: 'thunder-beat-their-curse', quote: 'By the playoffs, they were the most complete team in the league with the fewest questions to answer' },
       { source: 'thunder-beat-their-curse', quote: 'Jaylen Williams, who many still didn\'t believe in, became an all-star and made all NBA' },
@@ -1348,7 +1348,7 @@ export const stories: Story[] = [
     'Reggie Miller\'s Pacers take the Last Dance Bulls to Game 7',
     'After the 1994 and 1995 heartbreaks, 1998 felt like Indiana\'s year: possibly the best-balanced roster Miller ever had, with Chris Mullin added on the wing, against Bulls everyone knew were old, tired and on the ropes, amid whispers it was Jordan\'s last season. Indiana led in the fourth quarter of Game 7 and still lost. Miller says he still feels the Pacers were the better team. Jordan called them the toughest team he faced outside Detroit, and Steve Kerr called it the scariest game they ever played.',
     ['reggie-miller', 'chris-mullin', 'michael-jordan', 'steve-kerr'], ['pacers', 'bulls'], ['playoffs', 'what-ifs'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'pacers-underrated-curse', quote: 'This Pacers team might have been the best balanced roster he\'d ever played on' },
       { source: 'pacers-underrated-curse', quote: 'everyone knowing they were older, tired, and very much on the ropes' },
       { source: 'pacers-underrated-curse', quote: 'even leading in the fourth quarter of a game seven against the Dynasty' },
@@ -1361,7 +1361,7 @@ export const stories: Story[] = [
     'The eighth-seeded Knicks stun the favored Pacers',
     'With the Bulls broken up, there was a power vacuum, and Indiana, already on the doorstep, was favored by many to finally break through in the lockout year. Instead they lost to the eighth-seeded Knicks, who had stumbled into the playoffs, even though Patrick Ewing partially tore his Achilles after two games of the series.',
     ['reggie-miller', 'patrick-ewing'], ['pacers', 'knicks'], ['playoffs', 'upsets'],
-    { sources: [
+    { categories: ['surprises'], sources: [
       { source: 'pacers-underrated-curse', quote: 'there was an automatic power vacuum on the horizon' },
       { source: 'pacers-underrated-curse', quote: 'Indie was obviously favored by many to finally break through, only to become yet another victim to the eighth seated Knicks' },
       { source: 'pacers-underrated-curse', quote: 'only played two games against Indie before partially tearing his Achilles' },
@@ -1370,7 +1370,7 @@ export const stories: Story[] = [
     'Reggie Miller\'s only Finals ends against Shaq and Kobe',
     'At 34, Miller finally made the Finals, getting past Allen Iverson\'s Sixers and, at last, the Knicks. Against MVP Shaquille O\'Neal, who averaged nearly 40, Indiana was simply outmatched. Jalen Rose later admitted he stuck out his foot on purpose to injure Kobe Bryant, who missed the next game; Kobe returned to take over Game 4 when Shaq fouled out, and the Lakers dynasty began.',
     ['reggie-miller', 'jalen-rose', 'shaquille-oneal', 'kobe-bryant', 'allen-iverson'], ['pacers', 'lakers', 'sixers', 'knicks'], ['championships', 'controversies'],
-    { sources: [
+    { categories: ['contenders', 'mvp-race'], sources: [
       { source: 'pacers-underrated-curse', quote: 'It was also Reggie\'s first Finals appearance' },
       { source: 'pacers-underrated-curse', quote: 'finally conquered New York in the East Finals' },
       { source: 'pacers-underrated-curse', quote: 'they truly were just outmatched. MVP Shaq averaged nearly 40' },
@@ -1381,7 +1381,7 @@ export const stories: Story[] = [
     'The 61-win Pacers fall to Detroit',
     'Instead of blowing it up, Indiana retooled around Jermaine O\'Neal and Ron Artest, the Defensive Player of the Year, with Miller as an elder statesman, and won a franchise-record 61 games, the best record in the NBA. Everyone expected the conference finals against Detroit to be a neck-and-neck, low-scoring slugfest between the two best defenses, with new coach Rick Carlisle facing his former team in what ESPN called a grudge match. That\'s exactly what it was, and the Pistons won in six.',
     ['jermaine-oneal', 'ron-artest', 'reggie-miller', 'rick-carlisle'], ['pacers', 'pistons', 'heat'], ['playoffs', 'rivalries'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'pacers-underrated-curse', quote: 'the Pacers retoled' },
       { source: 'pacers-underrated-curse', quote: 'winning a still franchise best 61 games' },
       { source: 'pacers-underrated-curse', quote: 'Ron Artes was arguably the best defender in basketball and now had the defensive player of the year to prove it' },
@@ -1415,7 +1415,7 @@ export const stories: Story[] = [
     'Indiana drafts Paul George 10th',
     'At the time it wasn\'t a celebrated pick: George was a raw, little-known forward from Fresno State, and most expected a long-term project with Granger still the main wing. Few saw a franchise cornerstone. Indiana also took Lance Stephenson 40th.',
     ['paul-george', 'lance-stephenson', 'danny-granger', 'larry-bird'], ['pacers'], ['draft', 'steals'],
-    { sources: [
+    { categories: ['draft-drama'], sources: [
       { source: 'pacers-underrated-curse', quote: 'they selected a lengthy, relatively unknown forward out of Fresno State with the 10th overall pick' },
       { source: 'pacers-underrated-curse', quote: 'At the time, it wasn\'t exactly a celebrated selection' },
       { source: 'pacers-underrated-curse', quote: 'most expected him to be a long-term project' },
@@ -1426,7 +1426,7 @@ export const stories: Story[] = [
     'The Pacers take a 2-1 lead on the Heat',
     'Projected below .500, Indiana won 42 of 66 games for the third seed. Against Miami, Chris Bosh went down injured and the Pacers went up 2-1, then trailed by just three in the fourth quarter of Game 4 before LeBron James and Dwyane Wade flipped the series. It was still encouraging.',
     ['paul-george', 'danny-granger', 'roy-hibbert', 'david-west', 'lebron-james', 'dwyane-wade', 'chris-bosh'], ['pacers', 'heat', 'magic'], ['playoffs'],
-    { sources: [
+    { categories: ['surprises'], sources: [
       { source: 'pacers-underrated-curse', quote: 'A roster who was projected below 500 coming into the year' },
       { source: 'pacers-underrated-curse', quote: 'to the tune of 42 of 66 games, nabbing the third seed' },
       { source: 'pacers-underrated-curse', quote: 'Indie found themselves up 2-1' },
@@ -1437,7 +1437,7 @@ export const stories: Story[] = [
     'Hibbert blocks Melo and the Pacers take Miami to seven',
     'Nobody in the East was thought to be close to Miami, and most predictions had the 54-win Knicks beating Indiana in six, setting up Melo vs. LeBron in the conference finals. With Granger out, Paul George had made his first All-Star team and won Most Improved. Roy Hibbert\'s block on Carmelo Anthony ended the Knicks. Then, unlike a year earlier, the Pacers gave Miami a war: Hibbert went from about 11 and 8 to 22 and 10 against a Heat team unprepared for a true seven-footer, George guarded LeBron and threw down a famous poster dunk, and Indiana took Miami to seven before losing.',
     ['paul-george', 'roy-hibbert', 'carmelo-anthony', 'lebron-james', 'lance-stephenson', 'david-west'], ['pacers', 'knicks', 'heat'], ['playoffs', 'rivalries'],
-    { sources: [
+    { categories: ['contenders', 'surprises'], sources: [
       { source: 'pacers-underrated-curse', quote: 'no East teams were considered particularly close to the Heat' },
       { source: 'pacers-underrated-curse', quote: 'most predictions had the Knicks in six' },
       { source: 'pacers-underrated-curse', quote: 'Hbert denies him at the rim' },
@@ -1450,7 +1450,7 @@ export const stories: Story[] = [
     'The 33-7 Pacers fall apart',
     'Indiana started 33-7 and the NBA seemed to brand them the challenger to Miami\'s throne. Then came the cracks: Hibbert\'s offense plateaued, Lance Stephenson\'s antics became a distraction, and whispers said Hibbert and George had fallen out. At the deadline they traded Danny Granger for Evan Turner, and Hibbert complained about "selfish dudes." They went about .500 the rest of the way, nearly lost to the 38-44 Hawks (Hibbert had zero points and zero rebounds in Game 5), and Miami beat them in six.',
     ['paul-george', 'roy-hibbert', 'lance-stephenson', 'danny-granger', 'evan-turner', 'lebron-james'], ['pacers', 'heat', 'hawks', 'sixers'], ['playoffs', 'collapses', 'trades'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'pacers-underrated-curse', quote: 'They raced to a 33-7 record' },
       { source: 'pacers-underrated-curse', quote: 'I can vividly remember the NBA doing everything it could to brand them as the challengers to the throne' },
       { source: 'pacers-underrated-curse', quote: 'There were whispers that Hibbert and George had fallen out' },
@@ -1517,7 +1517,7 @@ export const stories: Story[] = [
     'The Pacers surprise their way to the conference finals',
     'Indiana traded for Pascal Siakam to win now around Haliburton, but entered the playoffs as a 47-win sixth seed seen as good, not great, with Boston a juggernaut. Helped by injuries, they reached the conference finals, which most wrote off. Boston swept them, but three of the four games were within five points, and Jaylen Brown admitted the Celtics couldn\'t figure out what was happening.',
     ['tyrese-haliburton', 'pascal-siakam', 'jaylen-brown'], ['pacers', 'celtics', 'raptors'], ['playoffs'],
-    { sources: [
+    { categories: ['surprises'], sources: [
       { source: 'pacers-underrated-curse', quote: 'acquiring Pascal Seakum from Toronto' },
       { source: 'pacers-underrated-curse', quote: 'signaling Indiana\'s intention to compete immediately' },
       { source: 'pacers-underrated-curse', quote: 'Entering the playoffs as a 47 win six seed, they were viewed as good, but not great' },
@@ -1529,7 +1529,7 @@ export const stories: Story[] = [
     'Haliburton\'s game winners carry Indiana to Game 7',
     'After a slow start, the Pacers were an afterthought. They beat Milwaukee on a Haliburton game winner, stunned a Cleveland team compared to Boston all year, and came back against the Knicks in the Garden from a spot where New York had a 99.7% win probability, echoing Reggie Miller 30 years earlier. Against the heavily favored Thunder, Haliburton hit another game winner in Game 1, and his late-game shooting looked legendary. Indiana led the series 2-1 and pushed it to Game 7, playing Haliburton through a strained calf. Early in Game 7 he tore his Achilles, and OKC won. The host says he has never seen a franchise with this much misfortune.',
     ['tyrese-haliburton', 'reggie-miller', 'pascal-siakam', 'shai-gilgeous-alexander'], ['pacers', 'bucks', 'cavaliers', 'knicks', 'thunder'], ['playoffs', 'buzzer beaters', 'injuries'],
-    { end: '2025-06', sources: [
+    { categories: ['surprises'], end: '2025-06', sources: [
       { source: 'pacers-underrated-curse', quote: 'Indie had been little more than an afterthought' },
       { source: 'pacers-underrated-curse', quote: 'Cleveland, however, had spent the entire year being compared to Boston' },
       { source: 'pacers-underrated-curse', quote: 'New York had a 99.7% win probability' },
@@ -1545,7 +1545,7 @@ export const stories: Story[] = [
     'Minnesota drafts Kevin Garnett out of high school',
     'Garnett became only the fourth player to go straight from high school to the pros. The usual story is that his grades kept him out of college, but he says that isn\'t the full truth: after holding his own in a scrimmage with Michael Jordan and Scottie Pippen, Isiah Thomas told him he was ready. On draft night he got a call saying he\'d finally hit the scores to play in college, but it was too late. Minnesota, which had never won more than 29 games, took him fifth.',
     ['kevin-garnett', 'michael-jordan', 'scottie-pippen'], ['timberwolves'], ['draft', 'high school'],
-    { sources: [
+    { categories: ['draft-drama'], sources: [
       { source: 'dom2k-timberwolves-instability', quote: 'only the fourth professional to come straight out of high school' },
       { source: 'dom2k-timberwolves-instability', quote: 'if you were taught it was due to his poor grades keeping him from college he claims that ain\'t the real or full truth' },
       { source: 'dom2k-timberwolves-instability', quote: 'had the privilege of playing a small scrimmage with both Michael Jordan and Scotty Pippen' },
@@ -1557,7 +1557,7 @@ export const stories: Story[] = [
     'Minnesota trades Ray Allen for Stephon Marbury',
     'With the fifth pick again, Minnesota took Ray Allen only to send him to Milwaukee for the player they really wanted, Stephon Marbury, Garnett\'s friend from high school. Guard-big duos were the formula, and in 1997 the Wolves won 40 games with a real direction for the first time: Marbury was second in Rookie of the Year voting and Garnett made his first All-Star team.',
     ['kevin-garnett', 'stephon-marbury', 'ray-allen', 'tom-gugliotta'], ['timberwolves', 'bucks'], ['draft', 'trades'],
-    { sources: [
+    { categories: ['draft-drama'], sources: [
       { source: 'dom2k-timberwolves-instability', quote: 'selected only for the purposes of sending him directly to Milwaukee in exchange for the prize they were really after' },
       { source: 'dom2k-timberwolves-instability', quote: 'Marberry and Garnett had a pre-existing relationship from their high school days' },
       { source: 'dom2k-timberwolves-instability', quote: 'the city would enjoy 40 wins and at long last a discernable Direction' },
@@ -1603,7 +1603,7 @@ export const stories: Story[] = [
     'Garnett wins MVP and the Wolves finally break through',
     'After a record seventh straight first-round exit, Minnesota traded for Sam Cassell and Latrell Sprewell, and outlets called it a big three. The Wolves won a franchise-record 58 games and the top seed in a brutal West, Cassell made his first All-Star team, and Garnett won MVP at 24 and 14; a young LeBron James called him the best player in the league. Wally Szczerbiak cracked vertebrae and Cassell suffered an avulsion fracture after an iconic celebration in Game 7 against the Kings, and the Lakers beat them in six in the conference finals.',
     ['kevin-garnett', 'sam-cassell', 'latrell-sprewell', 'wally-szczerbiak', 'lebron-james', 'chris-webber'], ['timberwolves', 'lakers', 'kings'], ['MVP', 'playoffs'],
-    { sources: [
+    { categories: ['mvp-race', 'contenders'], sources: [
       { source: 'dom2k-timberwolves-instability', quote: 'record setting seventh straight year of first round exits' },
       { source: 'dom2k-timberwolves-instability', quote: 'now had what Outlets were calling the big three' },
       { source: 'dom2k-timberwolves-instability', quote: 'would set a franchise record 58 wins NAB the first seed in a ridiculous conference' },
@@ -1632,7 +1632,7 @@ export const stories: Story[] = [
     'Minnesota drafts two point guards right before Stephen Curry',
     'Holding four first-round picks, Minnesota took Ricky Rubio fifth, who looked like the best prospect at points that year, and Jonny Flynn sixth, both point guards, right in front of Stephen Curry; they also passed on DeMar DeRozan. The host calls it a generational fumble in hindsight, but a choice many executives would have made in 2009. Rubio stayed in Spain, and Flynn\'s career faded after hip surgery.',
     ['ricky-rubio', 'jonny-flynn', 'stephen-curry', 'demar-derozan', 'kevin-love'], ['timberwolves', 'warriors'], ['draft', 'what-ifs'],
-    { sources: [
+    { categories: ['draft-drama'], sources: [
       { source: 'dom2k-timberwolves-instability', quote: 'Ricky Rubio who at some points in the year appeared to be the best Prospect available' },
       { source: 'dom2k-timberwolves-instability', quote: 'they selected Johnny Flynn another point guard' },
       { source: 'dom2k-timberwolves-instability', quote: 'the painful one is Steph cuz they took two point guards directly in front of him' },
@@ -1655,7 +1655,7 @@ export const stories: Story[] = [
     'Minnesota trades Kevin Love for Andrew Wiggins',
     'By Love\'s sixth year the franchise was where it had been when it drafted him, and his name kept turning up in dream scenarios. Golden State offered David Lee, a pick and Klay Thompson, but Jerry West threatened to resign. With LeBron returning to Cleveland, the Cavaliers sent No. 1 pick Andrew Wiggins, Anthony Bennett and Thaddeus Young for Love. Wiggins was hyped as Kobe\'s protege and won Rookie of the Year, the franchise\'s first.',
     ['kevin-love', 'andrew-wiggins', 'lebron-james', 'klay-thompson', 'zach-lavine', 'kobe-bryant'], ['timberwolves', 'cavaliers', 'warriors'], ['trades', 'Rookie of the Year'],
-    { sources: [
+    { categories: ['draft-drama'], sources: [
       { source: 'dom2k-timberwolves-instability', quote: 'the franchise was in nearly the exact same spot they\'d been in when they drafted him' },
       { source: 'dom2k-timberwolves-instability', quote: 'Jerry West threatened to resign from the franchise if the deal materialized' },
       { source: 'dom2k-timberwolves-instability', quote: 'the Cavaliers sent Andrew Wiggins Anthony Bennett and Thaddius young to the Wolves for Kevin Love' },
@@ -1678,7 +1678,7 @@ export const stories: Story[] = [
     'Jimmy Butler arrives in Minnesota and blows it up',
     'Tired of waiting on the lottery, Minnesota traded Zach LaVine and the seventh pick for Jimmy Butler. With Tom Thibodeau coaching, they won 47 games and made the playoffs for the first time in 14 years. But Butler doubted Wiggins and Towns. In a famous practice he ran with the backups, beat the starters, picked on Towns and shouted that they couldn\'t win without him, then told it all to Rachel Nichols. He was traded to Philadelphia on November 10, 2018.',
     ['jimmy-butler', 'karl-anthony-towns', 'andrew-wiggins', 'zach-lavine', 'tom-thibodeau', 'derrick-rose'], ['timberwolves', 'bulls', 'sixers'], ['trades', 'controversies'],
-    { end: '2018-11-10', sources: [
+    { categories: ['draft-drama'], end: '2018-11-10', sources: [
       { source: 'dom2k-timberwolves-instability', quote: 'quickly package him with Zack LaVine for Jimmy Butler' },
       { source: 'dom2k-timberwolves-instability', quote: 'the conglomerate achieved 47 wins making it their most coherent and successful outing in 14 years' },
       { source: 'dom2k-timberwolves-instability', quote: 'most were just happy to see their team being taken seriously again' },
@@ -1691,7 +1691,7 @@ export const stories: Story[] = [
     'Minnesota drafts Anthony Edwards first overall',
     'Burned by past picks, the Wolves shopped the No. 1 pick hard before taking Anthony Edwards, whose commitment was immediately questioned after he said he\'d give up basketball for the NFL. People said Minnesota had landed another dud. Within a few seasons he was drawing Michael Jordan comparisons.',
     ['anthony-edwards', 'karl-anthony-towns'], ['timberwolves'], ['draft'],
-    { sources: [
+    { categories: ['draft-drama'], sources: [
       { source: 'dom2k-timberwolves-instability', quote: 'you can look back and find just how hard their new first overall pick was being shopped' },
       { source: 'dom2k-timberwolves-instability', quote: 'immediately had his commitment to basketball questioned' },
       { source: 'dom2k-timberwolves-instability', quote: 'if he got drafted to the NFL he\'d give up basketball tomorrow' },
@@ -1714,7 +1714,7 @@ export const stories: Story[] = [
     'The Wolves knock out the champion Nuggets',
     'A year earlier, nobody expected Minnesota to beat Denver, the Gobert trade was being mocked, and the Wolves lost, though Nuggets fans noticed how good they might be when healthy. In 2024 Gobert won Defensive Player of the Year, Naz Reid won Sixth Man and Edwards blipped on MVP ballots, and the long-time laughing stock finished a game out of first. They swept Phoenix, then won both games in Denver. The Nuggets won three straight after Mike Conley got hurt, and it looked like the same cruel world. Edwards told reporters he\'d see them back in Denver for Game 7, and Minnesota won Game 6 and came back from 20 down in Game 7 on the road. Luka Doncic and Kyrie Irving\'s Mavericks then beat them in the conference finals, reviving the debate over whether you can win a title with Gobert.',
     ['anthony-edwards', 'rudy-gobert', 'karl-anthony-towns', 'naz-reid', 'mike-conley', 'nikola-jokic', 'luka-doncic', 'kyrie-irving'], ['timberwolves', 'nuggets', 'suns', 'mavericks'], ['playoffs', 'upsets', 'comebacks'],
-    { sources: [
+    { categories: ['surprises'], sources: [
       { source: 'dom2k-timberwolves-instability', quote: 'the long-standing laughing stock had a future MVP Talent' },
       { source: 'dom2k-timberwolves-instability', quote: 'they finished only a game out of first seed' },
       { source: 'dom2k-timberwolves-instability', quote: 'Not only was it a sweep' },
@@ -1730,7 +1730,7 @@ export const stories: Story[] = [
     'The 2006 Clippers come within a hair of the conference finals',
     'For most of the 2000s the Clippers were a placeholder franchise, almost never in the playoffs and drowned out by the Lakers even at home games. The host blames owner Donald Sterling for sabotaging the team: lowballing players and letting executive Elgin Baylor take the fall. The 2006 team of Sam Cassell, Corey Maggette, Elton Brand and Chris Kaman nearly won 50 and came within a hair of the conference finals. The next February, Shaun Livingston suffered one of the worst knee injuries in sports, and the young team faded back into obscurity.',
     ['donald-sterling', 'elton-brand', 'sam-cassell', 'shaun-livingston', 'elgin-baylor'], ['clippers', 'lakers'], ['playoffs', 'injuries', 'owners'],
-    { sources: [
+    { categories: ['surprises'], sources: [
       { source: 'clippers-never-ending-misfortune', quote: 'literally a placeholder franchise' },
       { source: 'clippers-never-ending-misfortune', quote: 'he did any number of things to essentially sabotage his organization' },
       { source: 'clippers-never-ending-misfortune', quote: 'lowballing his players and contract negotiations allowing executive eljen Baylor to take the fall' },
@@ -1752,7 +1752,7 @@ export const stories: Story[] = [
     'The Clippers win the lottery and Blake Griffin breaks his kneecap',
     'The castaway franchise won the right to pick Blake Griffin, seen as a magic bullet; Sterling had a history of losing top picks after their first contracts, but this one seemed fail-proof. In preseason Griffin broke his kneecap and missed the whole year, perfect foreshadowing. When he did debut he averaged 23 and 12 and jumped a car in the Dunk Contest, but none of it brought the Clippers any luck.',
     ['blake-griffin', 'donald-sterling', 'baron-davis', 'eric-gordon', 'chris-kaman'], ['clippers'], ['draft', 'lottery', 'injuries'],
-    { sources: [
+    { categories: ['draft-drama'], sources: [
       { source: 'clippers-never-ending-misfortune', quote: 'on May 19th 2009 a Castaway franchise or received the word that they\'d be picking first in a draft thought to contain a Magic Bullet in Blake Griffin' },
       { source: 'clippers-never-ending-misfortune', quote: 'Sterling had a history of losing top draft picks after the first contract this one was fail proof' },
       { source: 'clippers-never-ending-misfortune', quote: 'breaking his kneecap in the process' },
@@ -1764,7 +1764,7 @@ export const stories: Story[] = [
     'The Clippers give away the pick that becomes Kyrie Irving',
     'The Clippers traded Baron Davis and their unprotected 2011 first-round pick to Cleveland for Mo Williams. GM Neil Olshey explained that a 28-year-old All-Star point guard and cap flexibility were worth more than "speculating on another kid that\'s 19 years old," adding he wasn\'t high on the draft. The pick became Kyrie Irving, who would have paired nicely with a young Blake.',
     ['baron-davis', 'mo-williams', 'neil-olshey', 'kyrie-irving', 'blake-griffin'], ['clippers', 'cavaliers'], ['trades', 'draft', 'what-ifs'],
-    { sources: [
+    { categories: ['draft-drama'], sources: [
       { source: 'clippers-never-ending-misfortune', quote: 'being dealt to Cleveland from Mo Williams with a 2011 first rounder' },
       { source: 'clippers-never-ending-misfortune', quote: 'it was more valuable to get a 28-year-old All-Star point guard' },
       { source: 'clippers-never-ending-misfortune', quote: 'as opposed to speculating on another kid that\'s 19 years old' },
@@ -1785,7 +1785,7 @@ export const stories: Story[] = [
     'Lob City comes back from 24 down in Memphis',
     'Paul finished third in MVP voting in a 40-win lockout year. Before Game 1 at Memphis, the Clippers had won exactly one playoff game when trailing going into the fourth. Down 24 with about 11 minutes left, they came back as Nick Young hit three threes in a minute, then won the series in seven. A worn-down Paul, with an aggravated groin, then ran into a red-hot Spurs team on a 14-game streak.',
     ['chris-paul', 'blake-griffin', 'nick-young', 'vinny-del-negro', 'caron-butler'], ['clippers', 'grizzlies', 'spurs'], ['playoffs', 'comebacks'],
-    { sources: [
+    { categories: ['contenders', 'mvp-race'], sources: [
       { source: 'clippers-never-ending-misfortune', quote: 'Chris Paul finished third in MVP voting' },
       { source: 'clippers-never-ending-misfortune', quote: 'Los Angeles had won exactly one playoff game in franchise history when they were trailing headed into the fourth quarter' },
       { source: 'clippers-never-ending-misfortune', quote: 'Memphis led by 24 with roughly 11 minutes remaining' },
@@ -1820,7 +1820,7 @@ export const stories: Story[] = [
     'The Clippers blow Game 5 against OKC',
     'Some, like Steve Smith on NBA TV, picked a Heat-Clippers "all-Beach" Finals. Tied 2-2 with the Thunder, the Clippers led Game 5 by seven with 49 seconds left. Durant scored, Paul turned it over, Westbrook was fouled on a three, and an out-of-bounds call involving Matt Barnes went OKC\'s way. "We got robbed," Doc Rivers said, sure it was their ball. OKC won the series in six.',
     ['chris-paul', 'doc-rivers', 'kevin-durant', 'russell-westbrook', 'matt-barnes'], ['clippers', 'thunder', 'heat'], ['playoffs', 'collapses', 'officiating'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'clippers-never-ending-misfortune', quote: 'I actually remember Steve Smith on NBA TV specifically choosing Heat Clippers as the upcoming matchup' },
       { source: 'clippers-never-ending-misfortune', quote: 'when La led by seven points with 49 seconds remaining' },
       { source: 'clippers-never-ending-misfortune', quote: 'we got robbed because of that call' },
@@ -1831,7 +1831,7 @@ export const stories: Story[] = [
     'The Clippers blow a 3-1 lead to Houston',
     'Paul willed the Clippers past the defending champion Spurs, but strained his hamstring doing it. They still led Houston 3-1 and looked ready to face Golden State. Then, at home, Josh Smith and Corey Brewer happened, and the Rockets won three straight. The loss ended Lob City in all but name, while Golden State went on to win the title.',
     ['chris-paul', 'blake-griffin', 'deandre-jordan', 'austin-rivers', 'tim-duncan', 'josh-smith'], ['clippers', 'rockets', 'spurs', 'warriors'], ['playoffs', 'collapses'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'clippers-never-ending-misfortune', quote: 'Chris Paul had just emotionally willed his guys past an aging Dynasty' },
       { source: 'clippers-never-ending-misfortune', quote: 'only to sustain a strained hamstring' },
       { source: 'clippers-never-ending-misfortune', quote: 'the 3-1 lead fully suggested they were ready to settle matters with golden state' },
@@ -1875,7 +1875,7 @@ export const stories: Story[] = [
     'Lou Williams\' Clippers erase a 31-point deficit against the Warriors',
     'After Lob City, nobody expected much from a random collection of role players led by Lou Williams, plus newly acquired rookie Shai Gilgeous-Alexander, against Kevin Durant\'s Warriors. They won almost 50 games, then came back from 31 down to win Game 2, one of the wildest single games ever, and took the series to six, far better than anyone expected.',
     ['lou-williams', 'shai-gilgeous-alexander', 'kevin-durant'], ['clippers', 'warriors'], ['playoffs', 'comebacks'],
-    { sources: [
+    { categories: ['surprises'], sources: [
       { source: 'clippers-never-ending-misfortune', quote: 'this random assortment of role players posted almost 50 wins in 2019' },
       { source: 'clippers-never-ending-misfortune', quote: 'this placeholder unit erased a 31o deficit to win' },
       { source: 'clippers-never-ending-misfortune', quote: 'still an astronomically better result than anyone would have expected' },
@@ -1884,7 +1884,7 @@ export const stories: Story[] = [
     'The Clippers land Kawhi Leonard and Paul George',
     'Kawhi Leonard, fresh off a title in Toronto, chose the Clippers over the Lakers, and to get him they traded a haul of picks and Shai Gilgeous-Alexander for Paul George. The host says anyone would have made the deal for an MVP candidate and the reigning Finals MVP. It vaulted a one-year rebuild to the top and made the Clippers instant title favorites in what was supposed to be a Battle of L.A., with Kawhi filming an ad claiming L.A. was his town.',
     ['kawhi-leonard', 'paul-george', 'shai-gilgeous-alexander', 'lebron-james', 'anthony-davis', 'steve-ballmer'], ['clippers', 'lakers', 'thunder', 'raptors'], ['trades', 'free agency', 'superteams'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'clippers-never-ending-misfortune', quote: 'these perennial historic losers had pulled a power play acquiring both Paul George and Kawhi Leonard' },
       { source: 'clippers-never-ending-misfortune', quote: 'the hall here for George was also the only way they could get Leonard signature on the dotted line' },
       { source: 'clippers-never-ending-misfortune', quote: 'anybody would have done this deal in summer 2019' },
@@ -1895,7 +1895,7 @@ export const stories: Story[] = [
     'The Clippers blow a 3-1 lead to Denver in the bubble',
     'Everyone expected a Lakers-Clippers conference finals. Up 3-1 on Denver in the bubble, the Clippers led Game 5 for over 40 minutes and lost, then lost Games 6 and 7. The host calls it maybe the worst collapse in NBA history. Lou Williams later said the team never wanted to be in the bubble and took its foot off the gas, and Paul George described going weeks without sleep. George, who had called himself "Playoff P" and traded shots with Damian Lillard, was mercilessly mocked as the Lakers won the title.',
     ['kawhi-leonard', 'paul-george', 'lou-williams', 'nikola-jokic', 'damian-lillard'], ['clippers', 'nuggets', 'lakers'], ['playoffs', 'collapses', 'pandemic'],
-    { sources: [
+    { categories: ['contenders', 'surprises'], sources: [
       { source: 'clippers-never-ending-misfortune', quote: 'La gaining a 3-1 lead headed toward what everyone had been expecting for around a year now' },
       { source: 'clippers-never-ending-misfortune', quote: 'what ensued is probably the worst collapse in NBA history' },
       { source: 'clippers-never-ending-misfortune', quote: 'the clips LED for 40 minutes and 17 seconds of game time still managing to lose' },
@@ -1908,7 +1908,7 @@ export const stories: Story[] = [
     'Kawhi tears his ACL in a wide-open year',
     'With LeBron hurt and no dominant West team, 2021 looked like the year. The Clippers came back from 0-2 against Dallas, then Kawhi tore his ACL against Utah. They still beat the Jazz and reached their first conference finals, with Paul George carrying them, but lost to Chris Paul\'s Suns in six. The host calls 2021 likely their best chance for years.',
     ['kawhi-leonard', 'paul-george', 'chris-paul', 'luka-doncic', 'tyronn-lue'], ['clippers', 'jazz', 'suns', 'mavericks'], ['playoffs', 'injuries', 'what-ifs'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'clippers-never-ending-misfortune', quote: 'if there were any year to make a run 2021 was it' },
       { source: 'clippers-never-ending-misfortune', quote: 'inflicting what we eventually came to learn to be a torn ACL' },
       { source: 'clippers-never-ending-misfortune', quote: '21 was likely the best chance their franchise will ever have for some time' },
@@ -1929,7 +1929,7 @@ export const stories: Story[] = [
     'Minnesota drafts Brandon Roy and trades him for Randy Foye',
     'On draft night 2006, which the host calls the last chance to save the Garnett era, Minnesota took Brandon Roy sixth and immediately traded him to Portland for Randy Foye. At the time Foye was seen as the safer, more popular pick, and Roy had a documented knee issue. Roy won Rookie of the Year and was elite for three or four years; Foye looked like a role player, and the Wolves won 32 games.',
     ['brandon-roy', 'randy-foye', 'kevin-garnett', 'kevin-mchale'], ['timberwolves', 'blazers'], ['draft', 'trades', 'what-ifs'],
-    { sources: [
+    { categories: ['draft-drama'], sources: [
       { source: 'dom2k-timberwolves-instability', quote: 'which in hindsight was probably their last chance to salvage the Garnett ERA' },
       { source: 'dom2k-timberwolves-instability', quote: 'the wolf selected Brandon Roy then promptly shipped them off to Portland in a deal involving Randy Foy' },
       { source: 'dom2k-timberwolves-instability', quote: 'at the time Foy was viewed as the safer pick and was more popular in general' },
@@ -1941,7 +1941,7 @@ export const stories: Story[] = [
     'Wesley Johnson and Derrick Williams go 4th and 2nd',
     'With nobody willing to sign in Minnesota, the draft was everything. In 2010 the Wolves took Wesley Johnson fourth, right in front of DeMarcus Cousins, and missed on Gordon Hayward and Paul George; Johnson fell painfully short of what a fourth pick was expected to be. In 2011 Kyrie Irving and Derrick Williams were the consensus top two, and picking second, Minnesota did what any team would and took Williams. He followed Johnson\'s path, and both were gone within a couple of years.',
     ['wesley-johnson', 'derrick-williams', 'demarcus-cousins', 'kyrie-irving', 'paul-george', 'kevin-love'], ['timberwolves'], ['draft', 'busts'],
-    { end: '2011', sources: [
+    { categories: ['draft-drama'], end: '2011', sources: [
       { source: 'dom2k-timberwolves-instability', quote: 'who the hell goes to Minnesota in free agency' },
       { source: 'dom2k-timberwolves-instability', quote: 'they selected older Ford to Wesley Johnson at pick four right in front of DeMarcus Cousin' },
       { source: 'dom2k-timberwolves-instability', quote: 'they then missed Hayward and Paul George' },
@@ -1954,7 +1954,7 @@ export const stories: Story[] = [
     'The Celtics win the expected 2008 title, with warning signs',
     'Boston\'s 2008 title was fully expected after the biggest regular-season turnaround ever, and it proved you could trade and sign your way straight to a championship. Doc Rivers later said that to be one of the special Boston teams you needed to win at least two, which shouldn\'t have been a problem. But the signs were there early: two unnecessary seven-game series against inferior rosters, including a Cavs team that pushed Boston to the brink. The host says the run suggested one major injury or healthier competition could cause problems. That trio won one title.',
     ['kevin-garnett', 'paul-pierce', 'ray-allen', 'doc-rivers', 'lebron-james'], ['celtics', 'cavaliers', 'lakers'], ['championships', 'superteams'],
-    { aliases: ['Big Three Celtics'], sources: [
+    { categories: ['contenders'], aliases: ['Big Three Celtics'], sources: [
       { source: 'celtics-one-ring-36-years', quote: 'the fully expected 2008 title came on the heels of the biggest regular season turnaround ever' },
       { source: 'celtics-one-ring-36-years', quote: 'you could in fact immediately trade SL sign your way to a championship' },
       { source: 'celtics-one-ring-36-years', quote: 'to truly be one of the special Boston teams in history you needed to win two at least' },
@@ -1966,7 +1966,7 @@ export const stories: Story[] = [
     'Kevin Garnett hurts his knee and the repeat slips away',
     'Boston started 27-2 by Christmas, and a loss to the vengeful Lakers only confirmed what everybody thought: Celtics-Lakers would be the Finals for at least a couple more years. Then in late February, reigning Defensive Player of the Year Kevin Garnett went down with a knee injury, gutting the front line. The seventh-seeded Bulls, with zero expectations, came within a hair of upsetting the champions in one of the great playoff series, and Dwight Howard\'s Orlando, a young team nobody fully believed in yet, beat Boston in seven in the second round.',
     ['kevin-garnett', 'kendrick-perkins', 'glen-davis', 'dwight-howard', 'derrick-rose'], ['celtics', 'lakers', 'bulls', 'magic'], ['injuries', 'playoffs'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'celtics-one-ring-36-years', quote: 'off to a 27-2 start by Christmas' },
       { source: 'celtics-one-ring-36-years', quote: 'the matchup displayed what everybody had been thinking this was the NBA finals for at least a couple of more years' },
       { source: 'celtics-one-ring-36-years', quote: 'reigning the Defensive Player of the Year Kevin Garnett would go down with a non-con knee injury' },
@@ -1979,7 +1979,7 @@ export const stories: Story[] = [
     'The written-off Celtics reach the 2010 Finals',
     'Garnett came back a far cry from the 2008 player, Boston managed only 50 wins and the fourth seed, and they looked old, slow and tired next to LeBron\'s MVP Cavs and an even better Orlando. Media and fans alike gave up on them and dreamed of a second straight try at LeBron vs. Kobe. Instead Rajon Rondo emerged as a star, Boston beat both Cleveland and Orlando in six, and the Celtics got the Lakers rematch everyone had expected a year earlier. In one of the fiercest Finals ever, the veterans ran out of gas late and Kendrick Perkins tore his ACL; Kobe got his revenge.',
     ['kevin-garnett', 'rajon-rondo', 'paul-pierce', 'ray-allen', 'kendrick-perkins', 'lebron-james', 'kobe-bryant'], ['celtics', 'cavaliers', 'magic', 'lakers'], ['playoffs', 'upsets', 'rivalries'],
-    { sources: [
+    { categories: ['surprises', 'contenders'], sources: [
       { source: 'celtics-one-ring-36-years', quote: 'the big ticket that rejoined was a far cry from the player that signed in\' 08' },
       { source: 'celtics-one-ring-36-years', quote: 'Boston had managed only 50 wins compared to their last 2 60 win Seasons' },
       { source: 'celtics-one-ring-36-years', quote: 'they appeared old slow and tired' },
@@ -1994,7 +1994,7 @@ export const stories: Story[] = [
     'Boston trades Perkins and banks on Shaq',
     'After adding Shaquille O\'Neal, Jermaine O\'Neal and Delonte West, Boston had possibly the best starting five in the league, and opening night seemed to confirm that the older Celtics, not Miami\'s new Big Three, would be standing at the end. Then the injuries piled up: Shaq lasted 37 games, West and Jermaine 24 each. Danny Ainge traded Kendrick Perkins midseason on faith that Shaq would be ready by the playoffs, while getting younger with Jeff Green; Shaq later said he told Ainge not to do it. By the Heat series nearly everyone was hurt, Rondo dislocated his elbow, and Miami took over the East.',
     ['danny-ainge', 'kendrick-perkins', 'shaquille-oneal', 'jermaine-oneal', 'jeff-green', 'rajon-rondo'], ['celtics', 'heat'], ['trades', 'injuries', 'playoffs'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'celtics-one-ring-36-years', quote: 'possibly the best starting five in the league' },
       { source: 'celtics-one-ring-36-years', quote: 'opening night confirmed what many believe to be true the original more season Squad would be standing in the end' },
       { source: 'celtics-one-ring-36-years', quote: 'only surviving for 37 outings' },
@@ -2021,7 +2021,7 @@ export const stories: Story[] = [
     'The old Celtics take the Heat to seven nobody expected',
     'With Jeff Green out for the year after heart surgery and Allen, Garnett and Pierce in their mid-30s, Boston went 39-27 in the lockout season. The era of expectations was all but over: even if they got past Derrick Rose\'s Bulls, they clearly stood no chance against year two of the Heat. Then Rose tore his ACL in the first round and Chris Bosh hurt his abdomen, and a battered Celtics team pushed Miami to a seven-game conference finals nobody saw coming. LeBron won it.',
     ['kevin-garnett', 'paul-pierce', 'ray-allen', 'rajon-rondo', 'jeff-green', 'lebron-james', 'derrick-rose', 'chris-bosh'], ['celtics', 'heat', 'bulls'], ['playoffs', 'injuries', 'rivalries'],
-    { sources: [
+    { categories: ['surprises'], sources: [
       { source: 'celtics-one-ring-36-years', quote: 'he now required heart surgery that would hold him out of the entire season' },
       { source: 'celtics-one-ring-36-years', quote: 'heing out 39 wins in a 66 Game season' },
       { source: 'celtics-one-ring-36-years', quote: 'the era of expectation for Boston\'s big three was all but over' },
@@ -2048,7 +2048,7 @@ export const stories: Story[] = [
     'Boston trades Pierce and Garnett to Brooklyn',
     'Rondo tore his ACL at the end of January 2013 and the Knicks ended Boston\'s season in the first round. It had always been a question of when, not if, the core would be traded, and in late June Danny Ainge sent Pierce, Garnett and Jason Terry to Brooklyn for players who didn\'t matter and unprotected first-rounders in 2014, 2016 and 2018. In the moment, Brooklyn\'s new ownership got a team that could contend immediately, while Boston got time to see what it had in Rondo and Jeff Green, with picks as insurance. Three years later, the chickens came home to roost when one of those picks became Jaylen Brown at No. 3.',
     ['paul-pierce', 'kevin-garnett', 'jason-terry', 'danny-ainge', 'rajon-rondo', 'jeff-green', 'jaylen-brown'], ['celtics', 'nets', 'knicks'], ['trades', 'draft', 'rebuilds'],
-    { aliases: ['Nets trade'], sources: [
+    { categories: ['draft-drama'], aliases: ['Nets trade'], sources: [
       { source: 'celtics-one-ring-36-years', quote: 'that hope died when Rajan Rondo suffered a torn ACL at the end of January' },
       { source: 'celtics-one-ring-36-years', quote: 'once New York dashed their comeback hopes in the first round rebuild time had finally arrived' },
       { source: 'celtics-one-ring-36-years', quote: 'the question had always been when and not if pieces or all of the core would be traded' },
@@ -2063,7 +2063,7 @@ export const stories: Story[] = [
     'Boston\'s one rebuilding year',
     'Since he arrived in 2011, Boston fans had dreamed of Jeff Green becoming a rim-pressuring creator, even a number two option. Given 82 games as the first option, he admitted he couldn\'t do it alone. Ainge traded up for Kelly Olynyk, and a Celtics blog asked why he couldn\'t be the next Dirk, a comparison Dirk himself later shot down. The season sucked as expected. With the sixth pick in 2014 Boston took Marcus Smart, not long removed from shoving a fan, and then traded Rondo, the last piece of the 2008 team, to Dallas and Green for a draft pick, running the total to eight picks over four years. It is the only true rebuilding season Boston has had.',
     ['jeff-green', 'kelly-olynyk', 'marcus-smart', 'rajon-rondo', 'danny-ainge', 'dirk-nowitzki'], ['celtics', 'mavericks'], ['rebuilds', 'draft', 'trades', 'busts'],
-    { end: '2015-02', sources: [
+    { categories: ['draft-drama'], end: '2015-02', sources: [
       { source: 'celtics-one-ring-36-years', quote: 'Jeff Green returned as a mere promising role player who delusional fans held out hope could be the number two' },
       { source: 'celtics-one-ring-36-years', quote: '82 games of First Option Jeff Green revealed he was not a first option' },
       { source: 'celtics-one-ring-36-years', quote: 'couldn\'t do it alone' },
@@ -2078,7 +2078,7 @@ export const stories: Story[] = [
     'Boston trades for Isaiah Thomas',
     'Nobody could say when Boston would be relevant again, except the loudest, smallest person in the room. At the 2015 deadline Ainge got Isaiah Thomas from Phoenix for Marcus Thornton and a 2016 first. Boston scraped to a near-.500 record, made the playoffs and was swept by LeBron\'s Cavs as predicted. The next year Thomas, a 5-9 guard nobody had pegged as an All-Star, made his first All-Star team at 22 points a game and Boston won 48, with Terry Rozier a lucky pick at 16 who would matter sooner than later.',
     ['isaiah-thomas', 'danny-ainge', 'terry-rozier', 'lebron-james'], ['celtics', 'suns', 'cavaliers', 'hawks'], ['trades', 'steals', 'All-Star'],
-    { sources: [
+    { categories: ['surprises'], sources: [
       { source: 'celtics-one-ring-36-years', quote: 'no one could quite say for sure when beown would be relevant again except for the loudest smallest person in the room' },
       { source: 'celtics-one-ring-36-years', quote: 'acquiring offensive mini guard as a at Thomas for Marcus thordon in a 2016 first' },
       { source: 'celtics-one-ring-36-years', quote: 'a quick and predictable sweep ensued' },
@@ -2090,7 +2090,7 @@ export const stories: Story[] = [
     'Boston drafts Jaylen Brown and loses the Kevin Durant chase',
     'With the third pick from the Brooklyn trade, Boston took Jaylen Brown, hoping he would become the shooting guard of the future. The question was whether Isaiah Thomas, small and a defensive liability, could really restore a franchise, and Boston, like everyone, chased Kevin Durant after signing Al Horford. Landing Durant would have brought back title expectations in one of the shortest rebuilds ever. He signed with the 73-win Warriors instead, and the host says a title was out of the question for anyone as long as he wore that jersey.',
     ['jaylen-brown', 'kevin-durant', 'al-horford', 'isaiah-thomas'], ['celtics', 'warriors'], ['draft', 'free agency'],
-    { sources: [
+    { categories: ['draft-drama'], sources: [
       { source: 'celtics-one-ring-36-years', quote: 'with the third overall pick in the 2016 draft Jaylen Brown was chosen' },
       { source: 'celtics-one-ring-36-years', quote: 'the obvious Hope was for him to become the official shooting guard of of the future' },
       { source: 'celtics-one-ring-36-years', quote: 'was HE capable of being the element to restore a franchise to Glory' },
@@ -2102,7 +2102,7 @@ export const stories: Story[] = [
     'Isaiah Thomas\'s MVP-level year ends in a hip injury',
     'Nobody had foreseen Isaiah Thomas as an All-Star, let alone in MVP talk, but he scored nearly 30 a game for a 53-win team that seemed one piece away. Boston was clearly about to lose to Rondo, Wade and Jimmy Butler\'s Bulls after dropping both home games, until Rondo got hurt and Boston won four straight. They beat Washington in seven, then were predictably stamped out by the Cavs; everyone knew that only Cleveland, Golden State or San Antonio could realistically win. Thomas hurt his hip and missed the rest of the series after Game 2, in a year he said the front office would have to back up the Brinks truck. He still blames the team for letting him play.',
     ['isaiah-thomas', 'rajon-rondo', 'dwyane-wade', 'jimmy-butler', 'kelly-olynyk', 'lebron-james'], ['celtics', 'bulls', 'cavaliers'], ['playoffs', 'injuries', 'MVP'],
-    { sources: [
+    { categories: ['mvp-race', 'surprises'], sources: [
       { source: 'celtics-one-ring-36-years', quote: 'Isaiah Thomas was now putting up nearly 30 points a game on good efficiency while having his name mentioned in MVP conversations' },
       { source: 'celtics-one-ring-36-years', quote: 'there\'s no one who was claiming future MVP mentions' },
       { source: 'celtics-one-ring-36-years', quote: 'they\' moved into the one piece away territory' },
@@ -2131,7 +2131,7 @@ export const stories: Story[] = [
     'The Jays take Boston to Game 7 without Kyrie or Hayward',
     'With Hayward gone, fans postponed expectations; when Irving\'s knee required surgery that ruled him out of the playoffs too, it had to be over, a first-round exit at best. Instead Jaylen Brown and Jayson Tatum averaged 17 a game each, Boston took the second seed, beat Giannis Antetokounmpo\'s Bucks in seven and blasted a Sixers team seen as the next new era. Against LeBron\'s weakest roster since 2007, Boston won the first two games, but LeBron came back and won Game 7 in Boston, the fifth time he had eliminated them.',
     ['jaylen-brown', 'jayson-tatum', 'kyrie-irving', 'gordon-hayward', 'terry-rozier', 'lebron-james', 'giannis-antetokounmpo'], ['celtics', 'bucks', 'sixers', 'cavaliers'], ['playoffs', 'injuries'],
-    { sources: [
+    { categories: ['surprises'], sources: [
       { source: 'celtics-one-ring-36-years', quote: 'as far as fans were concerned expectations were postponed' },
       { source: 'celtics-one-ring-36-years', quote: 'Irving would randomly disappear this time through knee troubles' },
       { source: 'celtics-one-ring-36-years', quote: 'it had to be over now right' },
@@ -2145,7 +2145,7 @@ export const stories: Story[] = [
     'The 60-win Celtics fall apart and Kyrie leaves',
     'Adding a healthy Irving and Hayward to a team that had just reached Game 7 of the conference finals seemed fail-proof, and Kyrie told the home crowd he planned to re-sign. The roster was thought to have 60-win potential. Instead it was Boston\'s first sub-50-win season since 2016, full of bad losses, non-committal Kyrie comments and waiting for Hayward to find his old form. Milwaukee knocked them out, and the host says anyone who missed Kyrie\'s All-Star tunnel video with Kevin Durant was in denial. Irving left, Horford shocked them by signing with Philadelphia, and Kemba Walker arrived in a deal involving Rozier.',
     ['kyrie-irving', 'gordon-hayward', 'kevin-durant', 'al-horford', 'kemba-walker', 'terry-rozier'], ['celtics', 'bucks', 'sixers'], ['free agency', 'busts', 'controversies'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'celtics-one-ring-36-years', quote: 'throwing Irving and Hayward back onto a roster with so much success seemed fail prooof' },
       { source: 'celtics-one-ring-36-years', quote: 'rather it turned out being most of the problem' },
       { source: 'celtics-one-ring-36-years', quote: 'their first sub 50 win season since 2016 via a roster that was thought to have 60 win potential' },
@@ -2158,7 +2158,7 @@ export const stories: Story[] = [
     'Jaylen Brown says "the energy is about to shift"',
     'Brad Stevens had replaced Danny Ainge in the front office and hired Ime Udoka, but at 26-25 Boston looked like a bottom-feeding East team, and people asked whether the Tatum-Brown pairing had peaked and whether Stevens would have to trade Brown. On January 31, Brown tweeted that the energy was about to shift. Boston won eight straight, traded for Derrick White, and lost only five more games; Marcus Smart won Defensive Player of the Year. They swept Brooklyn, got past Milwaukee and beat Miami in seven to reach their first Finals in 12 years. Golden State won in six: Tatum was clamped by Andrew Wiggins, and Draymond Green later said their plan was to send Brown left.',
     ['jaylen-brown', 'jayson-tatum', 'brad-stevens', 'ime-udoka', 'derrick-white', 'marcus-smart', 'robert-williams', 'al-horford', 'stephen-curry', 'andrew-wiggins', 'draymond-green'], ['celtics', 'nets', 'bucks', 'heat', 'warriors'], ['playoffs', 'turnarounds', 'Defensive Player of the Year'],
-    { sources: [
+    { categories: ['surprises'], sources: [
       { source: 'celtics-one-ring-36-years', quote: 'Brad Stevens would supplant Danny a as executive hiring eme udoka to replace him as coach' },
       { source: 'celtics-one-ring-36-years', quote: 'presently appearing to be a bottom feeding yeast team' },
       { source: 'celtics-one-ring-36-years', quote: 'had they Peak too early would Stevens be forced to trade Jaylen Brown sooner than later' },
@@ -2187,7 +2187,7 @@ export const stories: Story[] = [
     'Boston falls behind 3-0 to Miami and nearly comes back',
     'Tatum was a full-blown superstar at 30 a game, and after Atlanta took them six and Philadelphia seven, his heroics in Games 6 and 7 against the 76ers suggested Boston had finally turned a corner. Next was Miami, a seventh seed fans had no faith in a month earlier. The Heat went up 3-0, yet another meltdown. Boston nearly pulled off the greatest comeback ever, with graphics being made and Derrick White\'s game winner, but lost again despite all the expectations.',
     ['jayson-tatum', 'jaylen-brown', 'derrick-white', 'joel-embiid', 'james-harden', 'jimmy-butler'], ['celtics', 'heat', 'hawks', 'sixers'], ['playoffs', 'upsets', 'comebacks'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'celtics-one-ring-36-years', quote: 't had become a Flatout Superstar averaging 30 points a game' },
       { source: 'celtics-one-ring-36-years', quote: 'Atlanta taking this team six was the first warning sign' },
       { source: 'celtics-one-ring-36-years', quote: 'they always kick our ass' },
@@ -2214,7 +2214,7 @@ export const stories: Story[] = [
     'Preseason 2026-27: the Pacers are expected back near the top of the East',
     'Going into 2026-27, this preview treated a good Pacers season as close to a given. Ivica Zubac, acquired the season before to replace Myles Turner, looked like the addition they hoped for, Kelly Oubre added to a deep group of wing defenders, and Tyrese Haliburton looked set to join the players who came back from an Achilles tear. The host expected Indiana, health willing, to be one of the top teams in the East, and noted it sat below the first apron with little contract pressure this season. The season is still being played.',
     ['ivica-zubac', 'myles-turner', 'tyrese-haliburton', 'pascal-siakam', 'obi-toppin', 'kelly-oubre'], ['pacers'], ['previews', 'expectations'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'preseason-2027-thoughts', quote: 'One of which in my opinion being the Pacers are going to be good' },
       { source: 'preseason-2027-thoughts', quote: 'in and replaced Myles Turner' },
       { source: 'preseason-2027-thoughts', quote: 'I believe he is going to be the addition we thought he was going to be when they pulled this trade off last season' },
@@ -2226,7 +2226,7 @@ export const stories: Story[] = [
     'Preseason 2026-27: Trae Young, Anthony Davis and the No. 1 pick in Washington',
     'Washington came into 2026-27 with a motivated Anthony Davis in what was basically a contract year: he had a player option and wanted an extension the Wizards had so far been wary to give, given his health. Trae Young led the preseason with 23 assists, and the big lineup behind him was expected to cover for a guard teams would hunt on defense. The host liked that the No. 1 pick, AJ, would not have to be rushed into a high-usage role on a bad team, and called backup center the role DeAndre Ayton was made for. His verdict: finally a bright day, potentially, in Washington. The season is still being played.',
     ['anthony-davis', 'trae-young', 'deandre-ayton', 'bub-carrington'], ['wizards'], ['previews', 'expectations', 'contracts'],
-    { sources: [
+    { categories: ['draft-drama'], sources: [
       { source: 'preseason-2027-thoughts', quote: 'The Wizards have a motivated Anthony Davis' },
       { source: 'preseason-2027-thoughts', quote: 'He is basically in a contract year' },
       { source: 'preseason-2027-thoughts', quote: 'We know so far Washington has been wary to give it to him' },
@@ -2240,7 +2240,7 @@ export const stories: Story[] = [
     'Preseason 2026-27: PG LeBron and the Sixers\' health question',
     'The 76ers were expected to be the team everyone watched in 2026-27. In LeBron James\'s first game with them, Nick Nurse used him as a point guard, as promised, and he had five assists in the first quarter against Brooklyn. Turning 42 during the season, he would be the table-setter for Jaylen Brown and Joel Embiid, and the host doubted Brown and Embiid would work long term without a real playmaker. The worry was health: this was not a team that could survive constant lineup changes, and a big man at their most questionable position ruptured his Achilles about three minutes into the preseason, leaving Jabari Parker to fill in. The host\'s verdict: if it clicks, GG. The season is still being played.',
     ['lebron-james', 'jaylen-brown', 'joel-embiid', 'nick-nurse', 'jabari-parker'], ['sixers', 'nets'], ['previews', 'expectations', 'injuries'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'preseason-2027-thoughts', quote: 'where it will often be turned throughout the season, the Philadelphia 76ers' },
       { source: 'preseason-2027-thoughts', quote: 'as coach Nurse said we would see, PG LeBron' },
       { source: 'preseason-2027-thoughts', quote: 'He opened his career with five assists in the first quarter' },
@@ -2255,7 +2255,7 @@ export const stories: Story[] = [
     'Preseason 2026-27: LaMelo Ball and Anthony Edwards in Minnesota',
     'In Minnesota, the pairing of Anthony Edwards and LaMelo Ball looked like it would be just fine. The doubts were elsewhere. Without Naz Reid and Julius Randle the Wolves had lost size and scoring inside, Jonathan Kuminga was a giant question mark as a fit next to Rudy Gobert, and the host wished they had Donte DiVincenzo. Gobert, 34, had a player option next year, so this season would decide whether the group was kept together. The host didn\'t think they had the big man depth to get past San Antonio. The season is still being played.',
     ['anthony-edwards', 'lamelo-ball', 'rudy-gobert', 'jonathan-kuminga', 'jaden-mcdaniels', 'donte-divincenzo', 'naz-reid', 'julius-randle', 'chris-finch'], ['timberwolves', 'spurs'], ['previews', 'expectations'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'preseason-2027-thoughts', quote: 'the synergy between Ant and LaMelo looks like it\'s going to be just fine to me' },
       { source: 'preseason-2027-thoughts', quote: 'boy, would I have loved to see Donte DiVincenzo on this team' },
       { source: 'preseason-2027-thoughts', quote: 'So, he is still a giant question mark to me' },
@@ -2270,7 +2270,7 @@ export const stories: Story[] = [
     'Preseason 2026-27: Giannis and the Heat as fringe contenders',
     'Miami, now with Giannis Antetokounmpo, was the preview\'s most interesting case. The shooting looked about where expected, and having Giannis and Bam Adebayo handle the ball answered some of the summer\'s questions. The host expected a defense that would get a lot of stops and a team that could push the pace in transition, but suspected half-court problems against elite teams, and said they could easily be seen as only fringe contenders. The season is still being played.',
     ['giannis-antetokounmpo', 'bam-adebayo', 'andrew-wiggins'], ['heat'], ['previews', 'expectations'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'preseason-2027-thoughts', quote: 'The Miami Heat remain extremely interesting to me' },
       { source: 'preseason-2027-thoughts', quote: 'And Yiannis is so generational' },
       { source: 'preseason-2027-thoughts', quote: 'Andrew Wiggins right now, I believe he might just be building on what he did last season' },
@@ -2282,7 +2282,7 @@ export const stories: Story[] = [
     'Preseason 2026-27: the Thunder\'s Jalen Williams question',
     'For OKC, the preview\'s worry was Jalen Williams. The host hadn\'t liked the shape he was in for a while, and he was one of the team\'s highest-paid players. After trading Lu Dort the Thunder had much less wing depth to cover for him, teams had been using zone against them since the 2025 playoffs, and Cason Wallace shot only 35% from three. With San Antonio likely in the way, getting out of the West was splitting hairs, and the host said so much of OKC\'s year hinged on Williams. The season is still being played.',
     ['jalen-williams', 'cason-wallace', 'luguentz-dort'], ['thunder', 'spurs'], ['previews', 'expectations', 'injuries'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'preseason-2027-thoughts', quote: 'I am keeping a close eye on J-Dub' },
       { source: 'preseason-2027-thoughts', quote: 'I haven\'t for a while like the shape that he is in' },
       { source: 'preseason-2027-thoughts', quote: 'He is one of the highest paid players there' },
@@ -2296,7 +2296,7 @@ export const stories: Story[] = [
     'Preseason 2026-27: DeMar DeRozan comes off the bench in Denver',
     'Denver was preparing DeMar DeRozan for a bench role, starting Cam Johnson and Christian Braun instead, with the hope that DeRozan would be the only guard creator besides Jamal Murray. The host\'s bigger concern was that Denver\'s defense would be able to do nothing against great teams. The season is still being played.',
     ['demar-derozan', 'jamal-murray', 'nikola-jokic', 'cam-johnson', 'christian-braun'], ['nuggets'], ['previews', 'expectations'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'preseason-2027-thoughts', quote: 'DeMar DeRozan is being prepped for a bench role' },
       { source: 'preseason-2027-thoughts', quote: 'of having Cam Johnson, of having Christian Braun' },
       { source: 'preseason-2027-thoughts', quote: 'the hope is him being basically the only other guard creator on the roster that isn\'t Jamal Murray' },
@@ -2306,7 +2306,7 @@ export const stories: Story[] = [
     'Len Bias dies after Boston drafts him',
     'Boston, the reigning champions, held the second pick in 1986 thanks to an earlier Red Auerbach trade and took Len Bias, a forward expected to keep the dynasty steady through the \'90s and, the host says, partly expected to be Michael Jordan\'s rival. On June 19, 1986, Bias died of an overdose. Reggie Lewis, drafted a year later, became a contributor and made his first All-Star team, then died of a heart condition in 1993. The aging Celtics were left to face Father Time, and the host says Boston\'s losses reshaped the \'90s East.',
     ['len-bias', 'reggie-lewis', 'red-auerbach', 'larry-bird', 'michael-jordan'], ['celtics', 'bulls'], ['draft', 'tragedies', 'what-ifs'],
-    { sources: [
+    { categories: ['draft-drama'], sources: [
       { source: 'east-weak-timeline', quote: 'With the second overall pick in 1986, the NBA champion Boston Celtics selected Len Bias, an opposing forward poised to keep a dynasty floating steady through the \'90s' },
       { source: 'east-weak-timeline', quote: 'On June 19th, 1986, Bias sadly overdosed while partying' },
       { source: 'east-weak-timeline', quote: 'Boston now had no choice but to face Father Time faithfully' },
@@ -2318,7 +2318,7 @@ export const stories: Story[] = [
     'Is the league watered down? The 72-win Bulls debate',
     'Four expansion franchises joined the East between 1990 and 1995, and as the Bulls chased 70 wins, players and coaches said the league was diluted. In a Deseret News column the host dates to January 5, 1995, Richard Evans wrote that there were no great teams, with Chicago the prime evidence. Dennis Rodman said they could beat anybody with their eyes closed, Jerry Sloan said three great players were now enough to contend, and Larry Bird and Charles Barkley agreed. The host counted nine of the 72 wins against new East expansion teams, but argues the East wasn\'t bad in Jordan\'s time; there was simply no equal to Chicago.',
     ['michael-jordan', 'dennis-rodman', 'jerry-sloan', 'larry-bird', 'charles-barkley'], ['bulls', 'magic'], ['expansion', 'records', 'dynasties'],
-    { aliases: ['72-10'], sources: [
+    { categories: ['contenders'], aliases: ['72-10'], sources: [
       { source: 'east-weak-timeline', quote: 'They\'ve been one of four franchises to join the East between 1990 and \'95' },
       { source: 'east-weak-timeline', quote: 'There are no great NBA teams this season. The prime evidence is Chicago.' },
       { source: 'east-weak-timeline', quote: 'This league is so filtered and watered down. We can beat anybody with our eyes closed pretty much.' },
@@ -2331,7 +2331,7 @@ export const stories: Story[] = [
     'Iverson\'s Sixers reach the 2001 Finals',
     'Allen Iverson\'s 2001 Sixers reached the Finals with a 34-year-old Dikembe Mutombo winning Defensive Player of the Year and Aaron McKie winning Sixth Man. Larry Brown later claimed they\'d probably have beaten the Lakers if McKie hadn\'t been hurt; the host says a team with Iverson, two bigs and almost no spacing should never have been a Finals team, and they won one game. Iverson had already missed out on partners: Brown kept a promise to draft Larry Hughes eighth in 1998, one pick before Dirk Nowitzki, and Toronto was reportedly ready to trade Tracy McGrady and a first for Hughes before the deal fell apart. As of 2024 Philadelphia had not topped 56 wins or made another conference finals.',
     ['allen-iverson', 'larry-brown', 'aaron-mckie', 'dikembe-mutombo', 'larry-hughes', 'dirk-nowitzki', 'tracy-mcgrady'], ['sixers', 'lakers', 'raptors'], ['playoffs', 'draft', 'what-ifs'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'east-weak-timeline', quote: 'Mutombo was 34 years old and his best days had definitely come and gone' },
       { source: 'east-weak-timeline', quote: 'Aaron McKie grabbed Sixth Man of the Year' },
       { source: 'east-weak-timeline', quote: 'head coach Larry Brown claimed if McKie hadn\'t have gotten hurt, they\'d have probably beat the Lakers' },
@@ -2358,7 +2358,7 @@ export const stories: Story[] = [
     'The Pistons\' 2004 title nobody saw coming',
     'Detroit passed on Carmelo Anthony for Darko Milicic in 2003, possibly the most dramatic draft miss ever, then recovered by trading for Rasheed Wallace. Their conference finals against 61-win Indiana looked like the start of a long rivalry between two undeniable teams, until the Malice at the Palace. In the Finals, by most accounts, the best of a feeble conference should have come up short again; instead the Pistons beat the Lakers\' attempted superteam in five, a massive upset. With Ben Wallace their only All-Star, the host says teams like that rarely have long runs, and despite six straight conference finals they missed their timing.',
     ['ben-wallace', 'rasheed-wallace', 'darko-milicic', 'carmelo-anthony', 'shaquille-oneal', 'kobe-bryant'], ['pistons', 'lakers', 'pacers', 'nuggets'], ['championships', 'upsets', 'draft'],
-    { sources: [
+    { categories: ['contenders', 'surprises'], sources: [
       { source: 'east-weak-timeline', quote: 'prompting possibly the most dramatic draft miss ever' },
       { source: 'east-weak-timeline', quote: 'Detroit rebounded from drafting Darko Milicic by acquiring honorary Atlanta Hawks member Rasheed Wallace' },
       { source: 'east-weak-timeline', quote: 'It marked the first time in years there were two undeniable teams squaring off' },
@@ -2372,7 +2372,7 @@ export const stories: Story[] = [
     'LeBron drags the Cavs to the 2007 Finals',
     'Cleveland had already been finessed into letting Carlos Boozer out of his contract, and Michael Redd chose Milwaukee in 2005, saying he\'d rather go down with the ship than join a star; LeBron claims that with Redd they\'d have beaten the Spurs. Instead a 22-year-old LeBron, with Larry Hughes as his second-leading scorer, willed maybe the second-worst Finals roster of the modern era out of the East. They didn\'t have a prayer against San Antonio, which, the host says, had privately called dibs on the title as long as it beat Phoenix. The host says the matchup itself showed the gap between the conferences.',
     ['lebron-james', 'larry-hughes', 'carlos-boozer', 'michael-redd', 'tim-duncan'], ['cavaliers', 'spurs', 'bucks', 'suns'], ['playoffs', 'free agency'],
-    { sources: [
+    { categories: ['contenders', 'surprises'], sources: [
       { source: 'east-weak-timeline', quote: 'the front office got finessed into letting Carlos Boozer out of a restricted contract' },
       { source: 'east-weak-timeline', quote: 'Only his heart was with Milwaukee' },
       { source: 'east-weak-timeline', quote: 'Had he folded, LeBron claims they beat the Spurs in \'07' },
@@ -2387,7 +2387,7 @@ export const stories: Story[] = [
     'The 60-win Hawks, "Spurs of the East"',
     'Atlanta went from 38 wins to 60 with four All-Stars, and people started calling them the Spurs of the East. The host says most called BS immediately: nobody believed All-Stars Jeff Teague and Kyle Korver would move the needle in May. LeBron\'s new Cavs, with Kyrie Irving and Kevin Love, finished second to Atlanta, and Toronto was already on Fraud Watch. Even with Love out early with a shoulder injury, Cleveland lost only two games on the way to the Finals.',
     ['jeff-teague', 'kyle-korver', 'al-horford', 'lebron-james', 'kyrie-irving', 'kevin-love'], ['hawks', 'cavaliers', 'raptors'], ['regular season', 'playoffs'],
-    { sources: [
+    { categories: ['surprises', 'contenders'], sources: [
       { source: 'east-weak-timeline', quote: 'The 2014 Hawks won 38 games' },
       { source: 'east-weak-timeline', quote: 'turned the bleeding into the most random 60-win team of all time' },
       { source: 'east-weak-timeline', quote: 'You could see discourse shifting to call them the Spurs of the East' },
@@ -2401,7 +2401,7 @@ export const stories: Story[] = [
     'Could the Wizards beat LeBron? The 2017 East',
     'Durant\'s move to Golden State pushed Cleveland to improve further, and the rest of the East fell further behind: an Isaiah Thomas-led Celtics team took the first seed, which the host says told you everything. People got desperate enough to argue that John Wall\'s speed gave Washington a chance against LeBron. Wall later insisted the Cavs did not want to see the Wizards and that he\'d take his team at most positions. The host doubts it. Cleveland lost only once on the way to a Finals it couldn\'t win.',
     ['john-wall', 'lebron-james', 'kyrie-irving', 'isaiah-thomas', 'kevin-durant'], ['wizards', 'cavaliers', 'celtics', 'warriors'], ['playoffs', 'rivalries'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'east-weak-timeline', quote: 'his move triggered Cleveland to further improve' },
       { source: 'east-weak-timeline', quote: 'first seed wound up going to an Isaiah Thomas-led Celtics, which tells you everything you need to know' },
       { source: 'east-weak-timeline', quote: 'discourse began about how Washington sort of maybe kind of sort of chance because John Wall\'s speed could be problematic' },
@@ -2413,7 +2413,7 @@ export const stories: Story[] = [
     'The 2019 East, with four real contenders',
     'In 2018, with Toronto near 60 wins, many still picked LeBron to eliminate the Raptors. When LeBron left the East, Toronto traded for Kawhi Leonard at his peak, Philadelphia made early deals for Tobias Harris and Jimmy Butler, Giannis Antetokounmpo\'s Bucks were contending and Boston had Kyrie Irving back. It was the first time the East had four teams that could be strongly considered for a title, maybe the only time since the old days, yet in 2019 the host says any of them would win only if something happened to Golden State. Toronto won it, starting a new era.',
     ['kawhi-leonard', 'kyle-lowry', 'demar-derozan', 'giannis-antetokounmpo', 'jimmy-butler', 'tobias-harris', 'joel-embiid', 'lebron-james'], ['raptors', 'bucks', 'sixers', 'celtics', 'warriors'], ['playoffs', 'championships', 'trades'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'east-weak-timeline', quote: 'there were still many of us picking LeBron and company to eliminate them' },
       { source: 'east-weak-timeline', quote: 'Toronto decided the power of friendship wasn\'t cutting it, swooping in and stealing Kawhi at the peak of his powers' },
       { source: 'east-weak-timeline', quote: 'Philly saw the opportunity and cut early deals for both Tobias Harris and Jimmy Butler' },
@@ -2426,7 +2426,7 @@ export const stories: Story[] = [
     'Brooklyn adds James Harden to Durant and Irving',
     'In January 2021 Brooklyn traded for a dissatisfied James Harden to join Kevin Durant and Kyrie Irving, and the Nets instantly became favorites to win the East; fans could laugh at Boston for the old deal, since it would be the Nets who won first. Instead injuries dismantled the trio, which shared the court for just 16 games, winning 13, and Harden left after barely a full year. Milwaukee won the 2021 title, beating in the conference finals an Atlanta team, led by Trae Young with John Collins as second option, that people would have laughed at you for believing in.',
     ['james-harden', 'kevin-durant', 'kyrie-irving', 'giannis-antetokounmpo', 'trae-young', 'john-collins'], ['nets', 'bucks', 'hawks', 'sixers'], ['trades', 'superteams', 'injuries'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'east-weak-timeline', quote: 'In January 2021, Brooklyn executed a deal to land a dissatisfied James Harden on top of Durant and Irving' },
       { source: 'east-weak-timeline', quote: 'they instantly became conference champion favorites' },
       { source: 'east-weak-timeline', quote: 'It\'d be the Nets who\'d win first after all' },
@@ -2452,7 +2452,7 @@ export const stories: Story[] = [
     'Boston wins the 2024 title through an injured East',
     'After a few misses, Brad Stevens rebuilt the roster around Jayson Tatum and Jaylen Brown, and the host spent 2024 saying that if Boston didn\'t win then, it wasn\'t going to happen. Boston was the league\'s only 60-win team and won the title. Because so many East rivals were hurt, including Jalen Brunson, Donovan Mitchell, Tyrese Haliburton and a Bucks team in its first Damian Lillard season, it looked like a bye to the Finals and fed talk of a weak East. The host\'s view: the East wasn\'t weak, it was injured, and even healthy none of them would have beaten Boston.',
     ['jayson-tatum', 'jaylen-brown', 'brad-stevens', 'jalen-brunson', 'donovan-mitchell', 'tyrese-haliburton', 'damian-lillard', 'giannis-antetokounmpo'], ['celtics', 'knicks', 'cavaliers', 'pacers', 'bucks', 'heat'], ['championships', 'injuries'],
-    { sources: [
+    { categories: ['contenders'], sources: [
       { source: 'east-weak-timeline', quote: 'Brad Stevens went out and redid the roster' },
       { source: 'east-weak-timeline', quote: 'I spent 2024 saying if they didn\'t win it now, it just wasn\'t going to happen' },
       { source: 'east-weak-timeline', quote: 'a run through a conference nobody respected' },
