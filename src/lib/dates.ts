@@ -5,7 +5,7 @@ export const MONTHS = [
   'July', 'August', 'September', 'October', 'November', 'December',
 ];
 
-export const FIRST_YEAR = 1900;
+export const FIRST_YEAR = 1940;
 
 const pad = (n: number) => String(n).padStart(2, '0');
 
