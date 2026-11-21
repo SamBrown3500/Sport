@@ -17,7 +17,9 @@ export type Route =
   | { page: 'player'; id: string }
   | { page: 'team'; id: string }
   | { page: 'players' }
-  | { page: 'teams' };
+  | { page: 'teams' }
+  | { page: 'sources' }
+  | { page: 'source'; id: string };
 
 export function parse(hash: string): Route {
   const h = hash.replace(/^#/, '');
@@ -31,6 +33,8 @@ export function parse(hash: string): Route {
   if ((m = h.match(/^story-([a-z0-9-]+)$/))) return { page: 'story', id: m[1] };
   if ((m = h.match(/^player-([a-z0-9-]+)$/))) return { page: 'player', id: m[1] };
   if ((m = h.match(/^team-([a-z0-9-]+)$/))) return { page: 'team', id: m[1] };
+  if ((m = h.match(/^source-([a-z0-9-]+)$/))) return { page: 'source', id: m[1] };
+  if (h === 'sources') return { page: 'sources' };
   if (h === 'search') return { page: 'search' };
   if (h === 'players') return { page: 'players' };
   if (h === 'teams') return { page: 'teams' };
@@ -52,6 +56,8 @@ export const href = {
   team: (id: string) => `#team-${id}`,
   players: '#players',
   teams: '#teams',
+  sources: '#sources',
+  source: (id: string) => `#source-${id}`,
 };
 
 /** Link for a partial ISO date at whatever precision it has. */

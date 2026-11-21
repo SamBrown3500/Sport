@@ -23,6 +23,38 @@ export interface Story {
   tags: string[];
   /** Other names people search for, e.g. "Ice Bowl". */
   aliases?: string[];
+  /** Where this narrative comes from. A story with none is still a draft. */
+  sources?: Citation[];
+}
+
+/** A video, podcast, article or book that narratives are drawn from. */
+export interface Source {
+  id: string;
+  kind: 'video' | 'podcast' | 'article' | 'book';
+  title: string;
+  /** Channel, show, publication or author. */
+  outlet: string;
+  /** Where to watch, listen or read it. */
+  url?: string;
+  /** When it came out, YYYY-MM-DD (or YYYY-MM / YYYY if that is all we know). */
+  published?: string;
+  /** When it was added to the site, YYYY-MM-DD. */
+  added: string;
+  /** One or two sentences on what it covers. */
+  about: string;
+  /** Transcript or notes kept in the repo, e.g. sources/transcripts/<id>.md. */
+  transcript?: string;
+}
+
+/** A pointer from a narrative to the exact place in a source that backs it up. */
+export interface Citation {
+  source: string;
+  /** Timestamp in the video or episode: M:SS or H:MM:SS. */
+  at?: string;
+  /** Page or section, for articles and books. */
+  page?: string;
+  /** A short quote that supports the narrative. */
+  quote?: string;
 }
 
 export interface Player {

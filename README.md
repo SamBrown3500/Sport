@@ -23,6 +23,10 @@ npm run build    # writes a single self-contained dist/index.html
 
 Add an entry to `src/data/stories.ts`. Give it a date at the precision you actually know (`1962-03-02`, `1962-03` or `1962`), link players and teams by id from `src/data/people.ts`, and add `aliases` for nicknames people will search. `npm test` checks every link and date.
 
+## Sources
+
+Videos, podcasts, articles and books live in `src/data/sources.ts`, with transcripts in `sources/transcripts/`. Narratives cite them with a timestamp and a short quote, and the site shows a Sources library, a page per source (with the video embedded for YouTube) and a citation list on each narrative. See [docs/ADDING_SOURCES.md](docs/ADDING_SOURCES.md).
+
 ## What comes next
 
 See the plan doc. Milestone 2 adds season stats to player and team pages, which is when the data moves from these files into a database and the app moves to Next.js with real URLs (`/1962/03/02`). The data layer in `src/lib/db.ts` is the only file pages read from, so that swap stays contained.

@@ -1,6 +1,7 @@
 import { players, teams } from '../data/people';
+import { sources } from '../data/sources';
 import { stories } from '../data/stories';
-import type { Player, Story, Team } from '../data/types';
+import type { Player, Source, Story, Team } from '../data/types';
 import { byDate, overlaps, span } from './dates';
 
 /*
@@ -12,11 +13,18 @@ export const allStories = [...stories].sort(byDate);
 const playerById = new Map(players.map((p) => [p.id, p]));
 const teamById = new Map(teams.map((t) => [t.id, t]));
 const storyById = new Map(stories.map((s) => [s.id, s]));
+const sourceById = new Map(sources.map((s) => [s.id, s]));
 
 export const getPlayer = (id: string): Player | undefined => playerById.get(id);
 export const getTeam = (id: string): Team | undefined => teamById.get(id);
 export const getStory = (id: string): Story | undefined => storyById.get(id);
+export const getSource = (id: string): Source | undefined => sourceById.get(id);
 export { players, teams };
+
+/** Newest additions first. */
+export const allSources = [...sources].sort((a, b) => b.added.localeCompare(a.added) || a.title.localeCompare(b.title));
+export const storiesFromSource = (id: string) => allStories.filter((s) => s.sources?.some((c) => c.source === id));
+export const isSourced = (s: Story) => (s.sources?.length ?? 0) > 0;
 
 export const storiesForPlayer = (id: string) => allStories.filter((s) => s.players.includes(id));
 export const storiesForTeam = (id: string) => allStories.filter((s) => s.teams.includes(id));

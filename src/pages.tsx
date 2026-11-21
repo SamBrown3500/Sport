@@ -2,11 +2,12 @@ import { useMemo } from 'react';
 import {
   Crumbs, Empty, LeagueTag, PageHead, PrevNext, Section, Timeline, useFiltered,
 } from './components';
-import type { Story } from './data/types';
+import type { Citation, Source, Story } from './data/types';
 import {
-  allStories, getPlayer, getStory, getTeam, momentsOn, onThisDay, players, related,
-  storiesBetween, storiesForPlayer, storiesForTeam, storylinesDuring, teams,
+  allSources, allStories, getPlayer, getSource, getStory, getTeam, isSourced, momentsOn, onThisDay, players, related,
+  storiesBetween, storiesForPlayer, storiesForTeam, storiesFromSource, storylinesDuring, teams,
 } from './lib/db';
+import { SOURCE_KIND, youtubeId } from './lib/sources';
 import { FIRST_YEAR, MONTHS, daysInMonth, formatDate, formatSpan, iso, span } from './lib/dates';
 import { href, hrefForDate } from './lib/router';
 import { search } from './lib/search';
@@ -291,7 +292,6 @@ export function StoryPage({ id }: { id: string }) {
         </p>
       </PageHead>
       <p className="story-body">{story.summary}</p>
-      <p className="draft-note">Draft narrative. Sources still need to be added and checked before launch.</p>
       <dl className="facts">
         {story.players.length > 0 && (
           <div><dt>Players</dt><dd>{story.players.map((p) => <a key={p} className="chip" href={href.player(p)}>{getPlayer(p)?.name}</a>)}</dd></div>
@@ -307,7 +307,32 @@ export function StoryPage({ id }: { id: string }) {
           <Timeline stories={rel} />
         </Section>
       )}
+      {isSourced(story)
+        ? <Citations list={story.sources!} />
+        : <p className="draft-note">Draft narrative. Sources still need to be added and checked before launch.</p>}
     </article>
+  );
+}
+
+function Citations({ list }: { list: Citation[] }) {
+  // gam's rule: cite each source once at the bottom of the page, with no timestamps or quotes shown.
+  const ids = [...new Set(list.map((c) => c.source))];
+  return (
+    <section className="citations" aria-label="Sources">
+      <h2>Sources</h2>
+      <ol>
+        {ids.map((id) => {
+          const src = getSource(id);
+          if (!src) return null;
+          return (
+            <li key={id}>
+              <a href={href.source(src.id)}>{src.title}</a>
+              <span className="cite-meta"> · {src.outlet} · {SOURCE_KIND[src.kind]}</span>
+            </li>
+          );
+        })}
+      </ol>
+    </section>
   );
 }
 
@@ -369,6 +394,61 @@ export function Directory({ kind }: { kind: 'players' | 'teams' }) {
   );
 }
 
+/* ── Sources: the videos, podcasts and articles narratives come from ── */
+
+function SourceRow({ src }: { src: Source }) {
+  const n = storiesFromSource(src.id).length;
+  return (
+    <li>
+      <a href={href.source(src.id)}>{src.title}</a>
+      <span>{SOURCE_KIND[src.kind]} · {src.outlet} · {n} {n === 1 ? 'narrative' : 'narratives'}</span>
+    </li>
+  );
+}
+
+export function SourcesPage() {
+  const sourced = allStories.filter(isSourced).length;
+  return (
+    <>
+      <PageHead eyebrow="Library" title="Sources">
+        <p className="lede">The videos, podcasts, articles and books behind the narratives. {sourced} of {allStories.length} narratives cite one so far.</p>
+      </PageHead>
+      {allSources.length
+        ? <ul className="directory directory-wide">{allSources.map((src) => <SourceRow key={src.id} src={src} />)}</ul>
+        : <Empty>No sources yet. Send a video or podcast link in the project chat and it will show up here with the narratives drawn from it.</Empty>}
+    </>
+  );
+}
+
+export function SourcePage({ id }: { id: string }) {
+  const src = getSource(id);
+  if (!src) return <NotFound what="source" />;
+  const yt = youtubeId(src.url);
+  const list = storiesFromSource(id);
+  return (
+    <>
+      <Crumbs items={[['Sources', href.sources], [src.title]]} />
+      <PageHead eyebrow={`${SOURCE_KIND[src.kind]} · ${src.outlet}`} title={src.title}>
+        <p className="lede">{src.about}</p>
+      </PageHead>
+      {yt && (
+        <div className="embed">
+          <iframe src={`https://www.youtube-nocookie.com/embed/${yt}`} title={src.title} loading="lazy"
+            allow="encrypted-media; picture-in-picture" allowFullScreen />
+        </div>
+      )}
+      <dl className="facts">
+        {src.published && <div><dt>Published</dt><dd>{formatDate(src.published)}</dd></div>}
+        <div><dt>Added</dt><dd>{formatDate(src.added)}</dd></div>
+        {src.url && <div><dt>Link</dt><dd><a href={src.url} target="_blank" rel="noopener noreferrer">{src.kind === 'podcast' ? 'Listen' : src.kind === 'video' ? 'Watch' : 'Read'} on {new URL(src.url).hostname.replace(/^www\./, '')}</a></dd></div>}
+      </dl>
+      <Section title="Narratives from this source" count={list.length}>
+        <Timeline stories={list} empty="Nothing drawn from this source yet." />
+      </Section>
+    </>
+  );
+}
+
 /* ── Search ─────────────────────────────────────────────────────────── */
 
 export function SearchPage({ query }: { query: string }) {
@@ -396,11 +476,12 @@ export function SearchPage({ query }: { query: string }) {
       <PageHead eyebrow="Search" title={`“${query.trim()}”`}>
         <p className="lede">{shown.length} {shown.length === 1 ? 'narrative' : 'narratives'}, oldest first.</p>
       </PageHead>
-      {(dateLink || r.players.length > 0 || r.teams.length > 0) && (
+      {(dateLink || r.players.length > 0 || r.teams.length > 0 || r.sources.length > 0) && (
         <div className="matches">
           {dateLink && <a className="match match-date" href={dateLink[1]}>{dateLink[0]} on the calendar →</a>}
           {r.players.map((p) => <a key={p.id} className="match" href={href.player(p.id)}><small>Player</small>{p.name}</a>)}
           {r.teams.map((t) => <a key={t.id} className="match" href={href.team(t.id)}><small>Team</small>{t.name}</a>)}
+          {r.sources.map((src) => <a key={src.id} className="match" href={href.source(src.id)}><small>{SOURCE_KIND[src.kind]}</small>{src.title}</a>)}
         </div>
       )}
       <Timeline stories={r.stories} empty="No narratives match yet. Try a year, a last name or a team nickname." />
