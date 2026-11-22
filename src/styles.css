@@ -238,3 +238,11 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .stats tfoot th, .stats tfoot td { border-top: 2px solid var(--ink); font-weight: 700; background: var(--shade); }
 .stats .num { text-align: right; }
 .stats tr.is-quiet { opacity: 1; color: var(--muted); }
+.overview { display: flex; flex-direction: column; gap: 8px; border-left: 3px solid var(--basketball); padding: 8px 12px; background: var(--surface); }
+.overview-text { margin: 0; font-size: 16px; line-height: 1.55; max-width: 80ch; }
+.overview-sources { font: 13px var(--ui); border-top: 1px solid var(--line); padding-top: 6px; }
+.overview-sources > span { font: 700 11px var(--ui); text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+.overview-sources ul { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 2px; }
+.overview-sources li { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+.overview-sources small { color: var(--muted); font-variant-numeric: tabular-nums; }
+.overview-plain { border-top: 0; padding-top: 0; }
