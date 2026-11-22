@@ -1,12 +1,6 @@
-# History of the Cleveland Cavaliers (Grokipedia), section "2022–present: Donovan Mitchell era"
-Link: https://grokipedia.com/page/History_of_the_Cleveland_Cavaliers#2022present-donovan-mitchell-era
-Outlet: Grokipedia (AI-generated encyclopedia)
-Retrieved: PDF of the page supplied by gam on 2026-11-21
-Transcript: Text of the section copied from the PDF. Removed only page chrome ("Contents", "Sign in") and footnote numbers; the PDF dropped some apostrophes (for example "Mitchell s"), kept as is. No timestamps.
+# History of the Cleveland Cavaliers (Grokipedia), section "2022–present: Donovan Mitchell era
 
-2022–present: Donovan Mitchell era
-
-2022 trade and playoff return
+2022 trade and playoff return
 On September 3, 2022, the Cleveland Cavaliers acquired star guard Donovan Mitchell from the Utah Jazz
 in a blockbuster trade that reshaped the franchise's trajectory. In exchange, Utah received forward Lauri
 Markkanen, guard Collin Sexton, rookie guard Ochai Agbaji, three unprotected first-round draft picks (in
@@ -37,7 +31,7 @@ The Cleveland Cavaliers finished the 2023–24 regular season with a 48–34 rec
 seed in the Eastern Conference and avoiding the play-in tournament for the second consecutive year.
 175 Led by guard Donovan Mitchell, who averaged 26.6 points per game while playing in 55 contests, the
 team emphasized defensive enhancements under coach J.B. Bickerstaff, posting the seventh-best
-defensive rating in the league at 113.8 points allowed per possessions. Point guard Darius
+defensive rating in the league at 113.8 points allowed per 100 possessions. Point guard Darius
 Garland missed 27 games due to a broken jaw sustained in December 2023, forcing adjustments that
 highlighted the contributions of forwards Evan Mobley and Jarrett Allen in anchoring the paint. Mobley, in
 particular, excelled defensively, earning a spot on the NBA All-Defensive Second Team with 1.7 blocks per
@@ -46,7 +40,7 @@ Entering the playoffs, the Cavaliers faced the fifth-seeded Orlando Magic in the
 marked by gritty, low-scoring battles that showcased Cleveland's improved perimeter defense. The
 series went the full seven games, with the Cavaliers rallying from an 18-point halftime deficit in Game 7
 
-to win 94 on May 3, 2024, behind Mitchell s 39 points and Jarrett Allen s 20 rebounds. This victory
+to win 106 94 on May 3, 2024, behind Mitchell s 39 points and Jarrett Allen s 20 rebounds. This victory
 marked the franchise's first playoff series win since 2018, igniting widespread fan enthusiasm in
 Cleveland, where attendance at Rocket Mortgage FieldHouse surged during the postseason and local
 media highlighted the team's resilience as a sign of emerging contention. The Cavaliers' defensive
@@ -88,11 +82,11 @@ record.
 2025–present early success
 The Cleveland Cavaliers entered the 2025–26 NBA season building on their record-setting 64–18
 
-campaign from the prior year, which ended in an Eastern Conference semifinals loss to the Indiana
+campaign from the prior year, which ended in an Eastern Conference semifinals loss to the Indiana
 Pacers. As of November 19, 2025 (prior to the game against the Houston Rockets), the team holds a 10–
 5 record, placing them second in the Eastern Conference and second in the Central Division. This
 strong start featured a high-octane offense, highlighted by a franchise-record streak of four
-consecutive games scoring at least points, including a 148–115 outburst against the Washington
+consecutive games scoring at least 128 points, including a 148–115 outburst against the Washington
 Wizards on November 7 and a 128–122 comeback victory over the Chicago Bulls on November 8. The
 Cavaliers' scoring average reached 122.3 points per game through early contests, ranking sixth leaguewide, driven by their league-leading 17.0 three-pointers made per game. Recent games include a loss to
 the Toronto Raptors (126–113 on November 13), a win over the Memphis Grizzlies (November 15), and a

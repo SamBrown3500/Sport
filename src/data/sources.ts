@@ -160,4 +160,15 @@ export const sources: Source[] = [
     about: 'The Donovan Mitchell era section of Grokipedia\'s Cavaliers history: the 2022 trade, the 2023 loss to the Knicks, the 2024 Game 7 win over Orlando, the 64-win 2024-25 season that ended against Indiana, and the start of 2025-26. Grokipedia is AI-written; the section reads as of November 2025.',
     transcript: 'sources/transcripts/grokipedia-cavaliers-mitchell-era.md',
   },
+  {
+    id: 'grokipedia-chicago-bulls',
+    kind: 'article',
+    title: 'Chicago Bulls: History',
+    outlet: 'Grokipedia',
+    url: 'https://grokipedia.com/page/Chicago_Bulls',
+    published: '2026',
+    added: '2026-11-21',
+    about: 'The history sections of Grokipedia\'s Chicago Bulls page, from the 1966 founding to the 2025-26 season. Grokipedia is AI-written and this page has several errors (for example about the 2012 and 2016 playoffs), so only claims that match the record are used.',
+    transcript: 'sources/transcripts/grokipedia-chicago-bulls.md',
+  },
 ];
