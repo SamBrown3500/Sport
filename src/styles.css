@@ -278,4 +278,3 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .verdict-doubted, .verdict-slid { color: var(--doubt); }
 .verdict-consensus, .verdict-favored { color: var(--sourced); }
 .verdict-project, .verdict-modest { color: var(--warn); }
-.drafttable strong.top { color: var(--basketball); }

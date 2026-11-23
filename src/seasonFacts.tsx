@@ -7,7 +7,6 @@ import { mvpCases } from './lib/mvp';
 import { draftClasses } from './data/draftClasses';
 import { draftTakes, VERDICTS } from './data/draftTakes';
 import { href } from './lib/router';
-import { currentSeason } from './lib/seasons';
 
 /*
  * Box-score tables from Basketball Reference under each season-page section:
@@ -135,14 +134,12 @@ const plain = (s: string) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').
 /**
  * The draft: top 14 picks, the five best careers in the class, and any pick a
  * sourced narrative talks about. "At the time" comes only from those
- * narratives; "How it turned out" is the player's career win shares and their
- * rank in the class.
+ * narratives; "How it turned out" is the player's career seasons and win shares.
  */
 function DraftTable({ season, source }: { season: number; source: string }) {
   const cls = draftClasses[season];
   if (!cls?.picks.length) return null;
   const takes = new Map((draftTakes[season] ?? []).map((t) => [plain(t[0]), t]));
-  const tooEarly = currentSeason() - season < 3;
   return (
     <Facts title={`${season} draft: at the time and how it turned out`} source={source}>
       <table className="stats drafttable">
@@ -150,7 +147,7 @@ function DraftTable({ season, source }: { season: number; source: string }) {
           <tr>
             <th scope="col" className="num">Pk</th><th scope="col">Tm</th><th scope="col">Player</th><th scope="col">College</th>
             <th scope="col">At the time</th>
-            <th scope="col" className="num">Yrs</th><th scope="col" className="num">WS</th><th scope="col" className="num" title={`Rank by career win shares among the ${cls.n} players drafted`}>Class rank</th>
+            <th scope="col" className="num">Yrs</th><th scope="col" className="num">WS</th>
           </tr>
         </thead>
         <tbody>
@@ -168,14 +165,13 @@ function DraftTable({ season, source }: { season: number; source: string }) {
                 </td>
                 <td className="num">{p[4] || '—'}</td>
                 <td className="num">{p[5] ?? '—'}</td>
-                <td className="num">{tooEarly || p[6] === null ? '—' : <strong className={p[6] <= 3 ? 'top' : ''}>{p[6]}</strong>}</td>
               </tr>
             );
           })}
         </tbody>
       </table>
       <p className="note bbnote">
-        {tooEarly ? 'Too early to rank this class. ' : `Class rank is by career win shares among all ${cls.n} players drafted, through 2025-26. `}
+        Yrs and WS are career seasons and win shares through 2025-26.{' '}
         {takes.size ? '"At the time" comes from the sourced narratives above.' : 'No source yet on how these picks were seen at the time.'}
       </p>
     </Facts>
