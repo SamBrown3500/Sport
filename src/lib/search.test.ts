@@ -15,7 +15,7 @@ describe('date queries', () => {
     expect(parseDateQuery('1962-03-02')).toEqual({ kind: 'day', year: 1962, month: 3, day: 2 });
     expect(parseDateQuery('March 2')).toEqual({ kind: 'monthday', month: 3, day: 2 });
     expect(parseDateQuery('February 30, 1962')).toBeNull();
-    expect(parseDateQuery('Packers')).toBeNull();
+    expect(parseDateQuery('Celtics')).toBeNull();
   });
 });
 
@@ -34,9 +34,9 @@ describe('search', () => {
     expect(r.stories[0].id).toBe('jordan-drafted');
     expect(r.stories.map((s) => s.id)).toContain('last-shot');
   });
-  it('finds a team by an old name', () => expect(ids('Baltimore Colts')).toContain('greatest-game'));
-  it('finds a story by its nickname', () => expect(ids('ice bowl')).toEqual(['ice-bowl']));
+  it('finds a team by an old name', () => expect(search('Seattle SuperSonics').teams.map((t) => t.id)).toEqual(['thunder']));
+  it('finds a story by its nickname', () => expect(ids('the decision')).toContain('the-decision'));
   it('matches partial words', () => expect(search('russ').players.map((p) => p.id)).toContain('bill-russell'));
-  it('finds themes', () => expect(ids('integration').length).toBeGreaterThanOrEqual(2));
+  it('finds themes', () => expect(ids('free agency').length).toBeGreaterThanOrEqual(2));
   it('finds every March 2', () => expect(ids('March 2')).toContain('wilt-100'));
 });

@@ -53,7 +53,7 @@ export function search(raw: string): SearchResult {
     if (s.players.some((p) => pIds.has(p)) || s.teams.some((t) => tIds.has(t))) return true;
     if (s.sources?.some((c) => srcIds.has(c.source))) return true;
     const text = [
-      s.title, s.summary, s.league, s.sport, ...s.tags, ...(s.categories ?? []).map((c) => categoryInfo(c)?.name ?? ''), ...(s.aliases ?? []),
+      s.title, s.summary, s.league, ...s.tags, ...(s.categories ?? []).map((c) => categoryInfo(c)?.name ?? ''), ...(s.aliases ?? []),
       ...s.players.map((p) => getPlayer(p)?.name ?? ''),
       ...s.teams.map((t) => getTeam(t)?.name ?? ''),
       ...(s.sources ?? []).map((c) => c.quote ?? ''),

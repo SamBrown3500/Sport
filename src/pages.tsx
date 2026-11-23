@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import {
-  Crumbs, Empty, LeagueTag, PageHead, PrevNext, Section, Timeline, useFiltered,
+  Crumbs, Empty, LeagueTag, PageHead, PrevNext, Section, Timeline,
 } from './components';
 import type { Category, Citation, Source, Story } from './data/types';
 import {
@@ -23,40 +23,22 @@ const DECADES = Array.from({ length: (LAST_DECADE - FIRST_YEAR) / 10 + 1 }, (_, 
 
 function DecadeStrip({ current }: { current?: number }) {
   const counts = useMemo(
-    () =>
-      DECADES.map((d) => {
-        const list = storiesBetween(`${d}-01-01`, `${d + 9}-12-31`);
-        return {
-          d,
-          football: list.filter((s) => s.sport === 'football').length,
-          basketball: list.filter((s) => s.sport === 'basketball').length,
-        };
-      }),
+    () => DECADES.map((d) => ({ d, n: storiesBetween(`${d}-01-01`, `${d + 9}-12-31`).length })),
     [],
   );
-  const max = Math.max(...counts.map((c) => c.football + c.basketball), 1);
+  const max = Math.max(...counts.map((c) => c.n), 1);
   return (
     <nav className="decades" aria-label="Decades">
-      {counts.map(({ d, football, basketball }) => (
+      {counts.map(({ d, n }) => (
         <a key={d} href={href.decade(d)} className={d === current ? 'is-current' : ''}
-          aria-label={`${d}s: ${football} football and ${basketball} basketball narratives`}>
+          aria-label={`${d}s: ${n} narratives`}>
           <span className="bars" aria-hidden="true">
-            <span className="bar bar-football" style={{ height: `${(football / max) * 100}%` }} />
-            <span className="bar bar-basketball" style={{ height: `${(basketball / max) * 100}%` }} />
+            <span className="bar" style={{ height: `${(n / max) * 100}%` }} />
           </span>
           <span className="decade-label">{String(d).slice(2)}s</span>
         </a>
       ))}
     </nav>
-  );
-}
-
-function Legend() {
-  return (
-    <p className="legend">
-      <span><i className="sw sw-football" /> Football</span>
-      <span><i className="sw sw-basketball" /> Basketball</span>
-    </p>
   );
 }
 
@@ -71,7 +53,7 @@ export function Home() {
   return (
     <>
       <section className="hero">
-        <p className="eyebrow">NFL and NBA history, {FIRST_YEAR} to today</p>
+        <p className="eyebrow">NBA history, {FIRST_YEAR} to today</p>
         <h1>What was happening in the game?</h1>
         <p className="lede">
           Pick a decade, a year or a single day and read the stories that defined it. Or search any date, player,
@@ -79,7 +61,7 @@ export function Home() {
         </p>
       </section>
 
-      <Section title="Browse by decade" aside={<Legend />}>
+      <Section title="Browse by decade">
         <DecadeStrip />
       </Section>
 
@@ -99,13 +81,13 @@ export function Home() {
 
 export function Decade({ decade }: { decade: number }) {
   const list = storiesBetween(`${decade}-01-01`, `${decade + 9}-12-31`);
-  const shown = useFiltered(list);
+  const shown = list;
   const years = Array.from({ length: 10 }, (_, i) => decade + i);
   return (
     <>
       <Crumbs items={[['Calendar', href.home], [`${decade}s`]]} />
       <PageHead eyebrow="Decade" title={`The ${decade}s`}>
-        <p className="lede">{shown.length} narratives across both leagues.</p>
+        <p className="lede">{shown.length} narratives.</p>
       </PageHead>
       <DecadeStrip current={decade} />
       <div className="yeargrid">
@@ -138,7 +120,7 @@ export function Decade({ decade }: { decade: number }) {
 export function Year({ year }: { year: number }) {
   const decade = Math.floor(year / 10) * 10;
   const list = storiesBetween(`${year}-01-01`, `${year}-12-31`);
-  const shown = useFiltered(list);
+  const shown = list;
   const ongoing = list.filter((s) => s.kind === 'storyline');
   const events = list.filter((s) => s.kind === 'moment');
   return (
@@ -160,10 +142,10 @@ export function Year({ year }: { year: number }) {
           );
         })}
       </div>
-      <Section title="Moments" count={useFiltered(events).length}>
+      <Section title="Moments" count={events.length}>
         <Timeline stories={events} showYear={false} empty="No dated moments on file for this year yet." />
       </Section>
-      <Section title="Storylines running this year" count={useFiltered(ongoing).length}>
+      <Section title="Storylines running this year" count={ongoing.length}>
         <Timeline stories={ongoing} empty="No long-running storylines cover this year yet." />
       </Section>
       <PrevNext
@@ -181,7 +163,7 @@ export function Month({ year, month }: { year: number; month: number }) {
   const first = `${iso(year, month)}-01`;
   const last = `${iso(year, month)}-${daysInMonth(year, month)}`;
   const list = storiesBetween(first, last);
-  const shown = useFiltered(list);
+  const shown = list;
   const offset = new Date(Date.UTC(year, month - 1, 1)).getUTCDay();
   const days = daysInMonth(year, month);
   const onDay = (d: number) => shown.filter((s) => s.precision === 'day' && s.kind === 'moment' && s.date === iso(year, month, d));
@@ -205,7 +187,7 @@ export function Month({ year, month }: { year: number; month: number }) {
                 aria-label={`${MONTHS[month - 1]} ${d}${here.length ? `: ${here.map((s) => s.title).join('; ')}` : ''}`}>
                 <span className="num">{d}</span>
                 {here.map((s) => (
-                  <span key={s.id} className={`dot dot-${s.sport}`}>{s.title}</span>
+                  <span key={s.id} className="dot">{s.title}</span>
                 ))}
               </a>
             );
@@ -243,13 +225,13 @@ export function Day({ year, month, day }: { year: number; month: number; day: nu
       <Crumbs items={[['Calendar', href.home], [`${decade}s`, href.decade(decade)], [String(year), href.year(year)],
         [MONTHS[month - 1], href.month(year, month)], [String(day)]]} />
       <PageHead eyebrow="Day" title={formatDate(date)} />
-      <Section title="What happened" count={useFiltered(moments).length}>
+      <Section title="What happened" count={moments.length}>
         <Timeline stories={moments} empty="No moments on file for this day yet." />
       </Section>
-      <Section title="Storylines in progress" count={useFiltered(ongoing).length}>
+      <Section title="Storylines in progress" count={ongoing.length}>
         <Timeline stories={ongoing} empty="No long-running storylines were underway on this date." />
       </Section>
-      <Section title={`${MONTHS[month - 1]} ${day} in other years`} count={useFiltered(otherYears).length}
+      <Section title={`${MONTHS[month - 1]} ${day} in other years`} count={otherYears.length}
         aside={<a className="more" href={href.onThisDay(month, day)}>On this day →</a>}>
         <Timeline stories={otherYears} empty="Nothing else on file for this date." />
       </Section>
@@ -464,11 +446,11 @@ export function SourcePage({ id }: { id: string }) {
 
 export function SearchPage({ query }: { query: string }) {
   const r = useMemo(() => search(query), [query]);
-  const shown = useFiltered(r.stories);
+  const shown = r.stories;
   if (!query.trim()) {
     return (
       <PageHead eyebrow="Search" title="Search the calendar">
-        <p className="lede">Try a date like “March 2, 1962”, a decade like “1960s”, a player, a team, or a story like “Ice Bowl”.</p>
+        <p className="lede">Try a date like “March 2, 1962”, a decade like “1960s”, a player, a team, or a story like “The Decision”.</p>
       </PageHead>
     );
   }

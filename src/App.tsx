@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import { FilterContext, SportToggle, type SportFilter } from './components';
 import {
   CategoryPage, Day, Decade, Directory, Home, Month, NotFound, OnThisDay, PlayerPage, SearchPage, SeasonPage, SeasonsPage, SourcePage, SourcesPage, StoryPage, TeamPage, Year,
 } from './pages';
 import { href, useRoute, type Route } from './lib/router';
+import { site } from './site';
 
 const store = {
   get(key: string) {
@@ -40,7 +40,6 @@ function Page({ route, query }: { route: Route; query: string }) {
 export default function App() {
   const route = useRoute();
   const [query, setQuery] = useState(() => store.get('q'));
-  const [filter, setFilter] = useState<SportFilter>('all');
   const input = useRef<HTMLInputElement>(null);
 
   useEffect(() => store.set('q', query), [query]);
@@ -61,11 +60,11 @@ export default function App() {
   };
 
   return (
-    <FilterContext.Provider value={{ filter, setFilter }}>
+    <>
       <header className="masthead">
         <div className="masthead-inner">
           <a className="brand" href={href.home}>
-            Sports<span>Narratives</span>
+            {site.brand[0]}<span>{site.brand[1]}</span>
           </a>
           <form className="searchbar" role="search" onSubmit={(e) => { e.preventDefault(); location.hash = 'search'; }}>
             <label htmlFor="q" className="visually-hidden">Search dates, players, teams and stories</label>
@@ -82,17 +81,12 @@ export default function App() {
           </nav>
         </div>
       </header>
-      <div className="subbar">
-        <div className="subbar-inner">
-          <SportToggle />
-        </div>
-      </div>
       <main className="main">
         <Page route={route} query={query} />
       </main>
       <footer className="footer">
-        <p>sportsnarratives.com · early preview. Narratives marked draft are awaiting sources.</p>
+        <p>{site.domain} · early preview. Narratives marked draft are awaiting sources.</p>
       </footer>
-    </FilterContext.Provider>
+    </>
   );
 }
