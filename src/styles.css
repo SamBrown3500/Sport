@@ -103,14 +103,14 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .empty { color: var(--muted); font-style: italic; margin: 0; }
 
 /* ── Decade strip ── */
-.decades { display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); background: var(--surface); }
-.decades a { display: flex; flex-direction: column; align-items: stretch; gap: 4px; padding: 6px 2px 4px; color: var(--link); }
+.decades { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 0; border: 1px solid var(--line); background: var(--surface); }
+.decades a { display: flex; flex-direction: column; align-items: stretch; gap: 6px; padding: 10px 2px 8px; color: var(--link); }
 .decades a + a { border-left: 1px solid var(--line); }
 .decades a:hover { background: var(--hl); text-decoration: none; }
 .decades a.is-current { background: var(--hl); box-shadow: inset 0 -3px 0 var(--ink); }
-.bars { height: 60px; display: flex; align-items: flex-end; justify-content: center; gap: 2px; }
-.bar { width: 38%; max-width: 12px; min-height: 2px; background: var(--basketball); }
-.decade-label { font: 700 13px var(--ui); text-align: center; }
+.bars { height: 80px; display: flex; align-items: flex-end; justify-content: center; gap: 2px; }
+.bar { width: 40%; max-width: 28px; min-height: 2px; background: var(--basketball); }
+.decade-label { font: 700 clamp(13px, 1.8vw, 18px) var(--ui); text-align: center; }
 
 /* ── Year and month grids ── */
 .yeargrid, .monthgrid { display: grid; gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
@@ -190,9 +190,6 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .directory span { color: var(--muted); font: 12px var(--ui); font-variant-numeric: tabular-nums; }
 
 @media (max-width: 640px) {
-  .decades { grid-template-columns: repeat(7, minmax(0, 1fr)); }
-  .decades a + a { border-left: 0; }
-  .decades a { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .monthgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .yeargrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
