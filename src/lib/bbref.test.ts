@@ -3,6 +3,9 @@ import { bbref } from '../data/bbref';
 import { upsets, swings } from './bbref';
 import { mvpCases } from './mvp';
 import { mvpRace } from '../data/mvpRace';
+import { draftClasses } from '../data/draftClasses';
+import { draftTakes } from '../data/draftTakes';
+import { getStory } from './db';
 
 describe('Basketball Reference season data', () => {
   it('has standings and a Finals for every finished season', () => {
@@ -13,7 +16,14 @@ describe('Basketball Reference season data', () => {
   });
   it('has MVP voting from 1955-56 and a draft every year', () => {
     for (let s = 1955; s <= 2025; s++) expect(bbref[s]?.mvp?.[0]?.[0], `mvp ${s}`).toBe('1');
-    for (let s = 1947; s <= 2026; s++) expect(bbref[s]?.draft?.length, `draft ${s}`).toBeGreaterThan(0);
+    for (let s = 1947; s <= 2026; s++) expect(draftClasses[s]?.picks.length, `draft ${s}`).toBeGreaterThan(9);
+  });
+  it('ties every draft-night take to a real pick and a real draft story', () => {
+    const plain = (x: string) => x.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    for (const [y, takes] of Object.entries(draftTakes)) for (const [player, , , story] of takes) {
+      expect(draftClasses[+y].picks.some((p) => plain(p[2]) === plain(player)), `${y} ${player}`).toBe(true);
+      expect(getStory(story)?.categories, story).toContain('draft-drama');
+    }
   });
   it('finds known upsets and swings', () => {
     expect(upsets(2010).some((u) => u.winner.team === 'Memphis Grizzlies')).toBe(true);

@@ -13,7 +13,7 @@ const lg = (endYear: number) => (endYear <= 1949 ? 'BAA' : 'NBA');
 export const bbLinks = (start: number) => ({
   league: `${BR}/leagues/${lg(start + 1)}_${start + 1}.html`,
   awards: `${BR}/awards/awards_${start + 1}.html`,
-  draft: `${BR}/draft/${start <= 1949 ? 'BAA' : 'NBA'}_${start}.html`,
+  draft: `${BR}/draft/NBA_${start}.html`,
 });
 
 export interface TeamRecord { team: string; wins: number; losses: number; pct: number; playoffs: boolean }
