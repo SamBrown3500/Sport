@@ -4,6 +4,7 @@ import { stories } from '../data/stories';
 import type { Category, Player, Source, Story, Team } from '../data/types';
 import { byDate, overlaps, span } from './dates';
 import { seasonOf } from './seasons';
+import { seasonOverviews, type OverviewKey } from '../data/seasonOverviews';
 
 /*
  * The data layer. Today it reads the starter files in src/data; later it can
@@ -66,3 +67,4 @@ export function related(story: Story): Story[] {
 export const nbaStories = allStories.filter((s) => s.sport === 'basketball' && s.league === 'NBA');
 export const storiesInSeason = (start: number) => nbaStories.filter((s) => seasonOf(s) === start);
 export const storiesInCategory = (c: Category) => allStories.filter((s) => s.categories?.includes(c));
+export const seasonOverview = (start: number, c: Category): string | undefined => seasonOverviews[`${start}:${c}` as OverviewKey];

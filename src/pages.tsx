@@ -11,6 +11,7 @@ import { SOURCE_KIND, youtubeId } from './lib/sources';
 import { FIRST_YEAR, MONTHS, daysInMonth, formatDate, formatSpan, iso, span } from './lib/dates';
 import { href, hrefForDate } from './lib/router';
 import { search } from './lib/search';
+import { seasonOverview } from './lib/db';
 import { CATEGORIES, FIRST_SEASON, categoryInfo, currentSeason, isCategory, seasonLabel, seasonOf, seasonsInYear } from './lib/seasons';
 
 const THIS_YEAR = new Date().getFullYear();
@@ -529,6 +530,33 @@ function CategoryTabs({ current }: { current?: string }) {
   );
 }
 
+/**
+ * A season section as one overview of the whole race or storyline, with the
+ * individual narratives it draws on listed underneath as links. Team, player
+ * and story pages keep showing the individual narratives in full.
+ */
+function SeasonOverview({ season, category, stories }: { season: number; category: Category; stories: Story[] }) {
+  const text = seasonOverview(season, category);
+  return (
+    <div className="overview">
+      {text
+        ? <p className="overview-text">{text}</p>
+        : <p className="empty">No season overview written yet. The stories are below.</p>}
+      <div className="overview-sources">
+        <span>{stories.length === 1 ? 'The story behind it' : `The ${stories.length} stories behind it`}</span>
+        <ul>
+          {stories.map((st) => (
+            <li key={st.id}>
+              <a href={href.story(st.id)}>{st.title}</a>
+              <small>{formatSpan(st)}</small>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
 const inCategory = (list: Story[], c: Category) => list.filter((s) => s.categories?.includes(c));
 
 export function SeasonsPage() {
@@ -614,13 +642,21 @@ export function SeasonPage({ start }: { start: number }) {
         return (
           <Section key={c.id} title={c.name} count={rows.length}
             aside={<a className="more" href={href.category(c.id)}>Every season →</a>}>
-            <Timeline stories={rows} unfiltered empty={`No ${c.name} narratives for ${label} yet.`} />
+            {rows.length
+              ? <SeasonOverview season={start} category={c.id} stories={rows} />
+              : <Empty>No {c.name} narratives for {label} yet.</Empty>}
           </Section>
         );
       })}
       {other.length > 0 && (
         <Section title="Also this season" count={other.length}>
-          <Timeline stories={other} unfiltered />
+          <div className="overview-sources overview-plain">
+            <ul>
+              {other.map((st) => (
+                <li key={st.id}><a href={href.story(st.id)}>{st.title}</a><small>{formatSpan(st)}</small></li>
+              ))}
+            </ul>
+          </div>
         </Section>
       )}
       <PrevNext
@@ -659,7 +695,7 @@ export function CategoryPage({ id }: { id: string }) {
       {seasons.length ? seasons.map((s) => (
         <Section key={s} title={seasonLabel(s)} count={bySeason.get(s)!.length}
           aside={<a className="more" href={href.season(s)}>Full season →</a>}>
-          <Timeline stories={bySeason.get(s)!} unfiltered />
+          <SeasonOverview season={s} category={id} stories={bySeason.get(s)!} />
         </Section>
       )) : <Empty>No {info.name} narratives yet.</Empty>}
     </>

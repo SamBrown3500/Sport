@@ -74,3 +74,14 @@ describe('season categories', () => {
     expect(seasonOf(byId('the-decision'))).toBe(2010); // July opens the next one
   });
 });
+
+describe('season overviews', () => {
+  it('has one overview for every season section with narratives, and none for empty ones', async () => {
+    const { seasonOf } = await import('../lib/seasons');
+    const { seasonOverviews } = await import('./seasonOverviews');
+    const filled = new Set<string>();
+    for (const s of stories) for (const c of s.categories ?? []) filled.add(`${seasonOf(s)}:${c}`);
+    for (const k of filled) expect(seasonOverviews, `missing overview ${k}`).toHaveProperty([k]);
+    for (const k of Object.keys(seasonOverviews)) expect(filled.has(k), `overview ${k} has no narratives`).toBe(true);
+  });
+});
