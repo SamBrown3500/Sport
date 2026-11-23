@@ -84,25 +84,30 @@ export function StoryRow({ story, showYear = true }: { story: Story; showYear?: 
         <a href={hrefForDate(story.date)}>{showYear ? date : date.replace(/, \d{4}$/, '')}</a>
         {story.kind === 'storyline' && <span className="kind">Storyline</span>}
       </div>
-      <div className="row-body">
-        <h3>
-          <a href={href.story(story.id)}>{story.title}</a>
-        </h3>
-        <p>{story.summary}</p>
-        <div className="row-meta">
-          <LeagueTag story={story} />
-          {story.sources?.length ? <span className="sourced" title="Backed by a cited source">Sourced</span> : null}
-          {story.categories?.map((c) => (
-            <a key={c} className="chip chip-cat" href={href.category(c)}>{categoryInfo(c)?.name}</a>
-          ))}
-          {story.players.slice(0, 3).map((id) => (
-            <a key={id} className="chip" href={href.player(id)}>{getPlayer(id)?.name}</a>
-          ))}
-          {story.teams.slice(0, 2).map((id) => (
-            <a key={id} className="chip chip-team" href={href.team(id)}>{getTeam(id)?.name}</a>
-          ))}
+      <details className="row-body">
+        <summary>
+          <h3>{story.title}</h3>
+        </summary>
+        <div className="row-detail">
+          <p>{story.summary}</p>
+          <div className="row-meta">
+            <LeagueTag story={story} />
+            {story.sources?.length ? <span className="sourced" title="Backed by a cited source">Sourced</span> : null}
+            {story.categories?.map((c) => (
+              <a key={c} className="chip chip-cat" href={href.category(c)}>{categoryInfo(c)?.name}</a>
+            ))}
+            {story.players.slice(0, 3).map((id) => (
+              <a key={id} className="chip" href={href.player(id)}>{getPlayer(id)?.name}</a>
+            ))}
+            {story.teams.slice(0, 2).map((id) => (
+              <a key={id} className="chip chip-team" href={href.team(id)}>{getTeam(id)?.name}</a>
+            ))}
+          </div>
+          <a className="row-more" href={href.story(story.id)}>
+            {story.sources?.length ? 'Full narrative and sources →' : 'Full narrative →'}
+          </a>
         </div>
-      </div>
+      </details>
     </li>
   );
 }
