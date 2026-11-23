@@ -47,6 +47,10 @@ A narrative tells the story **as it was understood at the time**, not a neutral 
 
 Every one of those claims still needs the source to say it: cite the moment where the expectation or opinion is voiced. Facts (scores, dates, trade terms) can sit in the background, but they aren't the point.
 
+### Facts come from Basketball Reference
+
+For NBA facts (scores, series results and lengths, records, seeds, awards and vote placings, draft picks, stats, dates), [basketball-reference.com](https://www.basketball-reference.com) is the fact source (gam, 2026-11-23). Videos, podcasts and articles supply the opinions and expectations; Basketball Reference supplies the numbers. Before adding a narrative, check every fact in it there. When a source gets a fact wrong, write the Basketball Reference version without asking (keep the source's exact quote in the data as it was said), and note the fix in the PR. Avoid "franchise-best", "league-worst" or "first since" claims unless Basketball Reference's standings confirm them. The cloud container can't reach the site, so fetch it through the built-in browser on gam's computer.
+
 ## For Claude: what to do with a source
 
 1. **Get the transcript.** If gam only gave a link, run `npm run transcript -- <source-id> <url>`. If that fails (no key, host blocked, no captions), ask gam to paste the transcript.
@@ -54,7 +58,7 @@ Every one of those claims still needs the source to say it: cite the moment wher
 2. **Add the source** to `src/data/sources.ts`: id (kebab-case, short and descriptive), kind, title, outlet, url, published, added (today), a one or two sentence `about`, and `transcript`.
 3. **Pull out data points.** Read the transcript for claims about specific events, dates, players and teams. For each:
    - If an existing narrative in `src/data/stories.ts` covers it and the source agrees, add a citation: `sources: [{ source: '<id>', at: '41:07', quote: '<short exact quote>' }]`.
-   - If the source contradicts an existing narrative (a different date, score or detail), do not silently change it. List the conflict in the PR description for gam to decide.
+   - If the source contradicts an existing narrative (a different date, score or detail), check Basketball Reference: for a plain fact, use its version; for anything else, do not silently change it and list the conflict in the PR description for gam to decide.
    - If it is new, add a narrative citing the source. Date it only as precisely as the source supports (`day`, `month` or `year`). Add any new players or teams to `src/data/people.ts`.
    - Opinion and expectation are the point (see "How narratives are written"): keep what people predicted, debated and believed at the time, and say whose view it is when it is one voice ("Kenny called it a severe underpay"). Skip personal asides that aren't about the story.
    - **NBA narratives get season-page categories** (gam, 2026-11-21). Every NBA season has a page (`#nba-season-2014` is 2014-15) with four sections, and each is also a browsable category: `mvp-race` (the award race and why one player won over another), `draft-drama` (lotteries, draft nights, picks seen as reaches, busts or steals), `contenders` (the favorites and how their runs went against expectations) and `surprises` (upsets, runs nobody predicted, collapses of favorites, shock moves). Add `categories: [...]` to the story's options, main one first; a story can sit in more than one. Leave it off if none fits. The season comes from the date (July to June; a Draft Drama story listed first and dated April to June goes to the draft class's first season). Set `season: <start year>` only if that puts it in the wrong one.

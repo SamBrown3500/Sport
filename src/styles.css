@@ -255,3 +255,16 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .overview-sources li { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
 .overview-sources small { color: var(--muted); font-variant-numeric: tabular-nums; }
 .overview-plain { border-top: 0; padding-top: 0; }
+
+/* Basketball Reference tables under season sections */
+.bbfacts { margin-top: 12px; }
+.bbhead { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 4px; }
+.bbhead h3 { margin: 0; font: 700 12px var(--ui); text-transform: uppercase; letter-spacing: 0.05em; }
+.bbhead a { font: 12px var(--ui); color: var(--muted); }
+.bbgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.bbgrid > div { min-width: 0; overflow-x: auto; }
+.bbgrid > div + div { border-left: 1px solid var(--line); }
+.bbnote { margin-top: 8px; }
+.stats tr.subhead th { background: var(--shade); font-size: 12px; font-weight: 700; }
+.stats tr.is-key td { font-weight: 700; }
+.stats .po { color: var(--muted); margin-left: 2px; }

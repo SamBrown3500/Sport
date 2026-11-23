@@ -11,6 +11,7 @@ import { SOURCE_KIND, youtubeId } from './lib/sources';
 import { FIRST_YEAR, MONTHS, daysInMonth, formatDate, formatSpan, iso, span } from './lib/dates';
 import { href, hrefForDate } from './lib/router';
 import { search } from './lib/search';
+import { SeasonFacts } from './seasonFacts';
 import { seasonOverview } from './lib/db';
 import { CATEGORIES, FIRST_SEASON, categoryInfo, currentSeason, isCategory, seasonLabel, seasonOf, seasonsInYear } from './lib/seasons';
 
@@ -645,6 +646,7 @@ export function SeasonPage({ start }: { start: number }) {
             {rows.length
               ? <SeasonOverview season={start} category={c.id} stories={rows} />
               : <Empty>No {c.name} narratives for {label} yet.</Empty>}
+            <SeasonFacts season={start} category={c.id} />
           </Section>
         );
       })}
