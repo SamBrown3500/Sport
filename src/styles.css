@@ -104,12 +104,15 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 
 /* ── Decade strip ── */
 .decades { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 0; border: 1px solid var(--line); background: var(--surface); }
-.decades a { display: flex; flex-direction: column; align-items: stretch; gap: 6px; padding: 10px 2px 8px; color: var(--link); }
+.decades a { display: flex; flex-direction: column; align-items: stretch; gap: 6px; padding: 0 0 8px; color: var(--link); }
 .decades a + a { border-left: 1px solid var(--line); }
 .decades a:hover { background: var(--hl); text-decoration: none; }
 .decades a.is-current { background: var(--hl); box-shadow: inset 0 -3px 0 var(--ink); }
-.bars { height: 80px; display: flex; align-items: flex-end; justify-content: center; gap: 2px; }
-.bar { width: 40%; max-width: 28px; min-height: 2px; background: var(--basketball); }
+.decade-photo { display: block; width: 100%; aspect-ratio: 5 / 6; max-width: 100%; object-fit: cover; object-position: center top; background: var(--shade); filter: grayscale(.15); }
+.decades a:hover .decade-photo, .decades a.is-current .decade-photo { filter: none; }
+.photo-credits { margin-top: 6px; font: 12px var(--ui); color: var(--muted); }
+.photo-credits summary { cursor: pointer; width: max-content; }
+.photo-credits ul { margin: 6px 0 0; padding-left: 18px; }
 .decade-label { font: 700 clamp(13px, 1.8vw, 18px) var(--ui); text-align: center; }
 
 /* ── Year and month grids ── */
