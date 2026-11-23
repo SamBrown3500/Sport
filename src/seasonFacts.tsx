@@ -4,6 +4,10 @@ import type { StandingRow, Vote } from './data/bbref';
 import { bbLinks, bbSeason, swings, upsets, type Swing } from './lib/bbref';
 import { seasonLabel } from './lib/seasons';
 import { mvpCases } from './lib/mvp';
+import { draftClasses } from './data/draftClasses';
+import { draftTakes, VERDICTS } from './data/draftTakes';
+import { href } from './lib/router';
+import { currentSeason } from './lib/seasons';
 
 /*
  * Box-score tables from Basketball Reference under each season-page section:
@@ -126,9 +130,61 @@ function MvpCards({ season, source }: { season: number; source: string }) {
   );
 }
 
+const plain = (s: string) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+
+/**
+ * The draft: top 14 picks, the five best careers in the class, and any pick a
+ * sourced narrative talks about. "At the time" comes only from those
+ * narratives; "How it turned out" is the player's career win shares and their
+ * rank in the class.
+ */
+function DraftTable({ season, source }: { season: number; source: string }) {
+  const cls = draftClasses[season];
+  if (!cls?.picks.length) return null;
+  const takes = new Map((draftTakes[season] ?? []).map((t) => [plain(t[0]), t]));
+  const tooEarly = currentSeason() - season < 3;
+  return (
+    <Facts title={`${season} draft: at the time and how it turned out`} source={source}>
+      <table className="stats drafttable">
+        <thead>
+          <tr>
+            <th scope="col" className="num">Pk</th><th scope="col">Tm</th><th scope="col">Player</th><th scope="col">College</th>
+            <th scope="col">At the time</th>
+            <th scope="col" className="num">Yrs</th><th scope="col" className="num">WS</th><th scope="col" className="num" title={`Rank by career win shares among the ${cls.n} players drafted`}>Class rank</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cls.picks.map((p) => {
+            const take = takes.get(plain(p[2]));
+            const late = p[0] === null || p[0] > 14;
+            return (
+              <tr key={`${p[0]}-${p[2]}`} className={late ? 'is-late' : ''}>
+                <td className="num">{p[0] ?? '—'}</td><td>{p[1]}</td><td>{p[2]}</td><td>{p[3] || '—'}</td>
+                <td className="take">
+                  {take ? (
+                    <a href={href.story(take[3])} title={take[2]} className={`verdict verdict-${take[1]}`}>{VERDICTS[take[1]]}</a>
+                  ) : null}
+                  {take ? <small>{take[2]}</small> : null}
+                </td>
+                <td className="num">{p[4] || '—'}</td>
+                <td className="num">{p[5] ?? '—'}</td>
+                <td className="num">{tooEarly || p[6] === null ? '—' : <strong className={p[6] <= 3 ? 'top' : ''}>{p[6]}</strong>}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <p className="note bbnote">
+        {tooEarly ? 'Too early to rank this class. ' : `Class rank is by career win shares among all ${cls.n} players drafted, through 2025-26. `}
+        {takes.size ? '"At the time" comes from the sourced narratives above.' : 'No source yet on how these picks were seen at the time.'}
+      </p>
+    </Facts>
+  );
+}
+
 export function SeasonFacts({ season, category }: { season: number; category: Category }) {
   const bb = bbSeason(season);
-  if (!bb) return null;
+  if (!bb) return category === 'draft-drama' ? <DraftTable season={season} source={bbLinks(season).draft} /> : null;
   const links = bbLinks(season);
   const done = !!bb.standings?.length;
 
@@ -145,18 +201,7 @@ export function SeasonFacts({ season, category }: { season: number; category: Ca
   if (category === 'draft-drama') {
     return (
       <>
-        {bb.draft?.length ? (
-          <Facts title={`${season} draft, top picks`} source={links.draft}>
-            <table className="stats">
-              <thead><tr><th scope="col" className="num">Pk</th><th scope="col">Tm</th><th scope="col">Player</th><th scope="col">College</th></tr></thead>
-              <tbody>
-                {[...bb.draft].sort((a, b) => (a[0] ?? 99) - (b[0] ?? 99)).map((p, i) => (
-                  <tr key={i}><td className="num">{p[0] ?? '—'}</td><td>{p[1]}</td><td>{p[2]}</td><td>{p[3] || '—'}</td></tr>
-                ))}
-              </tbody>
-            </table>
-          </Facts>
-        ) : null}
+        <DraftTable season={season} source={links.draft} />
         {bb.roy?.length ? <Facts title="Rookie of the Year voting" source={links.awards}><VoteTable rows={bb.roy} /></Facts> : null}
       </>
     );
