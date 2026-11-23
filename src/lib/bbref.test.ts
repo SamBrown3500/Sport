@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { bbref } from '../data/bbref';
 import { upsets, swings } from './bbref';
+import { mvpCases } from './mvp';
+import { mvpRace } from '../data/mvpRace';
 
 describe('Basketball Reference season data', () => {
   it('has standings and a Finals for every finished season', () => {
@@ -18,3 +20,20 @@ describe('Basketball Reference season data', () => {
     expect(swings(2007).up[0].now.team).toBe('Boston Celtics');
   });
 });
+
+
+describe('MVP race cards', () => {
+  it('has three candidates with a case for every season from 1955-56', () => {
+    for (let s = 1955; s <= 2025; s++) {
+      const cases = mvpCases(s);
+      expect(cases.length, `season ${s}`).toBe(3);
+      expect(cases[0].result.startsWith('Won'), `winner ${s}`).toBe(true);
+      for (const c of cases) expect(c.points.length, `${s} ${c.candidate.player}`).toBeGreaterThan(0);
+    }
+  });
+  it('agrees with the voting table on the winner', () => {
+    for (const [s, race] of Object.entries(mvpRace)) expect(race.top3[0].player).toBe(bbrefWinner(+s));
+  });
+});
+
+const bbrefWinner = (s: number) => bbref[s]?.mvp?.[0]?.[1];

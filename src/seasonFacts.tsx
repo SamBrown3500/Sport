@@ -3,6 +3,7 @@ import type { Category } from './data/types';
 import type { StandingRow, Vote } from './data/bbref';
 import { bbLinks, bbSeason, swings, upsets, type Swing } from './lib/bbref';
 import { seasonLabel } from './lib/seasons';
+import { mvpCases } from './lib/mvp';
 
 /*
  * Box-score tables from Basketball Reference under each season-page section:
@@ -86,6 +87,45 @@ function SwingTable({ rows, start }: { rows: Swing[]; start: number }) {
   );
 }
 
+
+const pct3 = (n?: number) => (n === undefined ? '—' : n.toFixed(3).replace(/^0/, ''));
+const one = (n?: number) => (n === undefined ? '—' : n.toFixed(1));
+
+/** The top three vote-getters: stat line and the case for each. */
+function MvpCards({ season, source }: { season: number; source: string }) {
+  const cases = mvpCases(season);
+  if (!cases.length) return null;
+  return (
+    <div className="bbfacts">
+      <div className="bbhead">
+        <h3>Top 3 candidates</h3>
+        <a href={source} target="_blank" rel="noreferrer">Basketball Reference</a>
+      </div>
+      <div className="mvpcards">
+        {cases.map(({ candidate: c, points, result }) => (
+          <article key={c.player} className={`mvpcard${c.rank === '1' ? ' is-winner' : ''}`}>
+            <header>
+              <span className="mvprank">{c.rank === '1' ? 'MVP' : `#${c.rank}`}</span>
+              <h4>{c.player}</h4>
+              <span className="note">{c.team}</span>
+            </header>
+            <table className="stats mvpline">
+              <thead><tr><th className="num">G</th><th className="num">PTS</th><th className="num">TRB</th><th className="num">AST</th><th className="num">FG%</th><th className="num">WS</th></tr></thead>
+              <tbody><tr>
+                <td className="num">{c.g ?? '—'}</td><td className="num">{one(c.pts)}</td><td className="num">{one(c.trb)}</td>
+                <td className="num">{one(c.ast)}</td><td className="num">{pct3(c.fg)}</td><td className="num">{one(c.ws)}</td>
+              </tr></tbody>
+            </table>
+            <p className="mvpcase-label">The case</p>
+            <ul className="mvpcase">{points.map((p, i) => <li key={i}>{p}</li>)}</ul>
+            <p className="mvpresult">{result}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function SeasonFacts({ season, category }: { season: number; category: Category }) {
   const bb = bbSeason(season);
   if (!bb) return null;
@@ -94,7 +134,12 @@ export function SeasonFacts({ season, category }: { season: number; category: Ca
 
   if (category === 'mvp-race') {
     if (!bb.mvp?.length) return done ? <p className="note bbnote">No MVP award until 1955-56.</p> : null;
-    return <Facts title="MVP voting" source={links.awards}><VoteTable rows={bb.mvp} /></Facts>;
+    return (
+      <>
+        <MvpCards season={season} source={links.awards} />
+        <Facts title="MVP voting" source={links.awards}><VoteTable rows={bb.mvp} /></Facts>
+      </>
+    );
   }
 
   if (category === 'draft-drama') {
