@@ -369,7 +369,7 @@ export const stories: Story[] = [
     ] }),
   s('grizzlies-upset-spurs-2011', 'moment', B, 'NBA', '2011-04', 'month',
     'The eighth-seeded Grizzlies knock out the 61-win Spurs',
-    'The Spurs had won 61 games, and their aging core seemed to have found one more run. Memphis, the eighth seed, beat them in five games, the biggest upset since the We Believe Warriors in 2007. The verdict was swift and widespread: Duncan was old, Parker and Ginobili had lost steps, and the dynasty was finished. A Bleacher Report piece listed every reason their time was up.',
+    'The Spurs had won 61 games, and their aging core seemed to have found one more run. Memphis, the eighth seed, beat them in six games, the biggest upset since the We Believe Warriors in 2007. The verdict was swift and widespread: Duncan was old, Parker and Ginobili had lost steps, and the dynasty was finished. A Bleacher Report piece listed every reason their time was up.',
     ['tim-duncan',  'zach-randolph',  'manu-ginobili',  'tony-parker'], ['spurs',  'grizzlies'], ['playoffs',  'upsets'],
     { categories: ['surprises'], sources: [
       { source: 'dom2k-spurs-generation-of-winning', quote: 'the 2011 San Antonio Spurs won 61 games' },
@@ -489,7 +489,7 @@ export const stories: Story[] = [
     ] }),
   s('cuban-buys-mavs', 'moment', B, 'NBA', '2000-01', 'month',
     'Mark Cuban buys the Mavericks',
-    'Cuban bought the team as a fan, not as an investment, and wanted to see a long-time punchline do well. That season Dallas made its first playoffs in a decade and knocked out Stockton and Malone, which was seen as symbolic: the next great guard-big duo replacing the old one.',
+    'Cuban bought the team as a fan, not as an investment, and wanted to see a long-time punchline do well. The next season Dallas made its first playoffs in a decade and knocked out Stockton and Malone, which was seen as symbolic: the next great guard-big duo replacing the old one.',
     ['mark-cuban', 'dirk-nowitzki', 'steve-nash'], ['mavericks', 'jazz'], ['owners'],
     { sources: [
       { source: 'dom2k-mavericks-life-without-luka', quote: 'Mark cubin purchased the Mavs in 2000 not as an investment or as a flex but as a fan' },
@@ -796,7 +796,7 @@ export const stories: Story[] = [
     ] }),
   s('bulls-sweep-champion-heat-2007', 'moment', B, 'NBA', '2007-04', 'month',
     'The young Bulls sweep the defending champion Heat',
-    'Miami ran back the title roster in a weak East, but it started badly: the Bulls blew them out 108-66 on ring night. Shaq needed knee surgery, Wade dislocated his shoulder, and the older roster limped to 44-38 and the fifth seed. The East was soft enough that a run seemed possible, but Chicago, which had their number all season, swept them in the first round, the first sweep of a defending champion since the 1950s. It was the cost of Riley\'s win-now trade for Shaq: the help around Wade was wilting, and Gary Payton retired after the sweep.',
+    'Miami ran back the title roster in a weak East, but it started badly: the Bulls blew them out 108-66 on ring night. Shaq needed knee surgery, Wade dislocated his shoulder, and the older roster limped to 44-38, won the Southeast and got the fourth seed. The East was soft enough that a run seemed possible, but Chicago, which had their number all season, swept them in the first round, the first sweep of a defending champion since the 1950s. It was the cost of Riley\'s win-now trade for Shaq: the help around Wade was wilting, and Gary Payton retired after the sweep.',
     ['dwyane-wade', 'shaquille-oneal', 'pat-riley', 'ben-wallace', 'gary-payton'], ['heat', 'bulls'], ['playoffs', 'upsets', 'injuries'],
     { categories: ['surprises'], sources: [
       { source: 'dom2k-heat-35-year-tale', quote: 'an absolute drubbing to ruin the ring ceremony, 108 to 66' },
@@ -1169,7 +1169,7 @@ export const stories: Story[] = [
     ] }),
   s('westbrook-meniscus-2013', 'moment', B, 'NBA', '2013-04', 'month',
     'Westbrook\'s knee injury derails a 60-win Thunder team',
-    'OKC won a franchise-best 60 games and most fans expected a Heat-Thunder rematch. In the first round against Harden\'s Rockets, Westbrook tore his meniscus in Game 2 after a collision with Patrick Beverley. Durant carried them past Houston but Memphis beat them in five, with 38-year-old Derek Fisher as their most credible shooter. The host argues that with Harden still around, OKC would have figured out its future.',
+    'OKC won 60 games, the most since the franchise moved from Seattle, and most fans expected a Heat-Thunder rematch. In the first round against Harden\'s Rockets, Westbrook tore his meniscus in Game 2 after a collision with Patrick Beverley. Durant carried them past Houston but Memphis beat them in five, with 38-year-old Derek Fisher as their most credible shooter. The host argues that with Harden still around, OKC would have figured out its future.',
     ['russell-westbrook', 'kevin-durant', 'james-harden', 'patrick-beverley'], ['thunder', 'rockets', 'grizzlies'], ['playoffs', 'injuries', 'what-ifs'],
     { categories: ['contenders'], sources: [
       { source: 'thunder-beat-their-curse', quote: 'they finished the season with a 60 and 22 record, their best in franchise history' },
@@ -1444,7 +1444,7 @@ export const stories: Story[] = [
     ] }),
   s('paul-george-leg-injury', 'moment', B, 'NBA', '2014-08-01', 'day',
     'Paul George breaks his leg in a Team USA scrimmage',
-    'Just as the Pacers\' window was closing, George suffered one of the worst injuries in NBA history in a Team USA game in Las Vegas. He wasn\'t even in his prime yet, and the core went overnight from contender to lottery. He came back strong and finished third in MVP voting in 2016, but Indiana never recaptured the magic.',
+    'Just as the Pacers\' window was closing, George suffered one of the worst injuries in NBA history in a Team USA game in Las Vegas. He wasn\'t even in his prime yet, and the core went overnight from contender to lottery. He came back strong and made All-NBA Third Team in 2016, but Indiana never recaptured the magic.',
     ['paul-george'], ['pacers'], ['injuries'],
     { sources: [
       { source: 'pacers-underrated-curse', quote: 'August 1st, 2014, a date that changed everything and significantly altered Eastern Conference history' },
@@ -1572,7 +1572,7 @@ export const stories: Story[] = [
     ] }),
   s('wolves-let-billups-walk', 'moment', B, 'NBA', '2002-07', 'month',
     'Minnesota lets Chauncey Billups walk',
-    'With Terrell Brandon injured, Chauncey Billups stepped in and played well, and Brandon, who had mentored him, even offered to come off the bench for good. The front office stayed committed to the injured former All-Star and dragged its feet, and Billups signed with Detroit. Brandon never played another NBA game. By 2002 the Wolves had lost in the first round five straight years.',
+    'With Terrell Brandon injured, Chauncey Billups stepped in and played well, and Brandon, who had mentored him, even offered to come off the bench for good. The front office stayed committed to the injured former All-Star and dragged its feet, and Billups signed with Detroit. Brandon never played another NBA game. By 2002 the Wolves had lost in the first round six straight years.',
     ['chauncey-billups', 'terrell-brandon', 'kevin-garnett', 'kevin-mchale'], ['timberwolves', 'pistons'], ['free agency', 'what-ifs'],
     { sources: [
       { source: 'dom2k-timberwolves-instability', quote: 'Brandon even offered to move to the bench permanently' },
@@ -1597,7 +1597,7 @@ export const stories: Story[] = [
     ] }),
   s('wolves-collapse-after-2004', 'storyline', B, 'NBA', '2005-02', 'month',
     'The Wolves waste Garnett\'s prime',
-    'Cassell and Sprewell fell off fast in their mid-30s, Flip Saunders was fired at 26-25, and Minnesota missed the playoffs by a game. Cassell was dumped with a first-round pick, they drafted Rashad McCants over Danny Granger, and in 2006 they took Brandon Roy sixth and traded him for Randy Foye, seen as the safer pick. Garnett refused to ask for a trade; friends like Chauncey Billups and Antoine Walker had to talk him into leaving. Kobe Bryant never returned his calls, and once Boston got Ray Allen, he accepted a trade to the Celtics.',
+    'Cassell and Sprewell fell off fast in their mid-30s, Flip Saunders was fired in February 2005 with the team hovering around .500, and Minnesota missed the playoffs by a game. Cassell was dumped with a first-round pick, they drafted Rashad McCants over Danny Granger, and in 2006 they took Brandon Roy sixth and traded him for Randy Foye, seen as the safer pick. Garnett refused to ask for a trade; friends like Chauncey Billups and Antoine Walker had to talk him into leaving. Kobe Bryant never returned his calls, and once Boston got Ray Allen, he accepted a trade to the Celtics.',
     ['kevin-garnett', 'sam-cassell', 'latrell-sprewell', 'brandon-roy', 'randy-foye', 'kevin-mchale', 'chauncey-billups', 'kobe-bryant', 'paul-pierce', 'ray-allen'], ['timberwolves', 'celtics', 'blazers', 'clippers'], ['collapses', 'draft', 'trades'],
     { end: '2007', sources: [
       { source: 'dom2k-timberwolves-instability', quote: 'the year-to-year regression was a lot to stomach' },
@@ -2128,8 +2128,8 @@ export const stories: Story[] = [
       { source: 'celtics-one-ring-36-years', quote: 'to overcome an O2 deficit and win game seven on their home floor' },
     ] }),
   s('celtics-2019-kyrie-leaves', 'moment', B, 'NBA', '2019-05', 'month',
-    'The 60-win Celtics fall apart and Kyrie leaves',
-    'Adding a healthy Irving and Hayward to a team that had just reached Game 7 of the conference finals seemed fail-proof, and Kyrie told the home crowd he planned to re-sign. The roster was thought to have 60-win potential. Instead it was Boston\'s first sub-50-win season since 2016, full of bad losses, non-committal Kyrie comments and waiting for Hayward to find his old form. Milwaukee knocked them out, and the host says anyone who missed Kyrie\'s All-Star tunnel video with Kevin Durant was in denial. Irving left, Horford shocked them by signing with Philadelphia, and Kemba Walker arrived in a deal involving Rozier.',
+    'The loaded Celtics fall apart and Kyrie leaves',
+    'Adding a healthy Irving and Hayward to a team that had just reached Game 7 of the conference finals seemed fail-proof, and Kyrie told the home crowd he planned to re-sign. The roster was thought to have 60-win potential. Instead they went 49-33, Boston\'s first sub-50-win season since 2016, full of bad losses, non-committal Kyrie comments and waiting for Hayward to find his old form. Milwaukee knocked them out, and the host says anyone who missed Kyrie\'s All-Star tunnel video with Kevin Durant was in denial. Irving left, Horford shocked them by signing with Philadelphia, and Kemba Walker arrived in a deal involving Rozier.',
     ['kyrie-irving', 'gordon-hayward', 'kevin-durant', 'al-horford', 'kemba-walker', 'terry-rozier'], ['celtics', 'bucks', 'sixers'], ['free agency', 'busts', 'controversies'],
     { categories: ['contenders'], sources: [
       { source: 'celtics-one-ring-36-years', quote: 'throwing Irving and Hayward back onto a roster with so much success seemed fail prooof' },
@@ -2171,7 +2171,7 @@ export const stories: Story[] = [
     ] }),
   s('celtics-heat-2023-ecf', 'moment', B, 'NBA', '2023-05', 'month',
     'Boston falls behind 3-0 to Miami and nearly comes back',
-    'Tatum was a full-blown superstar at 30 a game, and after Atlanta took them six and Philadelphia seven, his heroics in Games 6 and 7 against the 76ers suggested Boston had finally turned a corner. Next was Miami, a seventh seed fans had no faith in a month earlier. The Heat went up 3-0, yet another meltdown. Boston nearly pulled off the greatest comeback ever, with graphics being made and Derrick White\'s game winner, but lost again despite all the expectations.',
+    'Tatum was a full-blown superstar at 30 a game, and after Atlanta took them six and Philadelphia seven, his heroics in Games 6 and 7 against the 76ers suggested Boston had finally turned a corner. Next was Miami, an eighth seed fans had no faith in a month earlier. The Heat went up 3-0, yet another meltdown. Boston nearly pulled off the greatest comeback ever, with graphics being made and Derrick White\'s game winner, but lost again despite all the expectations.',
     ['jayson-tatum', 'jaylen-brown', 'derrick-white', 'joel-embiid', 'james-harden', 'jimmy-butler'], ['celtics', 'heat', 'hawks', 'sixers'], ['playoffs', 'upsets', 'comebacks'],
     { categories: ['contenders'], sources: [
       { source: 'celtics-one-ring-36-years', quote: 't had become a Flatout Superstar averaging 30 points a game' },
@@ -2501,9 +2501,9 @@ export const stories: Story[] = [
       { source: 'grokipedia-cavaliers-mitchell-era', quote: 'averaging just 94.2 points per game in the series' },
       { source: 'grokipedia-cavaliers-mitchell-era', quote: 'Mobley limited by a lingering left ankle sprain' },
     ] }),
-  s('cavs-beat-magic-game-7-2024', 'moment', B, 'NBA', '2024-05-03', 'day',
+  s('cavs-beat-magic-game-7-2024', 'moment', B, 'NBA', '2024-05-05', 'day',
     'Cleveland comes back from 18 down in Game 7 against Orlando',
-    'The 48-win Cavs were the No. 4 seed, with Darius Garland having missed 27 games with a broken jaw. Their first-round series with fifth-seeded Orlando went seven, and on May 3, 2024, they rallied from 18 down at halftime of Game 7 to win 106-94 behind Mitchell\'s 39 points, the franchise\'s first series win since 2018. Local media read it as a sign of emerging contention. Top-seeded Boston then beat them 4-1, closing it out on May 15, though the run was seen as validating the young core.',
+    'The 48-win Cavs were the No. 4 seed, with Darius Garland having missed 27 games with a broken jaw. Their first-round series with fifth-seeded Orlando went seven, and on May 5, 2024, they rallied from 18 down at halftime of Game 7 to win 106-94 behind Mitchell\'s 39 points, the franchise\'s first series win since 2018. Local media read it as a sign of emerging contention. Top-seeded Boston then beat them 4-1, closing it out on May 15, though the run was seen as validating the young core.',
     ['donovan-mitchell', 'jarrett-allen', 'darius-garland', 'evan-mobley', 'jb-bickerstaff'], ['cavaliers', 'magic', 'celtics'], ['playoffs', 'comebacks'],
     { categories: ['contenders'], sources: [
       { source: 'grokipedia-cavaliers-mitchell-era', quote: 'Point guard Darius Garland missed 27 games due to a broken jaw sustained in December 2023' },
@@ -2516,7 +2516,7 @@ export const stories: Story[] = [
     ] }),
   s('cavs-64-wins-fall-to-pacers-2025', 'moment', B, 'NBA', '2025-05', 'month',
     'The 64-win Cavs lose to Indiana in the second round',
-    'Under new coach Kenny Atkinson, hired in June 2024 to replace J.B. Bickerstaff, Cleveland went 64-18 with the league\'s best offense and the East\'s No. 1 seed. Atkinson won Coach of the Year, Evan Mobley won Defensive Player of the Year and Mitchell made All-NBA First Team. They swept Miami, including a 138-83 Game 3. Then Indiana beat them 4-1 in the conference semifinals, with Cleveland shooting under 40% in three of the losses, a series that exposed how the regular-season rhythm didn\'t carry over.',
+    'Under new coach Kenny Atkinson, hired in June 2024 to replace J.B. Bickerstaff, Cleveland went 64-18 with the league\'s best offense and the East\'s No. 1 seed. Atkinson won Coach of the Year, Evan Mobley won Defensive Player of the Year and Mitchell made All-NBA First Team. They swept Miami, including a 138-83 Game 4. Then Indiana beat them 4-1 in the conference semifinals, with Cleveland shooting under 40% in three of the losses, a series that exposed how the regular-season rhythm didn\'t carry over.',
     ['donovan-mitchell', 'evan-mobley', 'kenny-atkinson', 'jb-bickerstaff', 'darius-garland', 'tyrese-haliburton'], ['cavaliers', 'pacers', 'heat'], ['playoffs', 'upsets', 'awards'],
     { categories: ['surprises', 'contenders'], sources: [
       { source: 'grokipedia-cavaliers-mitchell-era', quote: 'new head coach Kenny Atkinson, who was hired on June 28, 2024, following the departure of J.B. Bickerstaff' },
@@ -2542,7 +2542,7 @@ export const stories: Story[] = [
     ] }),
   s('pippen-leads-bulls-without-jordan-1994', 'moment', B, 'NBA', '1994-05', 'month',
     'Without Jordan, Pippen keeps the Bulls near the top',
-    'With Michael Jordan retired, the Bulls leaned on Scottie Pippen in 1993-94, and they still went 55-27 for the East\'s second seed. Pippen averaged 22 points, 8.7 rebounds and 5.6 assists and finished third in MVP voting, and rookie Toni Kukoc, who had waited to come over until after Jordan left, made the All-Rookie Second Team. The Knicks beat them in seven games in the conference semifinals.',
+    'With Michael Jordan retired, the Bulls leaned on Scottie Pippen in 1993-94, and they still went 55-27 for the East\'s third seed. Pippen averaged 22 points, 8.7 rebounds and 5.6 assists and finished third in MVP voting, and rookie Toni Kukoc, who had waited to come over until after Jordan left, made the All-Rookie Second Team. The Knicks beat them in seven games in the conference semifinals.',
     ['scottie-pippen', 'michael-jordan', 'toni-kukoc', 'phil-jackson'], ['bulls', 'knicks'], ['playoffs', 'MVP'],
     { categories: ['surprises', 'mvp-race'], sources: [
       { source: 'grokipedia-chicago-bulls', quote: 'Without Jordan, the Bulls relied heavily on Scottie Pippen to lead the team' },
@@ -2553,7 +2553,7 @@ export const stories: Story[] = [
     ] }),
   s('jordan-returns-im-back', 'moment', B, 'NBA', '1995-03', 'month',
     'Jordan returns: "I\'m back"',
-    'In March 1995 Jordan announced his comeback with a two-word fax, "I\'m back," and played 17 regular-season games wearing number 45 for a Pippen-led team that had been struggling. Chicago swept Charlotte in the first round, then lost to Orlando 4-2 in the conference semifinals. With Jordan back for a full season and Dennis Rodman added that October, the next Bulls team went 72-10 and won the title.',
+    'In March 1995 Jordan announced his comeback with a two-word fax, "I\'m back," and played 17 regular-season games wearing number 45 for a Pippen-led team that had been struggling. Chicago beat Charlotte 3-1 in the first round, then lost to Orlando 4-2 in the conference semifinals. With Jordan back for a full season and Dennis Rodman added that October, the next Bulls team went 72-10 and won the title.',
     ['michael-jordan', 'scottie-pippen', 'dennis-rodman'], ['bulls', 'magic', 'hornets'], ['comebacks', 'playoffs'],
     { categories: ['contenders'], sources: [
       { source: 'grokipedia-chicago-bulls', quote: 'announcing his comeback via a fax to an NBA reporter that simply read "I\'m back,"' },
@@ -2564,7 +2564,7 @@ export const stories: Story[] = [
     ] }),
   s('krause-breaks-up-dynasty', 'storyline', B, 'NBA', '1999-01', 'month',
     'Jerry Krause breaks up the dynasty and the "Baby Bulls" years',
-    'After Jordan retired again in January 1999, general manager Jerry Krause dismantled the six-time champions, trading Pippen to Houston and letting Rodman go, betting on youth and draft picks while fans chanted "Fire Krause." The bet went badly. Krause traded 1999 No. 1 pick Elton Brand for the pick that became Tyson Chandler and drafted Eddy Curry, both 7-footers; No. 2 pick Jay Williams showed promise until a motorcycle accident in June 2003 ended his career. The Bulls went a franchise-worst 13-69 in 1998-99 and had six straight losing seasons.',
+    'After Jordan retired again in January 1999, general manager Jerry Krause dismantled the six-time champions, trading Pippen to Houston and letting Rodman go, betting on youth and draft picks while fans chanted "Fire Krause." The bet went badly. Krause traded 1999 No. 1 pick Elton Brand for the pick that became Tyson Chandler and drafted Eddy Curry, both 7-footers; No. 2 pick Jay Williams showed promise until a motorcycle accident in June 2003 ended his career. The Bulls went 13-37 in the 1998-99 lockout season, bottomed out at a franchise-worst 15-67 in 2000-01 and had six straight losing seasons.',
     ['jerry-krause', 'scottie-pippen', 'dennis-rodman', 'elton-brand', 'tyson-chandler', 'eddy-curry', 'jay-williams'], ['bulls', 'rockets', 'clippers'], ['rebuilds', 'draft', 'trades', 'busts'],
     { categories: ['draft-drama'], end: '2004', aliases: ['Baby Bulls'], sources: [
       { source: 'grokipedia-chicago-bulls', quote: 'Following Michael Jordan\'s retirement in January 1999' },
@@ -2602,7 +2602,7 @@ export const stories: Story[] = [
     ] }),
   s('bulls-trade-butler-for-lavine', 'moment', B, 'NBA', '2017-06-22', 'day',
     'The Bulls trade Jimmy Butler for Zach LaVine and the No. 7 pick',
-    'Fans were already angry at the front office: in March 2017 they held a "Fire GarPax" rally outside the United Center. On draft night, June 22, 2017, Gar Forman and John Paxson traded All-Star Jimmy Butler to Minnesota for Zach LaVine, Kris Dunn and the seventh pick, used on Lauri Markkanen, choosing future assets over contending now. Fans crowdfunded a "Fire GarPax" billboard that July. Chicago went 25-57 the next season and 22-60 the year after.',
+    'Fans were already angry at the front office: in March 2017 they held a "Fire GarPax" rally outside the United Center. On draft night, June 22, 2017, Gar Forman and John Paxson traded All-Star Jimmy Butler to Minnesota for Zach LaVine, Kris Dunn and the seventh pick, used on Lauri Markkanen, choosing future assets over contending now. Fans crowdfunded a "Fire GarPax" billboard that July. Chicago went 27-55 the next season and 22-60 the year after.',
     ['jimmy-butler', 'zach-lavine', 'kris-dunn', 'lauri-markkanen', 'gar-forman', 'john-paxson', 'fred-hoiberg'], ['bulls', 'timberwolves'], ['trades', 'draft', 'rebuilds'],
     { categories: ['draft-drama'], sources: [
       { source: 'grokipedia-chicago-bulls', quote: 'traded All-Star shooting guard Jimmy Butler to the Minnesota Timberwolves on June 22, 2017' },
@@ -2615,7 +2615,7 @@ export const stories: Story[] = [
     ] }),
   s('bulls-add-vucevic-derozan-2021', 'moment', B, 'NBA', '2021-08', 'month',
     'Chicago goes all in on Vucevic and DeRozan',
-    'Artūras Karnišovas went aggressively after a veteran core around Zach LaVine. In March 2021 the Bulls sent Wendell Carter Jr., Otto Porter Jr. and two first-round picks, one of which became Franz Wagner, to Orlando for Nikola Vučević, and in August they got DeMar DeRozan in a sign-and-trade with San Antonio. The 2021-22 Bulls won 46 games, their first 40-win season since 2014-15, and DeRozan scored 50 twice. Milwaukee beat them in five in the first round, and the next two seasons ended in the play-in.',
+    'Artūras Karnišovas went aggressively after a veteran core around Zach LaVine. In March 2021 the Bulls sent Wendell Carter Jr., Otto Porter Jr. and two first-round picks, one of which became Franz Wagner, to Orlando for Nikola Vučević, and in August they got DeMar DeRozan in a sign-and-trade with San Antonio. The 2021-22 Bulls won 46 games, their first 40-win season since 2015-16, and DeRozan scored 50 twice. Milwaukee beat them in five in the first round, and the next two seasons ended in the play-in.',
     ['zach-lavine', 'demar-derozan', 'nikola-vucevic', 'arturas-karnisovas', 'franz-wagner', 'wendell-carter', 'billy-donovan'], ['bulls', 'magic', 'spurs', 'bucks'], ['trades'],
     { categories: ['contenders'], sources: [
       { source: 'grokipedia-chicago-bulls', quote: 'aggressively assembled a veteran core around guard Zach' },
@@ -2680,7 +2680,7 @@ export const stories: Story[] = [
     ] }),
   s('magic-draft-dwight-howard', 'moment', B, 'NBA', '2004-06', 'month',
     'Orlando takes Dwight Howard out of high school',
-    'Amid Tracy McGrady\'s frustrations, the 2003-04 Magic collapsed to 21-61, the franchise\'s worst record to that point. They won the lottery and in June 2004 took Dwight Howard, an 18-year-old center from Southwest Atlanta Christian Academy, as the new foundation. He made All-Rookie First Team with 12 points and 10 rebounds a game, and by 2008 he was Defensive Player of the Year.',
+    'Amid Tracy McGrady\'s frustrations, the 2003-04 Magic collapsed to 21-61, the franchise\'s worst record since its 18-64 expansion season. They won the lottery and in June 2004 took Dwight Howard, an 18-year-old center from Southwest Atlanta Christian Academy, as the new foundation. He made All-Rookie First Team with 12 points and 10 rebounds a game, and by 2009 he was Defensive Player of the Year.',
     ['dwight-howard', 'tracy-mcgrady'], ['magic'], ['draft', 'lottery'],
     { categories: ['draft-drama'], sources: [
       { source: 'grokipedia-orlando-magic', quote: 'The 2003–04 season collapsed to 21–61, the franchise\'s worst record to that point, amid McGrady\'s frustrations' },
@@ -2712,7 +2712,7 @@ export const stories: Story[] = [
     ] }),
   s('magic-draft-paolo-banchero', 'moment', B, 'NBA', '2022-06-23', 'day',
     'Orlando takes Paolo Banchero first',
-    'Orlando took Duke forward Paolo Banchero first overall on June 23, 2022, and built around him with Franz Wagner and Jalen Suggs. He led the team at 20 points a game as a rookie on a 34-48 team, and in 2023-24 the young, defense-first Magic jumped to 47 wins and the fifth seed while allowing the fewest points in the league.',
+    'Orlando took Duke forward Paolo Banchero first overall on June 23, 2022, and built around him with Franz Wagner and Jalen Suggs. He led the team at 20 points a game as a rookie on a 34-48 team, and in 2023-24 the young, defense-first Magic jumped to 47 wins and the fifth seed with one of the league\'s best defenses.',
     ['paolo-banchero', 'franz-wagner', 'jalen-suggs', 'jamahl-mosley'], ['magic'], ['draft', 'rebuilds'],
     { categories: ['draft-drama'], sources: [
       { source: 'grokipedia-orlando-magic', quote: 'as the first overall pick in the 2022 NBA Draft on June 23, 2022' },
@@ -2978,7 +2978,7 @@ export const stories: Story[] = [
     ] }),
   s('hornets-54-wins-swept-1997', 'moment', B, 'NBA', '1997-04', 'month',
     'The best Hornets team is swept in the first round',
-    'With Glen Rice, the All-Star who came over in the Mourning trade, Charlotte peaked under Dave Cowens in 1996-97 at 54-28, still the best record in franchise history. The Knicks swept them 3-0 in the first round anyway. The next year, with Anthony Mason added, they won 51 and a series before the Bulls beat them 4-1.',
+    'With Glen Rice, the All-Star who came over in the Mourning trade, and Anthony Mason, acquired for Larry Johnson, Charlotte peaked under Dave Cowens in 1996-97 at 54-28, still the best record in franchise history. The Knicks swept them 3-0 in the first round anyway. The next year they won 51 and a series before the Bulls beat them 4-1.',
     ['glen-rice', 'dave-cowens', 'anthony-mason'], ['hornets', 'knicks', 'bulls'], ['playoffs', 'upsets'],
     { categories: ['surprises'], sources: [
       { source: 'grokipedia-charlotte-hornets', quote: 'Rice, a sharpshooting forward, immediately elevated the offense' },
@@ -3098,7 +3098,7 @@ export const stories: Story[] = [
     ] }),
   s('nets-big-three-breaks-up', 'storyline', B, 'NBA', '2022-02', 'month',
     'Brooklyn\'s big three falls apart',
-    'When Kevin Durant and Kyrie Irving signed four-year max deals on June 30, 2019, and James Harden arrived in January 2021, the trio promised dominance. Through injuries and off-court controversies they played only 16 games together. Harden was traded to Philadelphia in February 2022, and a year later Brooklyn sent Irving to Dallas and Durant to Phoenix, getting five first-round picks from the Suns for Durant to start a rebuild.',
+    'When Kevin Durant and Kyrie Irving signed four-year max deals on June 30, 2019, and James Harden arrived in January 2021, the trio promised dominance. Through injuries and off-court controversies they played only 16 games together. Harden was traded to Philadelphia in February 2022, and a year later Brooklyn sent Irving to Dallas and Durant to Phoenix, getting four first-round picks and a pick swap from the Suns for Durant to start a rebuild.',
     ['kevin-durant', 'kyrie-irving', 'james-harden', 'sean-marks'], ['nets', 'sixers', 'mavericks', 'suns'], ['trades', 'superteams'],
     { categories: ['surprises'], end: '2023-02', sources: [
       { source: 'grokipedia-brooklyn-nets', quote: 'Kevin Durant and Kyrie Irving signing four-year max contracts on June 30, 2019' },
@@ -3152,7 +3152,7 @@ export const stories: Story[] = [
     ] }),
   s('ted-turner-buys-hawks', 'moment', B, 'NBA', '1977-02', 'month',
     'Ted Turner buys the Hawks and puts them on the superstation',
-    'Ted Turner bought 55 percent of the Hawks for about $4 million, approved in February 1977, and put their games on WTBS, the first time NBA games were regularly shown beyond local markets. With Hubie Brown coaching, they won their first playoff series in Atlanta in 1979 and the Central Division in 1979-80.',
+    'Ted Turner bought 55 percent of the Hawks for about $4 million, approved in February 1977, and put their games on WTBS, the first time NBA games were regularly shown beyond local markets. With Hubie Brown coaching, they won their first playoff series since 1970 in 1979 and the Central Division in 1979-80.',
     ['ted-turner', 'hubie-brown'], ['hawks'], ['ownership', 'television'],
     { sources: [
       { source: 'grokipedia-atlanta-hawks', quote: 'media entrepreneur Ted Turner acquired a majority stake in the Atlanta Hawks for approximately $4 million' },
@@ -3212,7 +3212,7 @@ export const stories: Story[] = [
     ] }),
   s('hawks-2021-conference-finals', 'moment', B, 'NBA', '2021-06', 'month',
     'Ice Trae and the surprise run to the conference finals',
-    'After a 14-20 start cost Lloyd Pierce his job, interim coach Nate McMillan led the Hawks to the fifth seed and a surprising 2021 run. Trae Young earned the "Ice Trae" nickname as they beat the Knicks 4-1, then came back from 3-2 down to beat Philadelphia in seven. Young scored 48 in Game 1 of the conference finals against Milwaukee, but the Bucks won in six.',
+    'After a 14-20 start cost Lloyd Pierce his job, interim coach Nate McMillan led the Hawks to the fifth seed and a surprising 2021 run. Trae Young earned the "Ice Trae" nickname as they beat the Knicks 4-1, then came back from 2-1 down to beat top-seeded Philadelphia in seven. Young scored 48 in Game 1 of the conference finals against Milwaukee, but the Bucks won in six.',
     ['trae-young', 'nate-mcmillan', 'lloyd-pierce'], ['hawks', 'knicks', 'sixers', 'bucks'], ['playoffs', 'upsets'],
     { categories: ['surprises'], sources: [
       { source: 'grokipedia-atlanta-hawks', quote: 'was fired in March 2021 after a 14-20 start' },
@@ -3268,7 +3268,7 @@ export const stories: Story[] = [
     ] }),
   s('kareem-traded-to-lakers-1975', 'moment', B, 'NBA', '1975-06-16', 'day',
     'Abdul-Jabbar asks out of Milwaukee and goes to the Lakers',
-    'After a 38-44 season, Abdul-Jabbar requested a trade, unhappy with Milwaukee\'s small market and the team\'s direction. On June 16, 1975, the Bucks sent him to the Lakers for Elmore Smith, Brian Winters, Dave Meyers and Junior Bridgeman, ending their first great era after six straight playoff trips and one title.',
+    'After a 38-44 season, Abdul-Jabbar requested a trade, unhappy with Milwaukee\'s small market and the team\'s direction. On June 16, 1975, the Bucks sent him to the Lakers for Elmore Smith, Brian Winters, Dave Meyers and Junior Bridgeman, ending their first great era after five straight playoff trips and one title.',
     ['kareem-abdul-jabbar'], ['bucks', 'lakers'], ['trades'],
     { sources: [
       { source: 'grokipedia-milwaukee-bucks', quote: 'Abdul-Jabbar requested a trade after the 1974–75 season, citing dissatisfaction with Milwaukee\'s small-market status and team direction' },
@@ -3298,7 +3298,7 @@ export const stories: Story[] = [
     ] }),
   s('giannis-back-to-back-mvp', 'moment', B, 'NBA', '2019', 'year',
     'Giannis wins MVP for the 60-win Bucks',
-    'With Mike Budenholzer\'s spacing, Milwaukee went a franchise-best 60-22 in 2018-19 and took the East\'s top seed, and Antetokounmpo won his first MVP at 27.7 points, 12.5 rebounds and 5.9 assists. He won again the next year on a 56-17 team. Both times the playoffs went wrong: Toronto won the 2019 conference finals, and top-seeded Milwaukee lost to Miami in the 2020 second round.',
+    'With Mike Budenholzer\'s spacing, Milwaukee went a league-best 60-22 in 2018-19 and took the East\'s top seed, and Antetokounmpo won his first MVP at 27.7 points, 12.5 rebounds and 5.9 assists. He won again the next year on a 56-17 team. Both times the playoffs went wrong: Toronto won the 2019 conference finals, and top-seeded Milwaukee lost to Miami in the 2020 second round.',
     ['giannis-antetokounmpo', 'mike-budenholzer'], ['bucks', 'raptors', 'heat'], ['MVP', 'playoffs'],
     { categories: ['mvp-race', 'contenders'], sources: [
       { source: 'grokipedia-milwaukee-bucks', quote: 'propelled the Bucks to a franchise-best 60–22 record in 2018–19, clinching the Eastern Conference\'s top seed' },
@@ -3351,7 +3351,7 @@ export const stories: Story[] = [
     ] }),
   s('wes-unseld-rookie-mvp', 'moment', B, 'NBA', '1969', 'year',
     'Wes Unseld wins Rookie of the Year and MVP',
-    'The Baltimore Bullets took Wes Unseld second overall in 1968, and his rebounding and outlet passes turned them around immediately. He averaged 18.2 points and a league-leading 22.0 rebounds, won both Rookie of the Year and MVP, and led the Bullets to 57 wins and their first division title.',
+    'The Baltimore Bullets took Wes Unseld second overall in 1968, and his rebounding and outlet passes turned them around immediately. He averaged 13.8 points and 18.2 rebounds, second in the league behind Wilt Chamberlain, won both Rookie of the Year and MVP, and led the Bullets to 57 wins and their first division title.',
     ['wes-unseld'], ['wizards'], ['MVP', 'rookies'],
     { categories: ['mvp-race'], sources: [
       { source: 'grokipedia-washington-wizards', quote: 'Wes Unseld joined the Baltimore Bullets as the second overall pick in the 1968 NBA Draft' },
@@ -3405,7 +3405,7 @@ export const stories: Story[] = [
     ] }),
   s('arenas-gun-suspension', 'moment', B, 'NBA', '2010-01-06', 'day',
     'The Arenas locker-room gun incident',
-    'Arenas had missed all of 2007-08 after three knee surgeries. In December 2009 he and teammate Javaris Crittenton displayed unloaded guns in the locker room during a gambling dispute. David Stern suspended Arenas indefinitely without pay on January 6, 2010; both players got 50 games, and that ended his Wizards career.',
+    'Arenas had played only 13 games in 2007-08 after knee surgeries. In December 2009 he and teammate Javaris Crittenton displayed unloaded guns in the locker room during a gambling dispute. David Stern suspended Arenas indefinitely without pay on January 6, 2010; both players got 50 games, and that ended his Wizards career.',
     ['gilbert-arenas', 'javaris-crittenton', 'david-stern'], ['wizards'], ['scandals', 'suspensions'],
     { categories: ['surprises'], sources: [
       { source: 'grokipedia-washington-wizards', quote: 'Arenas missing the entire 2007–08 season after three surgeries on his left knee' },
@@ -3426,7 +3426,7 @@ export const stories: Story[] = [
     ] }),
   s('wizards-trade-beal', 'moment', B, 'NBA', '2023-06', 'month',
     'Washington trades Bradley Beal and starts over',
-    'Beal signed a five-year, $251 million extension in 2021, but analysts saw the Wizards stagnating around him. In June 2023 they traded him to Phoenix for Chris Paul, Landry Shamet and draft assets, and new president Michael Winger began a full rebuild. The 2023-24 Wizards went 15-67, second-worst in the league.',
+    'Beal signed a five-year, $251 million extension in 2022, but analysts saw the Wizards stagnating around him. In June 2023 they traded him to Phoenix for Chris Paul, Landry Shamet and draft assets, and new president Michael Winger began a full rebuild. The 2023-24 Wizards went 15-67, second-worst in the league.',
     ['bradley-beal', 'chris-paul', 'michael-winger'], ['wizards', 'suns'], ['trades', 'rebuilds'],
     { sources: [
       { source: 'grokipedia-washington-wizards', quote: 'who signed a five-year, $251 million extension on June 29, 2021' },
@@ -3482,7 +3482,7 @@ export const stories: Story[] = [
     ] }),
   s('raptors-upset-by-nets-2007', 'moment', B, 'NBA', '2007-05', 'month',
     'Third-seeded Toronto is upset by the Nets',
-    'Bryan Colangelo, the 2005 Executive of the Year, took over in February 2006, drafted Andrea Bargnani first overall and built around Chris Bosh. The 2006-07 Raptors went 47-35 for the East\'s third seed, their first playoff trip since 2001. Sixth-seeded New Jersey, led by Jason Kidd, upset them 4-2.',
+    'Bryan Colangelo, the 2005 Executive of the Year, took over in February 2006, drafted Andrea Bargnani first overall and built around Chris Bosh. The 2006-07 Raptors went 47-35 for the East\'s third seed, their first playoff trip since 2002. Sixth-seeded New Jersey, led by Jason Kidd, upset them 4-2.',
     ['chris-bosh', 'bryan-colangelo', 'andrea-bargnani', 'jason-kidd'], ['raptors', 'nets'], ['playoffs', 'upsets'],
     { categories: ['surprises'], sources: [
       { source: 'grokipedia-toronto-raptors', quote: 'the hiring of Bryan Colangelo as the Raptors\' president and general manager on February 28, 2006' },
@@ -3492,7 +3492,7 @@ export const stories: Story[] = [
     ] }),
   s('raptors-lowry-derozan-59-wins', 'storyline', B, 'NBA', '2018-05', 'month',
     'The Lowry-DeRozan Raptors keep running into LeBron',
-    'Masai Ujiri took over in May 2013, and the team\'s "We The North" identity arrived in April 2014. Kyle Lowry and DeMar DeRozan led four straight 50-win seasons, peaking at a franchise-record 59 in 2017-18, but LeBron James\'s Cavaliers knocked Toronto out in 2016, 2017 and 2018. Ujiri replaced Dwane Casey with Nick Nurse and then traded DeRozan.',
+    'Masai Ujiri took over in May 2013, and the team\'s "We The North" identity arrived in April 2014. Kyle Lowry and DeMar DeRozan led three straight 50-win seasons, peaking at a franchise-record 59 in 2017-18, but LeBron James\'s Cavaliers knocked Toronto out in 2016, 2017 and 2018. Ujiri replaced Dwane Casey with Nick Nurse and then traded DeRozan.',
     ['kyle-lowry', 'demar-derozan', 'masai-ujiri', 'lebron-james', 'nick-nurse', 'dwane-casey'], ['raptors', 'cavaliers'], ['playoffs', 'coaching'],
     { categories: ['contenders'], end: '2018-07', sources: [
       { source: 'grokipedia-toronto-raptors', quote: 'Masai Ujiri was hired as president and general manager of the Toronto Raptors on May 31, 2013' },
@@ -3515,7 +3515,7 @@ export const stories: Story[] = [
     ] }),
   s('raptors-trade-siakam', 'moment', B, 'NBA', '2024-01-17', 'day',
     'Toronto trades Pascal Siakam and turns to Scottie Barnes',
-    'After Lowry left in a 2021 sign-and-trade with Miami, Pascal Siakam was the cornerstone, but the team was inconsistent. On January 17, 2024, Ujiri traded Siakam to Indiana and turned the team over to Scottie Barnes, the 2021 Rookie of the Year. Ujiri himself left the organization in June 2025.',
+    'After Lowry left in a 2021 sign-and-trade with Miami, Pascal Siakam was the cornerstone, but the team was inconsistent. On January 17, 2024, Ujiri traded Siakam to Indiana and turned the team over to Scottie Barnes, the 2022 Rookie of the Year. Ujiri himself left the organization in June 2025.',
     ['pascal-siakam', 'scottie-barnes', 'masai-ujiri', 'kyle-lowry'], ['raptors', 'pacers', 'heat'], ['trades', 'rebuilds'],
     { sources: [
       { source: 'grokipedia-toronto-raptors', quote: 'Ujiri traded Lowry to the Miami Heat in a sign-and-trade on August 6, 2021' },
@@ -3546,7 +3546,7 @@ export const stories: Story[] = [
     ] }),
   s('sixers-68-wins-1967-title', 'moment', B, 'NBA', '1967-04', 'month',
     'Wilt\'s 68-win 76ers win the 1967 title',
-    'Philadelphia traded for Wilt Chamberlain in January 1965 and paired him with Hal Greer and Chet Walker, then hired Alex Hannum in 1966 to build a balanced offense around him. The 1966-67 76ers went 68-13, the best record in the league, and beat the Warriors 4-2 in the Finals for the first title in Philadelphia.',
+    'Philadelphia traded for Wilt Chamberlain in January 1965 and paired him with Hal Greer and Chet Walker, then hired Alex Hannum in 1966 to build a balanced offense around him. The 1966-67 76ers went 68-13, the best record in the league, and beat the Warriors 4-2 in the Finals for the 76ers\' first title and Philadelphia\'s first since 1956.',
     ['wilt-chamberlain', 'hal-greer', 'chet-walker', 'alex-hannum', 'billy-cunningham'], ['sixers', 'warriors'], ['championships', 'Finals'],
     { categories: ['contenders'], sources: [
       { source: 'grokipedia-philadelphia-76ers', quote: 'who was traded from the San Francisco Warriors on January 15, 1965' },
@@ -3583,7 +3583,7 @@ export const stories: Story[] = [
     ] }),
   s('sixers-draft-barkley', 'moment', B, 'NBA', '1984-06', 'month',
     'Philadelphia drafts Charles Barkley fifth',
-    'The 76ers took Auburn\'s Charles Barkley fifth in 1984 to add rebounding and scoring to the Erving-Malone team. He made All-Rookie First Team on a 58-win team, and after Erving retired he became the franchise, averaging 28.3 points and 11.3 rebounds in 1987-88 and making four straight All-NBA First Teams.',
+    'The 76ers took Auburn\'s Charles Barkley fifth in 1984 to add rebounding and scoring to the Erving-Malone team. He made All-Rookie First Team on a 58-win team, and after Erving retired he became the franchise, averaging 28.3 points and 11.9 rebounds in 1987-88 and making four straight All-NBA First Teams.',
     ['charles-barkley', 'julius-erving', 'moses-malone'], ['sixers'], ['draft'],
     { categories: ['draft-drama'], sources: [
       { source: 'grokipedia-philadelphia-76ers', quote: 'The Philadelphia 76ers selected Charles Barkley with the fifth overall pick in the 1984 NBA Draft out of Auburn University' },
@@ -3625,7 +3625,7 @@ export const stories: Story[] = [
     ] }),
   s('the-process', 'storyline', B, 'NBA', '2016-04-06', 'day',
     'Sam Hinkie and The Process',
-    'Philadelphia hired Sam Hinkie in May 2013, and he traded established players like Jrue Holiday for picks and accepted losing to get high lottery positions. The bottom was 10-72 in 2015-16, the worst record in franchise history, with home fans booing and the league looking into the team\'s practices. On April 6, 2016, Hinkie resigned in a 13-page letter defending The Process after ownership brought in Jerry Colangelo. His successors drafted Ben Simmons first that June to pair with Joel Embiid, the third pick in 2014.',
+    'Philadelphia hired Sam Hinkie in May 2013, and he traded established players like Jrue Holiday for picks and accepted losing to get high lottery positions. The bottom was 10-72 in 2015-16, the franchise\'s worst since the 9-73 team of 1972-73, with home fans booing and the league looking into the team\'s practices. On April 6, 2016, Hinkie resigned in a 13-page letter defending The Process after ownership brought in Jerry Colangelo. His successors drafted Ben Simmons first that June to pair with Joel Embiid, the third pick in 2014.',
     ['sam-hinkie', 'joel-embiid', 'ben-simmons', 'jrue-holiday', 'jahlil-okafor'], ['sixers'], ['rebuilds', 'draft', 'tanking'],
     { categories: ['draft-drama'], aliases: ['The Process', 'Trust the Process'], sources: [
       { source: 'grokipedia-philadelphia-76ers', quote: 'In May 2013, the 76ers hired Sam Hinkie' },
@@ -3640,7 +3640,7 @@ export const stories: Story[] = [
     ] }),
   s('embiid-mvp-2023', 'moment', B, 'NBA', '2023', 'year',
     'Joel Embiid wins MVP',
-    'Embiid missed his first two seasons with foot injuries, then turned the 76ers into a 52-win team by 2017-18. They kept losing in the second round: to Toronto in 2019, Atlanta in 2021 and Miami in 2022. In 2022-23 he finally won MVP, leading the league at 33.1 points on a 51-win team, and Boston beat them in seven in the second round again.',
+    'Embiid missed his first two seasons with foot injuries, then turned the 76ers into a 52-win team by 2017-18. They kept losing in the second round: to Toronto in 2019, Atlanta in 2021 and Miami in 2022. In 2022-23 he finally won MVP, leading the league at 33.1 points on a 54-win team, and Boston beat them in seven in the second round again.',
     ['joel-embiid'], ['sixers', 'raptors', 'hawks', 'heat', 'celtics'], ['MVP', 'playoffs'],
     { categories: ['mvp-race'], sources: [
       { source: 'grokipedia-philadelphia-76ers', quote: 'after two years sidelined by foot injuries following his selection as the third overall pick in the 2014 NBA draft' },
@@ -3652,7 +3652,7 @@ export const stories: Story[] = [
     ] }),
   s('sixers-collapse-24-58', 'moment', B, 'NBA', '2025-04', 'month',
     'Paul George signs and the 76ers go 24-58',
-    'Daryl Morey signed nine-time All-Star Paul George for four years and $212 million in July 2024 to win around Embiid and Tyrese Maxey. Instead 2024-25 was a disaster: Embiid played 39 games, George missed long stretches, and the 76ers finished 24-58, 13th in the East.',
+    'Daryl Morey signed nine-time All-Star Paul George for four years and $212 million in July 2024 to win around Embiid and Tyrese Maxey. Instead 2024-25 was a disaster: Embiid played 19 games, George missed long stretches, and the 76ers finished 24-58, 13th in the East.',
     ['paul-george', 'joel-embiid', 'tyrese-maxey', 'daryl-morey', 'nick-nurse'], ['sixers'], ['injuries', 'free agency'],
     { categories: ['surprises'], sources: [
       { source: 'grokipedia-philadelphia-76ers', quote: 'the signing of nine-time All-Star Paul George to a four-year, $212 million contract in July 2024' },
@@ -3662,7 +3662,7 @@ export const stories: Story[] = [
     ] }),
   s('hornets-draft-chris-paul', 'moment', B, 'NBA', '2005-06', 'month',
     'New Orleans drafts Chris Paul in the year of Katrina',
-    'The Hornets took Wake Forest\'s Chris Paul fourth in 2005, just before Hurricane Katrina forced them to play the next season, and most of the one after, in Oklahoma City. Paul was the unanimous Rookie of the Year, and the team went from 18-64 to 38-44.',
+    'The Hornets took Wake Forest\'s Chris Paul fourth in 2005, just before Hurricane Katrina forced them to play the next season, and most of the one after, in Oklahoma City. Paul was a near-unanimous Rookie of the Year, with 124 of 125 first-place votes, and the team went from 18-64 to 38-44.',
     ['chris-paul'], ['pelicans'], ['draft'],
     { categories: ['draft-drama'], sources: [
       { source: 'grokipedia-new-orleans-pelicans', quote: 'The New Orleans Hornets selected Chris Paul fourth overall in the 2005 NBA draft out of Wake Forest' },
@@ -3681,7 +3681,7 @@ export const stories: Story[] = [
     ] }),
   s('pelicans-draft-anthony-davis', 'moment', B, 'NBA', '2012-06-28', 'day',
     'New Orleans wins the lottery and takes Anthony Davis',
-    'With only the second-worst record, the Hornets won the 2012 lottery and took Kentucky\'s Anthony Davis first. He made All-Rookie First Team on a 34-48 team, and in January 2013 owner Tom Benson announced the team would become the Pelicans. By 2014-15 Davis was third in MVP voting and had the team in the playoffs for the first time since 2011, where Golden State beat them.',
+    'With only the third-worst record, the Hornets won the 2012 lottery and took Kentucky\'s Anthony Davis first. He made All-Rookie First Team on a 27-55 team, and in January 2013 owner Tom Benson announced the team would become the Pelicans. By 2014-15 Davis was fifth in MVP voting and had the team in the playoffs for the first time since 2011, where Golden State beat them.',
     ['anthony-davis', 'tom-benson'], ['pelicans', 'warriors'], ['draft', 'lottery'],
     { categories: ['draft-drama'], sources: [
       { source: 'grokipedia-new-orleans-pelicans', quote: 'following a draft lottery win that secured the top selection despite holding the second-worst record from the prior season' },
@@ -3711,7 +3711,7 @@ export const stories: Story[] = [
     ] }),
   s('pelicans-draft-zion', 'moment', B, 'NBA', '2019-06-20', 'day',
     'New Orleans takes Zion Williamson first',
-    'The Pelicans took Duke\'s Zion Williamson first in 2019, the same summer Davis left, and the pick sparked real optimism. Injuries took over from the start: a knee injury in preseason, a broken foot that cost him all of 2021-22, and hamstring strains. He was an All-Star in 2021 and signed a five-year, $193 million extension with guarantees tied to games played, but through six seasons he had played 214 of 492 possible regular-season games.',
+    'The Pelicans took Duke\'s Zion Williamson first in 2019, the same summer Davis left, and the pick sparked real optimism. Injuries took over from the start: a knee injury in preseason, a broken foot that cost him all of 2021-22, and hamstring strains. He was an All-Star in 2021 and signed a five-year, $193 million extension with guarantees tied to games played, but through six seasons he had played 214 of 472 possible regular-season games.',
     ['zion-williamson'], ['pelicans'], ['draft', 'injuries'],
     { categories: ['draft-drama'], sources: [
       { source: 'grokipedia-new-orleans-pelicans', quote: 'The 2019 draft selection of power forward Zion Williamson as the first overall pick initially sparked optimism' },
@@ -3781,7 +3781,7 @@ export const stories: Story[] = [
     ] }),
   s('grizzlies-draft-ja-morant', 'moment', B, 'NBA', '2019-06', 'month',
     'Memphis takes Ja Morant second',
-    'With Gasol and Conley traded in 2019, Memphis took Murray State\'s Ja Morant second, and he was the unanimous Rookie of the Year. By 2021-22, with Jaren Jackson Jr. and Desmond Bane, the young Grizzlies won 56 games and the West\'s No. 2 seed before Golden State beat them in six in the second round.',
+    'With Gasol and Conley traded in 2019, Memphis took Murray State\'s Ja Morant second, and he won Rookie of the Year with 99 of 100 first-place votes. By 2021-22, with Jaren Jackson Jr. and Desmond Bane, the young Grizzlies won 56 games and the West\'s No. 2 seed before Golden State beat them in six in the second round.',
     ['ja-morant', 'marc-gasol', 'mike-conley', 'jaren-jackson', 'desmond-bane'], ['grizzlies', 'warriors'], ['draft'],
     { categories: ['draft-drama'], sources: [
       { source: 'grokipedia-memphis-grizzlies', quote: 'Gasol traded to Toronto on February 7, 2019' },
@@ -3926,7 +3926,7 @@ export const stories: Story[] = [
     ] }),
   s('rockets-trade-elvin-hayes', 'moment', B, 'NBA', '1972-06-23', 'day',
     'Houston trades Elvin Hayes for very little',
-    'San Diego won a coin flip with Detroit for the first pick in 1968 and took the University of Houston\'s Elvin Hayes, who averaged 28.4 points and 17.1 rebounds as a rookie. A year after the team moved to Houston, it traded him to Baltimore for Jack Marin, Byron Shipp and a future pick, a deal widely regarded as one of the most lopsided in NBA history.',
+    'San Diego won a coin flip with Baltimore for the first pick in 1968 and took the University of Houston\'s Elvin Hayes, who averaged 28.4 points and 17.1 rebounds as a rookie. A year after the team moved to Houston, it traded him to Baltimore for Jack Marin, Byron Shipp and a future pick, a deal widely regarded as one of the most lopsided in NBA history.',
     ['elvin-hayes'], ['rockets', 'wizards', 'pistons'], ['trades', 'draft'],
     { sources: [
       { source: 'grokipedia-houston-rockets', quote: 'with the first overall pick after winning a coin flip against the Detroit Pistons' },
@@ -3955,7 +3955,7 @@ export const stories: Story[] = [
     ] }),
   s('twin-towers-1986-finals', 'moment', B, 'NBA', '1986-06', 'month',
     'The Twin Towers beat the Lakers and reach the Finals',
-    'Houston drafted Hakeem Olajuwon first in 1984 and paired him with Ralph Sampson. In 1985-86 the "Twin Towers" went 51-31, beat the Lakers in the West and lost the Finals to Boston 4-2. Sampson was traded to Golden State in December 1988, and the Rockets slipped below .500.',
+    'Houston drafted Hakeem Olajuwon first in 1984 and paired him with Ralph Sampson. In 1985-86 the "Twin Towers" went 51-31, beat the Lakers in the West and lost the Finals to Boston 4-2. Sampson was traded to Golden State in December 1987, and the Rockets did not get back to the Finals until Olajuwon\'s 1994 title team.',
     ['hakeem-olajuwon', 'ralph-sampson', 'bill-fitch'], ['rockets', 'lakers', 'celtics', 'warriors'], ['Finals'],
     { categories: ['contenders'], sources: [
       { source: 'grokipedia-houston-rockets', quote: 'the duo known as the "Twin Towers" anchored the frontcourt' },
@@ -4062,7 +4062,7 @@ export const stories: Story[] = [
     ] }),
   s('warriors-trade-wilt-1965', 'moment', B, 'NBA', '1965-01-15', 'day',
     'San Francisco trades Wilt Chamberlain back to Philadelphia',
-    'The Warriors moved to San Francisco in 1962 and reached the 1964 Finals, losing to Boston 4-1. At 17-17 midway through the next season, amid tension between Chamberlain and management and money problems, they traded him to the Philadelphia 76ers for Connie Dierking, Lee Shaffer, Paul Neumann and cash.',
+    'The Warriors moved to San Francisco in 1962 and reached the 1964 Finals, losing to Boston 4-1. With the team sinking the next season (it finished 17-63), amid tension between Chamberlain and management and money problems, they traded him to the Philadelphia 76ers for Connie Dierking, Lee Shaffer, Paul Neumann and cash.',
     ['wilt-chamberlain'], ['warriors', 'sixers', 'celtics'], ['trades'],
     { sources: [
       { source: 'grokipedia-golden-state-warriors', quote: 'but the team lost to the Celtics 4–1' },
@@ -4083,7 +4083,7 @@ export const stories: Story[] = [
     ] }),
   s('warriors-trade-parish-and-mchale-pick', 'moment', B, 'NBA', '1980-06-09', 'day',
     'Golden State trades Robert Parish and the pick that becomes Kevin McHale',
-    'Coming off a league-worst 24-58 season, Golden State traded center Robert Parish and the No. 3 pick to Boston on June 9, 1980, to get Joe Barry Carroll, a center it saw as having more upside. Boston used the pick on Kevin McHale, and Parish and McHale became pillars of its 1980s dynasty, while Carroll was hampered by injuries and inconsistency.',
+    'Coming off a 24-58 season, Golden State traded center Robert Parish and the No. 3 pick to Boston on June 9, 1980, to get Joe Barry Carroll, a center it saw as having more upside. Boston used the pick on Kevin McHale, and Parish and McHale became pillars of its 1980s dynasty, while Carroll was hampered by injuries and inconsistency.',
     ['robert-parish', 'kevin-mchale', 'joe-barry-carroll'], ['warriors', 'celtics'], ['trades', 'draft', 'busts'],
     { categories: ['draft-drama'], sources: [
       { source: 'grokipedia-golden-state-warriors', quote: 'with a league-worst 24–58 mark' },
@@ -4095,7 +4095,7 @@ export const stories: Story[] = [
     ] }),
   s('warriors-break-up-run-tmc', 'moment', B, 'NBA', '1991-11-01', 'day',
     'Don Nelson breaks up Run TMC',
-    'Don Nelson\'s up-tempo Warriors were built around Chris Mullin, Mitch Richmond and Tim Hardaway, the trio known as "Run TMC," who combined for 72.5 points a game in 1990-91. Looking for size, Nelson traded Richmond to Sacramento for Billy Owens on November 1, 1991. The Warriors won a franchise-best 55 games that season, but the group\'s thin defense and lack of size kept them from deep playoff runs.',
+    'Don Nelson\'s up-tempo Warriors were built around Chris Mullin, Mitch Richmond and Tim Hardaway, the trio known as "Run TMC," who combined for 72.5 points a game in 1990-91. Looking for size, Nelson traded Richmond to Sacramento for Billy Owens on November 1, 1991. The Warriors won 55 games that season, but the group\'s thin defense and lack of size kept them from deep playoff runs.',
     ['chris-mullin', 'mitch-richmond', 'tim-hardaway', 'don-nelson', 'billy-owens'], ['warriors', 'kings'], ['trades'],
     { sources: [
       { source: 'grokipedia-golden-state-warriors', quote: 'forming the high-octane trio dubbed "Run TMC" for their fast-break prowess' },
@@ -4159,7 +4159,7 @@ export const stories: Story[] = [
     ] }),
   s('warriors-15-50-chase-center', 'moment', B, 'NBA', '2020-03', 'month',
     'Durant leaves, Chase Center opens, and the Warriors go 15-50',
-    'Durant left for Brooklyn in July 2019 and Thompson was out with his torn ACL. The Warriors moved into the new Chase Center in San Francisco, angering some Oakland fans, and then Curry broke his hand in November. They finished 15-50, their worst record since 2004-05, and missed the playoffs for the first time since 2013. Thompson tore his Achilles the next November, and in 2021 they lost in the play-in.',
+    'Durant left for Brooklyn in July 2019 and Thompson was out with his torn ACL. The Warriors moved into the new Chase Center in San Francisco, angering some Oakland fans, and then Curry broke his hand on October 30. They finished 15-50, their worst record since 2000-01, and missed the playoffs for the first time since 2012. Thompson tore his Achilles the next November, and in 2021 they lost in the play-in.',
     ['kevin-durant', 'stephen-curry', 'klay-thompson'], ['warriors', 'nets', 'lakers'], ['injuries', 'arenas'],
     { categories: ['surprises'], sources: [
       { source: 'grokipedia-golden-state-warriors', quote: 'Durant\'s subsequent departure as a free agent to the Brooklyn Nets in July 2019' },
@@ -4255,7 +4255,7 @@ export const stories: Story[] = [
     ] }),
   s('nuggets-2009-western-finals', 'moment', B, 'NBA', '2009-05', 'month',
     'Billups comes home and Denver reaches the conference finals',
-    'The Iverson-Anthony pairing scored plenty but lost in the first round in 2007 and 2008. On November 3, 2008, Denver traded Iverson to Detroit for Chauncey Billups, a Denver native, and went a franchise-record 53-29 as the West\'s No. 2 seed. In the conference finals the Lakers beat them 4-2, closing it out 119-92 in Denver.',
+    'The Iverson-Anthony pairing scored plenty but lost in the first round in 2007 and 2008. On November 3, 2008, Denver traded Iverson to Detroit for Chauncey Billups, a Denver native, and went 54-28, tying the franchise\'s best NBA record, as the West\'s No. 2 seed. In the conference finals the Lakers beat them 4-2, closing it out 119-92 in Denver.',
     ['chauncey-billups', 'carmelo-anthony', 'allen-iverson', 'george-karl'], ['nuggets', 'pistons', 'lakers', 'spurs'], ['trades', 'playoffs'],
     { categories: ['contenders'], sources: [
       { source: 'grokipedia-denver-nuggets', quote: 'falling to the San Antonio Spurs in 2007 and the Los Angeles Lakers in 2008' },
@@ -4471,7 +4471,7 @@ export const stories: Story[] = [
     ] }),
   s('jazz-draft-burke-and-gobert', 'moment', B, 'NBA', '2013-06', 'month',
     'Utah trades up for Trey Burke and gets Rudy Gobert at 27',
-    'The Jazz\'s big move in the 2013 draft was trading up from 14 to 9 for point guard Trey Burke. They also took center Rudy Gobert 27th. Gobert became the one who mattered: All-Defensive in his first full season, then Defensive Player of the Year in 2018, 2019 and 2021.',
+    'The Jazz\'s big move in the 2013 draft was trading up from 14 to 9 for point guard Trey Burke. They also took center Rudy Gobert 27th. Gobert became the one who mattered, winning Defensive Player of the Year in 2018, 2019 and 2021.',
     ['rudy-gobert', 'trey-burke', 'quin-snyder'], ['jazz'], ['draft', 'steals'],
     { categories: ['draft-drama'], sources: [
       { source: 'grokipedia-utah-jazz', quote: 'the Jazz selecting point guard Trey Burke ninth overall after trading up from the 14th pick, and center Rudy Gobert 27th overall' },
@@ -4490,7 +4490,7 @@ export const stories: Story[] = [
     ] }),
   s('jazz-top-seed-2021', 'moment', B, 'NBA', '2021-06', 'month',
     'Top-seeded Utah falls to the Clippers',
-    'The 2020-21 Jazz had the league\'s best offense at 117.6 points per 100 possessions and took the West\'s No. 1 seed, with Mitchell, Gobert and Mike Conley all All-Stars and Gobert winning a third Defensive Player of the Year. They lost to the Clippers in the second round. A first-round loss to Dallas followed in 2022, and talk of friction between Mitchell and Gobert, going back to the 2020 COVID episode, led to both being traded that summer.',
+    'The 2020-21 Jazz had the league\'s best record at 52-20 and took the West\'s No. 1 seed, with Mitchell, Gobert and Mike Conley all All-Stars and Gobert winning a third Defensive Player of the Year. They lost to the Clippers in the second round. A first-round loss to Dallas followed in 2022, and talk of friction between Mitchell and Gobert, going back to the 2020 COVID episode, led to both being traded that summer.',
     ['donovan-mitchell', 'rudy-gobert', 'mike-conley', 'quin-snyder'], ['jazz', 'clippers', 'mavericks'], ['playoffs'],
     { categories: ['contenders'], sources: [
       { source: 'grokipedia-utah-jazz', quote: 'secured the No. 1 seed in the Western Conference, propelled by an explosive offense that ranked first in the league at 117.6 points per 100 possessions' },
@@ -4570,7 +4570,7 @@ export const stories: Story[] = [
     ] }),
   s('kings-trade-for-webber', 'storyline', B, 'NBA', '1998-05-14', 'day',
     'Chris Webber arrives and the Kings become the Greatest Show on Court',
-    'On May 14, 1998, Sacramento traded Mitch Richmond and Otis Thorpe to Washington for Chris Webber. With Vlade Divac, Peja Stojakovic, new coach Rick Adelman\'s passing offense and later Mike Bibby, the Kings went from also-rans to one of the most entertaining teams in the league. Sports Illustrated called them \'The Greatest Show on Court\' on a February 2001 cover, and they led the league at 101.7 points a game.',
+    'On May 14, 1998, Sacramento traded Mitch Richmond and Otis Thorpe to Washington for Chris Webber. With Vlade Divac, Peja Stojakovic, new coach Rick Adelman\'s passing offense and later Mike Bibby, the Kings went from also-rans to one of the most entertaining teams in the league. Sports Illustrated called them \'The Greatest Show on Court\' on a February 2001 cover, and they were among the league\'s highest-scoring teams.',
     ['chris-webber', 'mitch-richmond', 'vlade-divac', 'peja-stojakovic', 'rick-adelman', 'mike-bibby'], ['kings', 'wizards'], ['trades'],
     { categories: ['surprises'], season: 1998, end: '2001-02', sources: [
       { source: 'grokipedia-sacramento-kings', quote: 'the team traded guard Mitch Richmond and forward Otis Thorpe to the Washington Wizards' },
