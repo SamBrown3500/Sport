@@ -278,3 +278,36 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .verdict-doubted, .verdict-slid { color: var(--doubt); }
 .verdict-consensus, .verdict-favored { color: var(--sourced); }
 .verdict-project, .verdict-modest { color: var(--warn); }
+
+/* ── Home page scoreboard: an arena board, dark in both themes ─────── */
+.scoreboard { --led-amber: #ffb400; --led-red: #ff3b2f; --led-green: #35e07a; --led-dim: #8b939d;
+  margin-top: 12px; background: #0f1114; color: #f4f1e6; border: 6px solid #2a2d33; box-shadow: inset 0 0 0 2px #000;
+  padding: 18px clamp(12px, 3vw, 30px) 16px; }
+.scoreboard .sb-brand, .scoreboard .sb-sub, .sb-rec, .sb-wins, .sb-mid, .sb-verdict { font-family: 'Doto', var(--mono); }
+.sb-brand { font-weight: 900; font-size: clamp(24px, 5.2vw, 56px); line-height: 1; letter-spacing: .04em; text-align: center; text-transform: uppercase;
+  color: var(--led-amber); text-shadow: 0 0 12px rgba(255,180,0,.45); overflow-wrap: anywhere; }
+.sb-brand span { color: var(--led-red); text-shadow: 0 0 12px rgba(255,59,47,.45); }
+.sb-sub { text-align: center; font-weight: 600; color: var(--led-dim); letter-spacing: .3em; font-size: 13px; margin-top: 4px; text-transform: uppercase; }
+.sb-game { margin-top: 16px; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 10px clamp(10px, 3vw, 34px); align-items: center; color: inherit; }
+.sb-game:hover { text-decoration: none; }
+.sb-game:hover .sb-name { text-decoration: underline; text-decoration-color: var(--led-amber); }
+.sb-team { text-align: center; min-width: 0; }
+.sb-wins { font-weight: 900; font-size: clamp(60px, 12vw, 128px); line-height: .9; color: var(--led-red); text-shadow: 0 0 18px rgba(255,59,47,.5); }
+.sb-team.is-winner .sb-wins { color: var(--led-green); text-shadow: 0 0 18px rgba(53,224,122,.5); }
+.sb-name { font: 800 clamp(18px, 3vw, 30px)/1.1 var(--display); text-transform: uppercase; letter-spacing: .02em; color: #f4f1e6; }
+.sb-rec { color: #9aa3ad; font-size: 14px; letter-spacing: .1em; text-transform: uppercase; }
+.sb-mid { text-align: center; font-weight: 600; color: var(--led-amber); letter-spacing: .14em; font-size: 13px; display: grid; gap: 6px; text-transform: uppercase; }
+.sb-tag { font-size: 12px; color: #0f1114; background: var(--led-amber); padding: 2px 8px; font-weight: 900; }
+.sb-year { font-size: 28px; font-weight: 900; }
+.sb-verdict { margin-top: 14px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; border-top: 2px dashed #2a2d33; padding-top: 12px;
+  font-weight: 600; letter-spacing: .12em; font-size: clamp(13px, 1.8vw, 16px); color: #9aa3ad; text-transform: uppercase; }
+.sb-verdict b { color: var(--led-amber); font-weight: 900; }
+.sb-verdict div + div b { color: var(--led-green); }
+.sb-clock { height: 4px; background: #23262c; margin-top: 12px; overflow: hidden; }
+.sb-clock i { display: block; height: 100%; background: var(--led-amber); width: 100%; transform-origin: left; animation-name: sb-clock; animation-timing-function: linear; animation-fill-mode: both; }
+@keyframes sb-clock { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.sb-dots { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
+.sb-dots button { width: 30px; height: 8px; border: 0; background: #2a2d33; cursor: pointer; padding: 0; }
+.sb-dots button[aria-current='true'] { background: var(--led-amber); }
+.sb-dots button:focus-visible { outline: 2px solid var(--led-amber); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .sb-clock i { animation: none; } }

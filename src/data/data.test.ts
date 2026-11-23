@@ -4,12 +4,21 @@ import { resolve } from 'node:path';
 import { sources } from './sources';
 import { players, teams } from './people';
 import { stories } from './stories';
+import { scoreboard } from './scoreboard';
 import { span } from '../lib/dates';
 
 describe('starter data', () => {
   const pIds = new Set(players.map((p) => p.id));
   const tIds = new Set(teams.map((t) => t.id));
 
+  it('links each scoreboard upset to a story, with the winner at 4', () => {
+    const ids = new Set(stories.map((s) => s.id));
+    for (const g of scoreboard) {
+      expect(ids, g.story).toContain(g.story);
+      expect(g.underdog.wins, g.story).toBe(4);
+      expect(g.favorite.wins, g.story).toBeLessThan(4);
+    }
+  });
   it('has unique story ids', () => expect(new Set(stories.map((s) => s.id)).size).toBe(stories.length));
   it('has unique player and team ids', () => {
     expect(pIds.size).toBe(players.length);

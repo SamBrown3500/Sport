@@ -12,6 +12,7 @@ import { FIRST_YEAR, MONTHS, daysInMonth, formatDate, formatSpan, iso, span } fr
 import { href, hrefForDate } from './lib/router';
 import { search } from './lib/search';
 import { SeasonFacts } from './seasonFacts';
+import { Scoreboard } from './scoreboard';
 import { seasonOverview } from './lib/db';
 import { CATEGORIES, FIRST_SEASON, categoryInfo, currentSeason, isCategory, seasonLabel, seasonOf, seasonsInYear } from './lib/seasons';
 
@@ -64,6 +65,8 @@ export function Home() {
       <Section title="Browse by decade">
         <DecadeStrip />
       </Section>
+
+      <Scoreboard />
 
       <Section title={`On this day: ${MONTHS[m - 1]} ${d}`} count={today.length}
         aside={<a className="more" href={href.onThisDay(m, d)}>Every year →</a>}>
