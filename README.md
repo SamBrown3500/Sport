@@ -1,13 +1,12 @@
-# sportsnarratives.com
+# hardwoodnarratives.com
 
-A calendar of NFL and NBA history. Browse by decade, year, month or day back to 1900, or search any date, player, team or story and every related narrative comes up in date order.
+A calendar of NBA history. The site name lives in `src/site.ts`; change it there and the header, footer and tab title follow. Browse by decade, year, month or day back to 1900, or search any date, player, team or story and every related narrative comes up in date order.
 
 ## Milestone 1 (this code)
 
 - Calendar pages: decade, year, month (calendar grid), day, and On this day
-- Universal search: dates in many formats ("1962", "1960s", "March 2, 1962", "3/2/1962", "March 2"), players, teams (including old names like "Baltimore Colts"), story nicknames ("Ice Bowl") and themes ("integration")
+- Universal search: dates in many formats ("1962", "1960s", "March 2, 1962", "3/2/1962", "March 2"), players, teams (including old names like "Seattle SuperSonics"), story nicknames ("The Decision") and themes ("free agency")
 - Story, player timeline and team timeline pages
-- Football / basketball filter on every page
 - About 60 starter narratives in `src/data/stories.ts`. These are drafts: each needs a source checked and cited before launch.
 
 ## Run it

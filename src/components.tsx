@@ -1,41 +1,14 @@
-import { createContext, useContext, type ReactNode } from 'react';
-import type { Sport, Story } from './data/types';
+import type { ReactNode } from 'react';
+import type { Story } from './data/types';
 import { getPlayer, getTeam } from './lib/db';
 import { formatSpan } from './lib/dates';
 import { href, hrefForDate } from './lib/router';
 import { categoryInfo } from './lib/seasons';
 
-/* ── Sport filter, shared by every page ─────────────────────────────── */
-
-export type SportFilter = 'all' | Sport;
-export const FilterContext = createContext<{ filter: SportFilter; setFilter: (f: SportFilter) => void }>({
-  filter: 'all',
-  setFilter: () => {},
-});
-export const useFilter = () => useContext(FilterContext);
-export function useFiltered(stories: Story[]): Story[] {
-  const { filter } = useFilter();
-  return filter === 'all' ? stories : stories.filter((s) => s.sport === filter);
-}
-
-export function SportToggle() {
-  const { filter, setFilter } = useFilter();
-  const opts: [SportFilter, string][] = [['all', 'Both'], ['football', 'Football'], ['basketball', 'Basketball']];
-  return (
-    <div className="toggle" role="group" aria-label="Show sport">
-      {opts.map(([v, label]) => (
-        <button key={v} type="button" id={`sport-${v}`} aria-pressed={filter === v} onClick={() => setFilter(v)}>
-          {label}
-        </button>
-      ))}
-    </div>
-  );
-}
-
 /* ── Small pieces ───────────────────────────────────────────────────── */
 
 export function LeagueTag({ story }: { story: Story }) {
-  return <span className={`league league-${story.sport}`}>{story.league}</span>;
+  return <span className="league">{story.league}</span>;
 }
 
 export function Crumbs({ items }: { items: [string, string?][] }) {
@@ -79,7 +52,7 @@ export function Empty({ children }: { children: ReactNode }) {
 export function StoryRow({ story, showYear = true }: { story: Story; showYear?: boolean }) {
   const date = formatSpan(story);
   return (
-    <li className={`row row-${story.sport} ${story.kind === 'storyline' ? 'is-storyline' : ''}`}>
+    <li className={`row ${story.kind === 'storyline' ? 'is-storyline' : ''}`}>
       <div className="row-date">
         <a href={hrefForDate(story.date)}>{showYear ? date : date.replace(/, \d{4}$/, '')}</a>
         {story.kind === 'storyline' && <span className="kind">Storyline</span>}
@@ -112,13 +85,11 @@ export function StoryRow({ story, showYear = true }: { story: Story; showYear?: 
   );
 }
 
-export function Timeline({ stories, showYear = true, empty, unfiltered = false }: { stories: Story[]; showYear?: boolean; empty?: ReactNode; unfiltered?: boolean }) {
-  const filtered = useFiltered(stories);
-  const shown = unfiltered ? stories : filtered;
-  if (!shown.length) return <Empty>{empty ?? 'No narratives here yet.'}</Empty>;
+export function Timeline({ stories, showYear = true, empty }: { stories: Story[]; showYear?: boolean; empty?: ReactNode }) {
+  if (!stories.length) return <Empty>{empty ?? 'No narratives here yet.'}</Empty>;
   return (
     <ol className="timeline">
-      {shown.map((s) => <StoryRow key={s.id} story={s} showYear={showYear} />)}
+      {stories.map((s) => <StoryRow key={s.id} story={s} showYear={showYear} />)}
     </ol>
   );
 }

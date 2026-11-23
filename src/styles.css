@@ -16,8 +16,7 @@
   --board-ink: #f3f5f7;
   --board-muted: #9aa3ad;
   --board-accent: #ffcc33;
-  --football: #2e7d32;
-  --football-soft: #dff3e1;
+  --sourced: #2e7d32;
   --basketball: #c75000;
   --basketball-soft: #fde8d7;
   --focus: #0b5bb5;
@@ -35,7 +34,7 @@
     --bg: #111418; --surface: #171b20; --shade: #1e242b; --stripe: #14181d; --ink: #e6e9ed; --muted: #9aa3ad;
     --line: #2c333b; --line-strong: #46505b; --link: #7fb2f0; --hl: #3a3415; --hl-line: #6b5d1f;
     --board: #0a0c0f; --board-ink: #e6e9ed; --board-muted: #8b95a1; --board-accent: #ffcc33;
-    --football: #6cc070; --football-soft: #1a2e1b; --basketball: #f08b4a; --basketball-soft: #38231a;
+    --sourced: #6cc070; --basketball: #f08b4a; --basketball-soft: #38231a;
     --focus: #7fb2f0; color-scheme: dark;
   }
 }
@@ -43,7 +42,7 @@
   --bg: #111418; --surface: #171b20; --shade: #1e242b; --stripe: #14181d; --ink: #e6e9ed; --muted: #9aa3ad;
   --line: #2c333b; --line-strong: #46505b; --link: #7fb2f0; --hl: #3a3415; --hl-line: #6b5d1f;
   --board: #0a0c0f; --board-ink: #e6e9ed; --board-muted: #8b95a1; --board-accent: #ffcc33;
-  --football: #6cc070; --football-soft: #1a2e1b; --basketball: #f08b4a; --basketball-soft: #38231a;
+  --sourced: #6cc070; --basketball: #f08b4a; --basketball-soft: #38231a;
   --focus: #7fb2f0; color-scheme: dark;
 }
 
@@ -59,7 +58,7 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 
 /* ── Masthead ── */
 .masthead { background: var(--board); color: var(--board-ink); position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; }
-.masthead-inner, .subbar-inner, .main, .footer {
+.masthead-inner, .main, .footer {
   max-width: 1120px; margin: 0 auto; padding-left: var(--gutter-l); padding-right: var(--gutter-r);
 }
 .masthead-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; padding-block: 10px; }
@@ -76,8 +75,6 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .mainnav { display: flex; flex-wrap: wrap; gap: 4px 18px; font: 600 13px var(--ui); }
 .mainnav a { color: var(--board-ink); }
 
-.subbar { border-bottom: 1px solid var(--line); background: var(--shade); }
-.subbar-inner { padding-block: 6px; display: flex; justify-content: flex-end; }
 .toggle { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 2px; overflow: hidden; background: var(--surface); }
 .toggle button { font: 600 12px var(--ui); padding: 5px 10px; border: 0; background: transparent; color: var(--link); cursor: pointer; }
 .toggle button + button { border-left: 1px solid var(--line-strong); }
@@ -110,12 +107,8 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .decades a:hover { background: var(--hl); text-decoration: none; }
 .decades a.is-current { background: var(--hl); box-shadow: inset 0 -3px 0 var(--ink); }
 .bars { height: 60px; display: flex; align-items: flex-end; justify-content: center; gap: 2px; }
-.bar { width: 38%; max-width: 12px; min-height: 2px; }
-.bar-football, .sw-football { background: var(--football); }
-.bar-basketball, .sw-basketball { background: var(--basketball); }
+.bar { width: 38%; max-width: 12px; min-height: 2px; background: var(--basketball); }
 .decade-label { font: 700 13px var(--ui); text-align: center; }
-.legend { display: flex; gap: 14px; margin: 0; font: 12px var(--ui); color: var(--muted); }
-.sw { display: inline-block; width: 10px; height: 10px; margin-right: 4px; vertical-align: -1px; }
 
 /* ── Year and month grids ── */
 .yeargrid, .monthgrid { display: grid; gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
@@ -138,17 +131,14 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .cell:hover { background: var(--hl); text-decoration: none; }
 .cell .num { font: 600 12px var(--ui); color: var(--muted); font-variant-numeric: tabular-nums; }
 .cell.has .num { color: var(--link); font-weight: 800; }
-.dot { font: 600 11px/1.25 var(--ui); padding: 2px 4px; border-radius: 2px; }
-.dot-football { background: var(--football-soft); color: var(--football); }
-.dot-basketball { background: var(--basketball-soft); color: var(--basketball); }
+.dot { font: 600 11px/1.25 var(--ui); padding: 2px 4px; border-radius: 2px; background: var(--basketball-soft); color: var(--basketball); }
 
 /* ── Timeline rows: read like a table ── */
 .timeline { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; border-top: 1px solid var(--line-strong); }
 .row { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 16px; padding: 10px 10px 10px 10px; border-bottom: 1px solid var(--line); border-left: 3px solid var(--line); }
 .row:nth-child(even) { background: var(--stripe); }
 .row:hover { background: var(--hl); }
-.row-football { border-left-color: var(--football); }
-.row-basketball { border-left-color: var(--basketball); }
+.row { border-left-color: var(--basketball); }
 .row-date { font: 600 13px/1.4 var(--ui); display: flex; flex-direction: column; gap: 3px; font-variant-numeric: tabular-nums; }
 .row-date a { color: var(--ink); }
 .kind { font: 700 10px var(--ui); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); background: var(--shade); border: 1px solid var(--line); padding: 1px 5px; align-self: flex-start; }
@@ -167,9 +157,7 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .row-body p { margin: 0; max-width: 90ch; font-size: 14px; color: var(--ink); }
 .row-meta { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; margin-top: 2px; }
 
-.league { font: 700 10.5px var(--ui); letter-spacing: 0.04em; padding: 2px 5px; border-radius: 2px; text-transform: uppercase; color: #ffffff; }
-.league-football { background: var(--football); }
-.league-basketball { background: var(--basketball); }
+.league { font: 700 10.5px var(--ui); letter-spacing: 0.04em; padding: 2px 5px; border-radius: 2px; text-transform: uppercase; color: #ffffff; background: var(--basketball); }
 .chip { font: 12.5px var(--ui); padding: 1px 7px; border-radius: 2px; border: 1px solid var(--line); background: var(--shade); color: var(--link); }
 .chip:hover { background: var(--hl); border-color: var(--hl-line); text-decoration: none; }
 .chip-team { font-weight: 600; }
@@ -212,7 +200,7 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
 
 /* Sources */
-.sourced { font: 700 10.5px var(--ui); text-transform: uppercase; letter-spacing: 0.04em; color: var(--football); border: 1px solid currentColor; border-radius: 2px; padding: 1px 5px; }
+.sourced { font: 700 10.5px var(--ui); text-transform: uppercase; letter-spacing: 0.04em; color: var(--sourced); border: 1px solid currentColor; border-radius: 2px; padding: 1px 5px; }
 .citations { max-width: 72ch; margin-top: 28px; }
 .citations h2 { font: 700 12px var(--ui); text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin: 0 0 6px; border-bottom: 2px solid var(--ink); padding-bottom: 4px; }
 .citations ol { margin: 0; padding-left: 20px; display: grid; gap: 10px; font: 14px var(--ui); }

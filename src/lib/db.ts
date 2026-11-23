@@ -64,7 +64,7 @@ export function related(story: Story): Story[] {
 }
 
 /* NBA seasons and their categories (see lib/seasons.ts). */
-export const nbaStories = allStories.filter((s) => s.sport === 'basketball' && s.league === 'NBA');
+export const nbaStories = allStories.filter((s) => s.league === 'NBA');
 export const storiesInSeason = (start: number) => nbaStories.filter((s) => seasonOf(s) === start);
 export const storiesInCategory = (c: Category) => allStories.filter((s) => s.categories?.includes(c));
 export const seasonOverview = (start: number, c: Category): string | undefined => seasonOverviews[`${start}:${c}` as OverviewKey];

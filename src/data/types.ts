@@ -1,6 +1,5 @@
-/** 'Pre-league' covers pro and college play before the NFL (1920) and BAA/NBA (1946). */
-export type League = 'NFL' | 'NBA' | 'AFL' | 'ABA' | 'Pre-league';
-export type Sport = 'football' | 'basketball';
+/** 'Pre-league' covers pro and college play before the BAA/NBA (1946). */
+export type League = 'NBA' | 'ABA' | 'Pre-league';
 
 /** How exactly a date is known. Old sources often only give a month or a season. */
 export type Precision = 'day' | 'month' | 'year';
@@ -10,7 +9,6 @@ export interface Story {
   /** A moment happens on one date; a storyline runs across a span. */
   kind: 'moment' | 'storyline';
   title: string;
-  sport: Sport;
   league: League;
   /** ISO date at the given precision: YYYY-MM-DD, YYYY-MM or YYYY. */
   date: string;
@@ -21,7 +19,7 @@ export interface Story {
   players: string[];
   teams: string[];
   tags: string[];
-  /** Other names people search for, e.g. "Ice Bowl". */
+  /** Other names people search for, e.g. "The Decision". */
   aliases?: string[];
   /** Where this narrative comes from. A story with none is still a draft. */
   sources?: Citation[];
