@@ -12,6 +12,8 @@ import { FIRST_YEAR, MONTHS, daysInMonth, formatDate, formatSpan, iso, span } fr
 import { href, hrefForDate } from './lib/router';
 import { search } from './lib/search';
 import { SeasonFacts } from './seasonFacts';
+import { Scoreboard } from './scoreboard';
+import { decadePhotos } from './data/decadePhotos';
 import { seasonOverview } from './lib/db';
 import { CATEGORIES, FIRST_SEASON, FIRST_MVP_SEASON, categoryInfo, currentSeason, isCategory, seasonLabel, seasonOf, seasonsInYear } from './lib/seasons';
 
@@ -26,19 +28,39 @@ function DecadeStrip({ current }: { current?: number }) {
     () => DECADES.map((d) => ({ d, n: storiesBetween(`${d}-01-01`, `${d + 9}-12-31`).length })),
     [],
   );
-  const max = Math.max(...counts.map((c) => c.n), 1);
   return (
     <nav className="decades" aria-label="Decades">
-      {counts.map(({ d, n }) => (
-        <a key={d} href={href.decade(d)} className={d === current ? 'is-current' : ''}
-          aria-label={`${d}s: ${n} narratives`}>
-          <span className="bars" aria-hidden="true">
-            <span className="bar" style={{ height: `${(n / max) * 100}%` }} />
-          </span>
-          <span className="decade-label">{String(d).slice(2)}s</span>
-        </a>
-      ))}
+      {counts.map(({ d, n }) => {
+        const photo = decadePhotos[d];
+        return (
+          <a key={d} href={href.decade(d)} className={d === current ? 'is-current' : ''}
+            aria-label={`${d}s: ${n} narratives`}>
+            {photo
+              ? <img className="decade-photo" src={photo.src} alt={photo.player} title={`${photo.player} · ${photo.author}, ${photo.license}`} loading="lazy" />
+              : <span className="decade-photo is-empty" aria-hidden="true" />}
+            <span className="decade-label">{String(d).slice(2)}s</span>
+          </a>
+        );
+      })}
     </nav>
+  );
+}
+
+function PhotoCredits() {
+  return (
+    <details className="photo-credits">
+      <summary>Photo credits</summary>
+      <ul>
+        {DECADES.filter((d) => decadePhotos[d]).map((d) => {
+          const p = decadePhotos[d];
+          return (
+            <li key={d}>
+              {d}s: {p.player}, by {p.author} (<a href={p.page} target="_blank" rel="noreferrer">{p.license}</a>), via Wikimedia Commons, cropped.
+            </li>
+          );
+        })}
+      </ul>
+    </details>
   );
 }
 
@@ -63,7 +85,10 @@ export function Home() {
 
       <Section title="Browse by decade">
         <DecadeStrip />
+        <PhotoCredits />
       </Section>
+
+      <Scoreboard />
 
       <Section title={`On this day: ${MONTHS[m - 1]} ${d}`} count={today.length}
         aside={<a className="more" href={href.onThisDay(m, d)}>Every year →</a>}>
