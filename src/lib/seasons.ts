@@ -22,6 +22,9 @@ export const isCategory = (id: string): id is Category => CATEGORIES.some((c) =>
 /** The BAA's first season, which the NBA counts as its own. */
 export const FIRST_SEASON = 1946;
 
+/** The first season with a league MVP award (1955-56). */
+export const FIRST_MVP_SEASON = 1955;
+
 export const seasonLabel = (start: number) => `${start}-${String((start + 1) % 100).padStart(2, '0')}`;
 
 /** The season a basketball story belongs to, by its start date. */

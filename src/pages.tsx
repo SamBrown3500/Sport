@@ -15,7 +15,7 @@ import { SeasonFacts } from './seasonFacts';
 import { Scoreboard } from './scoreboard';
 import { decadePhotos } from './data/decadePhotos';
 import { seasonOverview } from './lib/db';
-import { CATEGORIES, FIRST_SEASON, categoryInfo, currentSeason, isCategory, seasonLabel, seasonOf, seasonsInYear } from './lib/seasons';
+import { CATEGORIES, FIRST_SEASON, FIRST_MVP_SEASON, categoryInfo, currentSeason, isCategory, seasonLabel, seasonOf, seasonsInYear } from './lib/seasons';
 
 const THIS_YEAR = new Date().getFullYear();
 const LAST_DECADE = Math.floor(THIS_YEAR / 10) * 10;
@@ -652,7 +652,9 @@ export function SeasonPage({ start }: { start: number }) {
             aside={<a className="more" href={href.category(c.id)}>Every season →</a>}>
             {rows.length
               ? <SeasonOverview season={start} category={c.id} stories={rows} />
-              : <Empty>No {c.name} narratives for {label} yet.</Empty>}
+              : c.id === 'mvp-race' && start < FIRST_MVP_SEASON
+                ? <Empty>The league did not name an MVP until {seasonLabel(FIRST_MVP_SEASON)}.</Empty>
+                : <Empty>No {c.name} narratives for {label} yet.</Empty>}
             <SeasonFacts season={start} category={c.id} />
           </Section>
         );
