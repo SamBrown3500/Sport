@@ -391,4 +391,14 @@ export const sources: Source[] = [
     about: 'The introduction and history sections of Grokipedia\'s Portland Trail Blazers page, from the 1970 expansion to the 2025-26 season. Grokipedia is AI-written and this page has several errors (for example it says Portland swept the Lakers in 1990, beat Dallas in 2003 and reached the 2021 conference finals), so only claims that match the record are used.',
     transcript: 'sources/transcripts/grokipedia-portland-trail-blazers.md',
   },
+  {
+    id: 'dom2k-nba-midseason-2024-25',
+    kind: 'video',
+    title: 'NBA midseason check-in on all 30 teams (2024-25)',
+    outlet: 'Dom2K',
+    published: '2024-12',
+    added: '2026-11-25',
+    about: 'An hour-long check-in on the league halfway through the 2020s, recorded in late December 2024: how each team got where it was at the midpoint of the 2024-25 season and where Dom2K expected it to go. Covers 28 teams (not Atlanta or Dallas). The title and link were not supplied.',
+    transcript: 'sources/transcripts/dom2k-nba-midseason-2024-25.md',
+  },
 ];
