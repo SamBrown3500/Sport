@@ -557,6 +557,12 @@ export const players: Player[] = [
   { id: 'walt-bellamy', name: 'Walt Bellamy', league: 'NBA' },
   { id: 'walt-dropo', name: 'Walt Dropo', league: 'NBA' },
   { id: 'xavier-mcdaniel', name: 'Xavier McDaniel', league: 'NBA', aliases: ['X-Man'] },
+  { id: 'david-griffin', name: 'David Griffin', league: 'NBA' },
+  { id: 'dennis-schroder', name: 'Dennis Schroder', league: 'NBA', aliases: ['Schröder'] },
+  { id: 'harrison-barnes', name: 'Harrison Barnes', league: 'NBA' },
+  { id: 'mike-dunleavy-jr', name: 'Mike Dunleavy Jr.', league: 'NBA' },
+  { id: 'norman-powell', name: 'Norman Powell', league: 'NBA' },
+  { id: 'stephon-castle', name: 'Stephon Castle', league: 'NBA' },
 ];
 
 export const teams: Team[] = [

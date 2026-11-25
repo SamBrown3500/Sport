@@ -1755,4 +1755,14 @@ export const sources: Source[] = [
     about: 'Excerpts from Wikipedia\'s 1959–60 NBA season article: the surprises and upsets of that season.',
     transcript: 'sources/transcripts/wiki-1959-60-nba-season.md',
   },
+  {
+    id: 'dom2k-nba-midseason-2024-25',
+    kind: 'video',
+    title: 'NBA midseason check-in on all 30 teams (2024-25)',
+    outlet: 'Dom2K',
+    published: '2024-12',
+    added: '2026-11-25',
+    about: 'An hour-long check-in on the league halfway through the 2020s, recorded in late December 2024: how each team got where it was at the midpoint of the 2024-25 season and where Dom2K expected it to go. Covers 28 teams (not Atlanta or Dallas). The title and link were not supplied.',
+    transcript: 'sources/transcripts/dom2k-nba-midseason-2024-25.md',
+  },
 ];
