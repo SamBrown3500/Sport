@@ -15,6 +15,7 @@ import { SeasonFacts } from './seasonFacts';
 export { NotionsPage } from './byYear';
 import { NotionBox, NotionsTeaser, PlayerPage as ByYearPlayer, SeasonNotions, TeamPage as ByYearTeam, TeamsDirectory } from './byYear';
 import { headline, takeFor } from './lib/notions';
+import { byImportance, importance } from './lib/importance';
 import { Scoreboard } from './scoreboard';
 import { decadePhotos } from './data/decadePhotos';
 import { seasonOverview } from './lib/db';
@@ -111,18 +112,29 @@ export function Home() {
 
 export function Decade({ decade }: { decade: number }) {
   const list = storiesBetween(`${decade}-01-01`, `${decade + 9}-12-31`);
-  const shown = list;
   const years = Array.from({ length: 10 }, (_, i) => decade + i);
+  const [group, setGroup] = useState<'section' | 'year'>('section');
+  const ranked = [...list].sort(byImportance(decade));
+  const top = ranked.slice(0, 10);
+  const topIds = new Set(top.map((s) => s.id));
+  const rest = ranked.filter((s) => !topIds.has(s.id));
+  const startYear = (s: Story) => Math.max(decade, Number(span(s)[0].slice(0, 4)));
+  const sections = [
+    ...CATEGORIES.map((c) => ({ key: c.id, name: c.name, blurb: c.blurb, stories: rest.filter((s) => s.categories?.[0] === c.id) })),
+    { key: 'other', name: 'Everything else', blurb: 'League history, trades, moves and other stories outside the four sections.', stories: rest.filter((s) => !s.categories?.length) },
+  ].filter((g) => g.stories.length)
+    .sort((a, b) => importance(b.stories[0], decade) - importance(a.stories[0], decade));
+  const byYear = years.map((y) => ({ y, stories: rest.filter((s) => startYear(s) === y) })).filter((g) => g.stories.length);
   return (
     <>
       <Crumbs items={[['Calendar', href.home], [`${decade}s`]]} />
       <PageHead eyebrow="Decade" title={`The ${decade}s`}>
-        <p className="lede">{shown.length} narratives.</p>
+        <p className="lede">{list.length} narratives, biggest first. Titles, league-changing events and MVP races rank highest, then the stories that most broke the consensus.</p>
       </PageHead>
       <DecadeStrip current={decade} />
       <div className="yeargrid">
         {years.map((y) => {
-          const n = shown.filter((s) => {
+          const n = list.filter((s) => {
             const [a, b] = span(s);
             return a <= `${y}-12-31` && b >= `${y}-01-01`;
           }).length;
@@ -134,9 +146,38 @@ export function Decade({ decade }: { decade: number }) {
           );
         })}
       </div>
-      <Section title="Timeline">
-        <Timeline stories={list} />
+      <Section title={`The biggest stories of the ${decade}s`} count={top.length}>
+        <Timeline stories={top} ranked empty="Nothing on file for this decade yet." />
       </Section>
+      {rest.length > 0 && (
+        <>
+          <div className="yearbar">
+            <div className="toggle" role="group" aria-label="Group the rest by">
+              <button type="button" aria-pressed={group === 'section'} onClick={() => setGroup('section')}>By section</button>
+              <button type="button" aria-pressed={group === 'year'} onClick={() => setGroup('year')}>By year</button>
+            </div>
+            <span className="muted">Most important first in each group.</span>
+          </div>
+          <Section title="The rest of the decade" count={rest.length}>
+            <div className="byseason">
+              {group === 'section'
+                ? sections.map((g) => (
+                  <div key={g.key} className="byseason-group">
+                    <h3>{g.key === 'other' ? g.name : <a href={href.category(g.key as Category)}>{g.name}</a>} <small className="muted">· {g.stories.length}</small></h3>
+                    <p className="section-lede muted">{g.blurb}</p>
+                    <Timeline stories={g.stories} />
+                  </div>
+                ))
+                : byYear.map((g) => (
+                  <div key={g.y} className="byseason-group">
+                    <h3><a href={href.year(g.y)}>{g.y}</a> <small className="muted">· {g.stories.length}</small></h3>
+                    <Timeline stories={g.stories} showYear={false} />
+                  </div>
+                ))}
+            </div>
+          </Section>
+        </>
+      )}
       <PrevNext
         prev={decade > FIRST_YEAR ? [`${decade - 10}s`, href.decade(decade - 10)] : undefined}
         next={decade < LAST_DECADE ? [`${decade + 10}s`, href.decade(decade + 10)] : undefined}

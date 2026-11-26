@@ -354,3 +354,8 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 /* Takes: the "expected, then what happened" line */
 .story-take { font-size: 1.15rem; line-height: 1.45; max-width: 46rem; margin: .5rem 0 0; font-weight: 600; }
 .row-title { margin: 0 0 .35rem; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--muted, #666); }
+
+/* Ranked lists (biggest stories of a decade) */
+.timeline.is-ranked { counter-reset: rank; }
+.timeline.is-ranked > li { counter-increment: rank; }
+.timeline.is-ranked > li .row-date::before { content: counter(rank); display: block; font-size: 1.5rem; font-weight: 800; line-height: 1; margin-bottom: .2rem; color: var(--ink); }
