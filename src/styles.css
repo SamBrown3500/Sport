@@ -103,14 +103,17 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .empty { color: var(--muted); font-style: italic; margin: 0; }
 
 /* ── Decade strip ── */
-.decades { display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); background: var(--surface); }
-.decades a { display: flex; flex-direction: column; align-items: stretch; gap: 4px; padding: 6px 2px 4px; color: var(--link); }
+.decades { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 0; border: 1px solid var(--line); background: var(--surface); }
+.decades a { display: flex; flex-direction: column; align-items: stretch; gap: 6px; padding: 0 0 8px; color: var(--link); }
 .decades a + a { border-left: 1px solid var(--line); }
 .decades a:hover { background: var(--hl); text-decoration: none; }
 .decades a.is-current { background: var(--hl); box-shadow: inset 0 -3px 0 var(--ink); }
-.bars { height: 60px; display: flex; align-items: flex-end; justify-content: center; gap: 2px; }
-.bar { width: 38%; max-width: 12px; min-height: 2px; background: var(--basketball); }
-.decade-label { font: 700 13px var(--ui); text-align: center; }
+.decade-photo { display: block; width: 100%; aspect-ratio: 5 / 6; max-width: 100%; object-fit: cover; object-position: center top; background: var(--shade); filter: grayscale(.15); }
+.decades a:hover .decade-photo, .decades a.is-current .decade-photo { filter: none; }
+.photo-credits { margin-top: 6px; font: 12px var(--ui); color: var(--muted); }
+.photo-credits summary { cursor: pointer; width: max-content; }
+.photo-credits ul { margin: 6px 0 0; padding-left: 18px; }
+.decade-label { font: 700 clamp(13px, 1.8vw, 18px) var(--ui); text-align: center; }
 
 /* ── Year and month grids ── */
 .yeargrid, .monthgrid { display: grid; gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
@@ -190,9 +193,6 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .directory span { color: var(--muted); font: 12px var(--ui); font-variant-numeric: tabular-nums; }
 
 @media (max-width: 640px) {
-  .decades { grid-template-columns: repeat(7, minmax(0, 1fr)); }
-  .decades a + a { border-left: 0; }
-  .decades a { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .monthgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .yeargrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
@@ -278,3 +278,84 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .verdict-doubted, .verdict-slid { color: var(--doubt); }
 .verdict-consensus, .verdict-favored { color: var(--sourced); }
 .verdict-project, .verdict-modest { color: var(--warn); }
+
+/* ── Home page scoreboard: an arena board, dark in both themes ─────── */
+.scoreboard { --led-amber: #ffb400; --led-red: #ff3b2f; --led-green: #35e07a; --led-dim: #8b939d;
+  margin-top: 12px; background: #0f1114; color: #f4f1e6; border: 6px solid #2a2d33; box-shadow: inset 0 0 0 2px #000;
+  padding: 18px clamp(12px, 3vw, 30px) 16px; }
+.scoreboard .sb-brand, .scoreboard .sb-sub, .sb-rec, .sb-wins, .sb-mid, .sb-verdict { font-family: 'Doto', var(--mono); }
+.sb-brand { font-weight: 900; font-size: clamp(24px, 5.2vw, 56px); line-height: 1; letter-spacing: .04em; text-align: center; text-transform: uppercase;
+  color: var(--led-amber); text-shadow: 0 0 12px rgba(255,180,0,.45); overflow-wrap: anywhere; }
+.sb-brand span { color: var(--led-red); text-shadow: 0 0 12px rgba(255,59,47,.45); }
+.sb-sub { text-align: center; font-weight: 600; color: var(--led-dim); letter-spacing: .3em; font-size: 13px; margin-top: 4px; text-transform: uppercase; }
+.sb-game { margin-top: 16px; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 10px clamp(10px, 3vw, 34px); align-items: center; color: inherit; }
+.sb-game:hover { text-decoration: none; }
+.sb-game:hover .sb-name { text-decoration: underline; text-decoration-color: var(--led-amber); }
+.sb-team { text-align: center; min-width: 0; }
+.sb-wins { font-weight: 900; font-size: clamp(60px, 12vw, 128px); line-height: .9; color: var(--led-red); text-shadow: 0 0 18px rgba(255,59,47,.5); }
+.sb-team.is-winner .sb-wins { color: var(--led-green); text-shadow: 0 0 18px rgba(53,224,122,.5); }
+.sb-name { font: 800 clamp(18px, 3vw, 30px)/1.1 var(--display); text-transform: uppercase; letter-spacing: .02em; color: #f4f1e6; }
+.sb-rec { color: #9aa3ad; font-size: 14px; letter-spacing: .1em; text-transform: uppercase; }
+.sb-mid { text-align: center; font-weight: 600; color: var(--led-amber); letter-spacing: .14em; font-size: 13px; display: grid; gap: 6px; text-transform: uppercase; }
+.sb-tag { font-size: 12px; color: #0f1114; background: var(--led-amber); padding: 2px 8px; font-weight: 900; }
+.sb-year { font-size: 28px; font-weight: 900; }
+.sb-verdict { margin-top: 14px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; border-top: 2px dashed #2a2d33; padding-top: 12px;
+  font-weight: 600; letter-spacing: .12em; font-size: clamp(13px, 1.8vw, 16px); color: #9aa3ad; text-transform: uppercase; }
+.sb-verdict b { color: var(--led-amber); font-weight: 900; }
+.sb-verdict div + div b { color: var(--led-green); }
+.sb-clock { height: 4px; background: #23262c; margin-top: 12px; overflow: hidden; }
+.sb-clock i { display: block; height: 100%; background: var(--led-amber); width: 100%; transform-origin: left; animation-name: sb-clock; animation-timing-function: linear; animation-fill-mode: both; }
+@keyframes sb-clock { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.sb-dots { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
+.sb-dots button { width: 30px; height: 8px; border: 0; background: #2a2d33; cursor: pointer; padding: 0; }
+.sb-dots button[aria-current='true'] { background: var(--led-amber); }
+.sb-dots button:focus-visible { outline: 2px solid var(--led-amber); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .sb-clock i { animation: none; } }
+
+/* ── Year by year and preconceived notions (byYear.tsx) ── */
+.nv { font: 700 10.5px var(--ui); text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
+.nv-busted { color: var(--doubt); }
+.nv-held { color: var(--sourced); }
+.nv-mixed { color: var(--warn); }
+.nv-open { color: var(--muted); }
+.nv-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-left: 5px; vertical-align: 1px; background: currentColor; }
+.stats td.wrap { white-space: normal; min-width: 180px; line-height: 1.4; }
+.stats.notions td.wrap { max-width: 42ch; }
+.stats.notions td:first-child.wrap { min-width: 160px; }
+.headlines { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.muted { color: var(--muted); }
+.stats.yby th[scope='row'] { white-space: nowrap; }
+.stats tr.is-key th[scope='row'], .stats tr.is-key td:nth-child(-n+4) { font-weight: 700; }
+.tm + .tm::before { content: ' · '; color: var(--muted); }
+.section-lede { margin: 0; font: 14px var(--ui); color: var(--muted); max-width: 80ch; }
+.byseason { display: grid; gap: 16px; }
+.byseason-group h3 { margin: 0 0 4px; font: 700 15px var(--ui); border-bottom: 2px solid var(--ink); padding-bottom: 3px; }
+.filters { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.filters .toggle { flex-wrap: wrap; }
+.notionbox { border: 1px solid var(--line-strong); border-left: 3px solid var(--basketball); background: var(--surface); padding: 8px 12px; max-width: 80ch; }
+.notionbox-head { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; font: 700 11px var(--ui); text-transform: uppercase; letter-spacing: 0.05em; }
+.notionbox dl { margin: 6px 0 0; display: grid; gap: 6px; }
+.notionbox dl div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 12px; }
+.notionbox dt { font: 700 11px var(--ui); text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); padding-top: 2px; }
+.notionbox dd { margin: 0; font-size: 15px; line-height: 1.45; }
+.teamdir td.wrap { min-width: 260px; }
+@media (max-width: 640px) {
+  .notionbox dl div { grid-template-columns: minmax(0, 1fr); gap: 0; }
+}
+.tablebar-flow { margin-bottom: 0; }
+@media (max-width: 640px) {
+  .stats.yby .col-name { display: none; }
+  .stats td.wrap { min-width: 200px; }
+}
+.yearbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 8px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.teampick { display: inline-flex; align-items: center; gap: 8px; font: 700 11px var(--ui); text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+.teampick select { font: 14px var(--ui); color: var(--ink); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 2px; padding: 4px 6px; max-width: 70vw; text-transform: none; letter-spacing: 0; }
+
+/* Takes: the "expected, then what happened" line */
+.story-take { font-size: 1.15rem; line-height: 1.45; max-width: 46rem; margin: .5rem 0 0; font-weight: 600; }
+.row-title { margin: 0 0 .35rem; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--muted, #666); }
+
+/* Ranked lists (biggest stories of a decade) */
+.timeline.is-ranked { counter-reset: rank; }
+.timeline.is-ranked > li { counter-increment: rank; }
+.timeline.is-ranked > li .row-date::before { content: counter(rank); display: block; font-size: 1.5rem; font-weight: 800; line-height: 1; margin-bottom: .2rem; color: var(--ink); }

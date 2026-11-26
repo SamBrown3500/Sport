@@ -4,12 +4,21 @@ import { resolve } from 'node:path';
 import { sources } from './sources';
 import { players, teams } from './people';
 import { stories } from './stories';
+import { scoreboard } from './scoreboard';
 import { span } from '../lib/dates';
 
 describe('starter data', () => {
   const pIds = new Set(players.map((p) => p.id));
   const tIds = new Set(teams.map((t) => t.id));
 
+  it('links each scoreboard upset to a story, with the winner at 4', () => {
+    const ids = new Set(stories.map((s) => s.id));
+    for (const g of scoreboard) {
+      expect(ids, g.story).toContain(g.story);
+      expect(g.underdog.wins, g.story).toBe(4);
+      expect(g.favorite.wins, g.story).toBeLessThan(4);
+    }
+  });
   it('has unique story ids', () => expect(new Set(stories.map((s) => s.id)).size).toBe(stories.length));
   it('has unique player and team ids', () => {
     expect(pIds.size).toBe(players.length);
@@ -83,5 +92,43 @@ describe('season overviews', () => {
     for (const s of stories) for (const c of s.categories ?? []) filled.add(`${seasonOf(s)}:${c}`);
     for (const k of filled) expect(seasonOverviews, `missing overview ${k}`).toHaveProperty([k]);
     for (const k of Object.keys(seasonOverviews)) expect(filled.has(k), `overview ${k} has no narratives`).toBe(true);
+  });
+});
+
+describe('preconceived notions and franchises', () => {
+  it('ties every take to a real NBA story, and gives every notion a take', async () => {
+    const { takes } = await import('./takes');
+    const { notions } = await import('./notions');
+    const nba = new Set(stories.filter((s) => s.league === 'NBA').map((s) => s.id));
+    for (const [id, take] of Object.entries(takes)) {
+      expect(nba.has(id), `take for unknown story ${id}`).toBe(true);
+      expect(take.length, id).toBeGreaterThan(20);
+    }
+    for (const id of Object.keys(notions)) expect(takes[id], `notion without a take: ${id}`).toBeTruthy();
+  });
+
+  it('ties every notion to a real NBA story, with both halves written and a known verdict', async () => {
+    const { notions, NOTION_VERDICTS } = await import('./notions');
+    const byId = new Map(stories.map((s) => [s.id, s]));
+    for (const [id, [expected, happened, verdict]] of Object.entries(notions)) {
+      expect(byId.get(id)?.league, id).toBe('NBA');
+      expect(expected.trim().length, id).toBeGreaterThan(10);
+      expect(happened.trim().length, id).toBeGreaterThan(10);
+      expect(Object.keys(NOTION_VERDICTS), id).toContain(verdict);
+    }
+  });
+  it('gives every team a franchise entry, and each Basketball Reference name at most one franchise per season', async () => {
+    const { franchises, nameMatches } = await import('./franchises');
+    const { bbref } = await import('./bbref');
+    for (const t of teams) expect(franchises, t.id).toHaveProperty([t.id]);
+    for (const [season, bb] of Object.entries(bbref)) {
+      for (const group of bb.standings ?? []) {
+        for (const row of group) {
+          if (typeof row === 'string') continue;
+          const owners = Object.entries(franchises).filter(([, f]) => nameMatches(f, row[0], Number(season)));
+          expect(owners.length, `${season} ${row[0]}`).toBeLessThanOrEqual(1);
+        }
+      }
+    }
   });
 });

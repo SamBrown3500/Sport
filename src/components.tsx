@@ -3,6 +3,7 @@ import type { Story } from './data/types';
 import { getPlayer, getTeam } from './lib/db';
 import { formatSpan } from './lib/dates';
 import { href, hrefForDate } from './lib/router';
+import { headline, takeFor } from './lib/notions';
 import { categoryInfo } from './lib/seasons';
 
 /* ── Small pieces ───────────────────────────────────────────────────── */
@@ -59,9 +60,10 @@ export function StoryRow({ story, showYear = true }: { story: Story; showYear?: 
       </div>
       <details className="row-body">
         <summary>
-          <h3>{story.title}</h3>
+          <h3>{headline(story)}</h3>
         </summary>
         <div className="row-detail">
+          {takeFor(story) && <p className="row-title">{story.title}</p>}
           <p>{story.summary}</p>
           <div className="row-meta">
             <LeagueTag story={story} />
@@ -85,10 +87,10 @@ export function StoryRow({ story, showYear = true }: { story: Story; showYear?: 
   );
 }
 
-export function Timeline({ stories, showYear = true, empty }: { stories: Story[]; showYear?: boolean; empty?: ReactNode }) {
+export function Timeline({ stories, showYear = true, empty, ranked = false }: { stories: Story[]; showYear?: boolean; empty?: ReactNode; ranked?: boolean }) {
   if (!stories.length) return <Empty>{empty ?? 'No narratives here yet.'}</Empty>;
   return (
-    <ol className="timeline">
+    <ol className={ranked ? 'timeline is-ranked' : 'timeline'}>
       {stories.map((s) => <StoryRow key={s.id} story={s} showYear={showYear} />)}
     </ol>
   );
