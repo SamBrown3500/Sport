@@ -350,3 +350,7 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .yearbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 8px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .teampick { display: inline-flex; align-items: center; gap: 8px; font: 700 11px var(--ui); text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
 .teampick select { font: 14px var(--ui); color: var(--ink); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 2px; padding: 4px 6px; max-width: 70vw; text-transform: none; letter-spacing: 0; }
+
+/* Takes: the "expected, then what happened" line */
+.story-take { font-size: 1.15rem; line-height: 1.45; max-width: 46rem; margin: .5rem 0 0; font-weight: 600; }
+.row-title { margin: 0 0 .35rem; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--muted, #666); }

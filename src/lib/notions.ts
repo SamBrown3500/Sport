@@ -1,10 +1,18 @@
 import { notions, type Notion, type NotionVerdict } from '../data/notions';
+import { takes } from '../data/takes';
 import type { Story } from '../data/types';
 
 /* Preconceived notions (src/data/notions.ts), looked up by story. */
 
 export const notionFor = (story: Story | string): Notion | undefined =>
   notions[typeof story === 'string' ? story : story.id];
+
+/** The one-line take (expected, then what happened) for a story, if it has one. */
+export const takeFor = (story: Story | string): string | undefined =>
+  takes[typeof story === 'string' ? story : story.id];
+
+/** What lists show for a story: its take, or its title when it is only an event. */
+export const headline = (story: Story): string => takes[story.id] ?? story.title;
 
 export interface StoryNotion { story: Story; expected: string; happened: string; verdict: NotionVerdict }
 

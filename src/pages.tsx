@@ -14,6 +14,7 @@ import { search } from './lib/search';
 import { SeasonFacts } from './seasonFacts';
 export { NotionsPage } from './byYear';
 import { NotionBox, NotionsTeaser, PlayerPage as ByYearPlayer, SeasonNotions, TeamPage as ByYearTeam, TeamsDirectory } from './byYear';
+import { headline, takeFor } from './lib/notions';
 import { Scoreboard } from './scoreboard';
 import { decadePhotos } from './data/decadePhotos';
 import { seasonOverview } from './lib/db';
@@ -384,6 +385,7 @@ export function StoryPage({ id }: { id: string }) {
         <p className="story-date">
           <a href={hrefForDate(story.date)}>{formatSpan(story)}</a> <LeagueTag story={story} />
         </p>
+        {takeFor(story) && <p className="story-take">{takeFor(story)}</p>}
       </PageHead>
       <NotionBox story={story} />
       <p className="story-body">{story.summary}</p>
@@ -610,7 +612,7 @@ function SeasonOverview({ season, category, stories }: { season: number; categor
         <ul>
           {stories.map((st) => (
             <li key={st.id}>
-              <a href={href.story(st.id)}>{st.title}</a>
+              <a href={href.story(st.id)}>{headline(st)}</a>
               <small>{formatSpan(st)}</small>
             </li>
           ))}
@@ -720,7 +722,7 @@ export function SeasonPage({ start }: { start: number }) {
           <div className="overview-sources overview-plain">
             <ul>
               {other.map((st) => (
-                <li key={st.id}><a href={href.story(st.id)}>{st.title}</a><small>{formatSpan(st)}</small></li>
+                <li key={st.id}><a href={href.story(st.id)}>{headline(st)}</a><small>{formatSpan(st)}</small></li>
               ))}
             </ul>
           </div>

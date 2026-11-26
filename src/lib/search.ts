@@ -1,7 +1,7 @@
 import type { Player, Source, Story, Team } from '../data/types';
 import { allSources, allStories, getPlayer, getTeam, onThisDay, players, storiesBetween, teams } from './db';
 import { categoryInfo } from './seasons';
-import { notionFor } from './notions';
+import { notionFor, takeFor } from './notions';
 import { byDate, parseDateQuery, queryRange, type DateQuery } from './dates';
 
 export interface SearchResult {
@@ -58,7 +58,7 @@ export function search(raw: string): SearchResult {
       ...s.players.map((p) => getPlayer(p)?.name ?? ''),
       ...s.teams.map((t) => getTeam(t)?.name ?? ''),
       ...(s.sources ?? []).map((c) => c.quote ?? ''),
-      ...(notionFor(s)?.slice(0, 2) ?? []),
+      ...(notionFor(s)?.slice(0, 2) ?? []), takeFor(s) ?? '',
     ].join(' ');
     return matches(q, text);
   });

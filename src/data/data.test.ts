@@ -96,6 +96,17 @@ describe('season overviews', () => {
 });
 
 describe('preconceived notions and franchises', () => {
+  it('ties every take to a real NBA story, and gives every notion a take', async () => {
+    const { takes } = await import('./takes');
+    const { notions } = await import('./notions');
+    const nba = new Set(stories.filter((s) => s.league === 'NBA').map((s) => s.id));
+    for (const [id, take] of Object.entries(takes)) {
+      expect(nba.has(id), `take for unknown story ${id}`).toBe(true);
+      expect(take.length, id).toBeGreaterThan(20);
+    }
+    for (const id of Object.keys(notions)) expect(takes[id], `notion without a take: ${id}`).toBeTruthy();
+  });
+
   it('ties every notion to a real NBA story, with both halves written and a known verdict', async () => {
     const { notions, NOTION_VERDICTS } = await import('./notions');
     const byId = new Map(stories.map((s) => [s.id, s]));

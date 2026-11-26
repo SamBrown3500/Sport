@@ -4,7 +4,7 @@ import type { Category, Story } from './data/types';
 import { DIVISIONS, franchises } from './data/franchises';
 import { NOTION_VERDICTS, notions, type NotionVerdict } from './data/notions';
 import { allStories, getPlayer, getTeam, nbaStories, storiesForPlayer, storiesForTeam, teams } from './lib/db';
-import { notionFor, notionsIn, verdictCounts, type StoryNotion } from './lib/notions';
+import { headline, notionFor, notionsIn, verdictCounts, type StoryNotion } from './lib/notions';
 import { LAST_BBREF_SEASON, franchiseTotals, nameHistory, teamSeasons, type TeamSeason } from './lib/teamSeasons';
 import { CATEGORIES, seasonLabel, seasonOf } from './lib/seasons';
 import { href } from './lib/router';
@@ -97,7 +97,7 @@ function Headlines({ stories }: { stories: Story[] }) {
         const n = notionFor(s);
         return (
           <li key={s.id}>
-            <a href={href.story(s.id)}>{s.title}</a>
+            <a href={href.story(s.id)}>{headline(s)}</a>
             {n && <span className={`nv-dot nv-${n[2]}`} title={`${NOTION_VERDICTS[n[2]]}: expected ${n[0]}`} />}
           </li>
         );
