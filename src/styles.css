@@ -311,3 +311,39 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .sb-dots button[aria-current='true'] { background: var(--led-amber); }
 .sb-dots button:focus-visible { outline: 2px solid var(--led-amber); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { .sb-clock i { animation: none; } }
+
+/* ── Year by year and preconceived notions (byYear.tsx) ── */
+.nv { font: 700 10.5px var(--ui); text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
+.nv-busted { color: var(--doubt); }
+.nv-held { color: var(--sourced); }
+.nv-mixed { color: var(--warn); }
+.nv-open { color: var(--muted); }
+.nv-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-left: 5px; vertical-align: 1px; background: currentColor; }
+.stats td.wrap { white-space: normal; min-width: 180px; line-height: 1.4; }
+.stats.notions td.wrap { max-width: 42ch; }
+.stats.notions td:first-child.wrap { min-width: 160px; }
+.headlines { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.muted { color: var(--muted); }
+.stats.yby th[scope='row'] { white-space: nowrap; }
+.stats tr.is-key th[scope='row'], .stats tr.is-key td:nth-child(-n+4) { font-weight: 700; }
+.tm + .tm::before { content: ' · '; color: var(--muted); }
+.section-lede { margin: 0; font: 14px var(--ui); color: var(--muted); max-width: 80ch; }
+.byseason { display: grid; gap: 16px; }
+.byseason-group h3 { margin: 0 0 4px; font: 700 15px var(--ui); border-bottom: 2px solid var(--ink); padding-bottom: 3px; }
+.filters { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.filters .toggle { flex-wrap: wrap; }
+.notionbox { border: 1px solid var(--line-strong); border-left: 3px solid var(--basketball); background: var(--surface); padding: 8px 12px; max-width: 80ch; }
+.notionbox-head { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; font: 700 11px var(--ui); text-transform: uppercase; letter-spacing: 0.05em; }
+.notionbox dl { margin: 6px 0 0; display: grid; gap: 6px; }
+.notionbox dl div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 12px; }
+.notionbox dt { font: 700 11px var(--ui); text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); padding-top: 2px; }
+.notionbox dd { margin: 0; font-size: 15px; line-height: 1.45; }
+.teamdir td.wrap { min-width: 260px; }
+@media (max-width: 640px) {
+  .notionbox dl div { grid-template-columns: minmax(0, 1fr); gap: 0; }
+}
+.tablebar-flow { margin-bottom: 0; }
+@media (max-width: 640px) {
+  .stats.yby .col-name { display: none; }
+  .stats td.wrap { min-width: 200px; }
+}

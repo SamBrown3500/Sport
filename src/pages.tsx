@@ -5,13 +5,15 @@ import {
 import type { Category, Citation, Source, Story } from './data/types';
 import {
   allSources, allStories, getPlayer, getSource, getStory, getTeam, isSourced, momentsOn, onThisDay, players, related,
-  storiesBetween, storiesForPlayer, storiesInCategory, storiesInSeason, storiesForTeam, storiesFromSource, storylinesDuring, teams,
+  storiesBetween, storiesForPlayer, storiesInCategory, storiesInSeason, storiesFromSource, storylinesDuring,
 } from './lib/db';
 import { SOURCE_KIND, youtubeId } from './lib/sources';
 import { FIRST_YEAR, MONTHS, daysInMonth, formatDate, formatSpan, iso, span } from './lib/dates';
 import { href, hrefForDate } from './lib/router';
 import { search } from './lib/search';
 import { SeasonFacts } from './seasonFacts';
+export { NotionsPage } from './byYear';
+import { NotionBox, NotionsTeaser, PlayerPage as ByYearPlayer, SeasonNotions, TeamPage as ByYearTeam, TeamsDirectory } from './byYear';
 import { Scoreboard } from './scoreboard';
 import { decadePhotos } from './data/decadePhotos';
 import { seasonOverview } from './lib/db';
@@ -89,6 +91,8 @@ export function Home() {
       </Section>
 
       <Scoreboard />
+
+      <NotionsTeaser />
 
       <Section title={`On this day: ${MONTHS[m - 1]} ${d}`} count={today.length}
         aside={<a className="more" href={href.onThisDay(m, d)}>Every year →</a>}>
@@ -303,6 +307,7 @@ export function StoryPage({ id }: { id: string }) {
           <a href={hrefForDate(story.date)}>{formatSpan(story)}</a> <LeagueTag story={story} />
         </p>
       </PageHead>
+      <NotionBox story={story} />
       <p className="story-body">{story.summary}</p>
       <dl className="facts">
         {story.players.length > 0 && (
@@ -354,56 +359,28 @@ function Citations({ list }: { list: Citation[] }) {
   );
 }
 
-/* ── Player and team timelines ──────────────────────────────────────── */
-
-function EntityTimeline({ eyebrow, name, aliases, list }: { eyebrow: string; name: string; aliases?: string[]; list: Story[] }) {
-  const first = list[0];
-  const last = list[list.length - 1];
-  return (
-    <>
-      <PageHead eyebrow={eyebrow} title={name}>
-        {aliases?.length ? <p className="lede">Also known as {aliases.join(', ')}.</p> : null}
-        {first && <p className="lede">{list.length} narratives, {first.date.slice(0, 4)} to {(last.end ?? last.date).slice(0, 4)}.</p>}
-      </PageHead>
-      <p className="note">Season-by-season stats will sit beside this timeline in the next milestone.</p>
-      <Timeline stories={list} />
-    </>
-  );
-}
+/* ── Player and team pages: year by year (see byYear.tsx) ─────────────── */
 
 export function PlayerPage({ id }: { id: string }) {
-  const p = getPlayer(id);
-  if (!p) return <NotFound what="player" />;
-  return (
-    <>
-      <Crumbs items={[['Players', href.players], [p.name]]} />
-      <EntityTimeline eyebrow={`Player · ${p.league}`} name={p.name} aliases={p.aliases} list={storiesForPlayer(id)} />
-    </>
-  );
+  return getPlayer(id) ? <ByYearPlayer id={id} /> : <NotFound what="player" />;
 }
 
 export function TeamPage({ id }: { id: string }) {
-  const t = getTeam(id);
-  if (!t) return <NotFound what="team" />;
-  return (
-    <>
-      <Crumbs items={[['Teams', href.teams], [t.name]]} />
-      <EntityTimeline eyebrow={`Team · ${t.league}`} name={t.name} aliases={t.aliases} list={storiesForTeam(id)} />
-    </>
-  );
+  return getTeam(id) ? <ByYearTeam id={id} /> : <NotFound what="team" />;
 }
 
 export function Directory({ kind }: { kind: 'players' | 'teams' }) {
-  const items = (kind === 'players' ? players : teams)
-    .map((x) => ({ ...x, n: (kind === 'players' ? storiesForPlayer : storiesForTeam)(x.id).length }))
+  if (kind === 'teams') return <TeamsDirectory />;
+  const items = players
+    .map((x) => ({ ...x, n: storiesForPlayer(x.id).length }))
     .sort((a, b) => a.name.localeCompare(b.name));
   return (
     <>
-      <PageHead eyebrow="Directory" title={kind === 'players' ? 'Players' : 'Teams'} />
+      <PageHead eyebrow="Directory" title="Players" />
       <ul className="directory">
         {items.map((x) => (
           <li key={x.id}>
-            <a href={kind === 'players' ? href.player(x.id) : href.team(x.id)}>{x.name}</a>
+            <a href={href.player(x.id)}>{x.name}</a>
             <span>{x.league} · {x.n}</span>
           </li>
         ))}
@@ -645,6 +622,7 @@ export function SeasonPage({ start }: { start: number }) {
           {start + 1 <= new Date().getFullYear() && <a href={href.year(start + 1)}>{start + 1}</a>}
         </p>
       </PageHead>
+      <SeasonNotions stories={list} />
       {CATEGORIES.map((c) => {
         const rows = inCategory(list, c.id);
         return (

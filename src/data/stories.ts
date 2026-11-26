@@ -160,7 +160,7 @@ export const stories: Story[] = [
   s('nba-bubble', 'storyline', 'NBA', '2020-07-30', 'day',
     'The Orlando bubble',
     'The season restarts with 22 teams living and playing at Walt Disney World, with no fans. The Lakers win the title, LeBron\'s fourth, months after Kobe\'s death.',
-    ['lebron-james'], ['lakers', 'heat'], ['pandemic', 'championships'], { categories: ['contenders'], end: '2020-10-11', aliases: ['The Bubble'] }),
+    ['lebron-james'], ['lakers', 'heat'], ['pandemic', 'championships'], { categories: ['contenders'], end: '2020-10-11', aliases: ['The Bubble'], season: 2019 }),
   s('sixers-comeback-celtics-2026', 'moment', 'NBA', '2026', 'year',
     'The 76ers come back from 3-1 down to knock out the Celtics',
     'Jaylen Brown had carried Boston to 50-plus wins while Jayson Tatum recovered from a major injury, and Tatum made it back for part of the postseason. With a 3-1 series lead, the Celtics looked safe. Philadelphia won three straight to steal the series anyway. The collapse changed the conversation in Boston: Brad Stevens said the team would change its identity and play "inside out instead of outside in," and talk turned to whether the Brown-Tatum pairing had run its course.',
@@ -1802,7 +1802,7 @@ export const stories: Story[] = [
     'The Clippers blow a 3-1 lead to Denver in the bubble',
     'Everyone expected a Lakers-Clippers conference finals. Up 3-1 on Denver in the bubble, the Clippers led Game 5 for over 40 minutes and lost, then lost Games 6 and 7. The host calls it maybe the worst collapse in NBA history. Lou Williams later said the team never wanted to be in the bubble and took its foot off the gas, and Paul George described going weeks without sleep. George, who had called himself "Playoff P" and traded shots with Damian Lillard, was mercilessly mocked as the Lakers won the title.',
     ['kawhi-leonard', 'paul-george', 'lou-williams', 'nikola-jokic', 'damian-lillard'], ['clippers', 'nuggets', 'lakers'], ['playoffs', 'collapses', 'pandemic'],
-    { categories: ['contenders', 'surprises'], sources: [
+    { season: 2019, categories: ['contenders', 'surprises'], sources: [
       { source: 'clippers-never-ending-misfortune', quote: 'La gaining a 3-1 lead headed toward what everyone had been expecting for around a year now' },
       { source: 'clippers-never-ending-misfortune', quote: 'what ensued is probably the worst collapse in NBA history' },
       { source: 'clippers-never-ending-misfortune', quote: 'the clips LED for 40 minutes and 17 seconds of game time still managing to lose' },
