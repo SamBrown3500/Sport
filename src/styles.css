@@ -359,3 +359,12 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .timeline.is-ranked { counter-reset: rank; }
 .timeline.is-ranked > li { counter-increment: rank; }
 .timeline.is-ranked > li .row-date::before { content: counter(rank); display: block; font-size: 1.5rem; font-weight: 800; line-height: 1; margin-bottom: .2rem; color: var(--ink); }
+
+/* Click-to-open sections (season page notions) */
+.dropdown > summary { cursor: pointer; list-style: none; }
+.dropdown > summary::-webkit-details-marker { display: none; }
+.dropdown > summary h2::before { content: "▸"; display: inline-block; width: 1em; text-align: center; transition: transform .15s; }
+.dropdown[open] > summary h2::before { transform: rotate(90deg); }
+.dropdown-hint::after { content: 'Show all'; font-size: 12px; font-weight: 700; color: var(--link, #0b5cad); }
+.dropdown[open] .dropdown-hint::after { content: 'Hide'; }
+.dropdown > .section-lede { margin: 10px 0 8px; }

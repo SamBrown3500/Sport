@@ -406,9 +406,17 @@ export function SeasonNotions({ stories }: { stories: Story[] }) {
   const list = notionsIn(stories);
   if (!list.length) return null;
   return (
-    <Section title="Preconceived notions" count={list.length} aside={<Tally list={list} />}>
-      <NotionsTable list={list} showSeason={false} />
-    </Section>
+    <section className="section">
+      <details className="dropdown">
+        <summary className="section-head">
+          <h2>Preconceived notions <span className="count">{list.length}</span></h2>
+          <Tally list={list} />
+          <span className="dropdown-hint" aria-hidden="true" />
+        </summary>
+        <p className="section-lede">What everyone expected this season, and what happened instead.</p>
+        <NotionsTable list={list} showSeason={false} />
+      </details>
+    </section>
   );
 }
 
