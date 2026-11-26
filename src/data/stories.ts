@@ -6088,7 +6088,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2002-roy", 'moment', 'NBA', "2002-10", 'month',
     "Yao or Jay Williams for Rookie of the Year? Amare Stoudemire won it",
-    "GMs couldn't separate No. 1 pick Yao Ming and No. 2 pick Jay Williams for 2002-03 Rookie of the Year (26.9% each), with Drew Gooden third. Amare Stoudemire, straight out of high school, got 7.7%. Stoudemire won the award with 59 first-place votes, and Yao finished second.",
+    "Before the season, GMs couldn't separate No. 1 pick Yao Ming and No. 2 pick Jay Williams for 2002-03 Rookie of the Year (26.9% each), with Drew Gooden third. Amare Stoudemire, straight out of high school, got 7.7%. Stoudemire won the award with 59 first-place votes, and Yao finished second.",
     ["yao-ming", "jay-williams", "amare-stoudemire"], ["rockets", "bulls", "suns"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2002-03", quote: "T-1. Yao Ming, Houston – 26.9%" },
@@ -6097,7 +6097,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2002-surprise", 'moment', 'NBA', "2002-10", 'month',
     "The GMs' most improved team, Atlanta, won 35 games",
-    "Nearly half the GMs (47.8%) picked the Atlanta Hawks as the league's most improved team for 2002-03. Atlanta had won 33 games the year before and won 35, missing the playoffs again.",
+    "Before the season, nearly half the GMs (47.8%) picked the Atlanta Hawks as the league's most improved team for 2002-03. Atlanta had won 33 games the year before and won 35, missing the playoffs again.",
     [], ["hawks"], ["predictions", "GM Survey"],
     { categories: ["surprises"], sources: [
       { source: "nba-gm-survey-2002-03", quote: "Which team will be the NBA’s most improved in 2002-03?" },
@@ -6105,7 +6105,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2003-contenders", 'moment', 'NBA', "2003-10", 'month',
     "With Malone and Payton, the Lakers are the pick. Detroit wins it",
-    "After the Lakers added Karl Malone and Gary Payton, 52.4% of GMs picked them to win the 2004 title, with San Antonio second. In the East, 57.1% picked New Jersey and 9.5% picked Detroit, which got no votes at all to win the Finals. The Pistons beat Indiana in the conference finals and then beat the Lakers 4-1.",
+    "After the Lakers added Karl Malone and Gary Payton, 52.4% of GMs, voting before the season, picked them to win the 2004 title, with San Antonio second. In the East, 57.1% picked New Jersey and 9.5% picked Detroit, which got no votes at all to win the Finals. The Pistons beat Indiana in the conference finals and then beat the Lakers 4-1.",
     ["karl-malone", "gary-payton", "shaquille-oneal", "kobe-bryant"], ["lakers", "pistons", "nets", "spurs"], ["predictions", "championships", "upsets", "GM Survey"],
     { categories: ["contenders", "surprises"], sources: [
       { source: "nba-gm-survey-2003-04", quote: "1. Los Angeles Lakers – 52.4%" },
@@ -6116,7 +6116,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2003-mvp", 'moment', 'NBA', "2003-10", 'month',
     "Duncan or Shaq for MVP? Kevin Garnett ran away with it",
-    "GMs split evenly between Tim Duncan and Shaquille O'Neal for the 2003-04 MVP (42.9% each), with Kevin Garnett among the others receiving votes. Garnett won the award with 120 first-place votes for a 58-win Minnesota team, and Duncan was second.",
+    "Before the season, GMs split evenly between Tim Duncan and Shaquille O'Neal for the 2003-04 MVP (42.9% each), with Kevin Garnett among the others receiving votes. Garnett won the award with 120 first-place votes for a 58-win Minnesota team, and Duncan was second.",
     ["kevin-garnett", "tim-duncan", "shaquille-oneal"], ["timberwolves", "spurs", "lakers"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race"], sources: [
       { source: "nba-gm-survey-2003-04", quote: "T-1. Tim Duncan, San Antonio – 42.9%" },
@@ -6125,7 +6125,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2003-roy", 'moment', 'NBA', "2003-10", 'month',
     "GMs pick LeBron over Carmelo, and they were right",
-    "81% of GMs picked No. 1 pick LeBron James for 2003-04 Rookie of the Year, with Carmelo Anthony getting the rest. GMs also named LeBron the offseason addition who would make the biggest impact (35%). James won Rookie of the Year with 78 first-place votes to Anthony's 40.",
+    "Before the season, 81% of GMs picked No. 1 pick LeBron James for 2003-04 Rookie of the Year, with Carmelo Anthony getting the rest. GMs also named LeBron the offseason addition who would make the biggest impact (35%). James won Rookie of the Year with 78 first-place votes to Anthony's 40.",
     ["lebron-james", "carmelo-anthony"], ["cavaliers", "nuggets"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2003-04", quote: "1. LeBron James, Cleveland – 81.0%" },
@@ -6134,7 +6134,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2004-contenders", 'moment', 'NBA', "2004-10", 'month',
     "GMs pick a Spurs-Pistons Finals, and get it",
-    "With Shaquille O'Neal traded to Miami, GMs made San Antonio the 2005 favorite (45.2%) over defending champion Detroit (33.3%), and picked those two to win their conferences. That is how it went: the Spurs beat the Pistons in seven games in the Finals. The Suns, 62-20 with the league's best record, got no title votes.",
+    "With Shaquille O'Neal traded to Miami, GMs, voting before the season, made San Antonio the 2005 favorite (45.2%) over defending champion Detroit (33.3%), and picked those two to win their conferences. That is how it went: the Spurs beat the Pistons in seven games in the Finals. The Suns, 62-20 with the league's best record, got no title votes.",
     ["tim-duncan", "shaquille-oneal", "steve-nash"], ["spurs", "pistons", "heat", "suns"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2004-05", quote: "1. San Antonio Spurs – 45.2%" },
@@ -6144,7 +6144,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2004-mvp", 'moment', 'NBA', "2004-10", 'month',
     "Shaq was the GMs' MVP. Steve Nash wasn't on the list",
-    "After his trade to Miami, Shaquille O'Neal was the GMs' MVP pick (57.1%), ahead of Tim Duncan, Kevin Garnett and Kobe Bryant. Steve Nash, who had just signed with Phoenix, got no votes. Nash won MVP, with O'Neal second. GMs did see something in Phoenix: 31% named the Suns the most improved team, and they went from 29 wins to 62.",
+    "After his trade to Miami, Shaquille O'Neal was the GMs' MVP pick (57.1%), ahead of Tim Duncan, Kevin Garnett and Kobe Bryant. Steve Nash, who had just signed with Phoenix, got no votes. Nash won MVP, with O'Neal second. GMs, voting before the season, did see something in Phoenix: 31% named the Suns the most improved team, and they went from 29 wins to 62.",
     ["steve-nash", "shaquille-oneal", "tim-duncan"], ["suns", "heat"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race", "surprises"], sources: [
       { source: "nba-gm-survey-2004-05", quote: "1. Shaquille O’Neal, Miami – 57.1%" },
@@ -6154,7 +6154,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2004-roy", 'moment', 'NBA', "2004-10", 'month',
     "Emeka Okafor was the Rookie of the Year pick, and he won it",
-    "42.9% of GMs picked Charlotte's Emeka Okafor for 2004-05 Rookie of the Year, with Ben Gordon and No. 1 pick Dwight Howard tied behind him (23.8%). The order held: Okafor won, Gordon was second and Howard third.",
+    "Before the season, 42.9% of GMs picked Charlotte's Emeka Okafor for 2004-05 Rookie of the Year, with Ben Gordon and No. 1 pick Dwight Howard tied behind him (23.8%). The order held: Okafor won, Gordon was second and Howard third.",
     ["emeka-okafor", "dwight-howard"], ["hornets", "bulls", "magic"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2004-05", quote: "1. Emeka Okafor, Charlotte – 42.9%" },
@@ -6163,7 +6163,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2005-contenders", 'moment', 'NBA', "2005-10", 'month',
     "GMs give the Spurs 76.9%. Dallas gets no West votes and Miami wins",
-    "After two titles in three years, 76.9% of GMs picked San Antonio to win again in 2006, and 96.2% picked the Spurs to win the West. Phoenix got the only other West vote, and Dallas got none. Miami was the East pick (73.1%). Dallas beat the Spurs in seven in the second round and reached the Finals, and the Heat beat the Mavericks 4-2.",
+    "After two titles in three years, 76.9% of GMs, voting before the season, picked San Antonio to win again in 2006, and 96.2% picked the Spurs to win the West. Phoenix got the only other West vote, and Dallas got none. Miami was the East pick (73.1%). Dallas beat the Spurs in seven in the second round and reached the Finals, and the Heat beat the Mavericks 4-2.",
     ["dwyane-wade", "shaquille-oneal", "dirk-nowitzki", "tim-duncan"], ["spurs", "heat", "mavericks"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2005-06", quote: "1. San Antonio Spurs – 76.9%" },
@@ -6174,7 +6174,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2005-mvp", 'moment', 'NBA', "2005-10", 'month',
     "Steve Nash wins a second MVP, again without a GM vote",
-    "Coming off Nash's first MVP, GMs picked Tim Duncan for 2005-06 (58.3%), ahead of Shaquille O'Neal. Nash wasn't among the eight players receiving votes. He won MVP again with 57 first-place votes, ahead of LeBron James and Dirk Nowitzki.",
+    "Coming off Nash's first MVP, GMs, voting before the season, picked Tim Duncan for 2005-06 (58.3%), ahead of Shaquille O'Neal. Nash wasn't among the eight players receiving votes. He won MVP again with 57 first-place votes, ahead of LeBron James and Dirk Nowitzki.",
     ["steve-nash", "tim-duncan", "lebron-james"], ["suns", "spurs"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race"], sources: [
       { source: "nba-gm-survey-2005-06", quote: "1. Tim Duncan, San Antonio – 58.3%" },
@@ -6183,7 +6183,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2005-roy", 'moment', 'NBA', "2005-10", 'month',
     "GMs lean Bogut. Chris Paul wins Rookie of the Year unanimously",
-    "No. 1 pick Andrew Bogut was the GMs' narrow choice for 2005-06 Rookie of the Year (40%), just ahead of Chris Paul (36%), with Deron Williams third. Paul won the award with 124 first-place votes.",
+    "Before the season, No. 1 pick Andrew Bogut was the GMs' narrow choice for 2005-06 Rookie of the Year (40%), just ahead of Chris Paul (36%), with Deron Williams third. Paul won the award with 124 first-place votes.",
     ["andrew-bogut", "chris-paul", "deron-williams"], ["bucks", "pelicans", "jazz"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2005-06", quote: "1. Andrew Bogut, Milwaukee – 40.0%" },
@@ -6192,7 +6192,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2006-contenders", 'moment', 'NBA', "2006-10", 'month',
     "The Spurs were the pick and won. Cleveland got no East votes and made the Finals",
-    "GMs picked San Antonio to win the 2007 title (42.9%) ahead of Dallas (28.6%) and champion Miami. In the East, 71.4% picked the Heat, with Chicago and Orlando the only others besides Detroit to get votes. Cleveland got none. The Cavaliers beat Detroit in the conference finals, and the Spurs swept them for the title.",
+    "Before the season, GMs picked San Antonio to win the 2007 title (42.9%) ahead of Dallas (28.6%) and champion Miami. In the East, 71.4% picked the Heat, with Chicago and Orlando the only others besides Detroit to get votes. Cleveland got none. The Cavaliers beat Detroit in the conference finals, and the Spurs swept them for the title.",
     ["lebron-james", "tim-duncan"], ["spurs", "cavaliers", "heat", "pistons"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2006-07", quote: "1. San Antonio Spurs – 42.9%" },
@@ -6202,7 +6202,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2006-mvp", 'moment', 'NBA', "2006-10", 'month',
     "Dirk was the GMs' third choice for MVP. Then Dallas won 67",
-    "GMs picked LeBron James for 2006-07 MVP (39.3%), with Dwyane Wade second and Dirk Nowitzki third (17.9%). Nowitzki won the award after Dallas went 67-15, and Steve Nash was second. Dallas, the GMs' second pick to win the title, then lost to the 42-win Warriors in the first round.",
+    "Before the season, GMs picked LeBron James for 2006-07 MVP (39.3%), with Dwyane Wade second and Dirk Nowitzki third (17.9%). Nowitzki won the award after Dallas went 67-15, and Steve Nash was second. Dallas, the GMs' second pick to win the title, then lost to the 42-win Warriors in the first round.",
     ["dirk-nowitzki", "lebron-james", "dwyane-wade", "steve-nash"], ["mavericks", "warriors"], ["predictions", "MVP", "upsets", "GM Survey"],
     { categories: ["mvp-race", "surprises"], sources: [
       { source: "nba-gm-survey-2006-07", quote: "1. LeBron James, Cleveland – 39.3%" },
@@ -6211,7 +6211,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2006-roy", 'moment', 'NBA', "2006-10", 'month',
     "Brandon Roy was the Rookie of the Year pick, and he won it",
-    "44.4% of GMs picked Portland's Brandon Roy for 2006-07 Rookie of the Year, ahead of Adam Morrison (25.9%) and Randy Foye. Roy won with 127 first-place votes, and No. 1 pick Andrea Bargnani was second.",
+    "Before the season, 44.4% of GMs picked Portland's Brandon Roy for 2006-07 Rookie of the Year, ahead of Adam Morrison (25.9%) and Randy Foye. Roy won with 127 first-place votes, and No. 1 pick Andrea Bargnani was second.",
     ["brandon-roy", "adam-morrison", "andrea-bargnani"], ["blazers", "hornets", "raptors"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2006-07", quote: "1. Brandon Roy, Portland – 44.4%" },
@@ -6219,7 +6219,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2007-contenders", 'moment', 'NBA', "2007-10", 'month',
     "Boston was a 3.7% title pick after adding Garnett, then won it",
-    "Even after Kevin Garnett's trade to Boston, which 96.3% of GMs called the offseason's most impactful move, only 3.7% picked the Celtics to win the 2008 title. San Antonio was the favorite (37%), then Phoenix and Dallas, and Boston only tied Detroit as the East pick (25.9% each). 77.8% did call the Celtics the most improved team. They went from 24 wins to 66, then beat the Lakers 4-2 in the Finals.",
+    "Even after Kevin Garnett's trade to Boston, which 96.3% of GMs, voting before the season, called the offseason's most impactful move, only 3.7% picked the Celtics to win the 2008 title. San Antonio was the favorite (37%), then Phoenix and Dallas, and Boston only tied Detroit as the East pick (25.9% each). 77.8% did call the Celtics the most improved team. They went from 24 wins to 66, then beat the Lakers 4-2 in the Finals.",
     ["kevin-garnett", "paul-pierce", "ray-allen", "kobe-bryant"], ["celtics", "spurs", "lakers", "suns"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders", "surprises"], sources: [
       { source: "nba-gm-survey-2007-08", quote: "1. San Antonio — 37.0%" },
@@ -6230,7 +6230,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2007-mvp", 'moment', 'NBA', "2007-10", 'month',
     "Kobe was the GMs' third choice for MVP and won it",
-    "GMs picked LeBron James for 2007-08 MVP (29.6%), ahead of Tim Duncan and Kobe Bryant (18.5%). Bryant won his first MVP, with Chris Paul second and Kevin Garnett third.",
+    "Before the season, GMs picked LeBron James for 2007-08 MVP (29.6%), ahead of Tim Duncan and Kobe Bryant (18.5%). Bryant won his first MVP, with Chris Paul second and Kevin Garnett third.",
     ["kobe-bryant", "lebron-james", "chris-paul", "kevin-garnett"], ["lakers", "cavaliers"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race"], sources: [
       { source: "nba-gm-survey-2007-08", quote: "1. LeBron James, Cleveland – 29.6%" },
@@ -6239,7 +6239,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2007-roy", 'moment', 'NBA', "2007-10", 'month',
     "Kevin Durant was a 92.6% Rookie of the Year pick, and won it",
-    "92.6% of GMs picked No. 2 pick Kevin Durant for 2007-08 Rookie of the Year in Seattle, with Al Horford and Rodney Stuckey getting the other votes. Durant won it with 90 first-place votes, and Horford was second.",
+    "Before the season, 92.6% of GMs picked No. 2 pick Kevin Durant for 2007-08 Rookie of the Year in Seattle, with Al Horford and Rodney Stuckey getting the other votes. Durant won it with 90 first-place votes, and Horford was second.",
     ["kevin-durant", "al-horford"], ["thunder", "hawks"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2007-08", quote: "1. Kevin Durant, Seattle — 92.6%" },
@@ -6247,7 +6247,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2008-contenders", 'moment', 'NBA', "2008-10", 'month',
     "GMs pick the Lakers and Boston. Orlando, a 3.7% East pick, made the Finals",
-    "GMs picked the Lakers to win the 2009 title (46.2%) and champion Boston to win the East (74.1%), with Cleveland and Detroit at 11.1%. Orlando got 3.7% in the East. The 66-win Cavaliers had the best record, but the Magic beat them in the conference finals, and the Lakers beat Orlando 4-1 for the title.",
+    "Before the season, GMs picked the Lakers to win the 2009 title (46.2%) and champion Boston to win the East (74.1%), with Cleveland and Detroit at 11.1%. Orlando got 3.7% in the East. The 66-win Cavaliers had the best record, but the Magic beat them in the conference finals, and the Lakers beat Orlando 4-1 for the title.",
     ["kobe-bryant", "dwight-howard", "lebron-james"], ["lakers", "celtics", "magic", "cavaliers"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2008-09", quote: "1. L.A. Lakers – 46.2%" },
@@ -6257,7 +6257,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2008-mvp", 'moment', 'NBA', "2008-10", 'month',
     "LeBron was the MVP pick, and he won it",
-    "55.6% of GMs picked LeBron James for 2008-09 MVP, ahead of Kobe Bryant (37%) and Chris Paul. James won the award with 109 first-place votes for a 66-win Cleveland team, and Bryant was second.",
+    "Before the season, 55.6% of GMs picked LeBron James for 2008-09 MVP, ahead of Kobe Bryant (37%) and Chris Paul. James won the award with 109 first-place votes for a 66-win Cleveland team, and Bryant was second.",
     ["lebron-james", "kobe-bryant", "chris-paul"], ["cavaliers", "lakers"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race"], sources: [
       { source: "nba-gm-survey-2008-09", quote: "1. LeBron James, Cleveland – 55.6%" },
@@ -6265,7 +6265,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2008-roy", 'moment', 'NBA', "2008-10", 'month',
     "Beasley and Oden were the Rookie of the Year picks. Derrick Rose didn't get a vote",
-    "GMs picked No. 2 pick Michael Beasley for 2008-09 Rookie of the Year (48.1%), with Greg Oden second and O.J. Mayo third. Kevin Love, Anthony Randolph and Russell Westbrook also got votes. No. 1 pick Derrick Rose got none. Rose won the award with 111 first-place votes, and Mayo was second.",
+    "Before the season, GMs picked No. 2 pick Michael Beasley for 2008-09 Rookie of the Year (48.1%), with Greg Oden second and O.J. Mayo third. Kevin Love, Anthony Randolph and Russell Westbrook also got votes. No. 1 pick Derrick Rose got none. Rose won the award with 111 first-place votes, and Mayo was second.",
     ["derrick-rose", "michael-beasley", "greg-oden", "oj-mayo"], ["bulls", "heat", "blazers", "grizzlies"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2008-09", quote: "1. Michael Beasley, Miami – 48.1%" },
@@ -6274,7 +6274,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2009-contenders", 'moment', 'NBA', "2009-10", 'month',
     "GMs pick the Lakers to repeat. Shaq's Cavaliers go out in round two",
-    "60.7% of GMs picked the champion Lakers to repeat in 2010, with Boston and Shaquille O'Neal's new team, Cleveland, tied at 17.9%. Half picked Boston to win the East over Cleveland (42.9%). The Cavaliers won 61 games, but Boston beat them 4-2 in the second round, reached the Finals and lost to the Lakers in seven.",
+    "Before the season, 60.7% of GMs picked the champion Lakers to repeat in 2010, with Boston and Shaquille O'Neal's new team, Cleveland, tied at 17.9%. Half picked Boston to win the East over Cleveland (42.9%). The Cavaliers won 61 games, but Boston beat them 4-2 in the second round, reached the Finals and lost to the Lakers in seven.",
     ["kobe-bryant", "lebron-james", "shaquille-oneal", "paul-pierce"], ["lakers", "celtics", "cavaliers"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2009-10", quote: "1. L.A. Lakers – 60.7%" },
@@ -6285,7 +6285,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2009-mvp", 'moment', 'NBA', "2009-10", 'month',
     "LeBron was the MVP pick again, and won again",
-    "69% of GMs picked LeBron James to repeat as MVP in 2009-10, ahead of Kobe Bryant (17.2%) and Dwight Howard. James won with 116 first-place votes, and Kevin Durant, who got no GM votes, was second.",
+    "Before the season, 69% of GMs picked LeBron James to repeat as MVP in 2009-10, ahead of Kobe Bryant (17.2%) and Dwight Howard. James won with 116 first-place votes, and Kevin Durant, who got no GM votes, was second.",
     ["lebron-james", "kobe-bryant", "kevin-durant"], ["cavaliers", "thunder"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race"], sources: [
       { source: "nba-gm-survey-2009-10", quote: "1. LeBron James, Cleveland – 69.0%" },
@@ -6294,7 +6294,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2009-roy", 'moment', 'NBA', "2009-10", 'month',
     "Blake Griffin was a 79.3% Rookie of the Year pick. Tyreke Evans won it",
-    "79.3% of GMs picked No. 1 pick Blake Griffin for 2009-10 Rookie of the Year. Tyreke Evans got 6.9% and Stephen Curry 3.4%. Griffin wasn't among the top five in the voting. Evans won Rookie of the Year with 67 first-place votes, and Curry was second.",
+    "Before the season, 79.3% of GMs picked No. 1 pick Blake Griffin for 2009-10 Rookie of the Year. Tyreke Evans got 6.9% and Stephen Curry 3.4%. Griffin wasn't among the top five in the voting. Evans won Rookie of the Year with 67 first-place votes, and Curry was second.",
     ["blake-griffin", "tyreke-evans", "stephen-curry"], ["clippers", "kings", "warriors"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2009-10", quote: "1. Blake Griffin, L.A. Clippers – 79.3%" },
@@ -6303,7 +6303,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2010-contenders", 'moment', 'NBA', "2010-10", 'month',
     "GMs pick the Lakers to three-peat. Dallas gets one vote to win the West",
-    "The GMs' pick for 2011 was the two-time champion Lakers (63%), with LeBron's new-look Heat second (33.3%). The West wasn't even a debate: 96.4% picked the Lakers to win it, and Dallas got the only other vote. The Mavericks swept the Lakers in the second round and beat Miami 4-2 in the Finals. No GM had picked Dallas to win the title.",
+    "Before the season, the GMs' pick for 2011 was the two-time champion Lakers (63%), with LeBron's new-look Heat second (33.3%). The West wasn't even a debate: 96.4% picked the Lakers to win it, and Dallas got the only other vote. The Mavericks swept the Lakers in the second round and beat Miami 4-2 in the Finals. No GM had picked Dallas to win the title.",
     ["dirk-nowitzki", "kobe-bryant", "lebron-james"], ["lakers", "heat", "mavericks"], ["predictions", "championships", "upsets", "GM Survey"],
     { categories: ["contenders", "surprises"], sources: [
       { source: "nba-gm-survey-2010-11", quote: "1. L.A. Lakers – 63.0%" },
@@ -6313,7 +6313,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2010-mvp", 'moment', 'NBA', "2010-10", 'month',
     "Durant was the GMs' MVP. Derrick Rose didn't get a vote",
-    "Two-thirds of GMs (66.7%) picked Kevin Durant for 2010-11 MVP, with Kobe Bryant second (25.9%). Dwight Howard and LeBron James got the other votes. Derrick Rose wasn't on a single ballot. Rose won the real MVP with 113 first-place votes, and Durant finished fifth.",
+    "Before the season, two-thirds of GMs (66.7%) picked Kevin Durant for 2010-11 MVP, with Kobe Bryant second (25.9%). Dwight Howard and LeBron James got the other votes. Derrick Rose wasn't on a single ballot. Rose won the real MVP with 113 first-place votes, and Durant finished fifth.",
     ["derrick-rose", "kevin-durant", "kobe-bryant"], ["bulls", "thunder"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race"], sources: [
       { source: "nba-gm-survey-2010-11", quote: "1. Kevin Durant, Oklahoma City – 66.7%" },
@@ -6322,7 +6322,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2010-roy", 'moment', 'NBA', "2010-10", 'month',
     "John Wall was supposed to be Rookie of the Year, not Blake Griffin",
-    "GMs picked No. 1 pick John Wall for 2010-11 Rookie of the Year (67.9%) over Blake Griffin (28.6%), the same Griffin they had picked the year before, and 67.9% also said Wall would be the best player from the class in five years. Griffin won Rookie of the Year unanimously, and Wall was second.",
+    "Before the season, GMs picked No. 1 pick John Wall for 2010-11 Rookie of the Year (67.9%) over Blake Griffin (28.6%), the same Griffin they had picked the year before, and 67.9% also said Wall would be the best player from the class in five years. Griffin won Rookie of the Year unanimously, and Wall was second.",
     ["john-wall", "blake-griffin"], ["wizards", "clippers"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2010-11", quote: "1. John Wall, Washington – 67.9%" },
@@ -6331,7 +6331,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2011-contenders", 'moment', 'NBA', "2011-12", 'month',
     "After the lockout, 74.1% pick Miami. The Heat win it",
-    "After the lockout, as camps opened for a Christmas Day start, 74.1% of GMs picked Miami to win the 2012 title and 96.3% picked the Heat to win the East. Oklahoma City was the West pick (67.9%). The two met in the Finals, and Miami won 4-1.",
+    "After the lockout, as camps opened for a Christmas Day start and before the season began, 74.1% of GMs picked Miami to win the 2012 title and 96.3% picked the Heat to win the East. Oklahoma City was the West pick (67.9%). The two met in the Finals, and Miami won 4-1.",
     ["lebron-james", "dwyane-wade", "kevin-durant"], ["heat", "thunder"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2011-12", quote: "1. Miami – 74.1%" },
@@ -6341,7 +6341,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2011-mvp", 'moment', 'NBA', "2011-12", 'month',
     "GMs pick Durant again. LeBron wins MVP",
-    "For the second straight year GMs picked Kevin Durant for MVP (55.6%), with LeBron James getting every other vote (44.4%). James won the 2011-12 award with 85 first-place votes, and Durant was second.",
+    "For the second straight year GMs, voting before the season, picked Kevin Durant for MVP (55.6%), with LeBron James getting every other vote (44.4%). James won the 2011-12 award with 85 first-place votes, and Durant was second.",
     ["kevin-durant", "lebron-james"], ["thunder", "heat"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race"], sources: [
       { source: "nba-gm-survey-2011-12", quote: "1. Kevin Durant, Oklahoma City – 55.6%" },
@@ -6349,7 +6349,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2011-roy", 'moment', 'NBA', "2011-12", 'month',
     "Kyrie Irving was the Rookie of the Year pick, and won it",
-    "63% of GMs picked No. 1 pick Kyrie Irving for 2011-12 Rookie of the Year, with Ricky Rubio second (18.5%). Irving won it with 117 first-place votes, and Rubio was second.",
+    "Before the season, 63% of GMs picked No. 1 pick Kyrie Irving for 2011-12 Rookie of the Year, with Ricky Rubio second (18.5%). Irving won it with 117 first-place votes, and Rubio was second.",
     ["kyrie-irving", "ricky-rubio"], ["cavaliers", "timberwolves"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2011-12", quote: "1. Kyrie Irving, Cleveland – 63.0%" },
@@ -6357,7 +6357,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2012-contenders", 'moment', 'NBA', "2012-10", 'month',
     "GMs pick Miami to repeat and the Lakers' new stars to win the West",
-    "70% of GMs picked Miami to repeat in 2013 and 96.7% picked the Heat in the East. The Lakers, after trading for Dwight Howard and Steve Nash, were the West pick (60%), and 70% named Howard the offseason's most impactful addition. Miami won 66 games and beat San Antonio in seven in the Finals. The Lakers went 45-37 and were swept by the Spurs in the first round.",
+    "Before the season, 70% of GMs picked Miami to repeat in 2013 and 96.7% picked the Heat in the East. The Lakers, after trading for Dwight Howard and Steve Nash, were the West pick (60%), and 70% named Howard the offseason's most impactful addition. Miami won 66 games and beat San Antonio in seven in the Finals. The Lakers went 45-37 and were swept by the Spurs in the first round.",
     ["lebron-james", "dwight-howard", "steve-nash", "kobe-bryant"], ["heat", "lakers", "spurs"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders", "surprises"], sources: [
       { source: "nba-gm-survey-2012-13", quote: "1. Miami – 70.0%" },
@@ -6368,7 +6368,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2012-mvp", 'moment', 'NBA', "2012-10", 'month',
     "LeBron was the MVP pick, and won with all but one first-place vote",
-    "66.7% of GMs picked LeBron James for 2012-13 MVP, with Kevin Durant at 30%. James won with 120 of the 121 first-place votes, and Durant was second.",
+    "Before the season, 66.7% of GMs picked LeBron James for 2012-13 MVP, with Kevin Durant at 30%. James won with 120 of the 121 first-place votes, and Durant was second.",
     ["lebron-james", "kevin-durant", "carmelo-anthony"], ["heat", "thunder"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race"], sources: [
       { source: "nba-gm-survey-2012-13", quote: "1. LeBron James, Miami – 66.7%" },
@@ -6376,7 +6376,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2012-roy", 'moment', 'NBA', "2012-10", 'month',
     "Anthony Davis was a 76.7% Rookie of the Year pick. Damian Lillard won it unanimously",
-    "76.7% of GMs picked No. 1 pick Anthony Davis for 2012-13 Rookie of the Year, with Damian Lillard at 20%. Lillard won the award with all 121 first-place votes, and Davis was second.",
+    "Before the season, 76.7% of GMs picked No. 1 pick Anthony Davis for 2012-13 Rookie of the Year, with Damian Lillard at 20%. Lillard won the award with all 121 first-place votes, and Davis was second.",
     ["anthony-davis", "damian-lillard"], ["pelicans", "blazers"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2012-13", quote: "1. Anthony Davis, New Orleans – 76.7%" },
@@ -6384,7 +6384,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2013-contenders", 'moment', 'NBA', "2013-10", 'month',
     "GMs pick Miami to three-peat. San Antonio beats the Heat 4-1",
-    "75.9% of GMs picked Miami to win a third straight title in 2014, with Indiana and San Antonio at 6.9%. The Spurs were the narrow West pick (40%, to Oklahoma City's 36.7%). San Antonio won 62 games and beat Miami 4-1 in a Finals rematch.",
+    "Before the season, 75.9% of GMs picked Miami to win a third straight title in 2014, with Indiana and San Antonio at 6.9%. The Spurs were the narrow West pick (40%, to Oklahoma City's 36.7%). San Antonio won 62 games and beat Miami 4-1 in a Finals rematch.",
     ["tim-duncan", "lebron-james", "kawhi-leonard"], ["heat", "spurs", "pacers", "thunder"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2013-14", quote: "1. Miami – 75.9%" },
@@ -6393,7 +6393,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2013-mvp", 'moment', 'NBA', "2013-10", 'month',
     "LeBron was the MVP pick. Durant took it",
-    "69% of GMs picked LeBron James for a third straight MVP in 2013-14, with Kevin Durant at 24.1%. Durant won with 119 first-place votes, and James was second.",
+    "Before the season, 69% of GMs picked LeBron James for a third straight MVP in 2013-14, with Kevin Durant at 24.1%. Durant won with 119 first-place votes, and James was second.",
     ["kevin-durant", "lebron-james"], ["thunder", "heat"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race"], sources: [
       { source: "nba-gm-survey-2013-14", quote: "1. LeBron James, Miami – 69.0%" },
@@ -6401,7 +6401,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2013-roy", 'moment', 'NBA', "2013-10", 'month',
     "Victor Oladipo was an 80% Rookie of the Year pick. Michael Carter-Williams won it",
-    "80% of GMs picked Orlando's Victor Oladipo for 2013-14 Rookie of the Year, with Cody Zeller second. Michael Carter-Williams of Philadelphia won the award with 104 first-place votes, and Oladipo was second.",
+    "Before the season, 80% of GMs picked Orlando's Victor Oladipo for 2013-14 Rookie of the Year, with Cody Zeller second. Michael Carter-Williams of Philadelphia won the award with 104 first-place votes, and Oladipo was second.",
     ["victor-oladipo", "michael-carter-williams"], ["magic", "sixers"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2013-14", quote: "1. Victor Oladipo, Orlando – 80.0%" },
@@ -6409,7 +6409,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2014-contenders", 'moment', 'NBA', "2014-10", 'month',
     "The Warriors got 3.8% of GM votes to win the title",
-    "With LeBron back in Cleveland, GMs expected Spurs vs. LeBron in the Finals for the third straight June. San Antonio was the favorite (46.2%), then Cleveland (15.4%), with Chicago, the Clippers and OKC tied behind them. Golden State got 3.8%, and 81.5% picked the Clippers to win the Warriors' own division. The Warriors won 67 games and beat Cleveland 4-2 in the Finals. The Spurs went out in the first round to the Clippers in seven.",
+    "With LeBron back in Cleveland, GMs, voting before the season, expected Spurs vs. LeBron in the Finals for the third straight June. San Antonio was the favorite (46.2%), then Cleveland (15.4%), with Chicago, the Clippers and OKC tied behind them. Golden State got 3.8%, and 81.5% picked the Clippers to win the Warriors' own division. The Warriors won 67 games and beat Cleveland 4-2 in the Finals. The Spurs went out in the first round to the Clippers in seven.",
     ["stephen-curry", "lebron-james", "tim-duncan"], ["warriors", "spurs", "cavaliers", "clippers"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2014-15", quote: "The league’s general managers believe that we’re going to see James vs. the San Antonio Spurs in the NBA Finals for the third straight June and the fourth time in eight years." },
@@ -6419,7 +6419,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2014-mvp", 'moment', 'NBA', "2014-10", 'month',
     "LeBron was the runaway MVP pick. Curry wasn't on a ballot",
-    "67.9% of GMs picked LeBron James to take the MVP back from Kevin Durant, with Durant second (21.4%). Carmelo Anthony, Blake Griffin and Chris Paul got the other votes. Stephen Curry got none. Curry won MVP, James Harden was second and LeBron third.",
+    "Before the season, 67.9% of GMs picked LeBron James to take the MVP back from Kevin Durant, with Durant second (21.4%). Carmelo Anthony, Blake Griffin and Chris Paul got the other votes. Stephen Curry got none. Curry won MVP, James Harden was second and LeBron third.",
     ["stephen-curry", "lebron-james", "james-harden", "kevin-durant"], ["warriors", "cavaliers"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race"], sources: [
       { source: "nba-gm-survey-2014-15", quote: "James was picked to take back the Kia MVP award from Kevin Durant" },
@@ -6428,7 +6428,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2014-roy", 'moment', 'NBA', "2014-10", 'month',
     "Jabari Parker, not Andrew Wiggins, was the Rookie of the Year pick",
-    "75% of GMs picked No. 2 pick Jabari Parker for 2014-15 Rookie of the Year, with No. 1 pick Andrew Wiggins at 17.9%. Wiggins won it easily, with 110 first-place votes.",
+    "Before the season, 75% of GMs picked No. 2 pick Jabari Parker for 2014-15 Rookie of the Year, with No. 1 pick Andrew Wiggins at 17.9%. Wiggins won it easily, with 110 first-place votes.",
     ["jabari-parker", "andrew-wiggins"], ["bucks", "timberwolves"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2014-15", quote: "1. Jabari Parker, Milwaukee – 75.0%" },
@@ -6436,7 +6436,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2014-surprise", 'moment', 'NBA', "2014-10", 'month',
     "OKC was a lock for its division. It missed the playoffs",
-    "92.9% of GMs picked Oklahoma City to win the Northwest Division. The Thunder went 45-37 and missed the playoffs while Portland won the division. In the East, GMs picked Washington to win the Southeast (59.3%) and gave Atlanta 7.4%. The Hawks won 60 games and the No. 1 seed. One prediction held: 75% picked Cleveland as the most improved team, and the Cavs went from 33 wins to 53 and reached the Finals.",
+    "Before the season, 92.9% of GMs picked Oklahoma City to win the Northwest Division. The Thunder went 45-37 and missed the playoffs while Portland won the division. In the East, GMs picked Washington to win the Southeast (59.3%) and gave Atlanta 7.4%. The Hawks won 60 games and the No. 1 seed. One prediction held: 75% picked Cleveland as the most improved team, and the Cavs went from 33 wins to 53 and reached the Finals.",
     ["kevin-durant", "russell-westbrook"], ["thunder", "blazers", "hawks", "wizards", "cavaliers"], ["predictions", "GM Survey"],
     { categories: ["surprises"], sources: [
       { source: "nba-gm-survey-2014-15", quote: "1. Oklahoma City – 92.9%" },
@@ -6446,7 +6446,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2015-contenders", 'moment', 'NBA', "2015-10", 'month',
     "GMs doubt the champion Warriors. Then 73 wins, then the Cavs",
-    "After the 2015 title, some called the Warriors lucky, and only 17.9% of GMs picked them to repeat, the third-lowest share for a defending champion since GMs were first polled in 2002. Cleveland was the pick (53.6%), then San Antonio. Golden State won a record 73 games, beat Oklahoma City in seven in the West finals, then lost the Finals to Cleveland in seven.",
+    "After the 2015 title, some called the Warriors lucky, and only 17.9% of GMs, voting before the season, picked them to repeat, the third-lowest share for a defending champion since GMs were first polled in 2002. Cleveland was the pick (53.6%), then San Antonio. Golden State won a record 73 games, beat Oklahoma City in seven in the West finals, then lost the Finals to Cleveland in seven.",
     ["stephen-curry", "lebron-james", "kyrie-irving"], ["warriors", "cavaliers", "spurs", "thunder"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2015-16", quote: "But some inside and outside the league would describe the Warriors as lucky" },
@@ -6455,7 +6455,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2015-mvp", 'moment', 'NBA', "2015-10", 'month',
     "Curry was a 7.1% MVP pick. He won it unanimously",
-    "Even after Stephen Curry's first MVP, GMs picked LeBron James for 2015-16 MVP (39.3%), then Anthony Davis (25%), with Curry tied for fifth at 7.1%. Curry won with all 131 first-place votes.",
+    "Even after Stephen Curry's first MVP, GMs, voting before the season, picked LeBron James for 2015-16 MVP (39.3%), then Anthony Davis (25%), with Curry tied for fifth at 7.1%. Curry won with all 131 first-place votes.",
     ["stephen-curry", "lebron-james", "anthony-davis"], ["warriors", "cavaliers"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race"], sources: [
       { source: "nba-gm-survey-2015-16", quote: "1. LeBron James, Cleveland – 39.3%" },
@@ -6464,7 +6464,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2015-roy", 'moment', 'NBA', "2015-10", 'month',
     "Jahlil Okafor was the Rookie of the Year pick. Towns won it unanimously",
-    "GMs picked Jahlil Okafor for 2015-16 Rookie of the Year (44.8%), just ahead of No. 1 pick Karl-Anthony Towns (34.5%). Towns won with all 130 first-place votes.",
+    "Before the season, GMs picked Jahlil Okafor for 2015-16 Rookie of the Year (44.8%), just ahead of No. 1 pick Karl-Anthony Towns (34.5%). Towns won with all 130 first-place votes.",
     ["jahlil-okafor", "karl-anthony-towns"], ["sixers", "timberwolves"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2015-16", quote: "1. Jahlil Okafor, Philadelphia – 44.8%" },
@@ -6472,7 +6472,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2016-contenders", 'moment', 'NBA', "2016-10", 'month',
     "With Durant, 69% pick the Warriors. They win it 4-1",
-    "Almost every GM expected a third straight Cavs-Warriors Finals, and after Kevin Durant's signing, which 80% called the offseason's most impactful addition, 69% picked Golden State to win the 2017 title. Cleveland got the rest. The Warriors won 67 games and beat the Cavaliers 4-1.",
+    "Before the season, almost every GM expected a third straight Cavs-Warriors Finals, and after Kevin Durant's signing, which 80% called the offseason's most impactful addition, 69% picked Golden State to win the 2017 title. Cleveland got the rest. The Warriors won 67 games and beat the Cavaliers 4-1.",
     ["kevin-durant", "stephen-curry", "lebron-james"], ["warriors", "cavaliers"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2016-17", quote: "In fact, almost every general manager in the league thinks that the Cavs and Warriors will play for the championship again." },
@@ -6482,7 +6482,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2016-mvp", 'moment', 'NBA', "2016-10", 'month',
     "LeBron was the MVP pick. Westbrook won it",
-    "GMs picked LeBron James for 2016-17 MVP (46.7%), with Russell Westbrook second (23.3%). Westbrook won with 69 first-place votes, ahead of James Harden and Kawhi Leonard. James was fourth.",
+    "Before the season, GMs picked LeBron James for 2016-17 MVP (46.7%), with Russell Westbrook second (23.3%). Westbrook won with 69 first-place votes, ahead of James Harden and Kawhi Leonard. James was fourth.",
     ["russell-westbrook", "lebron-james", "james-harden"], ["thunder", "cavaliers", "rockets"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race"], sources: [
       { source: "nba-gm-survey-2016-17", quote: "1. LeBron James, Cleveland – 46.7%" },
@@ -6490,7 +6490,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2016-roy", 'moment', 'NBA', "2016-10", 'month',
     "Kris Dunn was the Rookie of the Year pick. Malcolm Brogdon won it",
-    "GMs picked Minnesota's Kris Dunn for 2016-17 Rookie of the Year (46.7%), with Buddy Hield and No. 1 pick Ben Simmons next. Malcolm Brogdon of Milwaukee won the award, with Dario Saric second and Joel Embiid third. Dunn wasn't in the top five.",
+    "Before the season, GMs picked Minnesota's Kris Dunn for 2016-17 Rookie of the Year (46.7%), with Buddy Hield and No. 1 pick Ben Simmons next. Malcolm Brogdon of Milwaukee won the award, with Dario Saric second and Joel Embiid third. Dunn wasn't in the top five.",
     ["kris-dunn", "malcolm-brogdon", "joel-embiid", "ben-simmons"], ["timberwolves", "bucks", "sixers"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2016-17", quote: "1. Kris Dunn, Minnesota – 46.7%" },
@@ -6499,7 +6499,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2017-contenders", 'moment', 'NBA', "2017-10", 'month',
     "93% pick the Warriors to repeat, the most ever. They sweep the Cavs",
-    "No team since GMs were first polled in 2002 had been as big a favorite as the 2018 Warriors: 93% of GMs picked them to repeat, and Cleveland got the rest. Golden State won 58 games, survived Houston in seven in the West finals, and swept the Cavaliers.",
+    "Before the season, no team since GMs were first polled in 2002 had been as big a favorite as the 2018 Warriors: 93% of GMs picked them to repeat, and Cleveland got the rest. Golden State won 58 games, survived Houston in seven in the West finals, and swept the Cavaliers.",
     ["stephen-curry", "kevin-durant", "lebron-james", "james-harden"], ["warriors", "cavaliers", "rockets"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2017-18", quote: "In the 16-year history of the NBA.com GM Survey, no team has been as overwhelming a favorite to win the championship as this year’s Warriors." },
@@ -6508,7 +6508,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2017-mvp", 'moment', 'NBA', "2017-10", 'month',
     "LeBron was the MVP pick. Harden, a 7% pick, won it",
-    "Half the GMs picked LeBron James for 2017-18 MVP, then Kevin Durant (29%) and Kawhi Leonard (11%), with James Harden at 7%. Harden won with 86 first-place votes for a 65-win Houston team, and James was second.",
+    "Before the season, half the GMs picked LeBron James for 2017-18 MVP, then Kevin Durant (29%) and Kawhi Leonard (11%), with James Harden at 7%. Harden won with 86 first-place votes for a 65-win Houston team, and James was second.",
     ["james-harden", "lebron-james", "kevin-durant"], ["rockets", "cavaliers"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race"], sources: [
       { source: "nba-gm-survey-2017-18", quote: "1. LeBron James, Cleveland – 50%" },
@@ -6516,7 +6516,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2017-roy", 'moment', 'NBA', "2017-10", 'month',
     "Lonzo Ball was a 62% Rookie of the Year pick. Ben Simmons won it",
-    "62% of GMs picked the Lakers' Lonzo Ball for 2017-18 Rookie of the Year, with Ben Simmons second (24%). Simmons won with 90 first-place votes, and Donovan Mitchell was second.",
+    "Before the season, 62% of GMs picked the Lakers' Lonzo Ball for 2017-18 Rookie of the Year, with Ben Simmons second (24%). Simmons won with 90 first-place votes, and Donovan Mitchell was second.",
     ["lonzo-ball", "ben-simmons", "donovan-mitchell"], ["lakers", "sixers", "jazz"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2017-18", quote: "1. Lonzo Ball, L.A. Lakers – 62%" },
@@ -6524,7 +6524,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2018-contenders", 'moment', 'NBA', "2018-10", 'month',
     "The Warriors got 87%. Toronto, after trading for Kawhi, got no votes and won it",
-    "87% of GMs picked Golden State for a third straight title in 2019, with Boston and Houston at 7%. In the East, 90% picked Boston to win the conference, and Toronto, which had traded for Kawhi Leonard, got the other 10%. Milwaukee was ranked fourth. The Bucks won 60 games and knocked out Boston, the Raptors beat the Bucks in the conference finals, and Toronto beat the Warriors 4-2 for the title.",
+    "Before the season, 87% of GMs picked Golden State for a third straight title in 2019, with Boston and Houston at 7%. In the East, 90% picked Boston to win the conference, and Toronto, which had traded for Kawhi Leonard, got the other 10%. Milwaukee was ranked fourth. The Bucks won 60 games and knocked out Boston, the Raptors beat the Bucks in the conference finals, and Toronto beat the Warriors 4-2 for the title.",
     ["kawhi-leonard", "stephen-curry", "kevin-durant", "giannis-antetokounmpo"], ["raptors", "warriors", "celtics", "bucks"], ["predictions", "championships", "upsets", "GM Survey"],
     { categories: ["contenders", "surprises"], sources: [
       { source: "nba-gm-survey-2018-19", quote: "1. Golden State – 87%" },
@@ -6534,7 +6534,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2018-mvp", 'moment', 'NBA', "2018-10", 'month',
     "Giannis was an afterthought in the MVP pick. He won it",
-    "GMs picked LeBron James, newly a Laker, for 2018-19 MVP (30%), with Kevin Durant, Anthony Davis and James Harden next. Giannis Antetokounmpo was only among the others receiving votes. He won MVP with 78 first-place votes, and Harden was second.",
+    "Before the season, GMs picked LeBron James, newly a Laker, for 2018-19 MVP (30%), with Kevin Durant, Anthony Davis and James Harden next. Giannis Antetokounmpo was only among the others receiving votes. He won MVP with 78 first-place votes, and Harden was second.",
     ["giannis-antetokounmpo", "lebron-james", "james-harden"], ["bucks", "lakers"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race"], sources: [
       { source: "nba-gm-survey-2018-19", quote: "1. LeBron James, L.A. Lakers – 30%" },
@@ -6543,7 +6543,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2018-roy", 'moment', 'NBA', "2018-10", 'month',
     "Luka Doncic was the Rookie of the Year pick, and won it",
-    "43% of GMs picked Dallas's Luka Doncic for 2018-19 Rookie of the Year, ahead of Marvin Bagley III, Wendell Carter Jr. and No. 1 pick Deandre Ayton. Doncic won with 98 first-place votes, and Trae Young was second.",
+    "Before the season, 43% of GMs picked Dallas's Luka Doncic for 2018-19 Rookie of the Year, ahead of Marvin Bagley III, Wendell Carter Jr. and No. 1 pick Deandre Ayton. Doncic won with 98 first-place votes, and Trae Young was second.",
     ["luka-doncic", "deandre-ayton", "trae-young"], ["mavericks", "suns", "hawks"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2018-19", quote: "1. Luka Doncic, Dallas – 43%" },
@@ -6551,7 +6551,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2018-surprise", 'moment', 'NBA', "2018-10", 'month',
     "LeBron's Lakers were the most improved pick. They missed the playoffs",
-    "97% of GMs named LeBron James's move to the Lakers the offseason's most impactful, and 80% picked the Lakers as the most improved team. Los Angeles went 37-45, two more wins than the year before, and missed the playoffs.",
+    "Before the season, 97% of GMs named LeBron James's move to the Lakers the offseason's most impactful, and 80% picked the Lakers as the most improved team. Los Angeles went 37-45, two more wins than the year before, and missed the playoffs.",
     ["lebron-james"], ["lakers"], ["predictions", "GM Survey"],
     { categories: ["surprises"], sources: [
       { source: "nba-gm-survey-2018-19", quote: "1. LeBron James, L.A. Lakers – 97%" },
@@ -6559,7 +6559,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2019-contenders", 'moment', 'NBA', "2019-10", 'month',
     "GMs pick Kawhi and PG's Clippers. The Lakers, at 7%, win in the bubble",
-    "With Kawhi Leonard and Paul George joining the Clippers, 48% of GMs picked them to win their first title in 2020, with Milwaukee at 37% and the Lakers at 7%. The Clippers lost to Denver in seven in the second round, Milwaukee lost to Miami in five, and the Lakers beat the Heat 4-2 for the title.",
+    "With Kawhi Leonard and Paul George joining the Clippers, 48% of GMs, voting before the season, picked them to win their first title in 2020, with Milwaukee at 37% and the Lakers at 7%. The Clippers lost to Denver in seven in the second round, Milwaukee lost to Miami in five, and the Lakers beat the Heat 4-2 for the title.",
     ["kawhi-leonard", "paul-george", "lebron-james", "anthony-davis", "giannis-antetokounmpo"], ["clippers", "bucks", "lakers", "heat", "nuggets"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2019-20", quote: "1. LA Clippers – 48%" },
@@ -6569,7 +6569,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2019-surprise", 'moment', 'NBA', "2019-10", 'month',
     "Miami was ranked seventh in the East and made the Finals",
-    "GMs ranked Miami seventh in the East, with 2% of the points, all from fourth-place votes. Milwaukee was first (76% of first-place votes). The Heat beat the Bucks 4-1 and Boston 4-2 to reach the Finals.",
+    "Before the season, GMs ranked Miami seventh in the East, with 2% of the points, all from fourth-place votes. Milwaukee was first (76% of first-place votes). The Heat beat the Bucks 4-1 and Boston 4-2 to reach the Finals.",
     ["jimmy-butler", "giannis-antetokounmpo"], ["heat", "bucks", "celtics"], ["predictions", "upsets", "GM Survey"],
     { categories: ["surprises"], sources: [
       { source: "nba-gm-survey-2019-20", quote: "Eastern Conference Rankings" },
@@ -6577,14 +6577,14 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2019-mvp", 'moment', 'NBA', "2019-10", 'month',
     "Giannis was the MVP pick, and repeated",
-    "54% of GMs picked Giannis Antetokounmpo to repeat as MVP in 2019-20, far ahead of Stephen Curry and Kawhi Leonard (11% each). He won with 85 first-place votes, and LeBron James was second.",
+    "Before the season, 54% of GMs picked Giannis Antetokounmpo to repeat as MVP in 2019-20, far ahead of Stephen Curry and Kawhi Leonard (11% each). He won with 85 first-place votes, and LeBron James was second.",
     ["giannis-antetokounmpo", "lebron-james"], ["bucks", "lakers"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race"], sources: [
       { source: "nba-gm-survey-2019-20", quote: "1. Giannis Antetokounmpo, Milwaukee – 54%" },
     ] }),
   s("gm-survey-2019-roy", 'moment', 'NBA', "2019-10", 'month',
     "Zion was a 70% Rookie of the Year pick. Ja Morant won it",
-    "70% of GMs picked No. 1 pick Zion Williamson for 2019-20 Rookie of the Year, with Ja Morant at 26%. Morant won with 99 first-place votes. Williamson finished third.",
+    "Before the season, 70% of GMs picked No. 1 pick Zion Williamson for 2019-20 Rookie of the Year, with Ja Morant at 26%. Morant won with 99 first-place votes. Williamson finished third.",
     ["zion-williamson", "ja-morant"], ["pelicans", "grizzlies"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2019-20", quote: "1. Zion Williamson, New Orleans – 70%" },
@@ -6601,7 +6601,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2020-surprise", 'moment', 'NBA', "2020-12", 'month',
     "Phoenix was ranked eighth in the West and made the Finals",
-    "GMs named Chris Paul's trade to Phoenix the offseason's most impactful move (44%), but ranked the Suns eighth in the West, with only 4% of the fourth-place votes. Utah, ranked sixth, had the league's best record. Phoenix finished second, beat the Lakers, Denver and the Clippers, and lost the Finals to Milwaukee in six.",
+    "Before the season, GMs named Chris Paul's trade to Phoenix the offseason's most impactful move (44%), but ranked the Suns eighth in the West, with only 4% of the fourth-place votes. Utah, ranked sixth, had the league's best record. Phoenix finished second, beat the Lakers, Denver and the Clippers, and lost the Finals to Milwaukee in six.",
     ["chris-paul", "devin-booker"], ["suns", "jazz", "lakers"], ["predictions", "upsets", "GM Survey"],
     { categories: ["surprises"], sources: [
       { source: "nba-gm-survey-2020-21", quote: "1. Chris Paul, Phoenix – 44%" },
@@ -6610,7 +6610,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2020-mvp", 'moment', 'NBA', "2020-12", 'month',
     "Jokic was a 4% MVP pick. He won it",
-    "GMs picked Giannis Antetokounmpo for a third straight MVP in 2020-21 (32%), then Luka Doncic, Anthony Davis and LeBron James, with Nikola Jokic sixth at 4%. Jokic won with 91 first-place votes, and Joel Embiid was second.",
+    "Before the season, GMs picked Giannis Antetokounmpo for a third straight MVP in 2020-21 (32%), then Luka Doncic, Anthony Davis and LeBron James, with Nikola Jokic sixth at 4%. Jokic won with 91 first-place votes, and Joel Embiid was second.",
     ["nikola-jokic", "giannis-antetokounmpo", "luka-doncic", "joel-embiid"], ["nuggets", "bucks"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race"], sources: [
       { source: "nba-gm-survey-2020-21", quote: "1. Giannis Antetokounmpo, Milwaukee – 32%" },
@@ -6619,7 +6619,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2020-roy", 'moment', 'NBA', "2020-12", 'month',
     "LaMelo Ball was the Rookie of the Year pick, and won it",
-    "39% of GMs picked LaMelo Ball for 2020-21 Rookie of the Year, ahead of James Wiseman and Obi Toppin, with No. 1 pick Anthony Edwards at 7%. Ball won with 84 first-place votes, and Edwards was second.",
+    "Before the season, 39% of GMs picked LaMelo Ball for 2020-21 Rookie of the Year, ahead of James Wiseman and Obi Toppin, with No. 1 pick Anthony Edwards at 7%. Ball won with 84 first-place votes, and Edwards was second.",
     ["lamelo-ball", "anthony-edwards"], ["hornets", "timberwolves"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2020-21", quote: "1. LaMelo Ball, Charlotte – 39%" },
@@ -6627,7 +6627,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2021-contenders", 'moment', 'NBA', "2021-10", 'month',
     "GMs pick the Nets at 72%. The Warriors, ranked fifth in the West, win it",
-    "With Kevin Durant, James Harden and Kyrie Irving, 72% of GMs picked Brooklyn to win the 2022 title, ahead of the Lakers (17%) and champion Milwaukee (10%). In the West, 80% picked the Lakers first, and Golden State was fifth with 4% of the points. Brooklyn was swept by Boston in the first round, the Lakers went 33-49 and missed the playoffs, and the Warriors beat Boston 4-2 for the title.",
+    "With Kevin Durant, James Harden and Kyrie Irving, 72% of GMs, voting before the season, picked Brooklyn to win the 2022 title, ahead of the Lakers (17%) and champion Milwaukee (10%). In the West, 80% picked the Lakers first, and Golden State was fifth with 4% of the points. Brooklyn was swept by Boston in the first round, the Lakers went 33-49 and missed the playoffs, and the Warriors beat Boston 4-2 for the title.",
     ["kevin-durant", "james-harden", "kyrie-irving", "stephen-curry"], ["nets", "lakers", "warriors", "bucks"], ["predictions", "championships", "upsets", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2021-22", quote: "1. Brooklyn Nets — 72%" },
@@ -6637,7 +6637,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2021-surprise", 'moment', 'NBA', "2021-10", 'month',
     "The Celtics were ranked sixth in the East. Then they made the Finals",
-    "GMs ranked Boston sixth in the East, with 3% of the points and no first- or second-place votes. Brooklyn and Milwaukee were the top two. The Celtics swept the Nets in the first round, beat Milwaukee and Miami, both in seven, and reached the Finals, where they lost to Golden State in six.",
+    "Before the season, GMs ranked Boston sixth in the East, with 3% of the points and no first- or second-place votes. Brooklyn and Milwaukee were the top two. The Celtics swept the Nets in the first round, beat Milwaukee and Miami, both in seven, and reached the Finals, where they lost to Golden State in six.",
     ["jayson-tatum", "jaylen-brown"], ["celtics", "nets", "bucks", "heat", "warriors"], ["predictions", "upsets", "GM Survey"],
     { categories: ["surprises", "contenders"], sources: [
       { source: "nba-gm-survey-2021-22", quote: "6.,Boston,,,7%,21%,3%" },
@@ -6645,7 +6645,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2021-mvp", 'moment', 'NBA', "2021-10", 'month',
     "Durant and Luka were the MVP picks. Jokic, the reigning MVP, got no votes",
-    "GMs picked Kevin Durant for 2021-22 MVP (37%), then Luka Doncic (33%) and Giannis Antetokounmpo. Reigning MVP Nikola Jokic didn't get a vote. Jokic won again with 65 first-place votes, and Joel Embiid was second.",
+    "Before the season, GMs picked Kevin Durant for 2021-22 MVP (37%), then Luka Doncic (33%) and Giannis Antetokounmpo. Reigning MVP Nikola Jokic didn't get a vote. Jokic won again with 65 first-place votes, and Joel Embiid was second.",
     ["nikola-jokic", "kevin-durant", "luka-doncic", "joel-embiid"], ["nuggets", "nets", "mavericks"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race"], sources: [
       { source: "nba-gm-survey-2021-22", quote: "1. Kevin Durant, Brooklyn – 37%" },
@@ -6654,7 +6654,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2021-roy", 'moment', 'NBA', "2021-10", 'month',
     "Jalen Green or Cade Cunningham? Scottie Barnes won Rookie of the Year",
-    "GMs picked Jalen Green (47%) and No. 1 pick Cade Cunningham (40%) for 2021-22 Rookie of the Year, with Jalen Suggs third. Toronto's Scottie Barnes won it narrowly over Evan Mobley. Cunningham was third and Green fourth.",
+    "Before the season, GMs picked Jalen Green (47%) and No. 1 pick Cade Cunningham (40%) for 2021-22 Rookie of the Year, with Jalen Suggs third. Toronto's Scottie Barnes won it narrowly over Evan Mobley. Cunningham was third and Green fourth.",
     ["scottie-barnes", "evan-mobley", "cade-cunningham", "jalen-green"], ["raptors", "cavaliers", "pistons", "rockets"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2021-22", quote: "1. Jalen Green, Houston – 47%" },
@@ -6663,7 +6663,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2022-contenders", 'moment', 'NBA', "2022-10", 'month',
     "Denver got no title votes. The Nuggets won it",
-    "For the first time, GMs made Milwaukee the title favorite (43%), then Golden State, the Clippers and Boston. Denver got no votes and was ranked fourth in the West. The Nuggets finished first in the West, swept the Lakers in the conference finals and beat Miami 4-1 for their first title. The 58-win Bucks lost to Miami in the first round.",
+    "For the first time, GMs, voting before the season, made Milwaukee the title favorite (43%), then Golden State, the Clippers and Boston. Denver got no votes and was ranked fourth in the West. The Nuggets finished first in the West, swept the Lakers in the conference finals and beat Miami 4-1 for their first title. The 58-win Bucks lost to Miami in the first round.",
     ["nikola-jokic", "giannis-antetokounmpo", "jimmy-butler"], ["nuggets", "bucks", "heat", "warriors", "clippers", "celtics"], ["predictions", "championships", "upsets", "GM Survey"],
     { categories: ["contenders", "surprises"], sources: [
       { source: "nba-gm-survey-2022-23", quote: "Now they’re the title favorite for the first time in the 21-year history of the GM Survey." },
@@ -6673,7 +6673,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2022-mvp", 'moment', 'NBA', "2022-10", 'month',
     "Luka was the MVP pick. Embiid, at 14%, won it",
-    "GMs picked Luka Doncic for 2022-23 MVP (48%), then Giannis Antetokounmpo (34%) and Joel Embiid (14%). Two-time reigning MVP Nikola Jokic again got no votes. Embiid won with 73 first-place votes, and Jokic was second.",
+    "Before the season, GMs picked Luka Doncic for 2022-23 MVP (48%), then Giannis Antetokounmpo (34%) and Joel Embiid (14%). Two-time reigning MVP Nikola Jokic again got no votes. Embiid won with 73 first-place votes, and Jokic was second.",
     ["joel-embiid", "nikola-jokic", "luka-doncic", "giannis-antetokounmpo"], ["sixers", "nuggets", "mavericks"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race"], sources: [
       { source: "nba-gm-survey-2022-23", quote: "1. Luka Doncic, Dallas – 48%" },
@@ -6682,7 +6682,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2022-roy", 'moment', 'NBA', "2022-10", 'month',
     "Paolo Banchero was a 79% Rookie of the Year pick, and won it",
-    "79% of GMs picked No. 1 pick Paolo Banchero for 2022-23 Rookie of the Year, ahead of Keegan Murray and Jabari Smith. Banchero won with 98 first-place votes, and Jalen Williams was second.",
+    "Before the season, 79% of GMs picked No. 1 pick Paolo Banchero for 2022-23 Rookie of the Year, ahead of Keegan Murray and Jabari Smith. Banchero won with 98 first-place votes, and Jalen Williams was second.",
     ["paolo-banchero", "jalen-williams", "jabari-smith"], ["magic", "thunder", "kings", "rockets"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2022-23", quote: "1. Paolo Banchero, Orlando – 79%" },
@@ -6690,7 +6690,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2023-contenders", 'moment', 'NBA', "2023-10", 'month',
     "GMs split between Boston and Denver. Boston won it",
-    "After the Damian Lillard and Jrue Holiday trades, GMs couldn't separate the Celtics and the champion Nuggets (33% each), with Lillard's Bucks close behind (23%). Boston went 64-18 and won the title, beating Dallas 4-1. Denver lost to Minnesota in seven in the second round, and Milwaukee went out to Indiana in the first round. Dallas, ranked ninth in the West by GMs, made the Finals.",
+    "After the Damian Lillard and Jrue Holiday trades, GMs, voting before the season, couldn't separate the Celtics and the champion Nuggets (33% each), with Lillard's Bucks close behind (23%). Boston went 64-18 and won the title, beating Dallas 4-1. Denver lost to Minnesota in seven in the second round, and Milwaukee went out to Indiana in the first round. Dallas, ranked ninth in the West by GMs, made the Finals.",
     ["jayson-tatum", "jaylen-brown", "jrue-holiday", "damian-lillard", "nikola-jokic", "luka-doncic"], ["celtics", "nuggets", "bucks", "mavericks", "timberwolves"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2023-24", quote: "That has them tied with the defending champion Denver Nuggets, with the Bucks not far behind." },
@@ -6701,7 +6701,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2023-mvp", 'moment', 'NBA', "2023-10", 'month',
     "The GMs got this one right: Jokic",
-    "43% of GMs picked Nikola Jokic for 2023-24 MVP, with Giannis Antetokounmpo second (20%). Jokic won his third MVP, ahead of Shai Gilgeous-Alexander, who got only scattered GM votes, and Luka Doncic.",
+    "Before the season, 43% of GMs picked Nikola Jokic for 2023-24 MVP, with Giannis Antetokounmpo second (20%). Jokic won his third MVP, ahead of Shai Gilgeous-Alexander, who got only scattered GM votes, and Luka Doncic.",
     ["nikola-jokic", "shai-gilgeous-alexander", "luka-doncic", "giannis-antetokounmpo"], ["nuggets", "thunder", "mavericks"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race"], sources: [
       { source: "nba-gm-survey-2023-24", quote: "1. Nikola Jokic, Denver – 43%" },
@@ -6710,7 +6710,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2023-roy", 'moment', 'NBA', "2023-10", 'month',
     "Wembanyama vs. Henderson vs. Holmgren",
-    "Half the GMs picked Victor Wembanyama for 2023-24 Rookie of the Year, with Scoot Henderson at 27% and Chet Holmgren at 20%, and 90% said Wembanyama would be the best player from the class in five years. Wembanyama won Rookie of the Year unanimously, Holmgren was second and Henderson wasn't in the top five.",
+    "Before the season, half the GMs picked Victor Wembanyama for 2023-24 Rookie of the Year, with Scoot Henderson at 27% and Chet Holmgren at 20%, and 90% said Wembanyama would be the best player from the class in five years. Wembanyama won Rookie of the Year unanimously, Holmgren was second and Henderson wasn't in the top five.",
     ["victor-wembanyama", "chet-holmgren", "scoot-henderson"], ["spurs", "thunder", "blazers"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2023-24", quote: "1. Victor Wembanyama, San Antonio – 50%" },
@@ -6720,7 +6720,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2023-surprise", 'moment', 'NBA', "2023-10", 'month',
     "OKC was ranked tenth in the West. It finished first",
-    "GMs ranked the Thunder last of the 10 Western teams that got votes, with 3% of the fourth-place votes, though 30% did call them the most improved team. OKC went 57-25 and took the West's No. 1 seed.",
+    "Before the season, GMs ranked the Thunder last of the 10 Western teams that got votes, with 3% of the fourth-place votes, though 30% did call them the most improved team. OKC went 57-25 and took the West's No. 1 seed.",
     ["shai-gilgeous-alexander", "chet-holmgren"], ["thunder"], ["predictions", "GM Survey"],
     { categories: ["surprises"], sources: [
       { source: "nba-gm-survey-2023-24", quote: "10.\tOklahoma City\t\t\t\t3%\t0%" },
@@ -6728,7 +6728,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2024-contenders", 'moment', 'NBA', "2024-10", 'month',
     "83% of GMs picked Boston to repeat",
-    "The champion Celtics got 83% of the title picks, the third-highest share since GMs were first polled in 2002, and 97% picked them to win the East. OKC was a distant second (13%), though 80% had the Thunder winning the West. OKC won 68 games and the title. Boston lost to the Knicks in the second round, and Indiana, ranked seventh in the East with 1% of the points, beat New York to reach the Finals and took OKC to seven games.",
+    "Before the season, the champion Celtics got 83% of the title picks, the third-highest share since GMs were first polled in 2002, and 97% picked them to win the East. OKC was a distant second (13%), though 80% had the Thunder winning the West. OKC won 68 games and the title. Boston lost to the Knicks in the second round, and Indiana, ranked seventh in the East with 1% of the points, beat New York to reach the Finals and took OKC to seven games.",
     ["jayson-tatum", "shai-gilgeous-alexander", "tyrese-haliburton"], ["celtics", "thunder", "knicks", "pacers"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2024-25", quote: "In the 23rd annual NBA.com GM Survey, 83% of respondents picked Boston to do just that, with that rate being the third highest for a title pick in the history of the survey." },
@@ -6738,7 +6738,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2024-mvp", 'moment', 'NBA', "2024-10", 'month',
     "SGA was the GMs' MVP, and he won it",
-    "40% of GMs picked Shai Gilgeous-Alexander for 2024-25 MVP, with Luka Doncic second (30%) and Nikola Jokic only tied for third (7%). Gilgeous-Alexander won MVP, with Jokic second.",
+    "Before the season, 40% of GMs picked Shai Gilgeous-Alexander for 2024-25 MVP, with Luka Doncic second (30%) and Nikola Jokic only tied for third (7%). Gilgeous-Alexander won MVP, with Jokic second.",
     ["shai-gilgeous-alexander", "luka-doncic", "nikola-jokic"], ["thunder", "mavericks", "nuggets"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race"], sources: [
       { source: "nba-gm-survey-2024-25", quote: "1. Shai Gilgeous-Alexander, Oklahoma City – 40%" },
@@ -6747,7 +6747,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2024-roy", 'moment', 'NBA', "2024-10", 'month',
     "Reed Sheppard was the Rookie of the Year pick. Stephon Castle won it",
-    "Half the GMs picked No. 3 pick Reed Sheppard for 2024-25 Rookie of the Year, with Zach Edey at 30% and Stephon Castle at 13%. Castle won Rookie of the Year, with No. 1 pick Zaccharie Risacher second. Sheppard wasn't in the top five.",
+    "Before the season, half the GMs picked No. 3 pick Reed Sheppard for 2024-25 Rookie of the Year, with Zach Edey at 30% and Stephon Castle at 13%. Castle won Rookie of the Year, with No. 1 pick Zaccharie Risacher second. Sheppard wasn't in the top five.",
     ["reed-sheppard", "stephon-castle", "zaccharie-risacher", "zach-edey"], ["rockets", "spurs", "hawks", "grizzlies"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2024-25", quote: "1. Reed Sheppard, Houston – 50%" },
@@ -6756,7 +6756,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2024-surprise", 'moment', 'NBA', "2024-10", 'month',
     "Paul George was the biggest move. Philadelphia went 24-58",
-    "GMs ranked the 76ers third in the East and picked Paul George (60%) as the acquisition who would make the biggest impact. Philadelphia went 24-58. Cleveland, ranked fourth in the East, went 64-18 for the top seed, and 67% picked Memphis as the most improved team, which held: the Grizzlies went from 27 wins to 48.",
+    "Before the season, GMs ranked the 76ers third in the East and picked Paul George (60%) as the acquisition who would make the biggest impact. Philadelphia went 24-58. Cleveland, ranked fourth in the East, went 64-18 for the top seed, and 67% picked Memphis as the most improved team, which held: the Grizzlies went from 27 wins to 48.",
     ["paul-george", "joel-embiid", "donovan-mitchell"], ["sixers", "cavaliers", "grizzlies"], ["predictions", "GM Survey"],
     { categories: ["surprises"], sources: [
       { source: "nba-gm-survey-2024-25", quote: "1. Paul George, Philadelphia – 60%" },
@@ -6766,7 +6766,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2025-contenders", 'moment', 'NBA', "2025-10", 'month',
     "GMs give OKC 80% to repeat. The Knicks win the title",
-    "The champion Thunder were the overwhelming 2026 pick (80%), with Cleveland and Denver at 7% and the Knicks only among the others receiving votes. In the East, 63% of first-place votes went to Cleveland and 30% to New York. OKC won 64 games but lost the West finals to San Antonio in seven, and the Knicks swept Cleveland in the East finals and beat the Spurs 4-1 for the title.",
+    "Before the season, the champion Thunder were the overwhelming 2026 pick (80%), with Cleveland and Denver at 7% and the Knicks only among the others receiving votes. In the East, 63% of first-place votes went to Cleveland and 30% to New York. OKC won 64 games but lost the West finals to San Antonio in seven, and the Knicks swept Cleveland in the East finals and beat the Spurs 4-1 for the title.",
     ["shai-gilgeous-alexander", "jalen-brunson", "victor-wembanyama"], ["thunder", "knicks", "cavaliers", "spurs"], ["predictions", "championships", "upsets", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2025-26", quote: "1. Oklahoma City Thunder – 80%" },
@@ -6776,7 +6776,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2025-surprise", 'moment', 'NBA', "2025-10", 'month',
     "The Spurs were ranked ninth in the West. They won 62 and made the Finals",
-    "GMs ranked San Antonio ninth of nine Western teams that got votes, with 0% of the points, though 20% called the Spurs a most improved team. Boston was ranked eighth in the East, also at 0%. The Spurs went 62-20, second-best in the league, and beat Oklahoma City in seven to reach the Finals. Boston won 56 games and Detroit, ranked fifth, won 60.",
+    "Before the season, GMs ranked San Antonio ninth of nine Western teams that got votes, with 0% of the points, though 20% called the Spurs a most improved team. Boston was ranked eighth in the East, also at 0%. The Spurs went 62-20, second-best in the league, and beat Oklahoma City in seven to reach the Finals. Boston won 56 games and Detroit, ranked fifth, won 60.",
     ["victor-wembanyama", "jaylen-brown"], ["spurs", "thunder", "celtics", "pistons"], ["predictions", "upsets", "GM Survey"],
     { categories: ["surprises"], sources: [
       { source: "nba-gm-survey-2025-26", quote: "9.,San Antonio,,,,3%,0%" },
@@ -6786,7 +6786,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2025-mvp", 'moment', 'NBA', "2025-10", 'month',
     "GMs pick Jokic for a fourth MVP. SGA wins again",
-    "67% of GMs picked Nikola Jokic for a fourth MVP in 2025-26, with Luka Doncic second and reigning MVP Shai Gilgeous-Alexander third (8%). Gilgeous-Alexander won again with 83 first-place votes, ahead of Jokic and Victor Wembanyama.",
+    "Before the season, 67% of GMs picked Nikola Jokic for a fourth MVP in 2025-26, with Luka Doncic second and reigning MVP Shai Gilgeous-Alexander third (8%). Gilgeous-Alexander won again with 83 first-place votes, ahead of Jokic and Victor Wembanyama.",
     ["shai-gilgeous-alexander", "nikola-jokic", "luka-doncic", "victor-wembanyama"], ["thunder", "nuggets", "lakers", "spurs"], ["predictions", "MVP", "GM Survey"],
     { categories: ["mvp-race"], sources: [
       { source: "nba-gm-survey-2025-26", quote: "1. Nikola Jokić, Denver – 67%" },
@@ -6795,7 +6795,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2025-roy", 'moment', 'NBA', "2025-10", 'month',
     "Cooper Flagg was a 97% Rookie of the Year pick. He won it, barely",
-    "97% of GMs picked No. 1 pick Cooper Flagg for 2025-26 Rookie of the Year, with VJ Edgecombe getting the only other vote. Kon Knueppel got none. Flagg won the award with 56 first-place votes to Knueppel's 44.",
+    "Before the season, 97% of GMs picked No. 1 pick Cooper Flagg for 2025-26 Rookie of the Year, with VJ Edgecombe getting the only other vote. Kon Knueppel got none. Flagg won the award with 56 first-place votes to Knueppel's 44.",
     ["cooper-flagg", "kon-knueppel"], ["mavericks", "hornets", "sixers"], ["predictions", "Rookie of the Year", "GM Survey"],
     { categories: ["draft-drama"], sources: [
       { source: "nba-gm-survey-2025-26", quote: "1. Cooper Flagg, Dallas – 97%" },
