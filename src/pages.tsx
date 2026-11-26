@@ -5,13 +5,17 @@ import {
 import type { Category, Citation, Source, Story } from './data/types';
 import {
   allSources, allStories, getPlayer, getSource, getStory, getTeam, isSourced, momentsOn, onThisDay, players, related,
-  storiesBetween, storiesForPlayer, storiesInCategory, storiesInSeason, storiesForTeam, storiesFromSource, storylinesDuring, teams,
+  storiesBetween, storiesForPlayer, storiesInCategory, storiesInSeason, storiesFromSource, storylinesDuring,
 } from './lib/db';
 import { SOURCE_KIND, youtubeId } from './lib/sources';
 import { FIRST_YEAR, MONTHS, daysInMonth, formatDate, formatSpan, iso, span } from './lib/dates';
 import { href, hrefForDate } from './lib/router';
 import { search } from './lib/search';
 import { SeasonFacts } from './seasonFacts';
+export { NotionsPage } from './byYear';
+import { NotionBox, NotionsTeaser, PlayerPage as ByYearPlayer, SeasonNotions, TeamPage as ByYearTeam, TeamsDirectory } from './byYear';
+import { headline, takeFor } from './lib/notions';
+import { byImportance, importance } from './lib/importance';
 import { Scoreboard } from './scoreboard';
 import { decadePhotos } from './data/decadePhotos';
 import { seasonOverview } from './lib/db';
@@ -90,6 +94,8 @@ export function Home() {
 
       <Scoreboard />
 
+      <NotionsTeaser />
+
       <Section title={`On this day: ${MONTHS[m - 1]} ${d}`} count={today.length}
         aside={<a className="more" href={href.onThisDay(m, d)}>Every year →</a>}>
         <Timeline stories={today} empty={<>Nothing on file for today yet. <a href={href.onThisDay(3, 2)}>Try March 2</a>.</>} />
@@ -106,18 +112,29 @@ export function Home() {
 
 export function Decade({ decade }: { decade: number }) {
   const list = storiesBetween(`${decade}-01-01`, `${decade + 9}-12-31`);
-  const shown = list;
   const years = Array.from({ length: 10 }, (_, i) => decade + i);
+  const [group, setGroup] = useState<'section' | 'year'>('section');
+  const ranked = [...list].sort(byImportance(decade));
+  const top = ranked.slice(0, 10);
+  const topIds = new Set(top.map((s) => s.id));
+  const rest = ranked.filter((s) => !topIds.has(s.id));
+  const startYear = (s: Story) => Math.max(decade, Number(span(s)[0].slice(0, 4)));
+  const sections = [
+    ...CATEGORIES.map((c) => ({ key: c.id, name: c.name, blurb: c.blurb, stories: rest.filter((s) => s.categories?.[0] === c.id) })),
+    { key: 'other', name: 'Everything else', blurb: 'League history, trades, moves and other stories outside the four sections.', stories: rest.filter((s) => !s.categories?.length) },
+  ].filter((g) => g.stories.length)
+    .sort((a, b) => importance(b.stories[0], decade) - importance(a.stories[0], decade));
+  const byYear = years.map((y) => ({ y, stories: rest.filter((s) => startYear(s) === y) })).filter((g) => g.stories.length);
   return (
     <>
       <Crumbs items={[['Calendar', href.home], [`${decade}s`]]} />
       <PageHead eyebrow="Decade" title={`The ${decade}s`}>
-        <p className="lede">{shown.length} narratives.</p>
+        <p className="lede">{list.length} narratives, biggest first. Titles, league-changing events and MVP races rank highest, then the stories that most broke the consensus.</p>
       </PageHead>
       <DecadeStrip current={decade} />
       <div className="yeargrid">
         {years.map((y) => {
-          const n = shown.filter((s) => {
+          const n = list.filter((s) => {
             const [a, b] = span(s);
             return a <= `${y}-12-31` && b >= `${y}-01-01`;
           }).length;
@@ -129,9 +146,38 @@ export function Decade({ decade }: { decade: number }) {
           );
         })}
       </div>
-      <Section title="Timeline">
-        <Timeline stories={list} />
+      <Section title={`The biggest stories of the ${decade}s`} count={top.length}>
+        <Timeline stories={top} ranked empty="Nothing on file for this decade yet." />
       </Section>
+      {rest.length > 0 && (
+        <>
+          <div className="yearbar">
+            <div className="toggle" role="group" aria-label="Group the rest by">
+              <button type="button" aria-pressed={group === 'section'} onClick={() => setGroup('section')}>By section</button>
+              <button type="button" aria-pressed={group === 'year'} onClick={() => setGroup('year')}>By year</button>
+            </div>
+            <span className="muted">Most important first in each group.</span>
+          </div>
+          <Section title="The rest of the decade" count={rest.length}>
+            <div className="byseason">
+              {group === 'section'
+                ? sections.map((g) => (
+                  <div key={g.key} className="byseason-group">
+                    <h3>{g.key === 'other' ? g.name : <a href={href.category(g.key as Category)}>{g.name}</a>} <small className="muted">· {g.stories.length}</small></h3>
+                    <p className="section-lede muted">{g.blurb}</p>
+                    <Timeline stories={g.stories} />
+                  </div>
+                ))
+                : byYear.map((g) => (
+                  <div key={g.y} className="byseason-group">
+                    <h3><a href={href.year(g.y)}>{g.y}</a> <small className="muted">· {g.stories.length}</small></h3>
+                    <Timeline stories={g.stories} showYear={false} />
+                  </div>
+                ))}
+            </div>
+          </Section>
+        </>
+      )}
       <PrevNext
         prev={decade > FIRST_YEAR ? [`${decade - 10}s`, href.decade(decade - 10)] : undefined}
         next={decade < LAST_DECADE ? [`${decade + 10}s`, href.decade(decade + 10)] : undefined}
@@ -145,20 +191,41 @@ export function Decade({ decade }: { decade: number }) {
 export function Year({ year }: { year: number }) {
   const decade = Math.floor(year / 10) * 10;
   const list = storiesBetween(`${year}-01-01`, `${year}-12-31`);
-  const shown = list;
-  const ongoing = list.filter((s) => s.kind === 'storyline');
-  const events = list.filter((s) => s.kind === 'moment');
+  const [team, setTeam] = useState('all');
+  const [group, setGroup] = useState<'month' | 'team'>('month');
+  // Reset the filter when moving to another year.
+  const [forYear, setForYear] = useState(year);
+  if (forYear !== year) { setForYear(year); setTeam('all'); }
+  const teamCounts = new Map<string, number>();
+  for (const s of list) for (const t of s.teams) teamCounts.set(t, (teamCounts.get(t) ?? 0) + 1);
+  const teamOptions = [...teamCounts.entries()].sort((a, b) => (getTeam(a[0])?.name ?? '').localeCompare(getTeam(b[0])?.name ?? ''));
+  const shown = team === 'all' ? list : list.filter((s) => s.teams.includes(team));
+  const ongoing = shown.filter((s) => s.kind === 'storyline');
+  const events = shown.filter((s) => s.kind === 'moment');
+  const monthOf = (s: Story) => Number(span(s)[0].slice(5, 7));
+  const byMonth = MONTHS.map((name, i) => ({ name, month: i + 1, stories: events.filter((s) => s.date.length > 4 && monthOf(s) === i + 1) }))
+    .filter((m) => m.stories.length);
+  const undated = events.filter((s) => s.date.length === 4);
+  const byTeam = teamOptions
+    .filter(([id]) => team === 'all' || id === team)
+    .map(([id]) => ({ id, stories: shown.filter((s) => s.teams.includes(id)) }))
+    .filter((g) => g.stories.length)
+    .sort((a, b) => b.stories.length - a.stories.length || (getTeam(a.id)?.name ?? '').localeCompare(getTeam(b.id)?.name ?? ''));
+  const noTeam = shown.filter((s) => !s.teams.length);
+  const teamName = team === 'all' ? '' : getTeam(team)?.name ?? '';
   return (
     <>
       <Crumbs items={[['Calendar', href.home], [`${decade}s`, href.decade(decade)], [String(year)]]} />
       <PageHead eyebrow="Year" title={String(year)}>
+        <p className="lede">
+          {list.length ? `${list.length} narratives touch ${year}` : `Nothing on file for ${year} yet`}
+          {seasonsInYear(year).length > 1 ? `: the end of the ${seasonLabel(year - 1)} season (January to June) and the start of ${seasonLabel(year)} (July to December).` : '.'}
+        </p>
         <SeasonLinks seasons={seasonsInYear(year).filter((s) => s <= currentSeason())} />
       </PageHead>
       <div className="monthgrid">
         {MONTHS.map((name, i) => {
-          const from = `${iso(year, i + 1)}-01`;
-          const to = `${iso(year, i + 1)}-${daysInMonth(year, i + 1)}`;
-          const n = shown.filter((s) => s.kind === 'moment' && span(s)[0] >= from && span(s)[0] <= to).length;
+          const n = byMonth.find((m) => m.month === i + 1)?.stories.length ?? 0;
           return (
             <a key={name} href={href.month(year, i + 1)} className={n ? '' : 'is-quiet'}>
               <strong>{name.slice(0, 3)}</strong>
@@ -167,12 +234,69 @@ export function Year({ year }: { year: number }) {
           );
         })}
       </div>
-      <Section title="Moments" count={events.length}>
-        <Timeline stories={events} showYear={false} empty="No dated moments on file for this year yet." />
-      </Section>
-      <Section title="Storylines running this year" count={ongoing.length}>
-        <Timeline stories={ongoing} empty="No long-running storylines cover this year yet." />
-      </Section>
+      {list.length > 0 && (
+        <div className="yearbar">
+          <label className="teampick">
+            <span>Team</span>
+            <select value={team} onChange={(e) => setTeam(e.target.value)}>
+              <option value="all">All teams ({list.length})</option>
+              {teamOptions.map(([id, n]) => <option key={id} value={id}>{getTeam(id)?.name} ({n})</option>)}
+            </select>
+          </label>
+          <div className="toggle" role="group" aria-label="Group moments by">
+            <button type="button" aria-pressed={group === 'month'} onClick={() => setGroup('month')}>By month</button>
+            <button type="button" aria-pressed={group === 'team'} onClick={() => setGroup('team')}>By team</button>
+          </div>
+          {team !== 'all' && <a className="more" href={href.team(team)}>{teamName} year by year →</a>}
+        </div>
+      )}
+      {group === 'month' ? (
+        <>
+          <Section title={team === 'all' ? 'Moments, month by month' : `${teamName} moments, month by month`} count={events.length}>
+            {byMonth.length || undated.length ? (
+              <div className="byseason">
+                {byMonth.map((m) => (
+                  <div key={m.month} className="byseason-group">
+                    <h3>
+                      <a href={href.month(year, m.month)}>{m.name}</a>
+                      <small className="muted"> · {seasonLabel(m.month >= 7 ? year : year - 1)} season{m.month === 6 ? ', Finals and draft' : m.month === 7 ? ', free agency' : m.month === 2 ? ', trade deadline' : ''}</small>
+                    </h3>
+                    <Timeline stories={m.stories} showYear={false} />
+                  </div>
+                ))}
+                {undated.length > 0 && (
+                  <div className="byseason-group">
+                    <h3>Sometime in {year}</h3>
+                    <Timeline stories={undated} showYear={false} />
+                  </div>
+                )}
+              </div>
+            ) : <Empty>No dated moments on file{team === 'all' ? '' : ` for the ${teamName}`} this year yet.</Empty>}
+          </Section>
+          <Section title="Storylines running this year" count={ongoing.length}>
+            <Timeline stories={ongoing} empty="No long-running storylines cover this year yet." />
+          </Section>
+        </>
+      ) : (
+        <Section title={team === 'all' ? 'By team' : teamName} count={byTeam.length}>
+          {byTeam.length || noTeam.length ? (
+            <div className="byseason">
+              {byTeam.map((g) => (
+                <div key={g.id} className="byseason-group">
+                  <h3><a href={href.team(g.id)}>{getTeam(g.id)?.name}</a> <small className="muted">· {g.stories.length}</small></h3>
+                  <Timeline stories={g.stories} showYear={false} />
+                </div>
+              ))}
+              {team === 'all' && noTeam.length > 0 && (
+                <div className="byseason-group">
+                  <h3>League-wide</h3>
+                  <Timeline stories={noTeam} showYear={false} />
+                </div>
+              )}
+            </div>
+          ) : <Empty>Nothing on file for this team this year.</Empty>}
+        </Section>
+      )}
       <PrevNext
         prev={year > FIRST_YEAR ? [String(year - 1), href.year(year - 1)] : undefined}
         next={year < THIS_YEAR ? [String(year + 1), href.year(year + 1)] : undefined}
@@ -302,7 +426,9 @@ export function StoryPage({ id }: { id: string }) {
         <p className="story-date">
           <a href={hrefForDate(story.date)}>{formatSpan(story)}</a> <LeagueTag story={story} />
         </p>
+        {takeFor(story) && <p className="story-take">{takeFor(story)}</p>}
       </PageHead>
+      <NotionBox story={story} />
       <p className="story-body">{story.summary}</p>
       <dl className="facts">
         {story.players.length > 0 && (
@@ -354,56 +480,28 @@ function Citations({ list }: { list: Citation[] }) {
   );
 }
 
-/* ── Player and team timelines ──────────────────────────────────────── */
-
-function EntityTimeline({ eyebrow, name, aliases, list }: { eyebrow: string; name: string; aliases?: string[]; list: Story[] }) {
-  const first = list[0];
-  const last = list[list.length - 1];
-  return (
-    <>
-      <PageHead eyebrow={eyebrow} title={name}>
-        {aliases?.length ? <p className="lede">Also known as {aliases.join(', ')}.</p> : null}
-        {first && <p className="lede">{list.length} narratives, {first.date.slice(0, 4)} to {(last.end ?? last.date).slice(0, 4)}.</p>}
-      </PageHead>
-      <p className="note">Season-by-season stats will sit beside this timeline in the next milestone.</p>
-      <Timeline stories={list} />
-    </>
-  );
-}
+/* ── Player and team pages: year by year (see byYear.tsx) ─────────────── */
 
 export function PlayerPage({ id }: { id: string }) {
-  const p = getPlayer(id);
-  if (!p) return <NotFound what="player" />;
-  return (
-    <>
-      <Crumbs items={[['Players', href.players], [p.name]]} />
-      <EntityTimeline eyebrow={`Player · ${p.league}`} name={p.name} aliases={p.aliases} list={storiesForPlayer(id)} />
-    </>
-  );
+  return getPlayer(id) ? <ByYearPlayer id={id} /> : <NotFound what="player" />;
 }
 
 export function TeamPage({ id }: { id: string }) {
-  const t = getTeam(id);
-  if (!t) return <NotFound what="team" />;
-  return (
-    <>
-      <Crumbs items={[['Teams', href.teams], [t.name]]} />
-      <EntityTimeline eyebrow={`Team · ${t.league}`} name={t.name} aliases={t.aliases} list={storiesForTeam(id)} />
-    </>
-  );
+  return getTeam(id) ? <ByYearTeam id={id} /> : <NotFound what="team" />;
 }
 
 export function Directory({ kind }: { kind: 'players' | 'teams' }) {
-  const items = (kind === 'players' ? players : teams)
-    .map((x) => ({ ...x, n: (kind === 'players' ? storiesForPlayer : storiesForTeam)(x.id).length }))
+  if (kind === 'teams') return <TeamsDirectory />;
+  const items = players
+    .map((x) => ({ ...x, n: storiesForPlayer(x.id).length }))
     .sort((a, b) => a.name.localeCompare(b.name));
   return (
     <>
-      <PageHead eyebrow="Directory" title={kind === 'players' ? 'Players' : 'Teams'} />
+      <PageHead eyebrow="Directory" title="Players" />
       <ul className="directory">
         {items.map((x) => (
           <li key={x.id}>
-            <a href={kind === 'players' ? href.player(x.id) : href.team(x.id)}>{x.name}</a>
+            <a href={href.player(x.id)}>{x.name}</a>
             <span>{x.league} · {x.n}</span>
           </li>
         ))}
@@ -555,7 +653,7 @@ function SeasonOverview({ season, category, stories }: { season: number; categor
         <ul>
           {stories.map((st) => (
             <li key={st.id}>
-              <a href={href.story(st.id)}>{st.title}</a>
+              <a href={href.story(st.id)}>{headline(st)}</a>
               <small>{formatSpan(st)}</small>
             </li>
           ))}
@@ -645,6 +743,7 @@ export function SeasonPage({ start }: { start: number }) {
           {start + 1 <= new Date().getFullYear() && <a href={href.year(start + 1)}>{start + 1}</a>}
         </p>
       </PageHead>
+      <SeasonNotions stories={list} />
       {CATEGORIES.map((c) => {
         const rows = inCategory(list, c.id);
         return (
@@ -664,7 +763,7 @@ export function SeasonPage({ start }: { start: number }) {
           <div className="overview-sources overview-plain">
             <ul>
               {other.map((st) => (
-                <li key={st.id}><a href={href.story(st.id)}>{st.title}</a><small>{formatSpan(st)}</small></li>
+                <li key={st.id}><a href={href.story(st.id)}>{headline(st)}</a><small>{formatSpan(st)}</small></li>
               ))}
             </ul>
           </div>

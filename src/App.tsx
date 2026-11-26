@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import {
-  CategoryPage, Day, Decade, Directory, Home, Month, NotFound, OnThisDay, PlayerPage, SearchPage, SeasonPage, SeasonsPage, SourcePage, SourcesPage, StoryPage, TeamPage, Year,
+  CategoryPage, Day, NotionsPage, Decade, Directory, Home, Month, NotFound, OnThisDay, PlayerPage, SearchPage, SeasonPage, SeasonsPage, SourcePage, SourcesPage, StoryPage, TeamPage, Year,
 } from './pages';
 import { href, useRoute, type Route } from './lib/router';
 import { site } from './site';
@@ -33,6 +33,7 @@ function Page({ route, query }: { route: Route; query: string }) {
     case 'seasons': return <SeasonsPage />;
     case 'season': return <SeasonPage start={route.start} />;
     case 'category': return <CategoryPage id={route.id} />;
+    case 'notions': return <NotionsPage />;
     default: return <NotFound />;
   }
 }
@@ -74,6 +75,7 @@ export default function App() {
           </form>
           <nav className="mainnav" aria-label="Main">
             <a href={href.seasons}>NBA seasons</a>
+            <a href={href.notions}>Notions</a>
             <a href={href.onThisDay()}>On this day</a>
             <a href={href.players}>Players</a>
             <a href={href.teams}>Teams</a>
