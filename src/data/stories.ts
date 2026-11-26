@@ -6077,7 +6077,7 @@ export const stories: Story[] = [
   // ── NBA.com GM Survey (preseason predictions, 2002-03 to 2025-26) ──
   s("gm-survey-2002-contenders", 'moment', 'NBA', "2002-10", 'month',
     "GMs pick the Lakers to four-peat. The Spurs get 3.8%",
-    "Before 2002-03, NBA.com's first GM Survey made the three-time champion Lakers the clear pick to win a fourth straight title (61.5%), and 80% of GMs named Sacramento as the team with the best chance of dethroning them. San Antonio got 3.8% of the title votes. The Spurs went 60-22, beat the Lakers 4-2 in the second round and won the title over New Jersey.",
+    "Before 2002-03, GMs made the three-time champion Lakers the clear pick to win a fourth straight title (61.5%), and 80% of GMs named Sacramento as the team with the best chance of dethroning them. San Antonio got 3.8% of the title votes. The Spurs went 60-22, beat the Lakers 4-2 in the second round and won the title over New Jersey.",
     ["tim-duncan", "shaquille-oneal", "kobe-bryant"], ["lakers", "kings", "spurs", "nets"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2002-03", quote: "Who will win the 2003 NBA Finals?" },
@@ -6331,7 +6331,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2011-contenders", 'moment', 'NBA', "2011-12", 'month',
     "After the lockout, 74.1% pick Miami. The Heat win it",
-    "In a survey taken after the lockout, as camps opened for a Christmas Day start, 74.1% of GMs picked Miami to win the 2012 title and 96.3% picked the Heat to win the East. Oklahoma City was the West pick (67.9%). The two met in the Finals, and Miami won 4-1.",
+    "After the lockout, as camps opened for a Christmas Day start, 74.1% of GMs picked Miami to win the 2012 title and 96.3% picked the Heat to win the East. Oklahoma City was the West pick (67.9%). The two met in the Finals, and Miami won 4-1.",
     ["lebron-james", "dwyane-wade", "kevin-durant"], ["heat", "thunder"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2011-12", quote: "1. Miami – 74.1%" },
@@ -6446,7 +6446,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2015-contenders", 'moment', 'NBA', "2015-10", 'month',
     "GMs doubt the champion Warriors. Then 73 wins, then the Cavs",
-    "After the 2015 title, some called the Warriors lucky, and only 17.9% of GMs picked them to repeat, the third-lowest share for a defending champion in the survey's history. Cleveland was the pick (53.6%), then San Antonio. Golden State won a record 73 games, beat Oklahoma City in seven in the West finals, then lost the Finals to Cleveland in seven.",
+    "After the 2015 title, some called the Warriors lucky, and only 17.9% of GMs picked them to repeat, the third-lowest share for a defending champion since GMs were first polled in 2002. Cleveland was the pick (53.6%), then San Antonio. Golden State won a record 73 games, beat Oklahoma City in seven in the West finals, then lost the Finals to Cleveland in seven.",
     ["stephen-curry", "lebron-james", "kyrie-irving"], ["warriors", "cavaliers", "spurs", "thunder"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2015-16", quote: "But some inside and outside the league would describe the Warriors as lucky" },
@@ -6499,7 +6499,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2017-contenders", 'moment', 'NBA', "2017-10", 'month',
     "93% pick the Warriors to repeat, the most ever. They sweep the Cavs",
-    "No team in the survey's history had been as big a favorite as the 2018 Warriors: 93% of GMs picked them to repeat, and Cleveland got the rest. Golden State won 58 games, survived Houston in seven in the West finals, and swept the Cavaliers.",
+    "No team since GMs were first polled in 2002 had been as big a favorite as the 2018 Warriors: 93% of GMs picked them to repeat, and Cleveland got the rest. Golden State won 58 games, survived Houston in seven in the West finals, and swept the Cavaliers.",
     ["stephen-curry", "kevin-durant", "lebron-james", "james-harden"], ["warriors", "cavaliers", "rockets"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2017-18", quote: "In the 16-year history of the NBA.com GM Survey, no team has been as overwhelming a favorite to win the championship as this year’s Warriors." },
@@ -6592,7 +6592,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2020-contenders", 'moment', 'NBA', "2020-12", 'month',
     "81% pick the Lakers to repeat. Milwaukee beats Phoenix for the title",
-    "In a survey taken in December 2020, 81% of GMs picked the champion Lakers to repeat, and 86% picked them to win the West. Milwaukee was the East favorite (64% of first-place votes). The Lakers lost to Phoenix in the first round, and the Bucks beat the Suns 4-2 in the Finals.",
+    "Before the 2020-21 season, 81% of GMs picked the champion Lakers to repeat, and 86% picked them to win the West. Milwaukee was the East favorite (64% of first-place votes). The Lakers lost to Phoenix in the first round, and the Bucks beat the Suns 4-2 in the Finals.",
     ["giannis-antetokounmpo", "lebron-james", "anthony-davis", "chris-paul"], ["lakers", "bucks", "suns"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2020-21", quote: "In the 19th annual NBA.com GM Survey, 81% of responding general managers picked the Lakers to repeat." },
@@ -6728,7 +6728,7 @@ export const stories: Story[] = [
     ] }),
   s("gm-survey-2024-contenders", 'moment', 'NBA', "2024-10", 'month',
     "83% of GMs picked Boston to repeat",
-    "The champion Celtics got 83% of the title picks, the third-highest share in the survey's history, and 97% picked them to win the East. OKC was a distant second (13%), though 80% had the Thunder winning the West. OKC won 68 games and the title. Boston lost to the Knicks in the second round, and Indiana, ranked seventh in the East with 1% of the points, beat New York to reach the Finals and took OKC to seven games.",
+    "The champion Celtics got 83% of the title picks, the third-highest share since GMs were first polled in 2002, and 97% picked them to win the East. OKC was a distant second (13%), though 80% had the Thunder winning the West. OKC won 68 games and the title. Boston lost to the Knicks in the second round, and Indiana, ranked seventh in the East with 1% of the points, beat New York to reach the Finals and took OKC to seven games.",
     ["jayson-tatum", "shai-gilgeous-alexander", "tyrese-haliburton"], ["celtics", "thunder", "knicks", "pacers"], ["predictions", "championships", "GM Survey"],
     { categories: ["contenders"], sources: [
       { source: "nba-gm-survey-2024-25", quote: "In the 23rd annual NBA.com GM Survey, 83% of respondents picked Boston to do just that, with that rate being the third highest for a title pick in the history of the survey." },

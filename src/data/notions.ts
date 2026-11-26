@@ -560,7 +560,7 @@ export const notions: Record<string, Notion> = {
   "gm-survey-2017-mvp": ["GMs expected LeBron James to win MVP.", "James Harden, a 7% pick, won it.", "busted"],
   "gm-survey-2017-roy": ["GMs expected Lonzo Ball to win Rookie of the Year.", "Ben Simmons won it, with Donovan Mitchell second.", "busted"],
   "gm-survey-2018-contenders": ["GMs expected the Warriors to three-peat and Boston to win the East.", "Toronto, with no title votes, beat Milwaukee and then the Warriors.", "busted"],
-  "gm-survey-2018-mvp": ["GMs expected LeBron James to win MVP in his first Lakers season.", "Giannis Antetokounmpo, an also-ran in the survey, won it.", "busted"],
+  "gm-survey-2018-mvp": ["GMs expected LeBron James to win MVP in his first Lakers season.", "Giannis Antetokounmpo, an also-ran in the GM voting, won it.", "busted"],
   "gm-survey-2018-roy": ["GMs expected Luka Doncic to win Rookie of the Year.", "He won it, with Trae Young second.", "held"],
   "gm-survey-2018-surprise": ["GMs expected LeBron to make the Lakers the most improved team.", "The Lakers went 37-45 and missed the playoffs.", "busted"],
   "gm-survey-2019-contenders": ["GMs expected the Clippers to win their first title, with Milwaukee next.", "The Lakers, a 7% pick, won it; the Clippers and Bucks went out in round two.", "busted"],
