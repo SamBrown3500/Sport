@@ -149,20 +149,41 @@ export function Decade({ decade }: { decade: number }) {
 export function Year({ year }: { year: number }) {
   const decade = Math.floor(year / 10) * 10;
   const list = storiesBetween(`${year}-01-01`, `${year}-12-31`);
-  const shown = list;
-  const ongoing = list.filter((s) => s.kind === 'storyline');
-  const events = list.filter((s) => s.kind === 'moment');
+  const [team, setTeam] = useState('all');
+  const [group, setGroup] = useState<'month' | 'team'>('month');
+  // Reset the filter when moving to another year.
+  const [forYear, setForYear] = useState(year);
+  if (forYear !== year) { setForYear(year); setTeam('all'); }
+  const teamCounts = new Map<string, number>();
+  for (const s of list) for (const t of s.teams) teamCounts.set(t, (teamCounts.get(t) ?? 0) + 1);
+  const teamOptions = [...teamCounts.entries()].sort((a, b) => (getTeam(a[0])?.name ?? '').localeCompare(getTeam(b[0])?.name ?? ''));
+  const shown = team === 'all' ? list : list.filter((s) => s.teams.includes(team));
+  const ongoing = shown.filter((s) => s.kind === 'storyline');
+  const events = shown.filter((s) => s.kind === 'moment');
+  const monthOf = (s: Story) => Number(span(s)[0].slice(5, 7));
+  const byMonth = MONTHS.map((name, i) => ({ name, month: i + 1, stories: events.filter((s) => s.date.length > 4 && monthOf(s) === i + 1) }))
+    .filter((m) => m.stories.length);
+  const undated = events.filter((s) => s.date.length === 4);
+  const byTeam = teamOptions
+    .filter(([id]) => team === 'all' || id === team)
+    .map(([id]) => ({ id, stories: shown.filter((s) => s.teams.includes(id)) }))
+    .filter((g) => g.stories.length)
+    .sort((a, b) => b.stories.length - a.stories.length || (getTeam(a.id)?.name ?? '').localeCompare(getTeam(b.id)?.name ?? ''));
+  const noTeam = shown.filter((s) => !s.teams.length);
+  const teamName = team === 'all' ? '' : getTeam(team)?.name ?? '';
   return (
     <>
       <Crumbs items={[['Calendar', href.home], [`${decade}s`, href.decade(decade)], [String(year)]]} />
       <PageHead eyebrow="Year" title={String(year)}>
+        <p className="lede">
+          {list.length ? `${list.length} narratives touch ${year}` : `Nothing on file for ${year} yet`}
+          {seasonsInYear(year).length > 1 ? `: the end of the ${seasonLabel(year - 1)} season (January to June) and the start of ${seasonLabel(year)} (July to December).` : '.'}
+        </p>
         <SeasonLinks seasons={seasonsInYear(year).filter((s) => s <= currentSeason())} />
       </PageHead>
       <div className="monthgrid">
         {MONTHS.map((name, i) => {
-          const from = `${iso(year, i + 1)}-01`;
-          const to = `${iso(year, i + 1)}-${daysInMonth(year, i + 1)}`;
-          const n = shown.filter((s) => s.kind === 'moment' && span(s)[0] >= from && span(s)[0] <= to).length;
+          const n = byMonth.find((m) => m.month === i + 1)?.stories.length ?? 0;
           return (
             <a key={name} href={href.month(year, i + 1)} className={n ? '' : 'is-quiet'}>
               <strong>{name.slice(0, 3)}</strong>
@@ -171,12 +192,69 @@ export function Year({ year }: { year: number }) {
           );
         })}
       </div>
-      <Section title="Moments" count={events.length}>
-        <Timeline stories={events} showYear={false} empty="No dated moments on file for this year yet." />
-      </Section>
-      <Section title="Storylines running this year" count={ongoing.length}>
-        <Timeline stories={ongoing} empty="No long-running storylines cover this year yet." />
-      </Section>
+      {list.length > 0 && (
+        <div className="yearbar">
+          <label className="teampick">
+            <span>Team</span>
+            <select value={team} onChange={(e) => setTeam(e.target.value)}>
+              <option value="all">All teams ({list.length})</option>
+              {teamOptions.map(([id, n]) => <option key={id} value={id}>{getTeam(id)?.name} ({n})</option>)}
+            </select>
+          </label>
+          <div className="toggle" role="group" aria-label="Group moments by">
+            <button type="button" aria-pressed={group === 'month'} onClick={() => setGroup('month')}>By month</button>
+            <button type="button" aria-pressed={group === 'team'} onClick={() => setGroup('team')}>By team</button>
+          </div>
+          {team !== 'all' && <a className="more" href={href.team(team)}>{teamName} year by year →</a>}
+        </div>
+      )}
+      {group === 'month' ? (
+        <>
+          <Section title={team === 'all' ? 'Moments, month by month' : `${teamName} moments, month by month`} count={events.length}>
+            {byMonth.length || undated.length ? (
+              <div className="byseason">
+                {byMonth.map((m) => (
+                  <div key={m.month} className="byseason-group">
+                    <h3>
+                      <a href={href.month(year, m.month)}>{m.name}</a>
+                      <small className="muted"> · {seasonLabel(m.month >= 7 ? year : year - 1)} season{m.month === 6 ? ', Finals and draft' : m.month === 7 ? ', free agency' : m.month === 2 ? ', trade deadline' : ''}</small>
+                    </h3>
+                    <Timeline stories={m.stories} showYear={false} />
+                  </div>
+                ))}
+                {undated.length > 0 && (
+                  <div className="byseason-group">
+                    <h3>Sometime in {year}</h3>
+                    <Timeline stories={undated} showYear={false} />
+                  </div>
+                )}
+              </div>
+            ) : <Empty>No dated moments on file{team === 'all' ? '' : ` for the ${teamName}`} this year yet.</Empty>}
+          </Section>
+          <Section title="Storylines running this year" count={ongoing.length}>
+            <Timeline stories={ongoing} empty="No long-running storylines cover this year yet." />
+          </Section>
+        </>
+      ) : (
+        <Section title={team === 'all' ? 'By team' : teamName} count={byTeam.length}>
+          {byTeam.length || noTeam.length ? (
+            <div className="byseason">
+              {byTeam.map((g) => (
+                <div key={g.id} className="byseason-group">
+                  <h3><a href={href.team(g.id)}>{getTeam(g.id)?.name}</a> <small className="muted">· {g.stories.length}</small></h3>
+                  <Timeline stories={g.stories} showYear={false} />
+                </div>
+              ))}
+              {team === 'all' && noTeam.length > 0 && (
+                <div className="byseason-group">
+                  <h3>League-wide</h3>
+                  <Timeline stories={noTeam} showYear={false} />
+                </div>
+              )}
+            </div>
+          ) : <Empty>Nothing on file for this team this year.</Empty>}
+        </Section>
+      )}
       <PrevNext
         prev={year > FIRST_YEAR ? [String(year - 1), href.year(year - 1)] : undefined}
         next={year < THIS_YEAR ? [String(year + 1), href.year(year + 1)] : undefined}

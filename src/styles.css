@@ -347,3 +347,6 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
   .stats.yby .col-name { display: none; }
   .stats td.wrap { min-width: 200px; }
 }
+.yearbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 8px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.teampick { display: inline-flex; align-items: center; gap: 8px; font: 700 11px var(--ui); text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+.teampick select { font: 14px var(--ui); color: var(--ink); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 2px; padding: 4px 6px; max-width: 70vw; text-transform: none; letter-spacing: 0; }
