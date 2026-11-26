@@ -1917,4 +1917,14 @@ export const sources: Source[] = [
     about: 'Steve Reed\'s AP report on draft night 2023, as run by Fox Sports: the Miller vs. Henderson debate at No. 2.',
     transcript: 'sources/transcripts/ap-hornets-miller-2023.md',
   },
+  {
+    id: 'si-2002-10-28-nba-preview',
+    kind: 'article',
+    title: 'NBA Preview 2002-03 (Oct. 28, 2002 issue)',
+    outlet: 'Sports Illustrated',
+    published: '2002-10-28',
+    added: '2026-11-26',
+    about: 'Sports Illustrated\'s 2002-03 season preview: its team rankings and playoff picks (Kings over Nets in the Finals), Ian Thomsen on No. 1 pick Yao Ming, and scouting reports on every team with an anonymous opposing scout. Only the NBA passages used are kept, from a scanned copy.',
+    transcript: 'sources/transcripts/si-2002-10-28-nba-preview.md',
+  },
 ];

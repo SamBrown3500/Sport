@@ -556,4 +556,12 @@ export const takes: Record<string, string> = {
   "curry-toward-second-mvp-2016": "By March 2016 Curry was the clear favorite for a second MVP, and he became the first unanimous winner.",
   "curry-one-bad-signing-warning-2016": "In 2016 Curry warned that one trade or one bad signing could end it all, but after losing the Finals the Warriors added Kevin Durant and won the 2017 title.",
   "simmons-lsu-doubts-2016": "Ben Simmons was said to be struggling at LSU, but Philadelphia still took him No. 1 in 2016, and a foot injury kept him out his first season.",
+  "si-picks-kings-over-lakers-2003": "SI picked the 2003 Kings to finally beat the Lakers and win the title, but they lost to Dallas in the second round and the Spurs, ranked third in the West, won it.",
+  "lakers-four-peat-kobe-takes-over-2003": "The 2002-03 Lakers were chasing a four-peat with Kobe taking over, but San Antonio knocked them out in the second round.",
+  "shaq-should-be-mvp-every-year-2003": "A scout said Shaq should be MVP every year, but in 2003 Tim Duncan won it and Shaq finished fifth.",
+  "yao-the-next-thing-2003": "Yao Ming was billed as the next thing and the answer to Shaq, but Amar'e Stoudemire won Rookie of the Year and Houston missed the playoffs.",
+  "jordan-wizards-picked-fifth-2003": "Jordan's 2002-03 Wizards were picked fifth in the East with Stackhouse added, but they went 37-45 and missed the playoffs.",
+  "pistons-head-scratcher-stackhouse-trade-2003": "Detroit's Stackhouse trade looked like a head scratcher and SI ranked the Pistons fourth, but they had the East's best record in 2003.",
+  "spurs-add-ginobili-for-clutch-2003": "SI ranked the 2002-03 Spurs only third in the West, but with newcomer Manu Ginobili they won 60 games and the title.",
+  "baby-bulls-not-now-2003": "Chicago's Baby Bulls were called good someday but not now, and in 2002-03 they went 30-52.",
 };

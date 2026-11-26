@@ -519,4 +519,12 @@ export const notions: Record<string, Notion> = {
   "curry-toward-second-mvp-2016": ["By March, SI had Curry, the league's leading scorer, driving toward a second MVP.", "He became the first unanimous MVP.", 'held'],
   "curry-one-bad-signing-warning-2016": ["Curry warned that one trade or one bad signing could end the Warriors' run.", "After losing the Finals they added Kevin Durant and won the 2017 title.", 'busted'],
   "simmons-lsu-doubts-2016": ["Doug Gottlieb said Ben Simmons was struggling at LSU and would be better off at another program.", "Philadelphia took him No. 1 anyway, and a foot injury kept him out his whole first season.", 'mixed'],
+  "si-picks-kings-over-lakers-2003": ["SI picked Sacramento to beat the Lakers in the West and New Jersey in the Finals.", "The Nets made the Finals, but the Kings lost to Dallas in the second round and San Antonio won the title.", 'busted'],
+  "lakers-four-peat-kobe-takes-over-2003": ["The three-time champion Lakers chased a four-peat, with Kobe expected to become the true leader.", "They went 50-32 and lost to San Antonio in the second round.", 'busted'],
+  "shaq-should-be-mvp-every-year-2003": ["A rival scout said Shaq should win the MVP every year, however many games he missed.", "Tim Duncan won it, and Shaq finished fifth.", 'busted'],
+  "yao-the-next-thing-2003": ["No. 1 pick Yao Ming was billed as the next thing and a possible answer to Shaq.", "Amar'e Stoudemire beat him for Rookie of the Year, and Houston missed the playoffs.", 'busted'],
+  "jordan-wizards-picked-fifth-2003": ["SI picked Jordan's Wizards fifth in the East, with Stackhouse promising to make them a playoff team.", "They went 37-45 and missed the playoffs.", 'busted'],
+  "pistons-head-scratcher-stackhouse-trade-2003": ["Trading top scorer Jerry Stackhouse looked like a head scratcher, and SI ranked Detroit fourth in the East.", "The Pistons had the East's best record and reached the conference finals.", 'busted'],
+  "spurs-add-ginobili-for-clutch-2003": ["A scout bet that newcomer Manu Ginobili would give the Spurs the clutch shooting they lacked; SI ranked them third in the West.", "San Antonio won 60 games and the title.", 'mixed'],
+  "baby-bulls-not-now-2003": ["Chicago's young trio was said to be good someday, but not now.", "The Bulls went 30-52.", 'held'],
 };

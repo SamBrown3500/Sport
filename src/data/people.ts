@@ -573,6 +573,7 @@ export const players: Player[] = [
   { id: 'markelle-fultz', name: 'Markelle Fultz', league: 'NBA' },
   { id: 'jabari-smith', name: 'Jabari Smith Jr.', league: 'NBA' },
   { id: 'mitch-kupchak', name: 'Mitch Kupchak', league: 'NBA' },
+  { id: 'jerry-stackhouse', name: 'Jerry Stackhouse', league: 'NBA', aliases: ['Stack'] },
 ];
 
 export const teams: Team[] = [
