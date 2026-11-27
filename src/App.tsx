@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import {
-  CategoryPage, Day, NotionsPage, Decade, Directory, Home, Month, NotFound, OnThisDay, PlayerPage, SearchPage, SeasonPage, SeasonsPage, SourcePage, SourcesPage, StoryPage, TeamPage, Year,
+  CategoryPage, Day, NotionsPage, Decade, Directory, Month, NotFound, OnThisDay, PlayerPage, SearchPage, SeasonPage, SeasonsPage, SourcePage, SourcesPage, StoryPage, TeamPage, Year,
 } from './pages';
 import { href, useRoute, type Route } from './lib/router';
 import { site } from './site';
+import { HomePreview, PreviewBar, TimelinePage } from './preview';
 
 const store = {
   get(key: string) {
@@ -16,7 +17,7 @@ const store = {
 
 function Page({ route, query }: { route: Route; query: string }) {
   switch (route.page) {
-    case 'home': return <Home />;
+    case 'home': return <HomePreview />;
     case 'search': return <SearchPage query={query} />;
     case 'decade': return <Decade decade={route.decade} />;
     case 'year': return <Year year={route.year} />;
@@ -34,6 +35,7 @@ function Page({ route, query }: { route: Route; query: string }) {
     case 'season': return <SeasonPage start={route.start} />;
     case 'category': return <CategoryPage id={route.id} />;
     case 'notions': return <NotionsPage />;
+    case 'timeline': return <TimelinePage />;
     default: return <NotFound />;
   }
 }
@@ -75,6 +77,7 @@ export default function App() {
           </form>
           <nav className="mainnav" aria-label="Main">
             <a href={href.seasons}>NBA seasons</a>
+            <a href={href.timeline}>Timeline</a>
             <a href={href.notions}>Notions</a>
             <a href={href.players}>Players</a>
             <a href={href.teams}>Teams</a>
@@ -82,6 +85,7 @@ export default function App() {
           </nav>
         </div>
       </header>
+      <PreviewBar />
       <main className="main">
         <Page route={route} query={query} />
       </main>

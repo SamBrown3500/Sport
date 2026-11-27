@@ -27,7 +27,7 @@ const DECADES = Array.from({ length: (LAST_DECADE - FIRST_YEAR) / 10 + 1 }, (_, 
 
 /* ── Decade strip: the whole calendar at a glance ───────────────────── */
 
-function DecadeStrip({ current }: { current?: number }) {
+export function DecadeStrip({ current }: { current?: number }) {
   const counts = useMemo(
     () => DECADES.map((d) => ({ d, n: storiesBetween(`${d}-01-01`, `${d + 9}-12-31`).length })),
     [],
@@ -50,7 +50,7 @@ function DecadeStrip({ current }: { current?: number }) {
   );
 }
 
-function PhotoCredits() {
+export function PhotoCredits() {
   return (
     <details className="photo-credits">
       <summary>Photo credits</summary>
