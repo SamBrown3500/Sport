@@ -4,7 +4,7 @@ import {
 } from './pages';
 import { href, useRoute, type Route } from './lib/router';
 import { site } from './site';
-import { HomePreview, PreviewBar, TimelinePage } from './preview';
+import { Home, TimelinePage } from './visual';
 
 const store = {
   get(key: string) {
@@ -17,7 +17,7 @@ const store = {
 
 function Page({ route, query }: { route: Route; query: string }) {
   switch (route.page) {
-    case 'home': return <HomePreview />;
+    case 'home': return <Home />;
     case 'search': return <SearchPage query={query} />;
     case 'decade': return <Decade decade={route.decade} />;
     case 'year': return <Year year={route.year} />;
@@ -85,7 +85,6 @@ export default function App() {
           </nav>
         </div>
       </header>
-      <PreviewBar />
       <main className="main">
         <Page route={route} query={query} />
       </main>

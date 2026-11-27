@@ -1,5 +1,5 @@
 /*
- * Team colors for team pages (preview, gam 2026-11-27). Today's primary and
+ * Team colors for team pages (gam, 2026-11-27). Today's primary and
  * secondary colors as each franchise uses them, plus the short code shown in
  * the badge. No logos: the badge is plain text in the team's colors.
  */
@@ -26,7 +26,7 @@ export const teamColors: Record<string, TeamColors> = {
   timberwolves: { code: 'MIN', primary: '#0C2340', secondary: '#78BE20' },
   thunder: { code: 'OKC', primary: '#007AC1', secondary: '#EF3B24' },
   blazers: { code: 'POR', primary: '#E03A3E', secondary: '#000000' },
-  jazz: { code: 'UTA', primary: '#002B5C', secondary: '#F9A01B' },
+  jazz: { code: 'UTA', primary: '#3E2680', secondary: '#79A3DC' }, // 2025 "Mountain Purple" rebrand
   warriors: { code: 'GSW', primary: '#1D428A', secondary: '#FFC72C' },
   clippers: { code: 'LAC', primary: '#C8102E', secondary: '#1D428A' },
   lakers: { code: 'LAL', primary: '#552583', secondary: '#FDB927' },

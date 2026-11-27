@@ -17,9 +17,10 @@ import { Scoreboard } from './scoreboard';
 import { DecadeStrip, PhotoCredits } from './pages';
 
 /*
- * Design previews (gam, 2026-11-27): team colors and player photo slots, a
- * scrollable timeline by decade, and a more visual home page. Shown only in
- * the preview build until gam picks which ones to keep.
+ * The visual layer (gam, 2026-11-27): the home page with a featured narrative,
+ * a champion strip in team colors and team tiles, and the timeline page that
+ * scrolls sideways through every season by decade. Team colors and player
+ * photo slots live in teamLook.tsx.
  */
 
 /* ── Champions, from the Basketball Reference snapshot ───────────────── */
@@ -124,7 +125,7 @@ export function TimelinePage() {
   );
 }
 
-/* ── Home page, more visual ──────────────────────────────────────────── */
+/* ── Home page ──────────────────────────────────────────── */
 
 function featured(): Story | undefined {
   const pool = [...LANDMARKS].map((id) => getStory(id)).filter((s): s is Story => !!s && !!notionFor(s));
@@ -193,7 +194,7 @@ function TeamTiles() {
   );
 }
 
-export function HomePreview() {
+export function Home() {
   const cur = currentSeason();
   const season = storiesInSeason(cur).length ? cur : cur - 1;
   const current = storiesInSeason(season).sort((a, b) => b.date.localeCompare(a.date));
@@ -234,21 +235,3 @@ export function HomePreview() {
     </>
   );
 }
-
-/* ── The bar that says this is a preview ─────────────────────────────── */
-
-export function PreviewBar() {
-  return (
-    <div className="previewbar">
-      <div className="previewbar-inner">
-        <b>Design preview, not live.</b>
-        <a href={href.home}>1. Visual home page</a>
-        <a href={href.team('celtics')}>2. Team colors (Celtics)</a>
-        <a href={href.player('larry-bird')}>Player photo (Bird)</a>
-        <a href={href.player('jayson-tatum')}>Photo slot (Tatum)</a>
-        <a href={href.timeline}>3. Timeline by decade</a>
-      </div>
-    </div>
-  );
-}
-

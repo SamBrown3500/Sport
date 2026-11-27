@@ -369,14 +369,10 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .dropdown[open] .dropdown-hint::after { content: 'Hide'; }
 .dropdown > .section-lede { margin: 10px 0 8px; }
 
-/* ── Design previews (preview.tsx, teamLook.tsx), gam 2026-11-27 ── */
+/* ── Visual layer: team colors, timeline, home (visual.tsx, teamLook.tsx), gam 2026-11-27 ── */
 :root { --c-mvp: #b8860b; --c-draft: #0b5bb5; --c-contenders: #2e7d32; --c-surprises: #b3261e; }
 :root[data-theme='dark'] { --c-mvp: #e0b050; --c-draft: #7fb2f0; --c-contenders: #6cc070; --c-surprises: #ff8a80; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme='light']) { --c-mvp: #e0b050; --c-draft: #7fb2f0; --c-contenders: #6cc070; --c-surprises: #ff8a80; } }
-
-.previewbar { background: var(--hl); border-bottom: 1px solid var(--hl-line); font: 13px var(--ui); }
-.previewbar-inner { max-width: 1120px; margin: 0 auto; padding: 6px var(--gutter-r) 6px var(--gutter-l); display: flex; flex-wrap: wrap; gap: 4px 16px; align-items: baseline; }
-.previewbar a { font-weight: 600; }
 
 /* Team badge: the team's code in its colors, no logo. */
 .badge { display: inline-flex; align-items: center; justify-content: center; flex: none; background: var(--team); color: #fff;

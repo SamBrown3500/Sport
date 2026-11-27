@@ -4,7 +4,7 @@ import { franchises } from './data/franchises';
 import { colorsFor } from './data/teamColors';
 import { getPlayer, getTeam, storiesForPlayer } from './lib/db';
 
-/* Team colors and player photo slots (design preview, gam 2026-11-27). */
+/* Team colors and player photo slots (gam, 2026-11-27). No logos or photos we lack rights to: badges are text in team colors, and photos come only from Wikimedia Commons with credit. */
 
 export const teamVars = (id: string, name?: string) => {
   const c = colorsFor(id, name);
