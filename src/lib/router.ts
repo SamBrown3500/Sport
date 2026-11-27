@@ -27,7 +27,9 @@ export type Route =
   | { page: 'forum'; tab?: 'debates' | 'suggestions' }
   | { page: 'forumthread'; id: string }
   | { page: 'forumnew'; kind: 'debate' | 'suggestion'; story?: string }
-  | { page: 'timeline' };
+  | { page: 'timeline' }
+  | { page: 'hottakes'; voice?: string }
+  | { page: 'compare'; kind: 'players' | 'teams'; a: string; b: string };
 
 export function parse(hash: string): Route {
   const h = hash.replace(/^#/, '');
@@ -54,6 +56,9 @@ export function parse(hash: string): Route {
   if (h === 'forum-debate') return { page: 'forumnew', kind: 'debate' };
   if ((m = h.match(/^forum-debate-([a-z0-9-]+)$/))) return { page: 'forumnew', kind: 'debate', story: m[1] };
   if (h === 'timeline') return { page: 'timeline' };
+  if (h === 'hot-takes') return { page: 'hottakes' };
+  if ((m = h.match(/^hot-takes-([a-z0-9-]+)$/))) return { page: 'hottakes', voice: m[1] };
+  if ((m = h.match(/^compare-(players|teams)-([a-z0-9-]+?)-vs-([a-z0-9-]+)$/))) return { page: 'compare', kind: m[1] as 'players', a: m[2], b: m[3] };
   if (h === 'sources') return { page: 'sources' };
   if (h === 'search') return { page: 'search' };
   if (h === 'players') return { page: 'players' };
@@ -89,6 +94,9 @@ export const href = {
   forumSuggest: '#forum-suggest',
   forumDebate: (story?: string) => (story ? `#forum-debate-${story}` : '#forum-debate'),
   timeline: '#timeline',
+  hotTakes: '#hot-takes',
+  hotTake: (voice: string) => `#hot-takes-${voice}`,
+  compare: (kind: 'players' | 'teams', a: string, b: string) => `#compare-${kind}-${a}-vs-${b}`,
 };
 
 /** Link for a partial ISO date at whatever precision it has. */
