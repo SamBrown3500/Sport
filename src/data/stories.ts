@@ -1138,7 +1138,7 @@ export const stories: Story[] = [
     ] }),
   s('thunder-blow-3-1-warriors-2016', 'moment', 'NBA', '2016-05', 'month',
     'The Thunder blow a 3-1 lead to the 73-win Warriors',
-    'The Thunder led the league in fourth-quarter collapses, and Durant\'s free agency hung over everything, though almost nobody thought he\'d really leave, least of all for the rival Warriors. Against the 67-win Spurs, 12 of 13 ESPN panelists picked San Antonio and OKC lost Game 1 by 32, then won four of five and sent Tim Duncan into retirement. Against the 73-win Warriors and unanimous MVP Steph Curry, they won Game 1 in Oakland and blew Golden State out twice at home to lead 3-1. Then Curry\'s game winner over a Westbrook miss, Klay Thompson\'s 11 threes in Game 6 and a Game 7 in Oakland ended it, one win from the Finals.',
+    'The Thunder led the league in fourth-quarter collapses, and Durant\'s free agency hung over everything, though almost nobody thought he\'d really leave, least of all for the rival Warriors. Against the 67-win Spurs, 12 of 13 national panelists picked San Antonio and OKC lost Game 1 by 32, then won four of five and sent Tim Duncan into retirement. Against the 73-win Warriors and unanimous MVP Steph Curry, they won Game 1 in Oakland and blew Golden State out twice at home to lead 3-1. Then Curry\'s game winner over a Westbrook miss, Klay Thompson\'s 11 threes in Game 6 and a Game 7 in Oakland ended it, one win from the Finals.',
     ['kevin-durant', 'russell-westbrook', 'stephen-curry', 'klay-thompson', 'tim-duncan'], ['thunder', 'warriors', 'spurs'], ['playoffs', 'collapses'],
     { categories: ['contenders', 'mvp-race'], sources: [
       { source: 'thunder-beat-their-curse', quote: 'The Thunder led the league in fourth quarter collapses' },
@@ -1283,7 +1283,7 @@ export const stories: Story[] = [
     ] }),
   s('pacers-61-wins-2004', 'moment', 'NBA', '2004-05', 'month',
     'The 61-win Pacers fall to Detroit',
-    'Instead of blowing it up, Indiana retooled around Jermaine O\'Neal and Ron Artest, the Defensive Player of the Year, with Miller as an elder statesman, and won a franchise-record 61 games, the best record in the NBA. Everyone expected the conference finals against Detroit to be a neck-and-neck, low-scoring slugfest between the two best defenses, with new coach Rick Carlisle facing his former team in what ESPN called a grudge match. That\'s exactly what it was, and the Pistons won in six.',
+    'Instead of blowing it up, Indiana retooled around Jermaine O\'Neal and Ron Artest, the Defensive Player of the Year, with Miller as an elder statesman, and won a franchise-record 61 games, the best record in the NBA. Everyone expected the conference finals against Detroit to be a neck-and-neck, low-scoring slugfest between the two best defenses, with new coach Rick Carlisle facing his former team in what was billed as a grudge match. That\'s exactly what it was, and the Pistons won in six.',
     ['jermaine-oneal', 'ron-artest', 'reggie-miller', 'rick-carlisle'], ['pacers', 'pistons', 'heat'], ['playoffs', 'rivalries'],
     { categories: ['contenders'], sources: [
       { source: 'pacers-underrated-curse', quote: 'the Pacers retoled' },
@@ -1751,7 +1751,7 @@ export const stories: Story[] = [
     ] }),
   s('austin-rivers-nepotism', 'storyline', 'NBA', '2015-01', 'month',
     'Doc Rivers, Austin Rivers and the Clippers locker room',
-    'Doc Rivers, coach and team president, traded for his son Austin. Per ESPN, Paul\'s relationship with Doc deteriorated: players felt Austin acted entitled and got softer treatment. Doc called that BS. Austin then got a three-year, $35 million deal while older players felt unprioritized, even though he had earned real minutes, including a gritty playoff game against Portland.',
+    'Doc Rivers, coach and team president, traded for his son Austin. Paul\'s relationship with Doc reportedly deteriorated: players felt Austin acted entitled and got softer treatment. Doc called that BS. Austin then got a three-year, $35 million deal while older players felt unprioritized, even though he had earned real minutes, including a gritty playoff game against Portland.',
     ['doc-rivers', 'austin-rivers', 'chris-paul', 'matt-barnes', 'stephen-jackson'], ['clippers'], ['controversies', 'nepotism'],
     { end: '2016', sources: [
       { source: 'clippers-never-ending-misfortune', quote: 'enter Austin Rivers coincidentally son of head coach Doc Rivers' },
@@ -5864,7 +5864,7 @@ export const stories: Story[] = [
     ] }),
   s('celtics-repeat-favorites-2025', 'moment', 'NBA', '2024-12', 'month',
     'The champion Celtics look unbeatable at midseason',
-    'At the halfway mark of 2024-25, Dom2K saw the defending champions as a team worthy of repeating, a juggernaut fans weren\'t sure could be beaten anytime soon, built by Brad Stevens trades for Derrick White, Kristaps Porzingis and Jrue Holiday. The expected Finals was Boston against Oklahoma City. Boston went 61-21 and beat Orlando 4-1, then the Knicks knocked them out 4-2 in the second round.',
+    'At the halfway mark of 2024-25, the defending champions looked like a team worthy of repeating, a juggernaut fans weren\'t sure could be beaten anytime soon, built by Brad Stevens trades for Derrick White, Kristaps Porzingis and Jrue Holiday. The expected Finals was Boston against Oklahoma City. Boston went 61-21 and beat Orlando 4-1, then the Knicks knocked them out 4-2 in the second round.',
     ['jayson-tatum', 'jaylen-brown', 'brad-stevens', 'kristaps-porzingis', 'jrue-holiday'], ['celtics', 'knicks', 'magic', 'thunder'], ['playoffs', 'upsets'],
     { categories: ['contenders'], sources: [
       { source: "nba-gm-survey-2024-25", quote: "In the 23rd annual NBA.com GM Survey, 83% of respondents picked Boston to do just that, with that rate being the third highest for a title pick in the history of the survey." },
@@ -5874,7 +5874,7 @@ export const stories: Story[] = [
     ] }),
   s('bucks-recover-from-horrific-start-2025', 'moment', 'NBA', '2024-12', 'month',
     'Giannis\'s mid-range pulls the Bucks out of a horrific start',
-    'Milwaukee opened 2024-25 badly, then recovered enough to reach the NBA Cup final, with Giannis Antetokounmpo adding a real mid-range game and, at the time, leading the league in scoring. Dom2K said a healthy Bucks team could trouble most opponents but wondered what Giannis would think if injuries ruined another run. The Bucks finished 48-34, fifth in the East, Giannis was third in MVP voting, and Indiana beat them 4-1 in the first round.',
+    'Milwaukee opened 2024-25 badly, then recovered enough to reach the NBA Cup final, with Giannis Antetokounmpo adding a real mid-range game and, at the time, leading the league in scoring. A healthy Bucks team looked able to trouble most opponents, but the question was what Giannis would think if injuries ruined another run. The Bucks finished 48-34, fifth in the East, Giannis was third in MVP voting, and Indiana beat them 4-1 in the first round.',
     ['giannis-antetokounmpo', 'damian-lillard', 'khris-middleton'], ['bucks', 'pacers'], ['playoffs', 'injuries'],
     { categories: ['contenders'], sources: [
       { source: 'dom2k-nba-midseason-2024-25', quote: 'the horrific start has been somewhat remedied with them being in the cup game tonight and Giannis has taken it upon himself to become a legitimate mid-range threat, leading the league in scoring in large part because of it' },
@@ -5882,8 +5882,8 @@ export const stories: Story[] = [
       { source: 'dom2k-nba-midseason-2024-25', quote: 'If this year repeats as another run sabotaged by injury, you have to wonder what Giannis will be thinking about an aging roster he\'d only have to deal with for two more years.' },
     ] }),
   s('warriors-fade-and-add-schroder-2025', 'moment', 'NBA', '2024-12', 'month',
-    'The Warriors fade and Dom2K calls it probably the end',
-    'Golden State started 2024-25 looking like the 2022 team that randomly re-emerged as a contender, then lost eight of ten. Mike Dunleavy said the team was committed to the Curry core, and it traded for Dennis Schroder, but Dom2K called it probably the end unless they found a real star for Curry. The Warriors finished 48-34, seventh in the West, beat second-seeded Houston in seven, then lost to Minnesota 4-1.',
+    'The Warriors fade and it looks like probably the end',
+    'Golden State started 2024-25 looking like the 2022 team that randomly re-emerged as a contender, then lost eight of ten. Mike Dunleavy said the team was committed to the Curry core, and it traded for Dennis Schroder, but it looked like probably the end unless they found a real star for Curry. The Warriors finished 48-34, seventh in the West, beat second-seeded Houston in seven, then lost to Minnesota 4-1.',
     ['stephen-curry', 'draymond-green', 'dennis-schroder', 'mike-dunleavy-jr'], ['warriors', 'rockets', 'timberwolves'], ['playoffs'],
     { categories: ['contenders'], sources: [
       { source: 'dom2k-nba-midseason-2024-25', quote: 'Initially, their 2025 season was feeling eerily like \'22 when they randomly re-emerged as contenders. Since such time, they\'ve lost eight of 10 games' },
@@ -5893,7 +5893,7 @@ export const stories: Story[] = [
     ] }),
   s('pelicans-zion-question-2025', 'moment', 'NBA', '2024-12', 'month',
     'Zion is hurt again and the Pelicans sink',
-    'By December 2024 Zion Williamson was out again with no timetable, and Dom2K counted 190 games played out of 415, on the court 46% of the time through six seasons. He asked whether New Orleans still believed Zion could lead even a competitive team, and whether anyone would trade for him, noting Dyson Daniels\'s hint about the training staff. The injury-hit Pelicans finished 21-61, 14th in the West.',
+    'By December 2024 Zion Williamson was out again with no timetable, and he had played 190 games out of 415, on the court 46% of the time through six seasons. The question was whether New Orleans still believed Zion could lead even a competitive team, and whether anyone would trade for him, noting Dyson Daniels\'s hint about the training staff. The injury-hit Pelicans finished 21-61, 14th in the West.',
     ['zion-williamson', 'brandon-ingram', 'david-griffin', 'dyson-daniels'], ['pelicans'], ['injuries'],
     { categories: ['surprises'], sources: [
       { source: 'dom2k-nba-midseason-2024-25', quote: 'The latest report on my Zion is he\'s not close to returning and has no timetable.' },
@@ -5904,7 +5904,7 @@ export const stories: Story[] = [
     ] }),
   s('clippers-no-run-without-kawhi-2025', 'moment', 'NBA', '2024-12', 'month',
     'The Kawhi-less Clippers outplay their doubters',
-    'In their first season in a new arena, with Paul George gone and Kawhi Leonard yet to play, the Clippers were playing better than expected thanks partly to Norman Powell. Dom2K pushed back on \'great team with Kawhi\' takes, saying that even with Leonard back for most of the season, history said no playoff run was coming. Los Angeles went 50-32, fifth in the West, and lost a seven-game first-round series to Denver.',
+    'In their first season in a new arena, with Paul George gone and Kawhi Leonard yet to play, the Clippers were playing better than expected thanks partly to Norman Powell. The pushback on \'great team with Kawhi\' takes was that even with Leonard back for most of the season, history said no playoff run was coming. Los Angeles went 50-32, fifth in the West, and lost a seven-game first-round series to Denver.',
     ['kawhi-leonard', 'james-harden', 'norman-powell', 'paul-george'], ['clippers', 'nuggets'], ['playoffs', 'injuries'],
     { categories: ['surprises'], sources: [
       { source: 'dom2k-nba-midseason-2024-25', quote: 'also evident PG wasn\'t coming back, which has actually been okay because of uh Norman Powell' },
@@ -5914,7 +5914,7 @@ export const stories: Story[] = [
     ] }),
   s('wolves-after-towns-trade-2025', 'moment', 'NBA', '2024-12', 'month',
     'After the Towns trade, the Wolves were written off',
-    'Minnesota had reached the 2024 conference finals, then traded Karl-Anthony Towns in a deal built around Julius Randle. Dom2K called it a placeholder deal for one of their best players while they were still supposed to be contending, said Rudy Gobert\'s defense wasn\'t the same in the new style, and signed off with \'good luck Minny.\' The Wolves finished 49-33, beat the Lakers and Golden State 4-1 each, and reached the conference finals again, losing to Oklahoma City 4-1.',
+    'Minnesota had reached the 2024 conference finals, then traded Karl-Anthony Towns in a deal built around Julius Randle. It was called a placeholder deal for one of their best players while they were still supposed to be contending, Rudy Gobert\'s defense was said not to be the same in the new style, and the verdict was \'good luck Minny.\' The Wolves finished 49-33, beat the Lakers and Golden State 4-1 each, and reached the conference finals again, losing to Oklahoma City 4-1.',
     ['anthony-edwards', 'rudy-gobert', 'julius-randle', 'karl-anthony-towns', 'naz-reid'], ['timberwolves', 'knicks', 'lakers', 'warriors', 'thunder'], ['trades', 'playoffs'],
     { categories: ['surprises'], sources: [
       { source: 'dom2k-nba-midseason-2024-25', quote: 'I just think we weren\'t expecting the pieces to essentially be Julius Randle, who I still assume won\'t be there long-term' },
@@ -5924,7 +5924,7 @@ export const stories: Story[] = [
     ] }),
   s('heat-butler-core-done-2025', 'moment', 'NBA', '2024-12', 'month',
     'Butler trade rumors and the end of Miami\'s dark-horse era',
-    'In late 2024 trade rumors about a 35-year-old Jimmy Butler, on a team that never added another star, led Dom2K to call the Butler core \'pretty verifiably done.\' The Heat had made two Finals as the dark horse, never in the matchup fans actually wanted. Miami finished 37-45, got in through the play-in, and Cleveland swept them in the first round.',
+    'In late 2024 trade rumors about a 35-year-old Jimmy Butler, on a team that never added another star, had the Butler core called \'pretty verifiably done.\' The Heat had made two Finals as the dark horse, never in the matchup fans actually wanted. Miami finished 37-45, got in through the play-in, and Cleveland swept them in the first round.',
     ['jimmy-butler', 'pat-riley', 'erik-spoelstra', 'bam-adebayo', 'tyler-herro'], ['heat', 'cavaliers'], ['trades', 'playoffs'],
     { categories: ['surprises'], sources: [
       { source: 'dom2k-nba-midseason-2024-25', quote: 'the Miami Heat are pretty verifiably done with this Jimmy core and it was a good try, I guess' },
@@ -5934,7 +5934,7 @@ export const stories: Story[] = [
     ] }),
   s('lakers-expected-play-in-2025', 'moment', 'NBA', '2024-12', 'month',
     'The Lakers were expected to land in the play-in again',
-    'Midway through 2024-25, Dom2K had the Lakers very likely headed for another sub-50-win season and another play-in, with LeBron James aging for real and Anthony Davis\'s availability uncertain. He saw nothing left for the LeBron-Davis core, \'save for some magical trade.\' In February the Lakers traded Davis to Dallas for Luka Doncic, finished 50-32 and third in the West, and lost to Minnesota 4-1 in the first round.',
+    'Midway through 2024-25, the Lakers looked very likely headed for another sub-50-win season and another play-in, with LeBron James aging for real and Anthony Davis\'s availability uncertain. There seemed to be nothing left for the LeBron-Davis core, \'save for some magical trade.\' In February the Lakers traded Davis to Dallas for Luka Doncic, finished 50-32 and third in the West, and lost to Minnesota 4-1 in the first round.',
     ['lebron-james', 'anthony-davis', 'luka-doncic', 'jj-redick'], ['lakers', 'mavericks', 'timberwolves'], ['trades', 'playoffs'],
     { categories: ['surprises'], sources: [
       { source: 'dom2k-nba-midseason-2024-25', quote: 'LA is very likely looking at another sub-50 win season, which of course will place them near the back of the conference featuring yet another play-in saga' },
@@ -5944,7 +5944,7 @@ export const stories: Story[] = [
     ] }),
   s('magic-oblique-injuries-2025', 'moment', 'NBA', '2024-12', 'month',
     'Paolo and Franz both tear obliques',
-    'Paolo Banchero was breaking out, with a 50-point game, before tearing an oblique. Franz Wagner took over and Orlando held steady, then Wagner tore an oblique too, leaving a struggling offense to Jalen Suggs. Dom2K called it unreal misfortune. The Magic still finished 41-41, seventh in the East, and lost to Boston 4-1 in the first round.',
+    'Paolo Banchero was breaking out, with a 50-point game, before tearing an oblique. Franz Wagner took over and Orlando held steady, then Wagner tore an oblique too, leaving a struggling offense to Jalen Suggs. It was called unreal misfortune. The Magic still finished 41-41, seventh in the East, and lost to Boston 4-1 in the first round.',
     ['paolo-banchero', 'franz-wagner', 'jalen-suggs'], ['magic', 'celtics'], ['injuries', 'playoffs'],
     { categories: ['surprises'], sources: [
       { source: 'dom2k-nba-midseason-2024-25', quote: 'Paolo was breaking out on schedule, dropping 50 one game before going out with a torn oblique' },
@@ -5953,7 +5953,7 @@ export const stories: Story[] = [
     ] }),
   s('grizzlies-ja-back-top-four-2025', 'moment', 'NBA', '2024-12', 'month',
     'With Ja back, Memphis is near the top of the West',
-    'With Ja Morant playing, Memphis was a top-four team in the West in December 2024, and Dom2K called the roster young, well rounded and not far from title-worthy. To go all the way, he said, Morant, Desmond Bane and Jaren Jackson Jr. would need a stronger supporting cast or another star. The Grizzlies finished 48-34, eighth in the West after the play-in, and Oklahoma City swept them.',
+    'With Ja Morant playing, Memphis was a top-four team in the West in December 2024, and the roster was called young, well rounded and not far from title-worthy. To go all the way, the thinking went, Morant, Desmond Bane and Jaren Jackson Jr. would need a stronger supporting cast or another star. The Grizzlies finished 48-34, eighth in the West after the play-in, and Oklahoma City swept them.',
     ['ja-morant', 'desmond-bane', 'jaren-jackson'], ['grizzlies', 'thunder'], ['playoffs'],
     { categories: ['contenders'], sources: [
       { source: 'dom2k-nba-midseason-2024-25', quote: 'Ja Morant is the center of the Grizzlies universe, and as he\'s back and going, so is Memphis to the tune of a top four team out west' },
@@ -5962,7 +5962,7 @@ export const stories: Story[] = [
     ] }),
   s('rockets-better-than-they-are-2025', 'moment', 'NBA', '2024-12', 'month',
     'Houston\'s young team was called better on paper than in reality',
-    'The 2024-25 Rockets were off to their best start of the rebuild with the league\'s second-best defense, but Dom2K said their record suggested they were \'a good bit better than they actually are\' and wondered what to do with the up-and-down Jalen Green. He also rejected Charles Barkley\'s claim that they didn\'t know how to play basketball. Houston finished 52-30, second in the West, and lost a seven-game first-round series to Golden State.',
+    'The 2024-25 Rockets were off to their best start of the rebuild with the league\'s second-best defense, but their record was said to make them look \'a good bit better than they actually are,\' with questions about what to do with the up-and-down Jalen Green, though Charles Barkley\'s claim that they didn\'t know how to play basketball was waved off. Houston finished 52-30, second in the West, and lost a seven-game first-round series to Golden State.',
     ['jalen-green', 'charles-barkley', 'ime-udoka'], ['rockets', 'warriors'], ['playoffs', 'rebuilds'],
     { categories: ['surprises'], sources: [
       { source: 'dom2k-nba-midseason-2024-25', quote: 'the 25 Rockets are currently off to their best start of the rebuild, right now ranking as the league\'s second best defense' },
@@ -5972,7 +5972,7 @@ export const stories: Story[] = [
     ] }),
   s('spurs-castle-paul-play-in-push-2025', 'moment', 'NBA', '2024-12', 'month',
     'Wembanyama gets Chris Paul and Stephon Castle',
-    'In Victor Wembanyama\'s second year, San Antonio added Chris Paul and Harrison Barnes and drafted Stephon Castle, whom Dom2K called a defensive menace, aiming for a play-in spot. Gregg Popovich was away for health reasons. Castle won Rookie of the Year with 92 of 100 first-place votes, but the Spurs finished 34-48, 13th in the West, and missed the play-in.',
+    'In Victor Wembanyama\'s second year, San Antonio added Chris Paul and Harrison Barnes and drafted Stephon Castle, who was called a defensive menace, aiming for a play-in spot. Gregg Popovich was away for health reasons. Castle won Rookie of the Year with 92 of 100 first-place votes, but the Spurs finished 34-48, 13th in the West, and missed the play-in.',
     ['victor-wembanyama', 'chris-paul', 'stephon-castle', 'gregg-popovich', 'harrison-barnes'], ['spurs'], ['draft', 'Rookie of the Year'],
     { categories: ['draft-drama'], sources: [
       { source: 'dom2k-nba-midseason-2024-25', quote: 'going out to sign Chris Paul, who I once upon a time theorized would end up there, far past his prime' },
@@ -5982,7 +5982,7 @@ export const stories: Story[] = [
     ] }),
   s('warriors-title-favorites-at-break-2015', 'moment', 'NBA', '2015-02', 'month',
     'At the 2015 break, the Warriors become the title favorite',
-    'In February 2015, Sports Illustrated said Golden State had gone from one-dimensional and one-and-done the year before to a multifaceted favorite under first-year coach Steve Kerr. Their net rating of +12.3 was the best since the 72-win 1995-96 Bulls, and SI declared them the championship favorite. Owner Joe Lacob insisted they hadn\'t accomplished anything yet. They finished 67-15 and beat Cleveland 4-2 for the title.',
+    'By February 2015, Golden State had gone from one-dimensional and one-and-done the year before to a multifaceted favorite under first-year coach Steve Kerr. Their net rating of +12.3 was the best since the 72-win 1995-96 Bulls, and they were declared the championship favorite. Owner Joe Lacob insisted they hadn\'t accomplished anything yet. They finished 67-15 and beat Cleveland 4-2 for the title.',
     ['steve-kerr', 'stephen-curry', 'klay-thompson', 'joe-lacob'], ['warriors', 'cavaliers', 'hawks'], ['championships', 'regular season'],
     { categories: ['contenders'], sources: [
       { source: 'si-2015-02-23-nba-midseason', quote: 'One-dimensional and one-and-done last postseason, Golden State has morphed into a multifaceted favorite this year.' },
@@ -5991,7 +5991,7 @@ export const stories: Story[] = [
     ] }),
   s('harden-bubble-team-to-contender-2015', 'moment', 'NBA', '2015-02', 'month',
     'Harden turns a bubble team into a contender',
-    'SI\'s February 2015 feature said James Harden, then the league\'s leading scorer, had taken a playoff bubble team and turned it into a title contender, even with Dwight Howard out for weeks with a knee injury. Houston sat tied for third in the West while Oklahoma City, the team that traded him, was ninth, and Daryl Morey said he\'d have given up five more first-round picks. The Rockets went 56-26 and won the Southwest, beat the Clippers 4-3 and lost the West finals 4-1 to Golden State. The Thunder missed the playoffs at 45-37, and Russell Westbrook, not Harden, won the scoring title at 28.1 points.',
+    'By February 2015, James Harden, then the league\'s leading scorer, was said to have taken a playoff bubble team and turned it into a title contender, even with Dwight Howard out for weeks with a knee injury. Houston sat tied for third in the West while Oklahoma City, the team that traded him, was ninth, and Daryl Morey said he\'d have given up five more first-round picks. The Rockets went 56-26 and won the Southwest, beat the Clippers 4-3 and lost the West finals 4-1 to Golden State. The Thunder missed the playoffs at 45-37, and Russell Westbrook, not Harden, won the scoring title at 28.1 points.',
     ['james-harden', 'daryl-morey', 'dwight-howard', 'russell-westbrook'], ['rockets', 'thunder', 'clippers', 'warriors'], ['playoffs', 'trades'],
     { categories: ['contenders'], sources: [
       { source: 'si-2015-02-23-nba-midseason', quote: 'The league’s leading scorer, Harden has taken a playoff bubble team and turned it into a title contender.' },
@@ -6001,7 +6001,7 @@ export const stories: Story[] = [
     ] }),
   s('butler-bets-on-himself-2015', 'moment', 'NBA', '2015-02', 'month',
     'Jimmy Butler turns down $40 million and bets on himself',
-    'Jimmy Butler arrived as a defensive shadow, but by February 2015 he was averaging career highs, and SI called him the favorite for Most Improved Player. The Bulls had offered him more than $40 million over four years the previous fall, and he chose to bet on himself. He won Most Improved Player. Chicago went 50-32, beat Milwaukee 4-2 and lost to Cleveland 4-2 in the second round.',
+    'Jimmy Butler arrived as a defensive shadow, but by February 2015 he was averaging career highs, and he was called the favorite for Most Improved Player. The Bulls had offered him more than $40 million over four years the previous fall, and he chose to bet on himself. He won Most Improved Player. Chicago went 50-32, beat Milwaukee 4-2 and lost to Cleveland 4-2 in the second round.',
     ['jimmy-butler', 'tom-thibodeau', 'john-paxson'], ['bulls', 'bucks', 'cavaliers'], ['awards', 'contracts'],
     { categories: ['surprises'], sources: [
       { source: 'si-2015-02-23-nba-midseason', quote: 'to become the favorite for Most Improved Player' },
@@ -6011,7 +6011,7 @@ export const stories: Story[] = [
     ] }),
   s('east-losing-record-playoff-race-2015', 'moment', 'NBA', '2015-02', 'month',
     'The East\'s losing-record playoff race',
-    'At the 2015 All-Star break, Charlotte and Miami held the East\'s seventh and eighth seeds at 22-30. SI warned the East could send two teams to the playoffs with records worse than any playoff team since the 1994-95 Celtics, and noted that Adam Silver said the league would look at changing the playoff format. Neither got in: the Heat finished 37-45 and the Hornets 33-49, and Boston (40-42) and Brooklyn (38-44) took the last two spots.',
+    'At the 2015 All-Star break, Charlotte and Miami held the East\'s seventh and eighth seeds at 22-30. The warning was that the East could send two teams to the playoffs with records worse than any playoff team since the 1994-95 Celtics, and Adam Silver said the league would look at changing the playoff format. Neither got in: the Heat finished 37-45 and the Hornets 33-49, and Boston (40-42) and Brooklyn (38-44) took the last two spots.',
     ['adam-silver'], ['hornets', 'heat', 'celtics', 'nets'], ['playoffs', 'regular season'],
     { categories: ['surprises'], sources: [
       { source: 'si-2015-02-23-nba-midseason', quote: 'the East features Charlotte and Miami in its seventh and eighth seeds with identical 22–30 records. Pitiful doesn’t quite cover it.' },
@@ -6020,7 +6020,7 @@ export const stories: Story[] = [
     ] }),
   s('korver-50-50-90-chase-2015', 'moment', 'NBA', '2015-02', 'month',
     'Kyle Korver\'s 50-50-90 chase',
-    'In February 2015 Kyle Korver was shooting 51.2% from the field, 52.3% from three and 91.1% from the line, and SI said he was on pace for the 50-40-90 club and a new 50-50-90 club of his own, the reason a longtime role player was now an All-Star. He cooled off and finished at 48.7%, 49.2% and 89.8%, short of even 50-40-90.',
+    'In February 2015 Kyle Korver was shooting 51.2% from the field, 52.3% from three and 91.1% from the line, and he was on pace for the 50-40-90 club and a new 50-50-90 club of his own, the reason a longtime role player was now an All-Star. He cooled off and finished at 48.7%, 49.2% and 89.8%, short of even 50-40-90.',
     ['kyle-korver'], ['hawks'], ['regular season', 'records'],
     { categories: ['surprises'], sources: [
       { source: 'si-2015-02-23-nba-midseason', quote: '51.2%-52.3%-91.1%: KYLE KORVER’S SHOOTING PERCENTAGES' },
@@ -6029,7 +6029,7 @@ export const stories: Story[] = [
     ] }),
   s('warriors-best-team-ever-chase-2016', 'moment', 'NBA', '2016-03', 'month',
     '"Best Team Ever?" and the chase for 73',
-    'By March 2016, Sports Illustrated called the Warriors the biggest thing in the NBA, with a possible stop at Best Team Ever. They had gone 48-2 with all three All-Stars, and reporters asked about 73 wins, one more than the 1995-96 Bulls, ten times a day. Getting there meant winning 20 of their last 24. They finished 73-9, beat Houston, Portland and Oklahoma City, then lost the Finals to Cleveland in seven games.',
+    'By March 2016, the Warriors were called the biggest thing in the NBA, with a possible stop at Best Team Ever. They had gone 48-2 with all three All-Stars, and reporters asked about 73 wins, one more than the 1995-96 Bulls, ten times a day. Getting there meant winning 20 of their last 24. They finished 73-9, beat Houston, Portland and Oklahoma City, then lost the Finals to Cleveland in seven games.',
     ['stephen-curry', 'klay-thompson', 'draymond-green', 'steve-kerr'], ['warriors', 'cavaliers', 'thunder'], ['records', 'playoffs'],
     { categories: ['contenders'], sources: [
       { source: 'si-2016-03-07-warriors', quote: 'have become the biggest thing in the NBA, with a possible stop at Best Team Ever' },
@@ -6039,7 +6039,7 @@ export const stories: Story[] = [
     ] }),
   s('warriors-fluke-label-2016', 'moment', 'NBA', '2016-03', 'month',
     'The 2015 champs answer the "fluke" label',
-    'After the 2015 title, the Warriors were called soft, lucky underdogs with an easy road. In March 2016 SI said they had come out and doubled down, and former Warrior Tom Tolbert said they had ruined the game of basketball for him. They won a record 73 games and returned to the Finals, then lost it to Cleveland in seven.',
+    'After the 2015 title, the Warriors were called soft, lucky underdogs with an easy road. In March 2016 they were said to have come out and doubled down, and former Warrior Tom Tolbert said they had ruined the game of basketball for him. They won a record 73 games and returned to the Finals, then lost it to Cleveland in seven.',
     ['stephen-curry', 'draymond-green', 'klay-thompson'], ['warriors', 'cavaliers'], ['championships', 'playoffs'],
     { categories: ['contenders'], sources: [
       { source: 'si-2016-03-07-warriors', quote: 'These “soft” “underdogs” are a “lucky” “fluke” who had an “easy road” to the title. So they came out and doubled down on the excellence.' },
@@ -6047,7 +6047,7 @@ export const stories: Story[] = [
     ] }),
   s('curry-toward-second-mvp-2016', 'moment', 'NBA', '2016-03', 'month',
     'Curry runs away with the 2016 MVP race',
-    'In March 2016, SI described Steph Curry as the league\'s leading scorer at 30.0 points, six more than the year before, with an NBA-record 288 threes already, and framed him as driving toward another MVP. He led the league in scoring and became the first unanimous MVP, with all 131 first-place votes.',
+    'In March 2016, Steph Curry was the league\'s leading scorer at 30.0 points, six more than the year before, with an NBA-record 288 threes already, and was seen driving toward another MVP. He led the league in scoring and became the first unanimous MVP, with all 131 first-place votes.',
     ['stephen-curry'], ['warriors'], ['MVP', 'records'],
     { categories: ['mvp-race'], sources: [
       { source: 'si-2016-03-07-warriors', quote: 'the 6\' 3" Curry, the league’s leading scorer' },
@@ -6057,7 +6057,7 @@ export const stories: Story[] = [
     ] }),
   s('curry-one-bad-signing-warning-2016', 'moment', 'NBA', '2016-03', 'month',
     'Curry warns that one move could end it',
-    'At the height of the 73-win season, Steph Curry told SI the league was so fluid that one trade or one bad free-agent signing could end it, and Rick Reilly predicted it would all go splat. Golden State lost the Finals to Cleveland, then went the other way that summer and added Kevin Durant, who joined the Warriors for 2016-17. They beat Cleveland 4-1 in the 2017 Finals, and Durant was Finals MVP.',
+    'At the height of the 73-win season, Steph Curry said the league was so fluid that one trade or one bad free-agent signing could end it, and Rick Reilly predicted it would all go splat. Golden State lost the Finals to Cleveland, then went the other way that summer and added Kevin Durant, who joined the Warriors for 2016-17. They beat Cleveland 4-1 in the 2017 Finals, and Durant was Finals MVP.',
     ['stephen-curry', 'kevin-durant'], ['warriors', 'cavaliers', 'thunder'], ['free agency', 'championships'],
     { categories: ['contenders'], sources: [
       { source: 'si-2016-03-07-warriors', quote: 'I know the league is so fluid. One trade, one bad free-agent signing, and it’s over.' },
@@ -6066,7 +6066,7 @@ export const stories: Story[] = [
     ] }),
   s('simmons-lsu-doubts-2016', 'moment', 'NBA', '2016-03', 'month',
     'Ben Simmons\'s struggles at LSU',
-    'In March 2016, as LSU freshman Ben Simmons struggled, CBS analyst Doug Gottlieb blamed his coaches and said Simmons would be better off at a program used to profound potential superstars. Philadelphia still took him No. 1 in the 2016 draft, and a foot injury kept him out for all of 2016-17.',
+    'In March 2016, as LSU freshman Ben Simmons struggled, analyst Doug Gottlieb blamed his coaches and said Simmons would be better off at a program used to profound potential superstars. Philadelphia still took him No. 1 in the 2016 draft, and a foot injury kept him out for all of 2016-17.',
     ['ben-simmons', 'doug-gottlieb'], ['sixers'], ['draft', 'injuries'],
     { categories: ['draft-drama'], season: 2016, sources: [
       { source: 'si-2016-03-07-warriors', quote: 'CBS basketball analyst Doug Gottlieb weighed in on LSU freshman forward Ben Simmons’s struggles' },
@@ -6093,7 +6093,7 @@ export const stories: Story[] = [
     ] }),
   s('cavs-shock-with-bennett-2013', 'moment', 'NBA', '2013-06-27', 'day',
     'Nobody saw Anthony Bennett going first',
-    'Most mock drafts had Kentucky\'s Nerlens Noel going first, with Maryland\'s Alex Len gaining ground as Cleveland\'s pick in the final days. The Cavaliers took UNLV\'s Anthony Bennett instead, which NBC called a reach for a player the consensus ranked lower, and Bennett said he was "just as surprised as everybody else." Noel fell to sixth. Bennett lasted four NBA seasons with 0.5 career win shares, 39th in his class, while second pick Victor Oladipo was the Rookie of the Year runner-up and No. 15 pick Giannis Antetokounmpo became the best of the class.',
+    'Most mock drafts had Kentucky\'s Nerlens Noel going first, with Maryland\'s Alex Len gaining ground as Cleveland\'s pick in the final days. The Cavaliers took UNLV\'s Anthony Bennett instead, which was called a reach for a player the consensus ranked lower, and Bennett said he was "just as surprised as everybody else." Noel fell to sixth. Bennett lasted four NBA seasons with 0.5 career win shares, 39th in his class, while second pick Victor Oladipo was the Rookie of the Year runner-up and No. 15 pick Giannis Antetokounmpo became the best of the class.',
     ['anthony-bennett', 'nerlens-noel', 'alex-len', 'victor-oladipo', 'giannis-antetokounmpo'], ['cavaliers', 'magic', 'suns', 'pelicans', 'bucks'], ['draft', 'busts'],
     { categories: ['draft-drama'], sources: [
       { source: 'nbc-bennett-shocker-2013', quote: 'Literally nobody saw this coming.' },
@@ -6132,7 +6132,7 @@ export const stories: Story[] = [
     ] }),
   s('sixers-trade-up-for-fultz-2017', 'moment', 'NBA', '2017-06-22', 'day',
     'Philly trades up for Fultz; Boston settles for Tatum',
-    'Markelle Fultz was seen as the clear-cut best prospect, and when Philadelphia traded up with Boston to take him first, CBS Sports graded the deal an A for the Sixers, "the guard of their dreams" beside Embiid and Simmons, and a B for Danny Ainge, whose gamble was that he could do better with two picks. Boston took Jayson Tatum third. Tatum ranks second in the class in career win shares and Fultz 22nd.',
+    'Markelle Fultz was seen as the clear-cut best prospect, and when Philadelphia traded up with Boston to take him first, draft graders gave the deal an A for the Sixers, "the guard of their dreams" beside Embiid and Simmons, and a B for Danny Ainge, whose gamble was that he could do better with two picks. Boston took Jayson Tatum third. Tatum ranks second in the class in career win shares and Fultz 22nd.',
     ['markelle-fultz', 'jayson-tatum', 'danny-ainge', 'joel-embiid', 'ben-simmons', 'bryan-colangelo'], ['sixers', 'celtics'], ['draft', 'trades', 'busts'],
     { categories: ['draft-drama'], sources: [
       { source: 'cbs-grade-fultz-trade-2017', quote: 'To many observers, this one included, the guard out of Washington is the clear-cut best prospect and the best fit for Philadelphia in this year\'s draft.' },
@@ -6142,7 +6142,7 @@ export const stories: Story[] = [
     ] }),
   s('bagley-over-doncic-2018', 'moment', 'NBA', '2018-06-21', 'day',
     'Sacramento makes the "safe" choice, Bagley over Doncic',
-    'SI\'s Jeremy Woo had Deandre Ayton as the top prospect since October and gave Phoenix an A for the easiest choice. At No. 2 Sacramento made a "relatively safe" pick in Marvin Bagley III over Luka Doncic, the most accomplished international prospect ever, and Woo warned the Kings might come to rue it. Doncic was Rookie of the Year and ranks second in his class in career win shares, Ayton sixth and Bagley 22nd. Many around the league thought fourth pick Jaren Jackson Jr. might be a top-three player long-term; the class leader is No. 11 pick Shai Gilgeous-Alexander.',
+    'Deandre Ayton had been rated the top prospect since October, and Phoenix got an A for the easiest choice. At No. 2 Sacramento made a "relatively safe" pick in Marvin Bagley III over Luka Doncic, the most accomplished international prospect ever, with a warning that the Kings might come to rue it. Doncic was Rookie of the Year and ranks second in his class in career win shares, Ayton sixth and Bagley 22nd. Many around the league thought fourth pick Jaren Jackson Jr. might be a top-three player long-term; the class leader is No. 11 pick Shai Gilgeous-Alexander.',
     ['deandre-ayton', 'marvin-bagley', 'luka-doncic', 'jaren-jackson', 'shai-gilgeous-alexander'], ['suns', 'kings', 'mavericks', 'grizzlies', 'clippers', 'hornets'], ['draft'],
     { categories: ['draft-drama'], sources: [
       { source: 'si-2018-draft-grades', quote: 'In my eyes, Ayton has been the top prospect in this draft dating back to October' },
@@ -6152,7 +6152,7 @@ export const stories: Story[] = [
     ] }),
   s('magic-switch-to-banchero-2022', 'moment', 'NBA', '2022-06-23', 'day',
     'The expected No. 1, Jabari Smith, goes third',
-    'Auburn\'s Jabari Smith Jr. was the long-expected No. 1 pick, and on draft day ESPN reported the order as Smith, Chet Holmgren, then Paolo Banchero. As Orlando neared its pick, the reporting flipped to Banchero as the Magic\'s frontrunner. Orlando took Banchero, Oklahoma City took Holmgren, and Smith fell to Houston at No. 3. Banchero won Rookie of the Year, with the 12th pick, Jalen Williams, second.',
+    'Auburn\'s Jabari Smith Jr. was the long-expected No. 1 pick, and on draft day the reported order was Smith, Chet Holmgren, then Paolo Banchero. As Orlando neared its pick, the reporting flipped to Banchero as the Magic\'s frontrunner. Orlando took Banchero, Oklahoma City took Holmgren, and Smith fell to Houston at No. 3. Banchero won Rookie of the Year, with the 12th pick, Jalen Williams, second.',
     ['paolo-banchero', 'jabari-smith', 'chet-holmgren', 'jalen-williams'], ['magic', 'thunder', 'rockets'], ['draft'],
     { categories: ['draft-drama'], sources: [
       { source: 'nbc-banchero-expectations-2022', quote: 'Adrian Wojnarowski of ESPN reported earlier in the day Orlando would make the long-expected choice of Auburn’s Jabari Smith No. 1 (with Gonzaga’s Chet Holmgren going No. 2 to the Thunder and Banchero No. 3 to the Rockets).' },
@@ -6169,8 +6169,8 @@ export const stories: Story[] = [
       { source: 'ap-hornets-miller-2023', quote: 'Before the pick, fans cheered loudly when Henderson was shown on the big screen.' },
     ] }),
   s('si-picks-kings-over-lakers-2003', 'moment', 'NBA', '2002-10', 'month',
-    'SI picks the Kings to finally beat L.A.',
-    'Sports Illustrated\'s 2002-03 preview ranked Sacramento first in the West and picked the Kings over the Lakers in the conference finals and over New Jersey in the Finals: now it was Sacramento\'s turn to beat L.A. In the East it had the Nets over the Hornets. The Nets did reach the Finals, but New Orleans lost to Philadelphia in the first round, the 59-win Kings lost to Dallas in seven in the second round, and San Antonio, SI\'s No. 3 team in the West, beat New Jersey 4-2 for the title.',
+    'The Kings are picked to finally beat L.A.',
+    'The 2002-03 magazine previews ranked Sacramento first in the West and picked the Kings over the Lakers in the conference finals and over New Jersey in the Finals: now it was Sacramento\'s turn to beat L.A. In the East it had the Nets over the Hornets. The Nets did reach the Finals, but New Orleans lost to Philadelphia in the first round, the 59-win Kings lost to Dallas in seven in the second round, and San Antonio, ranked third in the West, beat New Jersey 4-2 for the title.',
     ['chris-webber', 'peja-stojakovic', 'tim-duncan', 'jason-kidd'], ['kings', 'lakers', 'nets', 'hornets', 'spurs', 'mavericks'], ['previews', 'playoffs'],
     { categories: ['contenders'], sources: [
       { source: 'si-2002-10-28-nba-preview', quote: 'EASTERN CONFERENCE FINALS Nets OVER Hornets' },
@@ -6180,7 +6180,7 @@ export const stories: Story[] = [
     ] }),
   s('lakers-four-peat-kobe-takes-over-2003', 'moment', 'NBA', '2002-10', 'month',
     'The Lakers chase a four-peat as Kobe takes over',
-    'Going into 2002-03, SI asked whether this could be the year Kobe Bryant equaled Michael Jordan and told readers to look for the junior member of the Shaq-Kobe-Phil Jackson triumvirate to become the true leader of the three-time champions. A rival scout said that even without Kobe the Lakers would still win the title. They went 50-32, beat Minnesota 4-2 and lost to San Antonio 4-2 in the second round.',
+    'Going into 2002-03, the question was whether this could be the year Kobe Bryant equaled Michael Jordan and readers were told to look for the junior member of the Shaq-Kobe-Phil Jackson triumvirate to become the true leader of the three-time champions. A rival scout said that even without Kobe the Lakers would still win the title. They went 50-32, beat Minnesota 4-2 and lost to San Antonio 4-2 in the second round.',
     ['kobe-bryant', 'shaquille-oneal', 'phil-jackson'], ['lakers', 'spurs', 'timberwolves'], ['previews', 'dynasties', 'playoffs'],
     { categories: ['contenders'], sources: [
       { source: 'si-2002-10-28-nba-preview', quote: 'COULD THIS be the year that Kobe Bryant equals—it seems premature to suggest surpasses—Michael Jordan as a player?' },
@@ -6189,7 +6189,7 @@ export const stories: Story[] = [
     ] }),
   s('shaq-should-be-mvp-every-year-2003', 'moment', 'NBA', '2002-10', 'month',
     '"It\'s a joke that Shaq doesn\'t win the MVP every year"',
-    'In SI\'s 2002-03 preview, an opposing scout said it was a joke that Shaquille O\'Neal didn\'t win the MVP every year, however many games he missed. Shaq opened the season recovering from toe surgery. Tim Duncan won the MVP with 60 first-place votes, Kevin Garnett was second, Kobe Bryant third and Shaq fifth.',
+    'In a 2002-03 preview, an opposing scout said it was a joke that Shaquille O\'Neal didn\'t win the MVP every year, however many games he missed. Shaq opened the season recovering from toe surgery. Tim Duncan won the MVP with 60 first-place votes, Kevin Garnett was second, Kobe Bryant third and Shaq fifth.',
     ['shaquille-oneal', 'tim-duncan', 'kevin-garnett', 'kobe-bryant'], ['lakers', 'spurs', 'timberwolves'], ['MVP', 'previews'],
     { categories: ['mvp-race'], sources: [
       { source: 'si-2002-10-28-nba-preview', quote: 'It’s a joke that Shaq doesn’t win the MVP award every year' },
@@ -6197,7 +6197,7 @@ export const stories: Story[] = [
     ] }),
   s('yao-the-next-thing-2003', 'moment', 'NBA', '2002-10', 'month',
     'Can No. 1 pick Yao Ming measure up to Shaq?',
-    'SI put No. 1 pick Yao Ming on its 2002-03 preview cover as the next thing, with a feature asking whether the 7-foot-6 Rockets rookie was the answer to Shaq. Houston\'s opposing scout thought his height might turn a horrible defensive team into a decent one, and SI ranked the Rockets sixth in the West. Amar\'e Stoudemire beat Yao for Rookie of the Year, 59 first-place votes to 45, and Houston went 43-39 and missed the playoffs.',
+    'No. 1 pick Yao Ming was a 2002-03 preview cover subject as the next thing, with a feature asking whether the 7-foot-6 Rockets rookie was the answer to Shaq. Houston\'s opposing scout thought his height might turn a horrible defensive team into a decent one, and the Rockets were ranked sixth in the West. Amar\'e Stoudemire beat Yao for Rookie of the Year, 59 first-place votes to 45, and Houston went 43-39 and missed the playoffs.',
     ['yao-ming', 'amare-stoudemire', 'shaquille-oneal', 'steve-francis', 'rudy-tomjanovich'], ['rockets', 'suns'], ['draft', 'Rookie of the Year', 'previews'],
     { categories: ['draft-drama'], sources: [
       { source: 'si-2002-10-28-nba-preview', quote: 'The search for an answer to Shaq continues. Can Rockets rookie Yao Ming measure up?' },
@@ -6207,7 +6207,7 @@ export const stories: Story[] = [
     ] }),
   s('jordan-wizards-picked-fifth-2003', 'moment', 'NBA', '2002-10', 'month',
     'Jordan\'s Wizards picked fifth in the East',
-    'SI\'s 2002-03 preview ranked Michael Jordan\'s second Washington team fifth in the East after it traded for Jerry Stackhouse, who said he could help a team that wasn\'t a playoff team become one. A rival scout said they were better with the 39-year-old Jordan coming off the bench. The Wizards went 37-45 and missed the playoffs.',
+    'The 2002-03 preview rankings had Michael Jordan\'s second Washington team fifth in the East after it traded for Jerry Stackhouse, who said he could help a team that wasn\'t a playoff team become one. A rival scout said they were better with the 39-year-old Jordan coming off the bench. The Wizards went 37-45 and missed the playoffs.',
     ['michael-jordan', 'jerry-stackhouse', 'doug-collins'], ['wizards', 'pistons'], ['previews', 'trades'],
     { categories: ['surprises'], sources: [
       { source: 'si-2002-10-28-nba-preview', quote: '5 WASHINGTON Wizards' },
@@ -6216,7 +6216,7 @@ export const stories: Story[] = [
     ] }),
   s('pistons-head-scratcher-stackhouse-trade-2003', 'moment', 'NBA', '2002-10', 'month',
     'Detroit\'s "head scratcher" Stackhouse trade',
-    'After a 50-win season, Detroit signed Chauncey Billups and traded its top scorer, Jerry Stackhouse, to Washington for Rip Hamilton, a deal SI called a head scratcher at first glance. SI ranked the Pistons fourth in the East. They finished with the East\'s best record at 50-32, beat Orlando and Philadelphia, and were swept by the Nets in the conference finals.',
+    'After a 50-win season, Detroit signed Chauncey Billups and traded its top scorer, Jerry Stackhouse, to Washington for Rip Hamilton, a deal called a head scratcher at first glance. The Pistons were ranked fourth in the East. They finished with the East\'s best record at 50-32, beat Orlando and Philadelphia, and were swept by the Nets in the conference finals.',
     ['jerry-stackhouse', 'rip-hamilton', 'chauncey-billups', 'ben-wallace', 'joe-dumars'], ['pistons', 'wizards', 'nets'], ['trades', 'previews', 'playoffs'],
     { categories: ['surprises'], sources: [
       { source: 'si-2002-10-28-nba-preview', quote: 'At first glance the deal was a head scratcher: Stackhouse was the team’s top scorer and locker room leader.' },
@@ -6225,7 +6225,7 @@ export const stories: Story[] = [
     ] }),
   s('spurs-add-ginobili-for-clutch-2003', 'moment', 'NBA', '2002-10', 'month',
     'The Spurs add Ginobili for the clutch',
-    'Before 2002-03, an opposing scout said San Antonio had lacked clutch shooters in its 2002 loss to the Lakers and was betting that newcomer Manu Ginobili could create shots late, as he had at the world championships. SI ranked the Spurs third in the West. They went 60-22, beat Phoenix, the Lakers, Dallas and New Jersey, and won the title.',
+    'Before 2002-03, an opposing scout said San Antonio had lacked clutch shooters in its 2002 loss to the Lakers and was betting that newcomer Manu Ginobili could create shots late, as he had at the world championships. The Spurs were ranked third in the West. They went 60-22, beat Phoenix, the Lakers, Dallas and New Jersey, and won the title.',
     ['manu-ginobili', 'tim-duncan', 'tony-parker', 'steve-kerr'], ['spurs', 'lakers', 'mavericks', 'nets'], ['championships', 'previews'],
     { categories: ['contenders'], sources: [
       { source: 'si-2002-10-28-nba-preview', quote: 'They didn’t have guys who could make shots in the clutch' },
@@ -6233,7 +6233,7 @@ export const stories: Story[] = [
     ] }),
   s('baby-bulls-not-now-2003', 'moment', 'NBA', '2002-10', 'month',
     'The Baby Bulls are good someday, "but not now"',
-    'Chicago had built around young picks Tyson Chandler, Eddy Curry and Jay Williams, and in SI\'s 2002-03 preview a rival scout said they should be good someday, but not now. SI ranked the Bulls 13th in the East. They went 30-52.',
+    'Chicago had built around young picks Tyson Chandler, Eddy Curry and Jay Williams, and in a 2002-03 preview a rival scout said they should be good someday, but not now. The Bulls were ranked 13th in the East. They went 30-52.',
     ['tyson-chandler', 'eddy-curry', 'jay-williams', 'jalen-rose'], ['bulls'], ['rebuilds', 'previews'],
     { categories: ['draft-drama'], sources: [
       { source: 'si-2002-10-28-nba-preview', quote: 'They\'ve got three young, talented guys, which means they should be good someday. But not now.' },
