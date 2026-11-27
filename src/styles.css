@@ -368,3 +368,51 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .dropdown-hint::after { content: 'Show all'; font-size: 12px; font-weight: 700; color: var(--link, #0b5cad); }
 .dropdown[open] .dropdown-hint::after { content: 'Hide'; }
 .dropdown > .section-lede { margin: 10px 0 8px; }
+
+/* ── Filters for predictions and sources ── */
+.filterrow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.filterbox input { font: 14px var(--ui); color: var(--ink); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 2px; padding: 5px 8px; width: min(320px, 100%); }
+.filterbox { max-width: 100%; }
+.teampick select optgroup { font-weight: 700; }
+
+/* ── Forum ── */
+.forum-mode { margin: 0; padding: 6px 10px; font: 13px var(--ui); background: var(--shade); border: 1px solid var(--line); border-left: 3px solid var(--line-strong); max-width: 80ch; }
+.forum-mode.is-warn { border-left-color: var(--warn); color: var(--warn); }
+.forum-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.btn { display: inline-block; font: 700 13px var(--ui); padding: 6px 14px; border: 1px solid var(--ink); border-radius: 2px; background: var(--ink); color: var(--bg); cursor: pointer; }
+.btn:hover { text-decoration: none; background: var(--link); border-color: var(--link); }
+.btn:disabled { opacity: .5; cursor: default; }
+.btn-quiet { background: var(--surface); color: var(--link); border-color: var(--line-strong); }
+.btn-quiet:hover { background: var(--hl); color: var(--link); border-color: var(--hl-line); }
+.btn-danger { background: var(--doubt); border-color: var(--doubt); color: #fff; }
+.linkbtn { font: 600 13px var(--ui); color: var(--link); background: none; border: 0; padding: 0; cursor: pointer; }
+.forum-table td.num, .forum-table th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.forum-table td.wrap { min-width: 220px; }
+.forum-form { display: grid; gap: 12px; max-width: 72ch; padding: 12px; border: 1px solid var(--line); border-top: 2px solid var(--ink); background: var(--surface); }
+.forum-form h3 { font-size: 16px; }
+.field { display: grid; gap: 4px; }
+.field-label { font: 700 11px var(--ui); text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.field-hint { font: 12px var(--ui); color: var(--muted); }
+.forum-form input, .forum-form textarea, .forum-form select { font: 15px/1.4 var(--body); color: var(--ink); background: var(--bg); border: 1px solid var(--line-strong); border-radius: 2px; padding: 6px 8px; width: 100%; max-width: 100%; }
+.forum-form textarea { resize: vertical; }
+.forum-error { margin: 0; color: var(--doubt); font: 600 13px var(--ui); }
+.storypicker { position: relative; display: block; }
+.storypicker-list { display: grid; border: 1px solid var(--line-strong); border-top: 0; max-height: 260px; overflow-y: auto; background: var(--surface); }
+.storypicker-list button { text-align: left; font: 14px var(--ui); padding: 6px 8px; border: 0; border-bottom: 1px solid var(--line); background: none; color: var(--link); cursor: pointer; }
+.storypicker-list button:hover { background: var(--hl); }
+.picked { display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; font: 15px var(--ui); }
+.post-body { max-width: 72ch; }
+.post-body p { margin: 0 0 8px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.replies { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; max-width: 80ch; }
+.reply { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.reply-head { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; margin-bottom: 4px; font: 14px var(--ui); }
+.reply-tools { margin-left: auto; }
+.reply-tools .btn { padding: 2px 8px; font-size: 12px; }
+.stance { font: 700 11px var(--ui); text-transform: uppercase; letter-spacing: .04em; padding: 1px 6px; border-radius: 2px; border: 1px solid currentColor; }
+.stance-agree { color: var(--sourced); }
+.stance-disagree { color: var(--doubt); }
+.fs { font: 700 11px var(--ui); text-transform: uppercase; letter-spacing: .04em; }
+.fs-new { color: var(--warn); }
+.fs-added { color: var(--sourced); }
+.fs-declined { color: var(--muted); }
+.filterrow .teampick select { max-width: min(420px, 70vw); }

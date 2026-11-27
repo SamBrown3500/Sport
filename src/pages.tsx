@@ -13,6 +13,9 @@ import { href, hrefForDate } from './lib/router';
 import { search } from './lib/search';
 import { SeasonFacts } from './seasonFacts';
 export { NotionsPage } from './byYear';
+import { matchesSource, matchesVerdict, outletId, outletOf, outlets, sourceMatches, verdictOf, type SourceFilter, type VerdictFilter } from './lib/filters';
+import { FilterBox, SourcePicker, VerdictToggle } from './filterBar';
+import { StoryDebates } from './forum';
 import { NotionBox, NotionsTeaser, PlayerPage as ByYearPlayer, SeasonNotions, TeamPage as ByYearTeam, TeamsDirectory } from './byYear';
 import { headline, takeFor } from './lib/notions';
 import { byImportance, importance } from './lib/importance';
@@ -447,6 +450,7 @@ export function StoryPage({ id }: { id: string }) {
         <div><dt>Themes</dt><dd>{story.tags.map((t) => <span key={t} className="chip chip-plain">{t}</span>)}</dd></div>
         {story.aliases && <div><dt>Also called</dt><dd>{story.aliases.join(', ')}</dd></div>}
       </dl>
+      <StoryDebates story={story} />
       {rel.length > 0 && (
         <Section title="Related narratives">
           <Timeline stories={rel} />
@@ -525,13 +529,44 @@ function SourceRow({ src }: { src: Source }) {
 
 export function SourcesPage() {
   const sourced = allStories.filter(isSourced).length;
+  const [text, setText] = useState('');
+  const [outlet, setOutlet] = useState('all');
+  const [kind, setKind] = useState<Source['kind'] | 'all'>('all');
+  const kinds = (Object.keys(SOURCE_KIND) as Source['kind'][]).filter((k) => allSources.some((s) => s.kind === k));
+  const shown = allSources.filter((src) =>
+    (outlet === 'all' || outletId(outletOf(src)) === outlet)
+    && (kind === 'all' || src.kind === kind)
+    && sourceMatches(src, text));
   return (
     <>
       <PageHead eyebrow="Library" title="Sources">
         <p className="lede">The videos, podcasts, articles and books behind the narratives. {sourced} of {allStories.length} narratives cite one so far.</p>
       </PageHead>
+      {allSources.length > 0 && (
+        <div className="filters">
+          {kinds.length > 1 && (
+            <div className="toggle" role="group" aria-label="Kind">
+              <button type="button" aria-pressed={kind === 'all'} onClick={() => setKind('all')}>Everything</button>
+              {kinds.map((k) => <button key={k} type="button" aria-pressed={kind === k} onClick={() => setKind(k)}>{SOURCE_KIND[k]}s</button>)}
+            </div>
+          )}
+          <div className="filterrow">
+            <label className="teampick">
+              Outlet
+              <select value={outlet} onChange={(e) => setOutlet(e.target.value)}>
+                <option value="all">Every outlet</option>
+                {outlets.map((o) => <option key={o.id} value={o.id}>{o.name} ({o.sources.length})</option>)}
+              </select>
+            </label>
+            <FilterBox value={text} onChange={setText} label="Search sources" placeholder="Search source titles" />
+          </div>
+          <p className="note">{shown.length} of {allSources.length} sources.</p>
+        </div>
+      )}
       {allSources.length
-        ? <ul className="directory directory-wide">{allSources.map((src) => <SourceRow key={src.id} src={src} />)}</ul>
+        ? shown.length
+          ? <ul className="directory directory-wide">{shown.map((src) => <SourceRow key={src.id} src={src} />)}</ul>
+          : <Empty>No sources match.</Empty>
         : <Empty>No sources yet. Send a video or podcast link in the project chat and it will show up here with the narratives drawn from it.</Empty>}
     </>
   );
@@ -542,6 +577,13 @@ export function SourcePage({ id }: { id: string }) {
   if (!src) return <NotFound what="source" />;
   const yt = youtubeId(src.url);
   const list = storiesFromSource(id);
+  return <SourcePageBody key={id} src={src} list={list} yt={yt} />;
+}
+
+function SourcePageBody({ src, list, yt }: { src: Source; list: Story[]; yt?: string }) {
+  const [verdict, setVerdict] = useState<VerdictFilter>('all');
+  const shown = list.filter((s) => matchesVerdict(s, verdict));
+  const predictions = list.filter((s) => verdictOf(s)).length;
   return (
     <>
       <Crumbs items={[['Sources', href.sources], [src.title]]} />
@@ -560,7 +602,8 @@ export function SourcePage({ id }: { id: string }) {
         {src.url && <div><dt>Link</dt><dd><a href={src.url} target="_blank" rel="noopener noreferrer">{src.kind === 'podcast' ? 'Listen' : src.kind === 'video' ? 'Watch' : 'Read'} on {new URL(src.url).hostname.replace(/^www\./, '')}</a></dd></div>}
       </dl>
       <Section title="Narratives from this source" count={list.length}>
-        <Timeline stories={list} empty="Nothing drawn from this source yet." />
+        {predictions > 0 && <VerdictToggle list={list} value={verdict} onChange={setVerdict} withNone />}
+        <Timeline stories={shown} empty={list.length ? 'None match this filter.' : 'Nothing drawn from this source yet.'} />
       </Section>
     </>
   );
@@ -570,7 +613,10 @@ export function SourcePage({ id }: { id: string }) {
 
 export function SearchPage({ query }: { query: string }) {
   const r = useMemo(() => search(query), [query]);
-  const shown = r.stories;
+  const [verdict, setVerdict] = useState<VerdictFilter>('all');
+  const [source, setSource] = useState<SourceFilter>('all');
+  const shown = r.stories.filter((s) => matchesVerdict(s, verdict) && matchesSource(s, source));
+  const filtered = verdict !== 'all' || source !== 'all';
   if (!query.trim()) {
     return (
       <PageHead eyebrow="Search" title="Search the calendar">
@@ -591,8 +637,16 @@ export function SearchPage({ query }: { query: string }) {
   return (
     <>
       <PageHead eyebrow="Search" title={`“${query.trim()}”`}>
-        <p className="lede">{shown.length} {shown.length === 1 ? 'narrative' : 'narratives'}, oldest first.</p>
+        <p className="lede">
+          {shown.length} {shown.length === 1 ? 'narrative' : 'narratives'}{filtered ? ` of ${r.stories.length}` : ''}, oldest first.
+        </p>
       </PageHead>
+      {r.stories.length > 1 && (
+        <div className="filters">
+          <VerdictToggle list={r.stories} value={verdict} onChange={setVerdict} withNone />
+          <SourcePicker list={r.stories} value={source} onChange={setSource} />
+        </div>
+      )}
       {(dateLink || r.players.length > 0 || r.teams.length > 0 || r.sources.length > 0) && (
         <div className="matches">
           {dateLink && <a className="match match-date" href={dateLink[1]}>{dateLink[0]} on the calendar →</a>}
@@ -601,7 +655,8 @@ export function SearchPage({ query }: { query: string }) {
           {r.sources.map((src) => <a key={src.id} className="match" href={href.source(src.id)}><small>{SOURCE_KIND[src.kind]}</small>{src.title}</a>)}
         </div>
       )}
-      <Timeline stories={r.stories} empty="No narratives match yet. Try a year, a last name or a team nickname." />
+      <Timeline stories={shown}
+        empty={filtered ? 'No narratives match these filters.' : 'No narratives match yet. Try a year, a last name or a team nickname.'} />
     </>
   );
 }

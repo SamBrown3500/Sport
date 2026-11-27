@@ -4,6 +4,7 @@ import {
 } from './pages';
 import { href, useRoute, type Route } from './lib/router';
 import { site } from './site';
+import { ForumNewPage, ForumPage, ForumThreadPage } from './forum';
 
 const store = {
   get(key: string) {
@@ -17,7 +18,7 @@ const store = {
 function Page({ route, query }: { route: Route; query: string }) {
   switch (route.page) {
     case 'home': return <Home />;
-    case 'search': return <SearchPage query={query} />;
+    case 'search': return <SearchPage key={query} query={query} />;
     case 'decade': return <Decade decade={route.decade} />;
     case 'year': return <Year year={route.year} />;
     case 'month': return <Month year={route.year} month={route.month} />;
@@ -33,7 +34,10 @@ function Page({ route, query }: { route: Route; query: string }) {
     case 'seasons': return <SeasonsPage />;
     case 'season': return <SeasonPage start={route.start} />;
     case 'category': return <CategoryPage id={route.id} />;
-    case 'notions': return <NotionsPage />;
+    case 'notions': return <NotionsPage key={route.verdict ?? 'all'} initialVerdict={route.verdict} />;
+    case 'forum': return <ForumPage tab={route.tab} />;
+    case 'forumthread': return <ForumThreadPage id={route.id} />;
+    case 'forumnew': return <ForumNewPage key={`${route.kind}-${route.story ?? ''}`} kind={route.kind} story={route.story} />;
     default: return <NotFound />;
   }
 }
@@ -79,6 +83,7 @@ export default function App() {
             <a href={href.players}>Players</a>
             <a href={href.teams}>Teams</a>
             <a href={href.sources}>Sources</a>
+            <a href={href.forum}>Forum</a>
           </nav>
         </div>
       </header>

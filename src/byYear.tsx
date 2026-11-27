@@ -8,6 +8,9 @@ import { headline, notionFor, notionsIn, verdictCounts, type StoryNotion } from 
 import { LAST_BBREF_SEASON, franchiseTotals, nameHistory, teamSeasons, type TeamSeason } from './lib/teamSeasons';
 import { CATEGORIES, seasonLabel, seasonOf } from './lib/seasons';
 import { href } from './lib/router';
+import { matchesSource, type SourceFilter } from './lib/filters';
+import { normalize } from './lib/search';
+import { FilterBox, SourcePicker } from './filterBar';
 
 /*
  * The year-over-year layer (gam, 2026-11-26): team and player pages read as a
@@ -349,8 +352,10 @@ function TeamDivision({ name, ids }: { name: string; ids: string[] }) {
 
 /* ── Preconceived notions: every one, filterable ─────────────────────── */
 
-export function NotionsPage() {
-  const [verdict, setVerdict] = useState<NotionVerdict | 'all'>('all');
+export function NotionsPage({ initialVerdict }: { initialVerdict?: NotionVerdict }) {
+  const [verdict, setVerdict] = useState<NotionVerdict | 'all'>(initialVerdict ?? 'all');
+  const [source, setSource] = useState<SourceFilter>('all');
+  const [text, setText] = useState('');
   const [category, setCategory] = useState<Category | 'all'>('all');
   const [decade, setDecade] = useState<number | 'all'>('all');
   const all = useMemo(() => notionsIn(nbaStories).sort(newestFirst), []);
@@ -358,7 +363,9 @@ export function NotionsPage() {
   const shown = all.filter((n) =>
     (verdict === 'all' || n.verdict === verdict)
     && (category === 'all' || n.story.categories?.includes(category))
-    && (decade === 'all' || Math.floor(seasonOf(n.story) / 10) * 10 === decade));
+    && (decade === 'all' || Math.floor(seasonOf(n.story) / 10) * 10 === decade)
+    && matchesSource(n.story, source)
+    && textMatches(text, n));
   const groups = new Map<number, StoryNotion[]>();
   for (const n of shown) groups.set(seasonOf(n.story), [...(groups.get(seasonOf(n.story)) ?? []), n]);
   const c = verdictCounts(all);
@@ -388,6 +395,10 @@ export function NotionsPage() {
           <button type="button" aria-pressed={decade === 'all'} onClick={() => setDecade('all')}>All</button>
           {decades.map((d) => <button key={d} type="button" aria-pressed={decade === d} onClick={() => setDecade(d)}>{d}s</button>)}
         </div>
+        <div className="filterrow">
+          <SourcePicker list={all.map((n) => n.story)} value={source} onChange={setSource} />
+          <FilterBox value={text} onChange={setText} label="Filter notions" placeholder="Filter by name or word" />
+        </div>
       </div>
       <p className="note">{shown.length} shown, newest season first.</p>
       {[...groups.entries()].map(([season, list]) => (
@@ -399,6 +410,17 @@ export function NotionsPage() {
       {!shown.length && <Empty>No notions match these filters.</Empty>}
     </>
   );
+}
+
+/** Every word of the filter starts a word in the notion, its narrative, players or teams. */
+function textMatches(q: string, n: StoryNotion): boolean {
+  const words = normalize(q).split(' ').filter(Boolean);
+  if (!words.length) return true;
+  const hay = normalize([
+    n.expected, n.happened, n.story.title, ...n.story.tags,
+    ...n.story.players.map((p) => getPlayer(p)?.name ?? ''), ...n.story.teams.map((t) => getTeam(t)?.name ?? ''),
+  ].join(' ')).split(' ');
+  return words.every((w) => hay.some((h) => h.startsWith(w)));
 }
 
 /** Season page section: the notions from that season's narratives. */
