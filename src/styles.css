@@ -514,3 +514,19 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .tile-name { font: 700 14px/1.2 var(--ui); }
 .tile-meta { font: 11.5px var(--ui); color: var(--muted); }
 .teamtheme { display: contents; }
+
+/* ── Samples: award races by month, trade reactions (preview only) ───── */
+.samplebar { margin: 0 0 14px; padding: 7px 10px; background: var(--hl); border: 1px solid var(--hl-line); font: 13px var(--ui); }
+.samplebar strong { text-transform: uppercase; font-size: 11px; letter-spacing: .05em; margin-right: 6px; }
+.race th[scope='row'] { white-space: nowrap; vertical-align: top; }
+.race td { vertical-align: top; }
+.race-picks { min-width: 200px; font: 13px var(--ui); }
+.race-first { font-weight: 700; }
+.race-other { color: var(--muted); }
+.race-n { display: inline-block; width: 1.4em; font-family: var(--mono); color: var(--muted); }
+.race-flag { color: var(--doubt); font-weight: 600; }
+.race-final th, .race-final td { border-top: 2px solid var(--line-strong); background: var(--shade); }
+.race-sub { font-size: 15px; margin: 16px 0 6px; }
+.move-deal { font: 14px var(--ui); margin: 4px 0 6px; }
+.small { font-size: 12.5px; }
+@media (max-width: 640px) { .race-picks { min-width: 150px; } }

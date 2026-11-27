@@ -6,6 +6,7 @@ import { href, useRoute, type Route } from './lib/router';
 import { site } from './site';
 import { ForumNewPage, ForumPage, ForumThreadPage } from './forum';
 import { Home, TimelinePage } from './visual';
+import { AwardRacesPage, SampleBar, TradeReactionsPage } from './samples';
 
 const store = {
   get(key: string) {
@@ -40,6 +41,8 @@ function Page({ route, query }: { route: Route; query: string }) {
     case 'forumthread': return <ForumThreadPage id={route.id} />;
     case 'forumnew': return <ForumNewPage key={`${route.kind}-${route.story ?? ''}`} kind={route.kind} story={route.story} />;
     case 'timeline': return <TimelinePage />;
+    case 'awardraces': return <AwardRacesPage />;
+    case 'tradereactions': return <TradeReactionsPage />;
     default: return <NotFound />;
   }
 }
@@ -83,6 +86,8 @@ export default function App() {
             <a href={href.seasons}>NBA seasons</a>
             <a href={href.timeline}>Timeline</a>
             <a href={href.notions}>Notions</a>
+            <a href={href.awardRaces}>Award races</a>
+            <a href={href.tradeReactions}>Trade reactions</a>
             <a href={href.players}>Players</a>
             <a href={href.teams}>Teams</a>
             <a href={href.sources}>Sources</a>
@@ -91,6 +96,7 @@ export default function App() {
         </div>
       </header>
       <main className="main">
+        {route.page === 'home' && <SampleBar />}
         <Page route={route} query={query} />
       </main>
       <footer className="footer">
