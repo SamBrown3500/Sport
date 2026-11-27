@@ -27,7 +27,10 @@ export type Route =
   | { page: 'forum'; tab?: 'debates' | 'suggestions' }
   | { page: 'forumthread'; id: string }
   | { page: 'forumnew'; kind: 'debate' | 'suggestion'; story?: string }
-  | { page: 'timeline' };
+  | { page: 'timeline' }
+  | { page: 'moves'; filter?: string }
+  | { page: 'move'; id: string }
+  | { page: 'offseason'; year: number };
 
 export function parse(hash: string): Route {
   const h = hash.replace(/^#/, '');
@@ -54,6 +57,10 @@ export function parse(hash: string): Route {
   if (h === 'forum-debate') return { page: 'forumnew', kind: 'debate' };
   if ((m = h.match(/^forum-debate-([a-z0-9-]+)$/))) return { page: 'forumnew', kind: 'debate', story: m[1] };
   if (h === 'timeline') return { page: 'timeline' };
+  if (h === 'moves') return { page: 'moves' };
+  if ((m = h.match(/^moves-(trade|signing|draft-deal|deadline|blockbuster|misses)$/))) return { page: 'moves', filter: m[1] };
+  if ((m = h.match(/^move-([a-z0-9-]+)$/))) return { page: 'move', id: m[1] };
+  if ((m = h.match(/^offseason-(\d{4})$/))) return { page: 'offseason', year: Number(m[1]) };
   if (h === 'sources') return { page: 'sources' };
   if (h === 'search') return { page: 'search' };
   if (h === 'players') return { page: 'players' };
@@ -89,6 +96,10 @@ export const href = {
   forumSuggest: '#forum-suggest',
   forumDebate: (story?: string) => (story ? `#forum-debate-${story}` : '#forum-debate'),
   timeline: '#timeline',
+  moves: '#moves',
+  movesBy: (f: string) => `#moves-${f}`,
+  move: (id: string) => `#move-${id}`,
+  offseason: (year: number) => `#offseason-${year}`,
 };
 
 /** Link for a partial ISO date at whatever precision it has. */

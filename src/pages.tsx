@@ -1,3 +1,5 @@
+import { MovesSection } from './moves';
+import { movesFromSource, movesInSeason } from './lib/moves';
 import { useMemo, useState } from 'react';
 import {
   Crumbs, Empty, LeagueTag, PageHead, PrevNext, Section, Timeline,
@@ -559,6 +561,7 @@ function SourcePageBody({ src, list, yt }: { src: Source; list: Story[]; yt?: st
         <div><dt>Added</dt><dd>{formatDate(src.added)}</dd></div>
         {src.url && <div><dt>Link</dt><dd><a href={src.url} target="_blank" rel="noopener noreferrer">{src.kind === 'podcast' ? 'Listen' : src.kind === 'video' ? 'Watch' : 'Read'} on {new URL(src.url).hostname.replace(/^www\./, '')}</a></dd></div>}
       </dl>
+      <MovesSection list={movesFromSource(src.id)} />
       <Section title="Narratives from this source" count={list.length}>
         {predictions > 0 && <VerdictToggle list={list} value={verdict} onChange={setVerdict} withNone />}
         <Timeline stories={shown} empty={list.length ? 'None match this filter.' : 'Nothing drawn from this source yet.'} />
@@ -772,6 +775,7 @@ export function SeasonPage({ start }: { start: number }) {
           </Section>
         );
       })}
+      <MovesSection list={movesInSeason(start)} showSeason={false} />
       {other.length > 0 && (
         <Section title="Also this season" count={other.length}>
           <div className="overview-sources overview-plain">

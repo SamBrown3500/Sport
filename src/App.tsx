@@ -6,6 +6,8 @@ import { href, useRoute, type Route } from './lib/router';
 import { site } from './site';
 import { ForumNewPage, ForumPage, ForumThreadPage } from './forum';
 import { Home, TimelinePage } from './visual';
+import { MovePage, MovesPage, OffseasonPage } from './moves';
+import type { MoveFilter } from './lib/moves';
 
 const store = {
   get(key: string) {
@@ -40,6 +42,9 @@ function Page({ route, query }: { route: Route; query: string }) {
     case 'forumthread': return <ForumThreadPage id={route.id} />;
     case 'forumnew': return <ForumNewPage key={`${route.kind}-${route.story ?? ''}`} kind={route.kind} story={route.story} />;
     case 'timeline': return <TimelinePage />;
+    case 'moves': return <MovesPage key={route.filter ?? 'all'} initial={(route.filter ?? 'all') as MoveFilter} />;
+    case 'move': return <MovePage id={route.id} />;
+    case 'offseason': return <OffseasonPage year={route.year} />;
     default: return <NotFound />;
   }
 }
@@ -83,6 +88,7 @@ export default function App() {
             <a href={href.seasons}>NBA seasons</a>
             <a href={href.timeline}>Timeline</a>
             <a href={href.notions}>Notions</a>
+            <a href={href.moves}>Trades</a>
             <a href={href.players}>Players</a>
             <a href={href.teams}>Teams</a>
             <a href={href.sources}>Sources</a>

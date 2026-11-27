@@ -514,3 +514,26 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .tile-name { font: 700 14px/1.2 var(--ui); }
 .tile-meta { font: 11.5px var(--ui); color: var(--muted); }
 .teamtheme { display: contents; }
+
+/* ── Trades and free agency (moves.tsx) ──────────────────────────────── */
+.moves td { vertical-align: top; }
+.moves .block, .block { display: block; font-weight: 400; }
+.nowrap { white-space: nowrap; }
+.small { font-size: 12.5px; }
+.sides { display: grid; gap: 3px; }
+.side { display: grid; grid-template-columns: 6.5em minmax(8.5em, max-content) 1.2em max-content; justify-content: start; align-items: center; gap: 4px; font: 12.5px var(--ui); }
+.side .tm { font-weight: 600; }
+.side .arrow { color: var(--muted); text-align: center; }
+.grades { display: inline-flex; flex-wrap: wrap; gap: 2px; }
+.grade { display: inline-block; min-width: 2.1em; text-align: center; font: 700 11.5px var(--mono); padding: 1px 4px; border-radius: 2px; border: 1px solid currentColor; }
+.g-good { color: var(--sourced); }
+.g-mid { color: var(--warn); }
+.g-bad { color: var(--doubt); }
+.swing { font: 600 11px var(--ui); margin-left: 4px; white-space: nowrap; }
+.swing.up { color: var(--sourced); }
+.swing.down { color: var(--doubt); }
+.wrap-toggle { flex-wrap: wrap; }
+.sides-inline { display: none; }
+.move-deal { font: 14px var(--ui); margin: 6px 0 0; max-width: 72ch; }
+.reportcard td, .reportcard th { vertical-align: top; }
+@media (max-width: 640px) { .side { grid-template-columns: 5em minmax(6em, max-content) 1em max-content; } .moves .col-date, .moves .col-sides { display: none; } .sides-inline { display: block; margin-top: 6px; } }

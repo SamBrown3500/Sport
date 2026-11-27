@@ -1,3 +1,5 @@
+import { MovesSection } from './moves';
+import { movesForPlayer, movesForTeam } from './lib/moves';
 import { useMemo, useState, type ReactNode } from 'react';
 import { Crumbs, Empty, PageHead, Section, Timeline } from './components';
 import type { Category, Story } from './data/types';
@@ -216,6 +218,7 @@ export function TeamPage({ id }: { id: string }) {
         <p className="section-lede">What people expected about the {t.name.split(' ').slice(-1)[0]} at the time, against what happened.</p>
         <NotionsTable list={notes} />
       </Section>
+      <MovesSection list={movesForTeam(id)} who={`the ${t.name.split(' ').slice(-1)[0]}`} />
       <Section title="Every narrative, season by season" count={list.length}>
         <NarrativesBySeason list={list} />
       </Section>
@@ -269,6 +272,7 @@ export function PlayerPage({ id }: { id: string }) {
       <Section title="Preconceived notions" count={notes.length} aside={<Tally list={notes} />}>
         <NotionsTable list={notes} />
       </Section>
+      <MovesSection list={movesForPlayer(id)} who={p.name} />
       <Section title="Every narrative, season by season" count={list.length}>
         <NarrativesBySeason list={list} />
       </Section>
