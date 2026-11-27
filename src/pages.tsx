@@ -71,10 +71,10 @@ function PhotoCredits() {
 /* ── Home ───────────────────────────────────────────────────────────── */
 
 export function Home() {
-  const now = new Date();
-  const m = now.getMonth() + 1;
-  const d = now.getDate();
-  const today = onThisDay(m, d);
+  // The season being played now; in the gap before its first narrative lands, fall back to last season.
+  const cur = currentSeason();
+  const season = storiesInSeason(cur).length ? cur : cur - 1;
+  const current = storiesInSeason(season).sort((a, b) => b.date.localeCompare(a.date));
   const storylines = allStories.filter((s) => s.kind === 'storyline');
   return (
     <>
@@ -96,9 +96,10 @@ export function Home() {
 
       <NotionsTeaser />
 
-      <Section title={`On this day: ${MONTHS[m - 1]} ${d}`} count={today.length}
-        aside={<a className="more" href={href.onThisDay(m, d)}>Every year →</a>}>
-        <Timeline stories={today} empty={<>Nothing on file for today yet. <a href={href.onThisDay(3, 2)}>Try March 2</a>.</>} />
+      <Section title={`Current narratives: ${seasonLabel(season)}`} count={current.length}
+        aside={<a className="more" href={href.season(season)}>Full season page →</a>}>
+        <p className="muted">What people expect and are saying about the season in progress, newest first.</p>
+        <Timeline stories={current} />
       </Section>
 
       <Section title="Long-running storylines" count={storylines.length}>

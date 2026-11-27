@@ -76,7 +76,6 @@ export default function App() {
           <nav className="mainnav" aria-label="Main">
             <a href={href.seasons}>NBA seasons</a>
             <a href={href.notions}>Notions</a>
-            <a href={href.onThisDay()}>On this day</a>
             <a href={href.players}>Players</a>
             <a href={href.teams}>Teams</a>
             <a href={href.sources}>Sources</a>
