@@ -23,7 +23,8 @@ export type Route =
   | { page: 'seasons' }
   | { page: 'season'; start: number }
   | { page: 'category'; id: string }
-  | { page: 'notions' };
+  | { page: 'notions' }
+  | { page: 'timeline' };
 
 export function parse(hash: string): Route {
   const h = hash.replace(/^#/, '');
@@ -42,6 +43,7 @@ export function parse(hash: string): Route {
   if ((m = h.match(/^category-([a-z0-9-]+)$/))) return { page: 'category', id: m[1] };
   if (h === 'nba-seasons') return { page: 'seasons' };
   if (h === 'notions') return { page: 'notions' };
+  if (h === 'timeline') return { page: 'timeline' };
   if (h === 'sources') return { page: 'sources' };
   if (h === 'search') return { page: 'search' };
   if (h === 'players') return { page: 'players' };
@@ -70,6 +72,7 @@ export const href = {
   season: (start: number) => `#nba-season-${start}`,
   category: (id: string) => `#category-${id}`,
   notions: '#notions',
+  timeline: '#timeline',
 };
 
 /** Link for a partial ISO date at whatever precision it has. */

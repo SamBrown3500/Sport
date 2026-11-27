@@ -13,10 +13,9 @@ import { href, hrefForDate } from './lib/router';
 import { search } from './lib/search';
 import { SeasonFacts } from './seasonFacts';
 export { NotionsPage } from './byYear';
-import { NotionBox, NotionsTeaser, PlayerPage as ByYearPlayer, SeasonNotions, TeamPage as ByYearTeam, TeamsDirectory } from './byYear';
+import { NotionBox, PlayerPage as ByYearPlayer, SeasonNotions, TeamPage as ByYearTeam, TeamsDirectory } from './byYear';
 import { headline, takeFor } from './lib/notions';
 import { byImportance, importance } from './lib/importance';
-import { Scoreboard } from './scoreboard';
 import { decadePhotos } from './data/decadePhotos';
 import { seasonOverview } from './lib/db';
 import { CATEGORIES, FIRST_SEASON, FIRST_MVP_SEASON, categoryInfo, currentSeason, isCategory, seasonLabel, seasonOf, seasonsInYear } from './lib/seasons';
@@ -27,7 +26,7 @@ const DECADES = Array.from({ length: (LAST_DECADE - FIRST_YEAR) / 10 + 1 }, (_, 
 
 /* ── Decade strip: the whole calendar at a glance ───────────────────── */
 
-function DecadeStrip({ current }: { current?: number }) {
+export function DecadeStrip({ current }: { current?: number }) {
   const counts = useMemo(
     () => DECADES.map((d) => ({ d, n: storiesBetween(`${d}-01-01`, `${d + 9}-12-31`).length })),
     [],
@@ -50,7 +49,7 @@ function DecadeStrip({ current }: { current?: number }) {
   );
 }
 
-function PhotoCredits() {
+export function PhotoCredits() {
   return (
     <details className="photo-credits">
       <summary>Photo credits</summary>
@@ -65,47 +64,6 @@ function PhotoCredits() {
         })}
       </ul>
     </details>
-  );
-}
-
-/* ── Home ───────────────────────────────────────────────────────────── */
-
-export function Home() {
-  // The season being played now; in the gap before its first narrative lands, fall back to last season.
-  const cur = currentSeason();
-  const season = storiesInSeason(cur).length ? cur : cur - 1;
-  const current = storiesInSeason(season).sort((a, b) => b.date.localeCompare(a.date));
-  const storylines = allStories.filter((s) => s.kind === 'storyline');
-  return (
-    <>
-      <section className="hero">
-        <p className="eyebrow">NBA history, {FIRST_YEAR} to today</p>
-        <h1>What was happening in the game?</h1>
-        <p className="lede">
-          Pick a decade, a year or a single day and read the stories that defined it. Or search any date, player,
-          team or story and every narrative comes up in order.
-        </p>
-      </section>
-
-      <Section title="Browse by decade">
-        <DecadeStrip />
-        <PhotoCredits />
-      </Section>
-
-      <Scoreboard />
-
-      <NotionsTeaser />
-
-      <Section title={`Current narratives: ${seasonLabel(season)}`} count={current.length}
-        aside={<a className="more" href={href.season(season)}>Full season page →</a>}>
-        <p className="muted">What people expect and are saying about the season in progress, newest first.</p>
-        <Timeline stories={current} />
-      </Section>
-
-      <Section title="Long-running storylines" count={storylines.length}>
-        <Timeline stories={storylines} />
-      </Section>
-    </>
   );
 }
 
