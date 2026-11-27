@@ -6,7 +6,6 @@ import { href, useRoute, type Route } from './lib/router';
 import { site } from './site';
 import { ForumNewPage, ForumPage, ForumThreadPage } from './forum';
 import { Home, TimelinePage } from './visual';
-import { ComparePage, HotTakesPage } from './samples';
 
 const store = {
   get(key: string) {
@@ -41,8 +40,6 @@ function Page({ route, query }: { route: Route; query: string }) {
     case 'forumthread': return <ForumThreadPage id={route.id} />;
     case 'forumnew': return <ForumNewPage key={`${route.kind}-${route.story ?? ''}`} kind={route.kind} story={route.story} />;
     case 'timeline': return <TimelinePage />;
-    case 'hottakes': return <HotTakesPage key={route.voice ?? ''} voice={route.voice} />;
-    case 'compare': return <ComparePage kind={route.kind} a={route.a} b={route.b} />;
     default: return <NotFound />;
   }
 }
@@ -86,8 +83,6 @@ export default function App() {
             <a href={href.seasons}>NBA seasons</a>
             <a href={href.timeline}>Timeline</a>
             <a href={href.notions}>Notions</a>
-            <a href={href.hotTakes}>Hot takes</a>
-            <a href={href.compare('players', 'lebron-james', 'kevin-durant')}>Compare</a>
             <a href={href.players}>Players</a>
             <a href={href.teams}>Teams</a>
             <a href={href.sources}>Sources</a>

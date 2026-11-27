@@ -514,31 +514,3 @@ h1, h2, h3 { font-family: var(--body); font-weight: 800; line-height: 1.15; text
 .tile-name { font: 700 14px/1.2 var(--ui); }
 .tile-meta { font: 11.5px var(--ui); color: var(--muted); }
 .teamtheme { display: contents; }
-
-/* ── Samples: hot takes tracker and comparisons (preview only) ───────── */
-.samplebar { margin: 0 0 14px; padding: 7px 10px; background: var(--hl); border: 1px solid var(--hl-line); font: 13px var(--ui); }
-.samplebar strong { text-transform: uppercase; font-size: 11px; letter-spacing: .05em; margin-right: 6px; }
-.block { display: block; font-weight: 400; }
-.ratebar { display: inline-flex; width: 140px; max-width: 100%; height: 10px; background: var(--shade); border: 1px solid var(--line); vertical-align: middle; }
-.ratebar span { display: block; height: 100%; }
-.rb-held { background: var(--sourced); } .rb-mixed { background: var(--warn); } .rb-busted { background: var(--doubt); }
-.col-bar { width: 150px; }
-.scoreboard-t th[scope='row'] { min-width: 220px; }
-.comparepick { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 10px 0 16px; }
-.comparepick .teampick select { max-width: min(260px, 70vw); }
-.swap { font: 700 14px var(--ui); border: 1px solid var(--line-strong); background: var(--surface); color: var(--link); border-radius: 2px; padding: 3px 9px; cursor: pointer; }
-.cmp-summary th[scope='col'] { vertical-align: bottom; }
-.cmp-summary td, .cmp-summary th[scope='col'] { width: 42%; }
-.cmp-side { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
-.cmp-side .headshot, .cmp-side .headshot img, .cmp-side .headshot-empty { width: 72px; }
-.cmp-side .headshot img, .cmp-side .headshot-empty { height: 86px; font-size: 24px; }
-.cmp-name { font: 800 17px var(--body); }
-.cmp td { width: 45%; vertical-align: top; }
-.cmp-rec { font: 13px var(--ui); color: var(--muted); margin-bottom: 4px; }
-.cmp-rec strong { color: var(--ink); font-family: var(--mono); }
-.cmp-notions { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-.cmp-notions li { display: grid; gap: 2px; padding-left: 8px; border-left: 2px solid var(--line); }
-.cmp-exp { font-weight: 600; }
-.cmp-hap { color: var(--ink); }
-.cmp-notions .nv { font-size: 11.5px; }
-@media (max-width: 640px) { .col-bar { display: none; } .scoreboard-t th[scope='row'] { min-width: 150px; } }
