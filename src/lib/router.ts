@@ -23,7 +23,10 @@ export type Route =
   | { page: 'seasons' }
   | { page: 'season'; start: number }
   | { page: 'category'; id: string }
-  | { page: 'notions' }
+  | { page: 'notions'; verdict?: 'busted' | 'held' | 'mixed' | 'open' }
+  | { page: 'forum'; tab?: 'debates' | 'suggestions' }
+  | { page: 'forumthread'; id: string }
+  | { page: 'forumnew'; kind: 'debate' | 'suggestion'; story?: string }
   | { page: 'timeline' };
 
 export function parse(hash: string): Route {
@@ -43,6 +46,13 @@ export function parse(hash: string): Route {
   if ((m = h.match(/^category-([a-z0-9-]+)$/))) return { page: 'category', id: m[1] };
   if (h === 'nba-seasons') return { page: 'seasons' };
   if (h === 'notions') return { page: 'notions' };
+  if ((m = h.match(/^notions-(busted|held|mixed|open)$/))) return { page: 'notions', verdict: m[1] as 'busted' };
+  if (h === 'forum') return { page: 'forum' };
+  if ((m = h.match(/^forum-(debates|suggestions)$/))) return { page: 'forum', tab: m[1] as 'debates' };
+  if ((m = h.match(/^forum-thread-([a-z0-9]+)$/))) return { page: 'forumthread', id: m[1] };
+  if (h === 'forum-suggest') return { page: 'forumnew', kind: 'suggestion' };
+  if (h === 'forum-debate') return { page: 'forumnew', kind: 'debate' };
+  if ((m = h.match(/^forum-debate-([a-z0-9-]+)$/))) return { page: 'forumnew', kind: 'debate', story: m[1] };
   if (h === 'timeline') return { page: 'timeline' };
   if (h === 'sources') return { page: 'sources' };
   if (h === 'search') return { page: 'search' };
@@ -72,6 +82,12 @@ export const href = {
   season: (start: number) => `#nba-season-${start}`,
   category: (id: string) => `#category-${id}`,
   notions: '#notions',
+  notionsBy: (v: 'busted' | 'held' | 'mixed' | 'open') => `#notions-${v}`,
+  forum: '#forum',
+  forumTab: (t: 'debates' | 'suggestions') => `#forum-${t}`,
+  forumThread: (id: string) => `#forum-thread-${id}`,
+  forumSuggest: '#forum-suggest',
+  forumDebate: (story?: string) => (story ? `#forum-debate-${story}` : '#forum-debate'),
   timeline: '#timeline',
 };
 
