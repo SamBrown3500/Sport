@@ -11,6 +11,7 @@ import { href } from './lib/router';
 import { matchesSource, type SourceFilter } from './lib/filters';
 import { normalize } from './lib/search';
 import { FilterBox, SourcePicker } from './filterBar';
+import { Headshot, TeamBadge, TeamBanner, TeamTheme } from './teamLook';
 
 /*
  * The year-over-year layer (gam, 2026-11-26): team and player pages read as a
@@ -186,17 +187,18 @@ export function TeamPage({ id }: { id: string }) {
   const notes = notionsIn(list).sort(newestFirst);
   const lastPlayed = Math.max(...rows.filter((r) => r.wins !== undefined).map((r) => r.season));
   return (
-    <>
+    <TeamTheme id={id}>
       <Crumbs items={[['Teams', href.teams], [t.name]]} />
-      <PageHead eyebrow={f?.conference ? `Team · ${f.conference} · ${f.division} Division` : 'Former franchise'} title={t.name}>
-        {names.length > 1 && (
+      <TeamBanner id={id} />
+      {names.length > 1 && (
+        <header className="pagehead">
           <p className="lede">
             Played as {names.map((n, i) => (
               <span key={n.name + n.from}>{i ? (i === names.length - 1 ? ' and ' : ', ') : ''}the {n.name} ({seasonLabel(n.from)}{n.to !== n.from ? ` to ${n.to === lastPlayed && f?.conference ? 'today' : seasonLabel(n.to)}` : ''})</span>
             ))}.
           </p>
-        )}
-      </PageHead>
+        </header>
+      )}
       {totals.seasons > 0 && (
         <dl className="facts">
           <div><dt>Seasons</dt><dd>{totals.seasons} in the BAA/NBA, {totals.wins}-{totals.losses} all time</dd></div>
@@ -217,7 +219,7 @@ export function TeamPage({ id }: { id: string }) {
       <Section title="Every narrative, season by season" count={list.length}>
         <NarrativesBySeason list={list} />
       </Section>
-    </>
+    </TeamTheme>
   );
 }
 
@@ -234,12 +236,15 @@ export function PlayerPage({ id }: { id: string }) {
   return (
     <>
       <Crumbs items={[['Players', href.players], [p.name]]} />
+      <div className="playerhead">
+      <Headshot id={id} />
       <PageHead eyebrow={`Player · ${p.league}`} title={p.name}>
         {p.aliases?.length ? <p className="lede">Also known as {p.aliases.join(', ')}.</p> : null}
         {first !== undefined && (
           <p className="lede">{list.length} narratives from {seasonLabel(first)}{last !== first ? ` to ${seasonLabel(last)}` : ''}, {notes.length} with a preconceived notion.</p>
         )}
       </PageHead>
+      </div>
       <Section title="Year by year" count={groups.length}>
         <p className="section-lede">One line per season: the stories told about {p.name} that year. A dot marks a preconceived notion: <span className="nv-dot nv-busted" /> busted, <span className="nv-dot nv-mixed" /> partly right, <span className="nv-dot nv-held" /> held.</p>
         {groups.length ? (
@@ -285,7 +290,7 @@ function TeamRows({ ids }: { ids: string[] }) {
         const latest = list[list.length - 1];
         return (
           <tr key={id}>
-            <th scope="row"><a href={href.team(id)}>{t.name}</a></th>
+            <th scope="row"><a href={href.team(id)} className="teamlink"><TeamBadge id={id} size="sm" />{t.name}</a></th>
             <td className="num">{tot.seasons || '—'}</td>
             <td className="num">{tot.titles.length || '—'}</td>
             <td className="num">{list.length}</td>
