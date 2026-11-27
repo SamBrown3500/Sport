@@ -68,6 +68,18 @@ For NBA facts (scores, series results and lengths, records, seeds, awards and vo
 5. **Check:** `npm test` (it verifies every citation points at a real source, and transcripts exist) and `npm run build`.
 6. **Open a PR** listing: the source, narratives added, narratives that gained a citation, and any conflicts or claims you were unsure of.
 
+## Trades and free agency (moves)
+
+Big trades, free agency signings and draft-night deals live in `src/data/moves.ts`, separate from the narratives, and show on the Trades page (`#moves`), each move's page (`#move-<id>`), the free agency summer pages (`#offseason-<year>`), and the Moves sections of team, player, season and source pages.
+
+1. **Sources are articles written that week** (grades, instant reactions), never retrospectives. Add each to `src/data/moveSources.ts` as an `article`.
+2. **`then`** is the consensus at the time: who was supposed to win the deal, the grades, the doubts. **`happened`** is what actually happened. No outlet names in either; sources go at the bottom.
+3. **Each team gets a side:** what it got, `graded` (every letter grade the move got at the time, one per grader, empty if nobody graded it), and `hindsight` (our grade from what happened) with a one-line `why`. For a signing, the team the player left is a side too ("Lost X").
+4. **`ripples`** are season-by-season results that came from the move: records, series, awards, what the picks became. Every one comes from Basketball Reference (`bbref.ts`, `draftClasses.ts`, or the site).
+5. **Quotes** on `sources` are exact and short, at least two articles per move, no timestamps. Link related narratives with `stories`.
+6. A move that happens June to October appears on that summer's page; give the summer a paragraph in `offseasonOverviews` (the test checks).
+7. A "big miss" is computed: a team's hindsight grade more than a full letter from its average grade at the time.
+
 ## Data shape
 
 See `Source` and `Citation` in `src/data/types.ts`. A narrative can cite several sources, and a source can back many narratives.

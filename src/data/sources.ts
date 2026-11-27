@@ -1,4 +1,5 @@
 import type { Source } from './types';
+import { moveSources } from './moveSources';
 
 /*
  * Videos, podcasts, articles and books that narratives are drawn from.
@@ -2191,4 +2192,5 @@ export const sources: Source[] = [
     about: "NBA.com's annual preseason survey of the league's general managers before 2025-26: their picks for champion, conference winners, MVP, Rookie of the Year and the offseason's biggest moves. By John Schuhmann.",
     transcript: 'sources/transcripts/nba-gm-survey-2025-26.md',
   },
+  ...moveSources,
 ];
